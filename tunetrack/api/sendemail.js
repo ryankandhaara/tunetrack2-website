@@ -14,7 +14,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: "Tunetrack Contact <onboarding@resend.dev>",
-        to: ["EMAIL_KAMU"],
+        to: ["tmmheadmail@gmail.com"],
         subject: `New Contact Message from ${name}`,
         html: `
           <h2>New Contact Message</h2>
