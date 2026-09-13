@@ -6,10 +6,33 @@ export default async function handler(req, res) {
   try {
     const { name, email, message } = req.body;
 
-    return res.status(200).json({
-      success: true,
-      message: "Message received"
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${process.env.RESEND_API_KEY}`
+      },
+      body: JSON.stringify({
+        from: "Tunetrack Contact <onboarding@resend.dev>",
+        to: ["EMAIL_KAMU"],
+        subject: `New Contact Message from ${name}`,
+        html: `
+          <h2>New Contact Message</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Message:</strong></p>
+          <p>${message}</p>
+        `
+      })
     });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      return res.status(response.status).json(data);
+    }
+
+    return res.status(200).json({ success: true });
 
   } catch (error) {
     return res.status(500).json({
