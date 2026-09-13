@@ -1897,8 +1897,8 @@ body.contact-page{
         </h2>
 
         <p class="contact-success-sub">
-            WE WILL ADDRESS YOUR REQUEST IN A SHORT TIME,
-            MEANWHILE PLEASE CHECK OUT OUR WEBSITE!
+            TO MAKE SURE YOUR MAIL IS SENT TO US,
+            PLEASE HIT SEND ON YOUR MAIL ACCOUNT.
         </p>
 
         <button class="contact-success-close" id="successClose" type="button">
@@ -2430,57 +2430,21 @@ form.addEventListener('submit', async function(event){
 
     const body = receiptLines.join('\n');
 
-    try{
+    const sendButton = document.getElementById('sendButton');
 
-        const sendButton = document.getElementById('sendButton');
-
-        if(sendButton){
-            sendButton.disabled = true;
-            sendButton.textContent = 'SENDING...';
-        }
-
-        const response = await fetch('/api/sendemail', {
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json'
-            },
-            body:JSON.stringify({
-                email:email,
-                intent:intentLabel,
-                matter:matterLabel,
-                product:productLabel,
-                message:message,
-                subject:subject,
-                date:today,
-                receipt:body
-            })
-        });
-
-        if(!response.ok){
-            throw new Error('Failed to send contact request');
-        }
-
-        successState.classList.add('is-visible');
-        successState.setAttribute('aria-hidden','false');
-
-        if(sendButton){
-            sendButton.textContent = 'SENT ✓';
-        }
-
-    }catch(error){
-
-        console.error(error);
-
-        const sendButton = document.getElementById('sendButton');
-
-        if(sendButton){
-            sendButton.disabled = false;
-            sendButton.textContent = 'CHECK & SEND ↗';
-        }
-
-        alert('Something went wrong. Please try again.');
-
+    if(sendButton){
+        sendButton.disabled = true;
+        sendButton.textContent = 'SENT ✓';
     }
+
+    successState.classList.add('is-visible');
+    successState.setAttribute('aria-hidden','false');
+
+    const mailto = 'mailto:tmmheadmail@gmail.com' +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+
+    window.location.href = mailto;
 
 });
 
