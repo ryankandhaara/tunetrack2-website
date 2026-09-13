@@ -345,6 +345,255 @@ button{font:inherit}
     color: #fff !important;
 }
 </style>
+
+
+<style id="tnco-final-mobile-menu-hero-patch">
+/* ---------------------------------------------------------
+   HEADER — MENU BUTTON (DESKTOP + MOBILE)
+--------------------------------------------------------- */
+.tnco-header-connect#tncoHeaderMenuButton{
+    appearance:none !important;
+    -webkit-appearance:none !important;
+    border:0 !important;
+    outline:0 !important;
+    box-shadow:none !important;
+    background-image:none !important;
+    cursor:pointer !important;
+    font-family:Arial,Helvetica,sans-serif !important;
+}
+
+/* Old mobile-only toggle is no longer used. */
+.tnco-mobile-menu-toggle{
+    display:none !important;
+}
+
+/* ---------------------------------------------------------
+   MENU OVERLAY — FINAL
+--------------------------------------------------------- */
+
+.tnco-mobile-menu-overlay{
+    position:fixed !important;
+    inset:0 !important;
+    z-index:100000 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    box-sizing:border-box !important;
+    padding:24px !important;
+    background:rgba(0,0,0,.92) !important;
+    color:#fff !important;
+    -webkit-backdrop-filter:blur(16px) saturate(.7) !important;
+    backdrop-filter:blur(16px) saturate(.7) !important;
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+    transform:none !important;
+    transition:opacity .28s ease,visibility .28s ease !important;
+}
+
+.tnco-mobile-menu-overlay.is-open{
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+}
+
+/* CLOSE */
+.tnco-mobile-menu-close{
+    position:absolute !important;
+    top:22px !important;
+    right:22px !important;
+    width:44px !important;
+    height:44px !important;
+    padding:0 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    border:0 !important;
+    background:transparent !important;
+    color:#fff !important;
+    font-size:0 !important;
+    cursor:pointer !important;
+}
+
+.tnco-mobile-menu-close::before,
+.tnco-mobile-menu-close::after{
+    content:"" !important;
+    position:absolute !important;
+    width:22px !important;
+    height:2px !important;
+    background:#fff !important;
+    left:50% !important;
+    top:50% !important;
+    transition:transform .6s cubic-bezier(.4,0,.2,1) !important;
+}
+
+.tnco-mobile-menu-close::before{
+    transform:translate(-50%,-50%) rotate(45deg) !important;
+}
+
+.tnco-mobile-menu-close::after{
+    transform:translate(-50%,-50%) rotate(-45deg) !important;
+}
+
+.tnco-mobile-menu-close.is-closing::before{
+    transform:translate(-50%,-50%) rotate(405deg) !important;
+}
+
+.tnco-mobile-menu-close.is-closing::after{
+    transform:translate(-50%,-50%) rotate(315deg) !important;
+}
+
+/* NAV */
+.tnco-mobile-menu-nav{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    gap:8px !important;
+    padding-top:72px !important;
+    width:100% !important;
+    flex:0 0 auto !important;
+}
+
+.tnco-mobile-menu-nav a{
+    display:block !important;
+    width:auto !important;
+    color:#fff !important;
+    text-decoration:none !important;
+    font:500 clamp(36px,12vw,64px) Arial,Helvetica,sans-serif !important;
+    letter-spacing:-.065em !important;
+    text-transform:none !important;
+}
+
+.tnco-mobile-menu-nav a:active{
+    opacity:.55 !important;
+}
+
+@media (min-width:768px){
+    .tnco-mobile-menu-nav a{
+        font-size:80px !important;
+    }
+}
+
+@media (min-width:768px){
+
+    .tnco-mobile-menu-nav a{
+        position:relative !important;
+        display:inline-block !important;
+    }
+
+    .tnco-mobile-menu-nav a::after{
+        content:"" !important;
+        position:absolute !important;
+        left:0 !important;
+        bottom:-2px !important;
+        width:100% !important;
+        height:2px !important;
+        background:#fff !important;
+        transform:scaleX(0) !important;
+        transform-origin:left center !important;
+        transition:transform .45s cubic-bezier(.22,1,.36,1) !important;
+    }
+
+    .tnco-mobile-menu-nav a:hover::after{
+        transform:scaleX(1) !important;
+    }
+
+    .tnco-mobile-menu-actions a::after{
+        display:none !important;
+    }
+
+}
+
+/* BUTTONS */
+.tnco-mobile-menu-actions{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    gap:12px !important;
+    width:100% !important;
+    margin-top:30px !important;
+    padding:0 !important;
+    transform:translateY(200px) !important;
+}
+
+.tnco-mobile-menu-actions a{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    width:138px !important;
+    height:55px !important;
+    padding:0 !important;
+    box-sizing:border-box !important;
+    border:0 !important;
+    border-radius:999px !important;
+    background:#fff !important;
+    color:#111 !important;
+    text-decoration:none !important;
+    font:400 17px/1 Arial,Helvetica,sans-serif !important;
+    letter-spacing:0 !important;
+}
+
+@media (min-width:768px){
+
+    .tnco-mobile-menu-actions{
+        flex-direction:row !important;
+        align-items:center !important;
+        gap:12px !important;
+        position:relative !important;
+        top:162px !important;
+        transform:none !important;
+    }
+
+    .tnco-mobile-menu-actions a{
+        position:relative !important;
+        background:transparent !important;
+        border:1px solid #fff !important;
+        color:#fff !important;
+        transition:border-color .4s cubic-bezier(.22,1,.36,1) !important;
+    }
+
+    .tnco-mobile-menu-actions a:hover{
+        animation:tncoStrokeLoop .9s ease-in-out !important;
+    }
+
+    @keyframes tncoStrokeLoop{
+        0%{border-color:#fff !important;}
+        45%{border-color:transparent !important;}
+        100%{border-color:#fff !important;}
+    }
+}
+
+@media (max-width:767px){
+
+    .tnco-mobile-menu-actions{
+        transform:translateY(275px) !important;
+    }
+
+    .tnco-mobile-menu-actions a{
+        background:transparent !important;
+        border:1px solid #fff !important;
+        color:#fff !important;
+    }
+
+}
+
+
+
+/* META */
+.tnco-mobile-menu-meta{
+    width:100% !important;
+    display:flex !important;
+    align-items:flex-end !important;
+    justify-content:space-between !important;
+    gap:20px !important;
+    font:500 11px/1.1 Arial,Helvetica,sans-serif !important;
+}
+
+.tnco-mobile-menu-close-label{
+    opacity:.5 !important;
+    text-align:right !important;
+}
+</style>
+
 </head>
 
 <body>
@@ -390,16 +639,57 @@ button{font:inherit}
 
         <!-- CONNECT -->
 
-        <a href="https://linktr.ee/tunetrackid" target="_blank" rel="noopener noreferrer"
-           class="blog-header-connect">
+        <button type="button" class="blog-header-connect" id="tncoHeaderMenuButton" aria-label="Open menu" aria-expanded="false">
 
-            CONNECT
+            MENU
 
-        </a>
+        </button>
 
     </div>
 
 </header>
+
+<!-- =========================================================
+     TNCO MOBILE NAV — MOBILE ONLY
+========================================================= -->
+<div class="tnco-mobile-menu-overlay" id="tncoMobileMenu" aria-hidden="true">
+    <button class="tnco-mobile-menu-close" id="tncoMobileMenuClose" type="button">×</button>
+
+    <nav class="tnco-mobile-menu-nav" aria-label="Mobile navigation">
+        <a href="index.html">HOME</a>
+        <a href="blog-list.html">PAPERS</a>
+        <a href="contactus.html">CONTACT</a>
+        <a href="https://www.instagram.com/chaeldavs/" target="_blank" rel="noopener noreferrer">CREATORS</a>
+        <a href="https://linktr.ee/tunetrackid" target="_blank" rel="noopener noreferrer">CONNECT</a>
+
+
+<div class="tnco-mobile-menu-actions">
+    <a href="#" target="_blank" rel="noopener noreferrer">CONNECT</a>
+    <a href="#" target="_blank" rel="noopener noreferrer">JOIN US</a>
+</div>
+
+<style>
+
+@media (min-width:768px){
+
+    .tnco-mobile-menu-actions a{
+        border:1px solid #fff !important;
+        outline:0 !important;
+        box-shadow:none !important;
+        background:transparent !important;
+        transition:border-color 1s cubic-bezier(.22,1,.36,1) !important;
+    }
+
+    .tnco-mobile-menu-actions a:hover{
+        border-color:transparent !important;
+    }
+
+}
+
+</style>    
+    
+    </nav>
+</div>
 
 <div id="scrollContainer" data-scroll-container>
 
@@ -1513,6 +1803,922 @@ button{font:inherit}
 
 })();
 </script>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const closeButton = document.querySelector(".tnco-mobile-menu-close");
+
+    if (!closeButton) return;
+
+    closeButton.addEventListener("click", function () {
+        closeButton.classList.add("is-closing");
+
+        setTimeout(function () {
+            closeButton.classList.remove("is-closing");
+        }, 600);
+    });
+});
+</script>
+
+<script id="tnco-final-menu-script">
+(function(){
+    const button = document.getElementById('tncoHeaderMenuButton');
+    const menu = document.getElementById('tncoMobileMenu');
+    const close = document.getElementById('tncoMobileMenuClose');
+    if(!button || !menu) return;
+
+    function setOpen(open){
+        menu.classList.toggle('is-open', open);
+        button.setAttribute('aria-expanded', String(open));
+        button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        menu.setAttribute('aria-hidden', String(!open));
+        document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    button.addEventListener('click', function(){
+        setOpen(!menu.classList.contains('is-open'));
+    });
+
+    if(close){
+        close.addEventListener('click', function(){ setOpen(false); });
+    }
+
+    menu.querySelectorAll('a').forEach(function(link){
+        link.addEventListener('click', function(){ setOpen(false); });
+    });
+
+    document.addEventListener('keydown', function(event){
+        if(event.key === 'Escape') setOpen(false);
+    });
+})();
+</script>
+
+<script>
+(function () {
+    const menu = document.querySelector('.tnco-mobile-menu-overlay');
+    if (!menu) return;
+
+    let locked = false;
+
+    function preventScroll(e) {
+        if (menu.classList.contains('is-open')) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    }
+
+    function lockMenuScroll() {
+        if (locked) return;
+        locked = true;
+
+        document.addEventListener('wheel', preventScroll, {
+            passive: false,
+            capture: true
+        });
+
+        document.addEventListener('touchmove', preventScroll, {
+            passive: false,
+            capture: true
+        });
+    }
+
+    function unlockMenuScroll() {
+        if (!locked) return;
+        locked = false;
+
+        document.removeEventListener('wheel', preventScroll, true);
+        document.removeEventListener('touchmove', preventScroll, true);
+    }
+
+    new MutationObserver(function () {
+        if (menu.classList.contains('is-open')) {
+            lockMenuScroll();
+        } else {
+            unlockMenuScroll();
+        }
+    }).observe(menu, {
+        attributes: true,
+        attributeFilter: ['class']
+    });
+})();
+</script>
+
+<script>
+document.querySelectorAll('.tnco-mobile-menu-actions a').forEach(function(button){
+    button.addEventListener('mouseenter',function(){
+        this.classList.remove('tnco-stroke-animate');
+        void this.offsetWidth;
+        this.classList.add('tnco-stroke-animate');
+    });
+});
+</script>
+
+<style>
+  /* =========================================================
+   FIX — MENU BUTTON ONLY
+========================================================= */
+
+#tncoHeaderMenuButton.blog-header-connect {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+
+    display: inline-flex !important;
+
+    min-width: 90px !important;
+    width: auto !important;
+
+    height: 38px !important;
+
+    margin: 0 !important;
+    padding: 0 22px !important;
+
+    border: 0 !important;
+    border-radius: 999px !important;
+
+    outline: none !important;
+    box-shadow: none !important;
+
+    background: #000 !important;
+    color: #fff !important;
+
+    transform: none !important;
+
+    cursor: pointer !important;
+}
+
+#tncoHeaderMenuButton.blog-header-connect:hover {
+    transform: none !important;
+    background: #000 !important;
+    color: #fff !important;
+    box-shadow: none !important;
+}
+
+#tncoHeaderMenuButton.blog-header-connect:focus,
+#tncoHeaderMenuButton.blog-header-connect:focus-visible,
+#tncoHeaderMenuButton.blog-header-connect:active {
+    outline: none !important;
+    box-shadow: none !important;
+    background: #000 !important;
+    color: #fff !important;
+}
+</style>
+
+<style>
+/* =========================================
+   MOBILE — LOWER LOGO + MENU
+========================================= */
+
+@media (max-width: 767px) {
+
+    .blog-header-logo {
+        transform: translateY(13px) !important;
+    }
+
+    #tncoHeaderMenuButton {
+        position: relative !important;
+        top: 8px !important;
+    }
+
+}
+</style>
+
+
+<style id="tnco-itel-menu-actions-fix">
+@media (min-width: 361px) and (max-width: 375px) {
+
+    .tnco-mobile-menu-actions {
+        transform: translateY(100px) !important;
+    }
+
+}
+</style>
+
+<style>
+
+/* =========================================
+   MOBILE — PAPERS SPACING
+   375px → 440px
+========================================= */
+
+@media (max-width: 767px) {
+
+    .blog-link {
+        min-height: 155px !important;
+        gap: 14px !important;
+    }
+
+    .blog-info {
+        gap: 11px !important;
+        padding: 18px 0 12px !important;
+    }
+
+}
+
+</style>
+
+<style>
+
+@media (max-width: 767px) {
+
+    .blog-footer-social-group {
+        transform: translateX(0) !important;
+    }
+
+}
+
+</style>
+
+<style>
+
+/* =========================================================
+   TNCO — ULTIMATE RESPONSIVE OVERRIDE
+   DO NOT TOUCH EXISTING HTML / JS
+   ========================================================= */
+
+
+/* =========================================================
+   1. DESKTOP / NARROW DESKTOP
+   Keep footer inside viewport
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+    .blog-footer-social-group {
+        transform: translateX(
+            clamp(0px, calc(100vw - 1115px), 325px)
+        ) !important;
+    }
+
+}
+
+
+/* =========================================================
+   2. TABLET + NARROW DESKTOP
+   768px — 900px
+   ========================================================= */
+
+@media (min-width: 768px) and (max-width: 900px) {
+
+    /* HEADER */
+
+    .blog-header {
+        height: 68px !important;
+        padding: 10px 18px !important;
+    }
+
+    .blog-header-right {
+        transform: translateY(7px) !important;
+    }
+
+
+    /* HERO */
+
+    .blog-hero {
+        min-height: 760px !important;
+        padding: 105px 24px 42px !important;
+    }
+
+    .blog-hero-title {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 95px !important;
+        font-size: clamp(64px, 11vw, 104px) !important;
+        line-height: .86 !important;
+        letter-spacing: -.075em !important;
+        transform: none !important;
+        overflow: visible !important;
+    }
+
+    #heroTypewriter {
+        width: 100% !important;
+        max-width: 100% !important;
+        white-space: pre-wrap !important;
+        overflow: visible !important;
+        word-break: normal !important;
+        overflow-wrap: normal !important;
+    }
+
+    .hero-copy {
+        width: min(58%, 480px) !important;
+        left: 24px !important;
+        bottom: 38px !important;
+        font-size: 15px !important;
+        line-height: 1.05 !important;
+    }
+
+
+    /* BLOG LIST */
+
+    .blog-list-section {
+        padding: 70px 24px 100px !important;
+    }
+
+    .blog-link {
+        min-height: 145px !important;
+        grid-template-columns: 40px minmax(0, 1fr) 38px !important;
+        gap: 14px !important;
+    }
+
+    .blog-date {
+        display: none !important;
+    }
+
+    .blog-info {
+        padding: 18px 0 14px !important;
+        gap: 9px !important;
+    }
+
+    .blog-info h2 {
+        font-size: clamp(32px, 5.2vw, 56px) !important;
+        line-height: .94 !important;
+        letter-spacing: -.06em !important;
+    }
+
+    .blog-arrow {
+        font-size: 24px !important;
+    }
+
+
+    /* FOOTER */
+
+    .blog-footer {
+        overflow: hidden !important;
+    }
+
+    .blog-footer-top {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 55px !important;
+    }
+
+    .blog-footer-social-group {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        transform: none !important;
+        display: flex !important;
+        justify-content: flex-start !important;
+        gap: 60px !important;
+    }
+
+    .blog-footer-social-column {
+        min-width: 0 !important;
+    }
+
+    .blog-footer-pills {
+        flex-wrap: wrap !important;
+    }
+
+    .blog-footer-word {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+        font-size: 15vw !important;
+        line-height: .82 !important;
+    }
+
+}
+
+
+/* =========================================================
+   3. MOBILE
+   375px — 767px
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    :root {
+        --pad: 16px !important;
+    }
+
+
+    /* -----------------------------------------------------
+       HEADER
+       ----------------------------------------------------- */
+
+    .blog-header {
+        height: 64px !important;
+        padding: 9px 14px !important;
+    }
+
+    .blog-header-logo {
+        transform: translateY(10px) !important;
+    }
+
+    .blog-header-right {
+        transform: translateY(10px) !important;
+        gap: 0 !important;
+    }
+
+    .blog-header-nav {
+        display: none !important;
+    }
+
+    .blog-header-connect {
+        min-width: 80px !important;
+        width: 80px !important;
+        height: 36px !important;
+        padding: 0 14px !important;
+        font-size: 10px !important;
+    }
+
+
+    /* -----------------------------------------------------
+       HERO
+       ----------------------------------------------------- */
+
+    .blog-hero {
+        min-height: 690px !important;
+        padding: 92px var(--pad) 32px !important;
+        overflow: hidden !important;
+    }
+
+    .blog-hero-label {
+        padding: 11px 14px !important;
+        font-size: 10px !important;
+    }
+
+    .blog-hero-title {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 82px !important;
+        min-height: 0 !important;
+        font-size: clamp(54px, 16.5vw, 78px) !important;
+        line-height: .84 !important;
+        letter-spacing: -.075em !important;
+        transform: none !important;
+        overflow: visible !important;
+    }
+
+    #heroTypewriter {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        white-space: pre-wrap !important;
+        word-break: normal !important;
+        overflow-wrap: normal !important;
+        overflow: visible !important;
+    }
+
+    .hero-copy {
+        position: absolute !important;
+        left: var(--pad) !important;
+        bottom: 28px !important;
+        width: min(78%, 320px) !important;
+        font-size: 12px !important;
+        line-height: 1.08 !important;
+        letter-spacing: -.035em !important;
+    }
+
+    .blog-hero-meta {
+        display: none !important;
+    }
+
+
+    /* -----------------------------------------------------
+       PAPERS INTRO
+       ----------------------------------------------------- */
+
+    .papers-intro {
+        min-height: auto !important;
+        padding: 80px var(--pad) 90px !important;
+        overflow: hidden !important;
+    }
+
+    .papers-intro-title {
+        margin-left: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: clamp(48px, 14.5vw, 70px) !important;
+        line-height: .84 !important;
+        letter-spacing: -.065em !important;
+    }
+
+    .papers-intro-grid {
+        margin: 60px 0 0 !important;
+        width: 100% !important;
+        grid-template-columns: 42px minmax(0, 1fr) !important;
+        gap: 16px !important;
+    }
+
+    .papers-intro-grid .eyebrow {
+        font-size: 10px !important;
+    }
+
+    .papers-intro-grid p {
+        font-size: 14px !important;
+        line-height: 1.08 !important;
+        letter-spacing: -.035em !important;
+    }
+
+
+    /* -----------------------------------------------------
+       MARQUEE
+       ----------------------------------------------------- */
+
+    .blog-marquee-wrap {
+        height: 430px !important;
+    }
+
+    .marquee-card.slot-center {
+        width: 68vw !important;
+        height: 100% !important;
+    }
+
+    .marquee-card.slot-medium-left,
+    .marquee-card.slot-medium-right {
+        width: 24vw !important;
+        height: 72% !important;
+    }
+
+    .marquee-card.slot-small-left,
+    .marquee-card.slot-small-right {
+        width: 12vw !important;
+        height: 52% !important;
+    }
+
+
+    /* -----------------------------------------------------
+       BLOG LIST
+       ----------------------------------------------------- */
+
+    .blog-list-section {
+        padding: 62px var(--pad) 92px !important;
+        overflow: hidden !important;
+    }
+
+    .blog-list-header {
+        padding: 12px 0 16px !important;
+        font-size: 9px !important;
+    }
+
+    .blog-link {
+        min-height: 142px !important;
+        width: 100% !important;
+        grid-template-columns: 30px minmax(0, 1fr) 30px !important;
+        gap: 10px !important;
+        padding: 0 !important;
+    }
+
+    .blog-number {
+        font-size: 9px !important;
+    }
+
+    .blog-date {
+        display: none !important;
+    }
+
+    .blog-info {
+        min-width: 0 !important;
+        padding: 17px 0 13px !important;
+        gap: 8px !important;
+    }
+
+    .blog-category {
+        font-size: 9px !important;
+    }
+
+    .blog-info h2 {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: clamp(27px, 7.8vw, 36px) !important;
+        line-height: .96 !important;
+        letter-spacing: -.058em !important;
+        overflow-wrap: normal !important;
+        word-break: normal !important;
+    }
+
+    .blog-arrow {
+        font-size: 21px !important;
+        align-self: center !important;
+    }
+
+    .blog-item:hover .blog-link {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .blog-item:hover .blog-info h2 {
+        transform: none !important;
+    }
+
+    .blog-item:hover .blog-arrow {
+        transform: none !important;
+    }
+
+
+    /* -----------------------------------------------------
+       FOOTER — MOBILE
+       ----------------------------------------------------- */
+
+    .blog-footer {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+        padding-left: var(--pad) !important;
+        padding-right: var(--pad) !important;
+    }
+
+    .blog-footer-top {
+        width: 100% !important;
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 48px !important;
+    }
+
+    .blog-footer-community {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .blog-footer-community h2 {
+        width: min(100%, 330px) !important;
+        max-width: 100% !important;
+        font-size: clamp(27px, 7.8vw, 36px) !important;
+        line-height: .96 !important;
+        letter-spacing: -.055em !important;
+    }
+
+    .blog-footer-options {
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 14px 20px !important;
+        margin-top: 20px !important;
+    }
+
+    .blog-footer-option {
+        font-size: 13px !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+    }
+
+
+    /* SOCIALS + CONTACT
+       Kill the desktop inline translate completely.
+    */
+
+    .blog-footer-social-group {
+        position: static !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        transform: none !important;
+
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        justify-content: space-between !important;
+
+        gap: 28px !important;
+    }
+
+    .blog-footer-social-column {
+        min-width: 0 !important;
+        flex: 0 0 auto !important;
+    }
+
+    .blog-footer-social-column:first-child {
+        flex: 1 1 auto !important;
+    }
+
+    .blog-footer-social-column:last-child {
+        flex: 0 0 auto !important;
+    }
+
+    .blog-footer-heading {
+        display: block !important;
+        margin-bottom: 12px !important;
+        font-size: 15px !important;
+        line-height: 1 !important;
+    }
+
+    .blog-footer-pills {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+    }
+
+    .blog-footer-pills a {
+        min-width: 60px !important;
+        height: 38px !important;
+        padding: 0 16px !important;
+        font-size: 12px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+
+    /* -----------------------------------------------------
+       FOOTER HERO WORD
+       ----------------------------------------------------- */
+
+    .blog-footer-word {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 110px !important;
+        overflow: visible !important;
+        font-size: 20vw !important;
+        line-height: .80 !important;
+        letter-spacing: -.085em !important;
+    }
+
+    .blog-footer-word span {
+        display: block !important;
+        width: max-content !important;
+        max-width: none !important;
+    }
+
+
+    /* -----------------------------------------------------
+       FOOTER BOTTOM
+       ----------------------------------------------------- */
+
+    .blog-footer-bottom {
+        width: 100% !important;
+        margin-top: 58px !important;
+        padding-bottom: 18px !important;
+
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: flex-end !important;
+        justify-content: space-between !important;
+
+        gap: 20px !important;
+        line-height: 1.1 !important;
+    }
+
+    .blog-footer-bottom span,
+    .blog-footer-bottom a {
+        font-size: 9px !important;
+    }
+
+}
+
+
+/* =========================================================
+   4. SMALL MOBILE
+   375px — 390px
+   Extra breathing room so nothing feels cramped
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+    .blog-footer-social-group {
+        gap: 18px !important;
+    }
+
+    .blog-footer-heading {
+        font-size: 14px !important;
+    }
+
+    .blog-footer-pills {
+        gap: 6px !important;
+    }
+
+    .blog-footer-pills a {
+        min-width: 55px !important;
+        height: 36px !important;
+        padding: 0 13px !important;
+    }
+
+    .blog-footer-community h2 {
+        font-size: 29px !important;
+    }
+
+    .blog-footer-options {
+        gap: 12px 16px !important;
+    }
+
+    .blog-footer-option {
+        font-size: 12px !important;
+    }
+
+}
+
+
+/* =========================================================
+   5. WIDE MOBILE
+   391px — 767px
+   ========================================================= */
+
+@media (min-width: 391px) and (max-width: 767px) {
+
+    .blog-footer-community h2 {
+        max-width: 360px !important;
+    }
+
+    .blog-footer-social-group {
+        gap: 34px !important;
+    }
+
+    .blog-footer-heading {
+        font-size: 16px !important;
+    }
+
+    .blog-footer-pills a {
+        min-width: 62px !important;
+        height: 40px !important;
+    }
+
+}
+
+
+/* =========================================================
+   6. IMPORTANT:
+      Keep desktop hover thumbnail alive when viewport
+      becomes narrow BUT device still has a mouse/pointer.
+   ========================================================= */
+
+@media (hover: hover) and (pointer: fine) and (max-width: 900px) {
+
+    .blog-hover-image {
+        display: block !important;
+        position: fixed !important;
+        pointer-events: none !important;
+        z-index: 10000 !important;
+
+        width: 210px !important;
+        height: 255px !important;
+
+        opacity: 0 !important;
+    }
+
+    .blog-hover-image.visible {
+        opacity: 1 !important;
+    }
+
+    .blog-hover-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+}
+
+
+/* =========================================================
+   7. TOUCH DEVICES:
+      Don't show desktop hover thumbnail.
+   ========================================================= */
+
+@media (hover: none), (pointer: coarse) {
+
+    .blog-hover-image {
+        display: none !important;
+    }
+
+}
+
+
+/* =========================================================
+   8. NEVER ALLOW HORIZONTAL PAGE OVERFLOW
+   ========================================================= */
+
+html,
+body {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+#scrollContainer {
+    max-width: 100% !important;
+    overflow-x: clip !important;
+}
+
+.blog-footer,
+.blog-hero,
+.papers-intro,
+.blog-list-section {
+    max-width: 100% !important;
+}
+
+
+/* =========================================================
+   9. DRAGGING / RESIZING SAFETY
+   Don't let editorial text create accidental width.
+   ========================================================= */
+
+.blog-info,
+.blog-link,
+.blog-footer-top,
+.blog-footer-community,
+.blog-footer-social-group,
+.blog-footer-bottom {
+    min-width: 0 !important;
+}
+
+</style>
 
 </body>
 </html>
