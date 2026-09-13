@@ -1997,16 +1997,41 @@ document.querySelectorAll('.tnco-mobile-menu-actions a').forEach(function(button
 }
 </style>
 
+<style id="tnco-mobile-vara-final-fix">
+@media (max-width: 767px) {
+
+    /* MOBILE:
+       Vara lama = OFF
+       Worship/V58 = tetap boleh hidup
+    */
+
+    .works-list .tnco-vara-hover {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+
+    /* Worship Vara khusus tetap hidup */
+    .works-list .work-item.worship .tnco-v48-holder {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: none !important;
+    }
+
+}
+</style>
+
 <style id="tnco-mobile-marquee-fix">
 @media (max-width: 767px) {
 
-    .tnco-scroll-marquee {
-        background: #fff !important;
-        color: #000 !important;
-        overflow: hidden !important;
-            transform: rotate(-2deg);
-        top: -40px !important;
-    }
+.tnco-scroll-marquee {
+    background: #fff !important;
+    color: #000 !important;
+    overflow: hidden !important;
+    transform: translateY(-20px) rotate(-2deg) !important;
+}
 
     .tnco-scroll-marquee-track {
         display: flex !important;
@@ -2060,6 +2085,28 @@ document.querySelectorAll('.tnco-mobile-menu-actions a').forEach(function(button
         to {
             transform: translate3d(-50%, 0, 0);
         }
+    }
+
+}
+</style>
+
+<style id="tnco-mobile-kill-vara-3">
+@media (max-width: 767px) {
+    #worksList .work-item:nth-child(3) .tnco-vara-hover,
+    #worksList .work-item:nth-child(3) .tnco-v48-holder {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+}
+</style>
+
+<style id="tnco-itel-menu-actions-fix">
+@media (min-width: 361px) and (max-width: 375px) {
+
+    .tnco-mobile-menu-actions {
+        transform: translateY(100px) !important;
     }
 
 }
