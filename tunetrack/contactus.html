@@ -2439,7 +2439,7 @@ form.addEventListener('submit', async function(event){
             sendButton.textContent = 'SENDING...';
         }
 
-        const response = await fetch('/api/send-contact', {
+        const response = await fetch('/api/sendemail', {
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
