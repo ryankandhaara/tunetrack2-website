@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tunetrack — Home</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon2026.png">
+
+    <!-- =========================================================
+         GOOGLE FONT
+    ========================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.css">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+
+<style id="tnco-typewriter-position-fix">
+    /* ONLY: position the existing typewriter + button as one visual block. */
+    #worksIntro {
+        --typewriter-block-y: -35px;  /* change this: negative = up, positive = down */
+    }
+
+    #worksIntro .tnco-works-subtitle {
+        top: calc(50% + var(--typewriter-block-y));
+    }
+
+    #worksIntro .tnco-lineup-wrap {
+        top: calc(50% + var(--typewriter-block-y) + clamp(78px, 10vw, 148px));
+        transform: translateX(-50%);
+    }
+
+    @media (max-width: 768px) {
+        #worksIntro .tnco-lineup-wrap {
+            top: calc(50% + var(--typewriter-block-y) + clamp(72px, 17vw, 92px));
+        }
+    }
+</style>
+</head>
+<body data-scroll-container>
+
+    <!-- =========================================================
+         HTML — TUNETRACK HEADER
+    ========================================================== -->
+
+    <header class="tnco-header" id="tnco-header" style="background:#000 !important;">
+
+        <!-- LOGO -->
+
+        <a href="index.html"
+           class="tnco-header-logo"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Tunetrack Home">
+
+            <span class="tnco-logo-sans">tunetrack.</span>
+
+        </a>
+
+        <!-- RIGHT NAVIGATION -->
+
+        <div class="tnco-header-right">
+
+            <!-- MAIN NAV -->
+
+            <nav class="tnco-header-nav"
+                 aria-label="Main navigation">
+
+                <a href="index.html">HOME</a>
+                <a href="blog-list.html" >PAPERS</a>
+                <a href="contactus.html">CONTACT</a>
+                <a href="https://www.instagram.com/chaeldavs/" target="_blank" rel="noopener noreferrer" style="font-weight: 600;">DESIGNED BY CHAEL©</a>
+
+            </nav>
+
+            <!-- LANGUAGE -->
+
+            <!-- CONNECT -->
+
+            <a href="https://linktr.ee/tunetrackid" target="_blank" rel="noopener noreferrer"
+               class="tnco-header-connect">
+
+                CONNECT
+
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- =========================================================
+         HTML — HERO
+    ========================================================== -->
+
+    <section class="tnco-works-intro is-top"
+             id="worksIntro">
+
+        <!-- =====================================================
+             HERO MEDIA
+        ====================================================== -->
+
+
+        <!-- =====================================================
+             TYPEWRITER
+        ====================================================== -->
+
+        <div class="tnco-works-subtitle">
+
+            <!-- New v7/v8-style typewriter. The legacy typewriter stays in the file but is visually disabled. -->
+            <span id="typewriter" aria-hidden="true"></span>
+
+            <div class="tnco-new-typewriter" id="tncoNewTypewriter" aria-live="polite" aria-label="Tunetrackco introduction">
+            <span class="tnco-new-typewriter-line" data-text="HEY, YOU MADE IT HERE &"></span>
+            <span class="tnco-new-typewriter-line" data-text="WELCOME TO ·  TUNETRACK"></span>
+            <span class="tnco-new-typewriter-line" data-text="MUSIC · RESOURCES · GOOD STUFF,"></span>
+            <span class="tnco-new-typewriter-line" data-text="2026 · MADE FOR MUSICIANS"></span>
+            </div>
+
+        </div>
+
+        <!-- =====================================================
+             MAIN LINEUP BUTTON — EMBEDDED ONLY FOR THIS SECTION
+        ====================================================== -->
+        <div class="tnco-lineup-wrap" id="tncoLineupWrap">
+            <button class="tnco-lineup-button" id="tncoLineupButton" type="button" aria-label="Discover the lineup">
+                <span class="tnco-lineup-pixels" aria-hidden="true"></span>
+                <span class="tnco-lineup-label">SCROLL IT DOWN</span>
+            </button>
+        </div>
+
+        <style>
+            /* =====================================================
+               ADD-ON — NEW V7/V8 TYPEWRITER ONLY
+               ===================================================== */
+            #worksIntro .tnco-works-subtitle{
+                position:absolute;
+                left:50%;
+                top:50%;
+                width:min(94vw,1000px);
+                transform:translate(-50%,-50%);
+                margin:0;
+                padding:0;
+                text-align:center;
+                z-index:3;
+            }
+
+            #worksIntro #typewriter{
+                display:none!important;
+            }
+
+            #worksIntro .tnco-new-typewriter{
+                display:flex;
+                flex-direction:column;
+                align-items:center;
+                justify-content:center;
+                width:100%;
+                font-family:"Gilda Display",Georgia,serif;
+                font-size:clamp(42px,5vw,76px);
+                line-height:.9;
+                font-weight:400;
+                letter-spacing:-.045em;
+                text-transform:uppercase;
+            }
+
+            #worksIntro .tnco-new-typewriter-line{
+                display:block;
+                min-height:.9em;
+                white-space:nowrap;
+            }
+
+            /* Button only becomes interactive after the typewriter finishes. */
+            #worksIntro .tnco-lineup-wrap{
+                opacity:0;
+                pointer-events:none;
+                transition:opacity .45s ease;
+            }
+
+            #worksIntro .tnco-lineup-wrap.is-ready{
+                opacity:1;
+                pointer-events:auto;
+            }
+
+            #worksIntro .tnco-lineup-wrap{
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                margin-top:0;
+                position:absolute;
+                left:50%;
+                top:calc(92% + var(--typewriter-block-y));
+                transform:translateX(-50%);
+                width:max-content;
+                z-index:5;
+            }
+
+            #worksIntro .tnco-lineup-button{
+                --lineup-border:rgba(255,255,255,.9);
+                position:relative;
+                isolation:isolate;
+                width:198px;
+                height:48px;
+                padding:0 22px;
+                border:0;
+                border-radius:999px;
+                background:#fff;
+                color:#111;
+                font-family:"Gilda Display",serif;
+                font-size:13px;
+                line-height:1;
+                text-transform:uppercase;
+                letter-spacing:0;
+                white-space:nowrap;
+                cursor:pointer;
+                overflow:hidden;
+                -webkit-tap-highlight-color:transparent;
+                touch-action:manipulation;
+                transform:translateZ(0);
+                transition:
+                    background-color .34s cubic-bezier(.22,1,.36,1),
+                    color .34s cubic-bezier(.22,1,.36,1),
+                    border-color .34s cubic-bezier(.22,1,.36,1),
+                    box-shadow .34s cubic-bezier(.22,1,.36,1),
+                    border-radius .34s cubic-bezier(.22,1,.36,1),
+                    transform .34s cubic-bezier(.22,1,.36,1);
+            }
+
+            #worksIntro .tnco-lineup-label{
+                position:relative;
+                z-index:3;
+                display:inline-block;
+                transition:transform .34s cubic-bezier(.22,1,.36,1),opacity .2s ease;
+            }
+
+            #worksIntro .tnco-lineup-pixels{
+                position:absolute;
+                inset:0;
+                z-index:2;
+                pointer-events:none;
+                opacity:0;
+                background-image:
+                    linear-gradient(90deg,rgba(255,255,255,.95) 1px,transparent 1px),
+                    linear-gradient(rgba(255,255,255,.95) 1px,transparent 1px);
+                background-size:7px 7px;
+                background-position:center;
+                mix-blend-mode:difference;
+                transform:scale(1.45);
+                transition:opacity .12s ease;
+            }
+
+            #worksIntro .tnco-lineup-button:hover,
+            #worksIntro .tnco-lineup-button.is-active{
+                background:#050505;
+                color:#fff;
+                border:1px solid var(--lineup-border);
+                box-shadow:0 0 0 1px rgba(255,255,255,.04),0 0 26px rgba(255,255,255,.12);
+            }
+
+            #worksIntro .tnco-lineup-button:hover .tnco-lineup-pixels,
+            #worksIntro .tnco-lineup-button.is-active .tnco-lineup-pixels{
+                opacity:.95;
+                animation:tncoLineupPixelShift .42s steps(6,end) both;
+            }
+
+            #worksIntro .tnco-lineup-button:hover .tnco-lineup-label,
+            #worksIntro .tnco-lineup-button.is-active .tnco-lineup-label{
+                transform:scale(.94);
+            }
+
+            #worksIntro .tnco-lineup-button.is-take-me{
+                background:#050505;
+                color:#fff;
+                border:1px solid rgba(255,255,255,.88);
+                box-shadow:0 0 28px rgba(255,255,255,.13);
+                font-family:Arial,Helvetica,sans-serif;
+            }
+
+            #worksIntro .tnco-lineup-button.is-take-me .tnco-lineup-pixels{
+                opacity:0;
+            }
+
+            #worksIntro .tnco-lineup-button.is-take-me .tnco-lineup-label{
+                transform:scale(1);
+            }
+
+            @keyframes tncoLineupPixelShift{
+                0%{
+                    opacity:0;
+                    background-size:2px 2px;
+                    background-position:50% 50%;
+                    transform:scale(1.8);
+                }
+                28%{
+                    opacity:1;
+                    background-size:5px 5px;
+                    background-position:22% 71%;
+                    transform:scale(1.18);
+                }
+                62%{
+                    opacity:.92;
+                    background-size:9px 9px;
+                    background-position:78% 29%;
+                    transform:scale(1.02);
+                }
+                100%{
+                    opacity:.72;
+                    background-size:7px 7px;
+                    background-position:50% 50%;
+                    transform:scale(1);
+                }
+            }
+
+            @media(max-width:768px){
+                #worksIntro .tnco-lineup-wrap{top:calc(90% + var(--typewriter-block-y));margin-top:0;}
+                #worksIntro .tnco-lineup-button{width:190px;height:44px;font-size:12px;}
+            }
+
+            @media(max-width:768px){
+                #worksIntro .tnco-works-subtitle{
+                    width:94vw;
+                }
+
+                #worksIntro .tnco-new-typewriter{
+                    font-size:clamp(28px,8.2vw,48px);
+                    line-height:.92;
+                    letter-spacing:-.04em;
+                }
+
+                #worksIntro .tnco-new-typewriter-line{
+                    white-space:normal;
+                }
+            }
+
+            @media(prefers-reduced-motion:reduce){
+                #worksIntro .tnco-lineup-button,
+                #worksIntro .tnco-lineup-label,
+                #worksIntro .tnco-lineup-pixels{
+                    transition:none!important;
+                    animation:none!important;
+                }
+            }
+        </style>
+
+        <script>
+            (function(){
+                const button = document.getElementById('tncoLineupButton');
+                const label = button && button.querySelector('.tnco-lineup-label');
+
+                if(!button || !label) return;
+
+                let timer = 0;
+                let touched = false;
+
+                function setTakeMe(){
+                    clearTimeout(timer);
+
+                    button.classList.add('is-active');
+
+                    timer = setTimeout(function(){
+                        button.classList.add('is-take-me');
+                        label.textContent = 'Take me There!';
+                        button.setAttribute('aria-label', 'Take me There!');
+                    }, 260);
+                }
+
+                function reset(){
+                    clearTimeout(timer);
+
+                    button.classList.remove('is-active', 'is-take-me');
+                    label.textContent = 'SCROLL IT DOWN';
+                    button.setAttribute('aria-label', 'Discover the lineup');
+                }
+
+                function goToWorks(){
+                    window.open('https://linktr.ee/tunetrackid', '_blank');
+                }
+
+                button.addEventListener('mouseenter', function(){
+                    if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+                        setTakeMe();
+                    }
+                });
+
+                button.addEventListener('mouseleave', function(){
+                    if(!touched) reset();
+                });
+
+                button.addEventListener('focus', function(){
+                    setTakeMe();
+                });
+
+                button.addEventListener('blur', function(){
+                    if(!touched) reset();
+                });
+
+                button.addEventListener('pointerdown', function(){
+                    if(window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+
+                    touched = true;
+                    setTakeMe();
+                }, { passive: true });
+
+                button.addEventListener('click', function(){
+                    goToWorks();
+                });
+            })();
+        </script>
+
+        <script>
+            /* =====================================================
+               ADD-ON — NEW V7/V8 TYPEWRITER ONLY
+               ===================================================== */
+            (function(){
+                const root=document.getElementById('tncoNewTypewriter');
+                const buttonWrap=document.getElementById('tncoLineupWrap');
+                if(!root)return;
+
+                const lines=[...root.querySelectorAll('.tnco-new-typewriter-line')];
+                let lineIndex=0;
+                let charIndex=0;
+
+                function typeLine(){
+                    if(lineIndex>=lines.length){
+                        if(buttonWrap)buttonWrap.classList.add('is-ready');
+                        return;
+                    }
+
+                    const line=lines[lineIndex];
+                    const text=line.dataset.text||'';
+                    line.textContent=text.slice(0,charIndex+1);
+                    charIndex++;
+
+                    if(charIndex<text.length){
+                        setTimeout(typeLine,28);
+                    }else{
+                        lineIndex++;
+                        charIndex=0;
+                        setTimeout(typeLine,260);
+                    }
+                }
+
+                typeLine();
+            })();
+        </script>
+
+    </section>
+
+    <!-- =========================================================
+         HTML — SEARCH
+    ========================================================== -->
+
+    <button
+        class="tnco-search"
+        id="searchButton"
+        type="button"
+        aria-label="Search works">
+
+        <span class="tnco-search-icon">⌕</span>
+
+        <span>Search works</span>
+
+    </button>
+
+    <!-- =========================================================
+         LOCAL SEARCH OVERLAY
+    ========================================================== -->
+
+    <!-- =========================================================
+         HTML — WORKS
+    ========================================================== -->
+
+    <main class="tnco-works">
+
+        <div class="tnco-scroll-marquee" aria-label="Scroll down to see our works">
+            <div class="tnco-scroll-marquee-track">
+<div class="tnco-scroll-marquee-set">
+                    <div class="tnco-scroll-marquee-copy">
+                        <span>scroll down to see our works</span>
+                        <span class="tnco-scroll-marquee-arrow"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="m12.5 8.5 3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </div>
+                    <div class="tnco-scroll-marquee-copy" aria-hidden="true">
+                        <span>scroll down to see our works</span>
+                        <span class="tnco-scroll-marquee-arrow"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="m12.5 8.5 3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </div>
+                    <div class="tnco-scroll-marquee-copy">
+                        <span>scroll down to see our works</span>
+                        <span class="tnco-scroll-marquee-arrow"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="m12.5 8.5 3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </div>
+                    <div class="tnco-scroll-marquee-copy" aria-hidden="true">
+                        <span>scroll down to see our works</span>
+                        <span class="tnco-scroll-marquee-arrow"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="m12.5 8.5 3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </div>
+                </div>
+                <div class="tnco-scroll-marquee-set" aria-hidden="true">
+                    <div class="tnco-scroll-marquee-copy">
+                        <span>scroll down to see our works</span>
+                        <span class="tnco-scroll-marquee-arrow"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="m12.5 8.5 3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </div>
+                    <div class="tnco-scroll-marquee-copy" aria-hidden="true">
+                        <span>scroll down to see our works</span>
+                        <span class="tnco-scroll-marquee-arrow"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="m12.5 8.5 3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </div>
+                    <div class="tnco-scroll-marquee-copy">
+                        <span>scroll down to see our works</span>
+                        <span class="tnco-scroll-marquee-arrow"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="m12.5 8.5 3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </div>
+                    <div class="tnco-scroll-marquee-copy" aria-hidden="true">
+                        <span>scroll down to see our works</span>
+                        <span class="tnco-scroll-marquee-arrow"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="m12.5 8.5 3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div class="works-list" id="worksList">
+
+    <div class="work-item">
+        <a href="pg-sw-lebihdaripemenang.html" rel="noopener noreferrer">Yesus Kumenyembahmu Medley (SW)</a>
+    </div>
+
+    <div class="work-item">
+        <a href="pg-sw-lebihdaripemenang.html" target="_blank" rel="noopener noreferrer">Lebih dari Pemenang (SW)</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/w08zo73m7y7z" target="_blank" rel="noopener noreferrer">Allah Sanggup (SW)</a>
+    </div>
+
+    <div class="work-item worship">
+        <a href="https://lynk.id/gudangsequencer/olm3qd20r82y" target="_blank" rel="noopener noreferrer">Sperti Bapa Sayang Anaknya</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/gw6onoo5meng" target="_blank" rel="noopener noreferrer">Mari Menari 2.0</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/m07l2dmr83n6" target="_blank" rel="noopener noreferrer">Api Pantekosta Medley</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/e5ke29g86jxd" target="_blank" rel="noopener noreferrer">Kecaplah dan Lihatlah</a>
+    </div>
+
+    <div class="work-item worship">
+        <a href="https://lynk.id/gudangsequencer/49zn00oe0207" target="_blank" rel="noopener noreferrer">Bukti Kasih ft. UNDVD</a>
+    </div>
+
+    <div class="work-item worship">
+        <a href="https://lynk.id/gudangsequencer/okx7yo67kwjo" target="_blank" rel="noopener noreferrer">Trima kasih Tuhan</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/210x2gjnokle" target="_blank" rel="noopener noreferrer">Tiap Langkahku (Gospel Project)</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/3v9kv95403qo" target="_blank" rel="noopener noreferrer">Allah sumber Kuatku (Gospel Project)</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/jn0p6yd769rm" target="_blank" rel="noopener noreferrer">
+            Allah kita heran dan Besar
+            <br>
+            (Gospel Project)
+        </a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/oykp3mvv9mwd" target="_blank" rel="noopener noreferrer">Friend of God TMRC</a>
+    </div>
+
+    <div class="work-item worship">
+        <a href="https://lynk.id/gudangsequencer/17lew0wdoer0" target="_blank" rel="noopener noreferrer">O Come All ye Faithful</a>
+    </div>
+
+    <div class="work-item worship">
+        <a href="https://lynk.id/gudangsequencer/mryvlqgjw772" target="_blank" rel="noopener noreferrer">NOEL</a>
+    </div>
+
+    <div class="work-item worship">
+        <a href="https://lynk.id/gudangsequencer/wmpg0404o2jv" target="_blank" rel="noopener noreferrer">Joy to the World 2017</a>
+    </div>
+
+    <div class="work-item worship">
+        <a href="https://lynk.id/gudangsequencer/lwzd17o9ew0q" target="_blank" rel="noopener noreferrer">O Holy Night</a>
+    </div>
+
+    <div class="work-item worship">
+        <a href="https://lynk.id/gudangsequencer/1rzjn7n8edx2" target="_blank" rel="noopener noreferrer">Silent Night</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/n3r1k444dr3n" target="_blank" rel="noopener noreferrer">Angels We Have Heard On High</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/okn2roo0ojg1" target="_blank" rel="noopener noreferrer">Hark</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/vdngnrgkjkk1" target="_blank" rel="noopener noreferrer">Its Christmas</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/6z1lyz9j4k12" target="_blank" rel="noopener noreferrer">New Things Coming</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/woqlqdkedrzp" target="_blank" rel="noopener noreferrer">We Raise</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/21lklwv7yg6l" target="_blank" rel="noopener noreferrer">Praise Opening (GW)</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/523vkzqj9m9y" target="_blank" rel="noopener noreferrer">In Jesus Name Asia</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/nyxyzxqkpop4" target="_blank" rel="noopener noreferrer">This is the Day - Reimagined</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/9kqon61317me" target="_blank" rel="noopener noreferrer">I Know You Can</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/x9rv4o160kp0" target="_blank" rel="noopener noreferrer">Real Love - HxL 25</a>
+    </div>
+
+    <div class="work-item worship">
+        <a href="https://lynk.id/gudangsequencer/l9w339mkkzy3" target="_blank" rel="noopener noreferrer">Holy Forever</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/wxv3d8lmk9y1" target="_blank" rel="noopener noreferrer">Fill the Room</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/j6p02601zn32" target="_blank" rel="noopener noreferrer">Now Aint that Something</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/qe85oo2xz88l" target="_blank" rel="noopener noreferrer">Goodbye Yesterday</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/x02go3dy0dwg" target="_blank" rel="noopener noreferrer">Real Love</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/k67pqnk1xd1j" target="_blank" rel="noopener noreferrer">O Come Medley Carol of The Bells</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/592pl7k9qm8r" target="_blank" rel="noopener noreferrer">In Jesus Name</a>
+    </div>
+
+    <div class="work-item worship">
+        <a href="https://lynk.id/gudangsequencer/o4xzq3zdg36w" target="_blank" rel="noopener noreferrer">I Speak Jesus</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/3417ervkxq64" target="_blank" rel="noopener noreferrer">This is the Day</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/glq0d71pdrq5" target="_blank" rel="noopener noreferrer">You Are Good (in LA)</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/9248oz68oz1z" target="_blank" rel="noopener noreferrer">You Are Good</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/q20wwz5p6kpv" target="_blank" rel="noopener noreferrer">Impossible Possible</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/r054qee22vrz" target="_blank" rel="noopener noreferrer">Echo</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/36v97ozy1n7x" target="_blank" rel="noopener noreferrer">In Jesus Name (Ft. DOE)</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/0nv6vwezvy75" target="_blank" rel="noopener noreferrer">KAMSAHAMNIDA</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/0v3m7n37r606" target="_blank" rel="noopener noreferrer">This is our Time</a>
+    </div>
+
+    <div class="work-item worship">
+        <a href="https://lynk.id/gudangsequencer/32jn4zewe1n3" target="_blank" rel="noopener noreferrer">Trust in God</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/d3rgvnx61v3m" target="_blank" rel="noopener noreferrer">Terangmu (Lifeline)</a>
+    </div>
+
+    <div class="work-item worship">
+        <a href="https://lynk.id/gudangsequencer/3o3z826jojwr" target="_blank" rel="noopener noreferrer">Selidiki Aku (Tetap Setia)</a>
+    </div>
+
+    <div class="work-item worship">
+        <a href="https://lynk.id/gudangsequencer/ovro6541or6g" target="_blank" rel="noopener noreferrer">Nyata Sempurna</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/p5xjj25e22g1" target="_blank" rel="noopener noreferrer">Hari Terbaik</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/zkddzxk1xwk9" target="_blank" rel="noopener noreferrer">Bangkit dan Puji Dia</a>
+    </div>
+
+    <div class="work-item worship">
+        <a href="https://lynk.id/gudangsequencer/rp2x7v3v652p" target="_blank" rel="noopener noreferrer">Berserah Penuh</a>
+    </div>
+
+    <div class="work-item worship">
+        <a href="https://lynk.id/gudangsequencer/mwjr892o57lk" target="_blank" rel="noopener noreferrer">Raja atas Sgalanya</a>
+    </div>
+
+    <div class="work-item worship">
+        <a href="https://lynk.id/gudangsequencer/v5wwqmno7n72" target="_blank" rel="noopener noreferrer">Sejarah Hidupku</a>
+    </div>
+
+    <div class="work-item worship">
+        <a href="https://lynk.id/gudangsequencer/pq0l8or7m184" target="_blank" rel="noopener noreferrer">Bukti Kasihmu</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/nywv21v0k6x8" target="_blank" rel="noopener noreferrer">Tempat Pertama</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/g4yl32on4kod" target="_blank" rel="noopener noreferrer">Serukan Namanya</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/vrdn2qwpr515" target="_blank" rel="noopener noreferrer">Satu Persembahan</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/6qk6ldgroy1g" target="_blank" rel="noopener noreferrer">Kuteringat (SW)</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/pr4211y82ye2" target="_blank" rel="noopener noreferrer">Dia Raja (Worshipnite)</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/1o35kj6v9jm3" target="_blank" rel="noopener noreferrer">Praise</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/lj309y3vnpvd" target="_blank" rel="noopener noreferrer">Aku Diberkati 2025 Remix</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/vp0xlye26vjk" target="_blank" rel="noopener noreferrer">Nyalakan Apimu (New Life Church)</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/lwelm3rlddgk" target="_blank" rel="noopener noreferrer">Kunaikkan Syukurku 2025</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/vkvoex2704zq" target="_blank" rel="noopener noreferrer">NDC - Christmas 2024 Medley</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/0vdrz2krz9rn" target="_blank" rel="noopener noreferrer">Ajaib kau Tuhan (NDCY)</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/p1d6okxxd054" target="_blank" rel="noopener noreferrer">Endless Praise (Recording Collective)</a>
+    </div>
+
+    <div class="work-item">
+        <a href="https://lynk.id/gudangsequencer/l20mv78q6y56" target="_blank" rel="noopener noreferrer">Oleh Darah Anak Domba (NDCY)</a>
+    </div>
+
+    <div class="tnco-local-search-overlay" id="localSearchOverlay" aria-hidden="true">
+            <div class="tnco-local-search-box" role="dialog" aria-modal="true" aria-label="Search works">
+                <div class="tnco-local-search-input-wrap">
+                    <p
+                        class="tnco-search-prompt"
+                        id="localSearchPrompt">what u wanna search?</p>
+
+                    <div
+                        class="tnco-search-animated-text"
+                        id="localSearchAnimatedText"
+                        aria-hidden="true"></div>
+
+                    <input
+                        class="tnco-local-search-input"
+                        id="localSearchInput"
+                        type="search"
+                        aria-label="What are you looking for?"
+                        autocomplete="off"
+                        spellcheck="false">
+
+                    <button
+                        class="tnco-local-search-close"
+                        id="localSearchClose"
+                        type="button"
+                        aria-label="Close search">×</button>
+                </div>
+
+                <div
+                    class="tnco-local-search-results"
+                    id="localSearchResults"></div>
+         </div>
+    </div>
+</div>
+
+</main>
+
+    <!-- =========================================================
+         HTML — FOOTER
+    ========================================================== -->
+
+    <footer class="tnco-footer" id="tncoFooter">
+
+        <div class="tnco-footer-top">
+
+            <div class="tnco-footer-community">
+                <h2>Join our community and get<br class="desktop-break"> updates, offers, and exclusive<br class="desktop-break"> content.</h2>
+
+                <div class="tnco-footer-options" aria-label="Community options">
+                    <a href="https://t.me/gudangsequencerid?boost" target="_blank" rel="noopener noreferrer" class="tnco-footer-option">
+                        <span class="tnco-footer-radio" aria-hidden="true"></span>
+                        <span>OFFICIAL CHANNEL</span>
+                    </a>
+                    <a href="https://t.me/tunetrackstd?boost" target="_blank" rel="noopener noreferrer" class="tnco-footer-option">
+                        <span class="tnco-footer-radio" aria-hidden="true"></span>
+                        <span>FORUM DISCUSSION</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="tnco-footer-social-group" style="transform: translateX(327px);">
+                <div class="tnco-footer-social-column">
+                    <span class="tnco-footer-heading">OUR SOCIALS</span>
+                    <div class="tnco-footer-pills">
+                        <a href="https://www.instagram.com/tunetrackco/" target="_blank" rel="noopener noreferrer" aria-label="Tunetrack Instagram">IG</a>
+                        <a href="https://www.youtube.com/@tunetracksco" target="_blank" rel="noopener noreferrer" aria-label="Tunetrack YouTube">YT</a>
+                        <a href="https://www.threads.com/tunetrackco/" target="_blank" rel="noopener noreferrer" aria-label="Tunetrack Threads">THR</a>
+                    </div>
+                </div>
+
+                <div class="tnco-footer-social-column">
+                    <span class="tnco-footer-heading">CONTACT</span>
+                    <div class="tnco-footer-pills">
+                        <a href="contactus.html" aria-label="Forum Mail">GM</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="tnco-footer-word" aria-hidden="true">
+            <span style="display:block;">HOME FOR</span>
+            <span style="display:block; margin-top:0.10em;">MUSICIANS</span>
+        </div>
+
+        <div class="tnco-footer-bottom" style="margin-top: 60px;">
+            <span>©TUNETRACK 2026. All rights reserved.</span>
+            <a href="https://www.instagram.com/chaeldavs/" target="_blank" rel="noopener noreferrer">Design by Chael</a>
+        </div>
+
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vara@1.4.0/lib/vara.min.js"></script>
+
+<script src="https://unpkg.com/rough-notation/lib/rough-notation.iife.js"></script>
+
+<script src="assets/js/main.js"></script>
+
+
+
+    <!-- TNCO — ISOLATED POSITION CONTROLS: TYPEWRITER / BUTTON -->
+    <style id="tnco-independent-position-controls">
+        /* ONLY POSITION OVERRIDES — everything else stays untouched. */
+        #worksIntro {
+            --tnco-typewriter-y: -150px; /* TYPEWRITER: negative = up, positive = down */
+            --tnco-button-y: -240px;     /* BUTTON: negative = up, positive = down */
+        }
+
+        #worksIntro .tnco-works-subtitle {
+            top: calc(50% + var(--tnco-typewriter-y)) !important;
+        }
+
+        #worksIntro .tnco-lineup-wrap {
+            top: calc(92% + var(--tnco-button-y)) !important;
+        }
+
+        @media (max-width: 768px) {
+            #worksIntro .tnco-lineup-wrap {
+                top: calc(90% + var(--tnco-button-y)) !important;
+            }
+        }
+    </style>
+
+
+
+<!-- =====================================================
+     TNCO TYPEWRITER WORD HOVER IMAGES — ADDITIVE ONLY
+     Does not replace or remove the existing typewriter code.
+====================================================== -->
+<style id="tnco-typewriter-hover-images">
+#worksIntro .tnco-new-typewriter-line .tnco-hover-word{
+    font-family:Arial,Helvetica,sans-serif!important;
+    display:inline-block;
+    position:relative;
+    cursor:pointer;
+    transition:transform .2s cubic-bezier(.22,1,.36,1),opacity .40s ease;
+}
+#worksIntro .tnco-new-typewriter-line .tnco-hover-word:hover{
+    transform:translateY(-2px);
+    opacity:.72;
+}
+#tncoTypewriterHoverImage{
+    position:fixed;
+    left:0;
+    top:0;
+    width:128px;
+    height:128px;
+    z-index:100000;
+    pointer-events:none;
+    overflow:hidden;
+    opacity:0;
+    visibility:hidden;
+    transform:translate3d(-50%,-50%,0) scale(.78) rotate(-4deg);
+    transition:opacity .22s ease,visibility .22s ease,transform .38s cubic-bezier(.22,1,.36,1);
+    will-change:transform,opacity;
+    box-shadow:0 18px 42px rgba(0,0,0,.25);
+}
+#tncoTypewriterHoverImage.is-visible{
+    opacity:1;
+    visibility:visible;
+    transform:translate3d(-50%,-50%,0) scale(1) rotate(0deg);
+}
+#tncoTypewriterHoverImage img{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:none!important;
+}
+@media(max-width:768px){
+    #tncoTypewriterHoverImage{width:108px;height:108px;}
+    #worksIntro .tnco-new-typewriter-line .tnco-hover-word{cursor:pointer;}
+}
+@media(prefers-reduced-motion:reduce){
+    #tncoTypewriterHoverImage{transition:opacity .12s ease,visibility .12s ease;transform:translate3d(-50%,-50%,0);}
+    #tncoTypewriterHoverImage.is-visible{transform:translate3d(-50%,-50%,0);}
+}
+</style>
+
+<div id="tncoTypewriterHoverImage" aria-hidden="true">
+    <img id="tncoTypewriterHoverImageSrc" src="" alt="">
+</div>
+
+<script id="tnco-typewriter-hover-images-js">
+(function(){
+    const root=document.getElementById('tncoNewTypewriter');
+    const box=document.getElementById('tncoTypewriterHoverImage');
+    const img=document.getElementById('tncoTypewriterHoverImageSrc');
+    if(!root||!box||!img)return;
+
+    const images={
+        YOU:'https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=600&q=85',
+        WELCOME:'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=600&q=85',
+        RESOURCES:'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=600&q=85',
+        MUSICIANS:'https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=600&q=85'
+    };
+
+    const words=Object.keys(images).sort((a,b)=>b.length-a.length);
+    let active=null;
+    let targetX=window.innerWidth/2, targetY=window.innerHeight/2;
+    let x=targetX, y=targetY;
+
+    function wrapCompletedLines(){
+        root.querySelectorAll('.tnco-new-typewriter-line').forEach(function(line){
+            if(line.dataset.tncoHoverWrapped==='1')return;
+            const expected=(line.dataset.text||'').trim();
+            const current=line.textContent.trim();
+            if(!expected || current!==expected)return;
+
+            let text=line.textContent;
+            const escaped=words.map(function(w){
+                return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+            }).join('|');
+            const re=new RegExp('\\b('+escaped+')\\b','g');
+
+            line.innerHTML=text.replace(re,function(match){
+                return '<span class="tnco-hover-word" data-hover-word="'+match.toUpperCase()+'">'+match+'</span>';
+            });
+            line.dataset.tncoHoverWrapped='1';
+        });
+    }
+
+    /* The existing typewriter owns the text. We only wrap a line
+       after its text is completely finished, so we never interrupt it. */
+    const watcher=setInterval(function(){
+        wrapCompletedLines();
+        if(root.querySelectorAll('.tnco-new-typewriter-line[data-tnco-hover-wrapped="1"]').length===4){
+            clearInterval(watcher);
+        }
+    },80);
+
+    function animate(){
+        x+=(targetX-x)*.2;
+        y+=(targetY-y)*.2;
+        box.style.left=x+'px';
+        box.style.top=y+'px';
+        requestAnimationFrame(animate);
+    }
+    animate();
+
+    window.addEventListener('pointermove',function(e){
+        targetX=e.clientX;
+        targetY=e.clientY;
+    },{passive:true});
+
+    root.addEventListener('pointerover',function(e){
+        const word=e.target.closest('.tnco-hover-word');
+        if(!word||!root.contains(word))return;
+        const key=word.dataset.hoverWord;
+        if(!images[key])return;
+        active=word;
+        img.src=images[key];
+        box.classList.add('is-visible');
+    });
+
+    root.addEventListener('pointerout',function(e){
+        const word=e.target.closest('.tnco-hover-word');
+        if(!word)return;
+        if(e.relatedTarget&&word.contains(e.relatedTarget))return;
+        if(active===word){
+            active=null;
+            box.classList.remove('is-visible');
+        }
+    });
+
+    root.addEventListener('pointerdown',function(e){
+        if(e.pointerType!=='touch')return;
+        const word=e.target.closest('.tnco-hover-word');
+        if(!word)return;
+        const key=word.dataset.hoverWord;
+        if(!images[key])return;
+        targetX=e.clientX;
+        targetY=e.clientY;
+        img.src=images[key];
+        box.classList.add('is-visible');
+        clearTimeout(box._tncoTimer);
+        box._tncoTimer=setTimeout(function(){
+            box.classList.remove('is-visible');
+        },1000);
+    },{passive:true});
+})();
+</script>
+
+</body>
+
+</html>

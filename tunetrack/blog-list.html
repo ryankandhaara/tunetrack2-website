@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tunetrack — Papers</title>
+<link rel="icon" type="image/png" href="assets/images/favicon2026.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.css">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<style>
+:root{--black:#000;--white:#fff;--pad:30px;--ease:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#fff;color:#000;scroll-behavior:auto!important}
+body{margin:0;background:#fff;color:#000;font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+button{font:inherit}
+
+/* HEADER — intentionally outside the locomotive container */
+.blog-header{position:fixed;left:0;top:0;width:100%;height:72px;z-index:9999;display:flex;align-items:center;justify-content:space-between;padding:10px 15px 10px 12px;background:#000;color:#fff;transition:transform .6s cubic-bezier(.77,0,.18,1),opacity .45s ease}
+.blog-header.hidden{transform:translate3d(0,-120%,0)!important;opacity:0;pointer-events:none}
+.blog-header-logo{display:inline-flex;align-items:baseline;text-decoration:none;color:#fff;line-height:1;white-space:nowrap}
+.blog-header-logo-sans{font-family:Arial,Helvetica,sans-serif;font-size:30px;line-height:.85;font-weight:1000;letter-spacing:-.1em}
+.blog-header-right{display:flex;align-items:center;justify-content:flex-end;margin-left:auto;padding-right:0;gap:20px;transform:translateY(7px)}
+.blog-header-nav{display:flex;align-items:center;gap:24px}
+.blog-header-nav a{position:relative;white-space:nowrap;color:#fff;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:500;letter-spacing:-.02em;transition:opacity .25s ease}
+.blog-header-nav a:hover{opacity:.45}
+.blog-header-nav a.active:after{content:"";position:absolute;left:0;right:0;bottom:-9px;height:1px;background:#fff}
+.blog-header-connect{display:inline-flex;align-items:center;justify-content:center;min-width:108px;height:38px;padding:0 22px;border-radius:999px;background:#fff;color:#000;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:600;letter-spacing:-.015em;transition:transform .25s ease,background .25s ease}
+.blog-header-connect:hover{transform:translateY(-2px);background:#151515;color:#fff}
+
+/* LOCOMOTIVE CONTAINER */
+#scrollContainer{position:relative;min-height:100vh}
+
+/* HERO — asymmetric editorial composition */
+.blog-hero{position:relative;min-height:100vh;padding:128px var(--pad) 38px;overflow:hidden;background:#fff}
+.blog-hero-label{display:inline-flex;background:#000;color:#fff;padding:15px 22px 14px;font-size:14px;font-weight:700;text-transform:uppercase;line-height:1;position:relative;z-index:20}
+.blog-hero-title{position:relative;z-index:10;margin-top:122px;width:calc(100vw - 24px);max-width:none;min-height:3.0em;font-size:clamp(92px,10.2vw,164px);line-height:.82;letter-spacing:-.078em;transform:translate3d(calc(12px - var(--pad)),-15px,0);font-weight:800;text-transform:uppercase;overflow:visible}
+#heroTypewriter{display:block;white-space:pre;overflow:visible;max-width:none;word-break:keep-all;overflow-wrap:normal}
+/* V5: fixed three-line hero, no cursor/artifact */
+#heroTypewriter::before,#heroTypewriter::after{content:none!important;display:none!important}
+
+.hero-copy{position:absolute;left:var(--pad);bottom:52px;width:min(39vw,560px);z-index:30;font-size:20px;line-height:1.03;letter-spacing:-.045em}
+.blog-hero-meta{position:absolute;right:var(--pad);bottom:54px;z-index:30;display:flex;gap:72px;font-size:11px;line-height:1.1;text-transform:uppercase}
+.blog-hero-meta span:first-child{max-width:90px}
+
+/* EDITORIAL SECOND SECTION */
+.papers-intro{content-visibility:auto;contain-intrinsic-size:880px;position:relative;min-height:880px;padding:130px var(--pad) 120px;background:#fff;overflow:hidden}
+.papers-intro-title{margin-left:49%;width:48%;font-family:"Gilda Display",Georgia,serif;font-size:clamp(64px,8vw,135px);line-height:.78;letter-spacing:-.065em;font-weight:400;text-transform:uppercase}
+.papers-intro-grid{margin-top:100px;margin-left:52%;width:44%;display:grid;grid-template-columns:90px 1fr;gap:35px;align-items:start}
+.papers-intro-grid .eyebrow{font-size:13px;font-weight:700;text-transform:uppercase}
+.papers-intro-grid p{font-size:22px;line-height:1.02;letter-spacing:-.045em;max-width:650px}
+
+/* MARQUEE V9 — clean interactive 9-image editorial carousel */
+.blog-marquee-wrap{position:relative;height:760px;overflow:hidden;background:#fff;isolation:isolate;contain:layout paint style}
+.marquee-stage{position:absolute;inset:0;overflow:hidden}
+.marquee-collage{position:absolute;inset:0;will-change:transform}
+.marquee-card{position:absolute;top:50%;overflow:hidden;background:#eee;box-shadow:none;will-change:left,width,height,transform;transition:left .62s cubic-bezier(.16,1,.3,1),width .62s cubic-bezier(.16,1,.3,1),height .62s cubic-bezier(.16,1,.3,1),transform .62s cubic-bezier(.16,1,.3,1);}
+.marquee-card img{display:block;width:100%;height:100%;object-fit:cover;filter:none!important}
+.marquee-card.slot-center{left:50%;width:50vw;height:100%;transform:translate(-50%,-50%);z-index:5}
+.marquee-card.slot-medium-left{left:25%;width:17vw;height:72%;transform:translate(-100%,-50%);z-index:4}
+.marquee-card.slot-medium-right{left:75%;width:17vw;height:72%;transform:translate(0,-50%);z-index:4}
+.marquee-card.slot-small-left{left:8%;width:8vw;height:52%;transform:translate(-100%,-50%);z-index:3}
+.marquee-card.slot-small-right{left:92%;width:8vw;height:52%;transform:translate(0,-50%);z-index:3}
+.marquee-card.slot-hidden-left{left:-8%;width:8vw;height:52%;transform:translate(-100%,-50%);z-index:1;opacity:0}
+.marquee-card.slot-hidden-right{left:108%;width:8vw;height:52%;transform:translate(0,-50%);z-index:1;opacity:0}
+.marquee-card.is-center{cursor:grab}
+.marquee-card.is-center:active{cursor:grabbing}
+
+/* LIST */
+.blog-list-section{position:relative;padding:94px var(--pad) 170px;background:#fff}
+.blog-list-header{border-top:1px solid #000;padding:13px 0 18px;display:flex;justify-content:space-between;font-size:11px;text-transform:uppercase}
+.blog-item{position:relative;border-top:1px solid #000}
+.blog-item:last-child{border-bottom:1px solid #000}
+.blog-link{min-height:155px;display:grid;grid-template-columns:70px minmax(0,1fr) 130px 42px;align-items:center;gap:20px;transition:padding .55s var(--ease)}
+.blog-number,.blog-date,.blog-category{font-size:11px;text-transform:uppercase}
+.blog-info{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:12px;padding:18px 0 10px}
+.blog-info h2{max-width:1000px;font-size:clamp(34px,4.8vw,78px);line-height:.96;letter-spacing:-.065em;font-weight:700;transition:transform .55s var(--ease)}
+.blog-arrow{font-size:28px;transition:transform .5s var(--ease)}
+.blog-item:hover .blog-link{padding-left:18px;padding-right:18px}
+.blog-item:hover .blog-info h2{transform:translateX(8px)}
+.blog-item:hover .blog-arrow{transform:translate(7px,-7px)}
+
+/* FLOATING COLORFUL HOVER IMAGE */
+.blog-hover-image{position:fixed;left:0;top:0;width:256px;height:312px;z-index:10000;pointer-events:none;opacity:0;overflow:hidden;background:#eee;transform:translate3d(-50%,-50%,0) scale(.72) rotate(-5deg);transition:opacity .35s ease,transform .55s var(--ease);will-change:transform,opacity;box-shadow:0 24px 70px rgba(0,0,0,.2)}
+.blog-hover-image.visible{opacity:1;transform:translate3d(-50%,-50%,0) scale(1) rotate(0deg)}
+.blog-hover-image img{filter:none!important}
+
+@media(max-width:900px){
+:root{--pad:16px}
+
+.blog-header{height:64px;padding:9px 12px}
+.blog-header-nav{display:none}
+.blog-header-right{gap:10px}
+.blog-header-connect{min-width:98px;height:40px;font-size:11px}
+
+.blog-hero{
+    min-height:780px;
+    padding:105px var(--pad) 32px
+}
+
+.blog-hero-label{
+    padding:12px 16px;
+    font-size:11px
+}
+
+.blog-hero-title{
+    margin-top:105px;
+    width:calc(100vw - 32px);
+    max-width:none;
+    font-size:clamp(62px,15.8vw,112px);
+    line-height:.82;
+    min-height:3em;
+    transform:none
+}
+
+.hero-copy{
+    left:var(--pad);
+    bottom:30px;
+    width:58%;
+    font-size:14px
+}
+
+.blog-hero-meta{
+    right:var(--pad);
+    bottom:30px;
+    gap:25px;
+    font-size:8px
+}
+
+.papers-intro{
+    min-height:760px;
+    padding:95px var(--pad)
+}
+
+.papers-intro-title{
+    margin-left:20%;
+    width:80%;
+    font-size:clamp(54px,12vw,100px)
+}
+
+.papers-intro-grid{
+    margin:80px 0 0 20%;
+    width:80%;
+    grid-template-columns:60px 1fr;
+    gap:20px
+}
+
+.papers-intro-grid p{
+    font-size:17px
+}
+
+.blog-marquee-wrap{
+    height:560px
+}
+
+.marquee-card.slot-center{
+    width:58vw;
+    height:100%
+}
+
+.marquee-card.slot-medium-left,
+.marquee-card.slot-medium-right{
+    width:20vw;
+    height:72%
+}
+
+.marquee-card.slot-small-left,
+.marquee-card.slot-small-right{
+    width:10vw;
+    height:52%
+}
+
+.blog-list-section{
+    content-visibility:auto;
+    contain-intrinsic-size:900px;
+    padding:75px var(--pad) 110px
+}
+
+.blog-link{
+    min-height:125px;
+    grid-template-columns:35px 1fr 35px;
+    gap:10px
+}
+
+.blog-date{
+    display:none
+}
+
+.blog-info{
+    gap:8px;
+    padding:14px 0 8px
+}
+
+.blog-info h2{
+    font-size:clamp(29px,8vw,58px);
+    line-height:.96
+}
+
+.blog-arrow{
+    font-size:23px
+}
+
+.blog-item:hover .blog-link{
+    padding-left:0;
+    padding-right:0
+}
+
+.blog-hover-image{
+    display:none
+}
+
+.tnco-footer{
+    content-visibility:auto;
+    contain-intrinsic-size:700px;
+    padding:55px 16px 20px
+}
+
+.tnco-footer-top{
+    grid-template-columns:1fr 1fr;
+    gap:40px 25px
+}
+
+.tnco-footer-social-group{
+    justify-content:flex-start
+}
+
+.tnco-footer-word{
+    margin-top:75px;
+    font-size:20vw
+}
+
+.tnco-footer-bottom{
+    margin-top:60px;
+    gap:20px;
+    line-height:1.2
+}
+}
+
+/* =========================================================
+   MOBILE HERO ONLY
+   ========================================================= */
+@media(max-width:560px){
+
+    .blog-hero{
+        min-height:720px;
+    }
+
+    .blog-hero-title{
+        font-size:clamp(58px,17vw,88px);
+        margin-top:90px;
+        width:100%;
+        max-width:100%;
+        min-height:0;
+        line-height:.80;
+        letter-spacing:-.078em;
+        transform:translateY(-15px);
+    }
+
+    #heroTypewriter{
+        white-space:normal;
+        display:block;
+        width:100%;
+        max-width:100%;
+        overflow:visible;
+        word-break:normal;
+        overflow-wrap:normal;
+    }
+
+    .hero-copy{
+        width:72%;
+        font-size:13px;
+    }
+
+    .blog-hero-meta{
+        display:none;
+    }
+
+    .papers-intro-title{
+        margin-left:0;
+        width:100%;
+        font-size:16vw;
+    }
+
+    .papers-intro-grid{
+        margin-left:0;
+        width:100%;
+        grid-template-columns:48px 1fr;
+    }
+
+    .papers-intro-grid p{
+        font-size:15px;
+    }
+
+    .tnco-footer-top{
+        grid-template-columns:1fr;
+    }
+
+    .tnco-footer-social-group{
+        gap:30px;
+    }
+
+    .tnco-footer-bottom{
+        flex-direction:column;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+    .blog-marquee-track{animation-play-state:paused!important}
+    .blog-header,.blog-hover-image,.blog-info h2,.blog-arrow{transition:none!important}
+}
+
+/* =========================================================
+   BLOG LIST ONLY — ISOLATED HEADER NAMESPACE
+   ========================================================= */
+.blog-header {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+.blog-header-logo,
+.blog-header-logo-sans {
+    color: #000 !important;
+}
+
+.blog-header-nav a {
+    color: #000 !important;
+}
+
+.blog-header-nav a.active:after {
+    background: #000 !important;
+}
+
+.blog-header-connect {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+.blog-header-connect:hover {
+    background: #151515 !important;
+    color: #fff !important;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Tunetrack Papers V9: clean interactive editorial carousel -->
+
+<!-- =========================================================
+     HTML — TUNETRACK HEADER
+========================================================== -->
+
+<header class="blog-header" id="blog-header">
+
+    <!-- LOGO -->
+
+    <a href="index.html"
+       class="blog-header-logo"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Tunetrack Home">
+
+        <span class="blog-header-logo-sans">tunetrack.</span>
+
+    </a>
+
+    <!-- RIGHT NAVIGATION -->
+
+    <div class="blog-header-right">
+
+        <!-- MAIN NAV -->
+
+        <nav class="blog-header-nav"
+            aria-label="Main navigation"
+            style="position:relative; top:0; left:0; transform:translate(0,0); gap:24px;">
+
+            <a href="index.html" rel="noopener noreferrer">HOME</a>
+            <a href="#" rel="noopener noreferrer">PAPERS</a>
+            <a href="contactus.html" rel="noopener noreferrer">CONTACT</a>
+            <a href="https://www.instagram.com/chaeldavs/" target="_blank" rel="noopener noreferrer" style="font-weight:600;">DESIGNED BY CHAEL©</a>
+
+        </nav>
+
+        <!-- LANGUAGE -->
+
+        <!-- CONNECT -->
+
+        <a href="https://linktr.ee/tunetrackid" target="_blank" rel="noopener noreferrer"
+           class="blog-header-connect">
+
+            CONNECT
+
+        </a>
+
+    </div>
+
+</header>
+
+<div id="scrollContainer" data-scroll-container>
+
+<main>
+
+<section class="blog-hero" data-scroll-section>
+
+    <div class="blog-hero-label">PAPERS</div>
+
+    <h1 class="blog-hero-title" style="transform: translateY(-20px);">
+        <span id="heroTypewriter" aria-live="polite"></span>
+    </h1>
+
+    <p class="hero-copy">
+        Tunetrack is a space for stories, ideas, sounds, and the people behind the music. From sound design and production breakdowns to creative processes, experiments, discoveries, and conversations — this is where we take a closer look at what makes music meaningful.
+    </p>
+
+    <div class="blog-hero-meta">
+        <span>STORIES, IDEAS<br>&amp; SOUNDS</span>
+        <span>2026 — SO ON</span>
+    </div>
+
+</section>
+
+
+<section class="papers-intro" data-scroll-section>
+
+    <h2 class="papers-intro-title">
+        START AS CREATIVE HOME FOR CHURCH MUSICIANS.
+    </h2>
+
+    <div class="papers-intro-grid">
+
+        <span class="eyebrow">TNCO</span>
+
+        <p>
+            We built this site for — storing all the sounds we make, the ideas we chase, the things we learn, the stories behind them, and all the little things that make music what it is.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="blog-marquee-wrap" data-scroll-section id="papersMarquee">
+
+    <div class="marquee-stage">
+
+        <div class="marquee-collage"
+             id="marqueeCollage"
+             aria-label="Tunetrack Papers image carousel">
+
+            <div class="marquee-card" data-index="0">
+                <img src="assets/images/webs/web image1.jpg"
+                     alt="Music producer at work"
+                     loading="lazy"
+                     decoding="async">
+            </div>
+
+            <div class="marquee-card" data-index="1">
+                <img src="assets/images/webs/web image2.jpg"
+                     alt="Studio session"
+                     loading="lazy"
+                     decoding="async">
+            </div>
+
+            <div class="marquee-card" data-index="2">
+                <img src="assets/images/webs/web image3.jpg"
+                     alt="Creative music session"
+                     loading="lazy"
+                     decoding="async">
+            </div>
+
+            <div class="marquee-card" data-index="3">
+                <img src="assets/images/webs/web image4.jpg"
+                     alt="Live music"
+                     loading="lazy"
+                     decoding="async">
+            </div>
+
+            <div class="marquee-card" data-index="4">
+                <img src="assets/images/webs/web image5.jpg"
+                     alt="Concert crowd"
+                     loading="lazy"
+                     decoding="async">
+            </div>
+
+            <div class="marquee-card" data-index="5">
+                <img src="assets/images/webs/web image6.jpg"
+                     alt="Stage session"
+                     loading="lazy"
+                     decoding="async">
+            </div>
+
+            <div class="marquee-card" data-index="6">
+                <img src="assets/images/webs/web image7.jpg"
+                     alt="Musician performance"
+                     loading="lazy"
+                     decoding="async">
+            </div>
+
+            <div class="marquee-card" data-index="7">
+                <img src="assets/images/webs/web image8.jpg"
+                     alt="Live event"
+                     loading="lazy"
+                     decoding="async">
+            </div>
+
+            <div class="marquee-card" data-index="8">
+                <img src="assets/images/webs/web image9.jpg"
+                     alt="Music artist"
+                     loading="lazy"
+                     decoding="async">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="blog-list-section" data-scroll-section>
+
+    <div class="blog-list-header">
+        <span>LATEST PAPERS</span>
+        <span>01 — 06</span>
+    </div>
+
+    <div class="blog-list">
+
+        <article class="blog-item"
+                 data-image="assets/images/webs/SWLBP.png">
+
+            <a href="pg-sw-lebihdaripemenang.html" class="blog-link">
+
+                <div class="blog-number">01</div>
+
+                <div class="blog-info">
+                    <span class="blog-category">FREEBIES</span>
+                    <h2>Lebih dari Pemenang <br> dibawakan kembali di 2026</h2>
+                </div>
+
+                <div class="blog-date">07.09.2026</div>
+
+                <div class="blog-arrow">↗</div>
+
+            </a>
+
+        </article>
+
+
+        <article class="blog-item"
+                 data-image="assets/images/webs/NDCPENULIS.jpg">
+
+            <a href="pg-ndc-penulishidupku.html" class="blog-link">
+
+                <div class="blog-number">02</div>
+
+                <div class="blog-info">
+                    <span class="blog-category">MUSIC</span>
+                    <h2>Bedah sounds di lagu Sampai <br>Akhir oleh NDC</h2>
+                </div>
+
+                <div class="blog-date">02.09.2026</div>
+
+                <div class="blog-arrow">↗</div>
+
+            </a>
+
+        </article>
+
+
+        <article class="blog-item"
+                data-image="assets/images/webs/TUNETRACK1ST.jpg">
+
+            <a href="pg-tunetrack-celebrate.html" class="blog-link">
+
+                <div class="blog-number">03</div>
+
+                <div class="blog-info">
+                    <span class="blog-category">ANNOUNCEMENT</span>
+                    <h2>Tunetrack celebrates its New 2.0 Website Chapter</h2>
+                </div>
+
+                <div class="blog-date">29.08.2026</div>
+
+                <div class="blog-arrow">↗</div>
+
+            </a>
+
+        </article>
+<!--
+
+        <article class="blog-item"
+                 data-image="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=78">
+
+            <a href="blog-post.html" class="blog-link">
+
+                <div class="blog-number">04</div>
+
+                <div class="blog-info">
+                    <span class="blog-category">COMMUNITY</span>
+                    <h2>Why Musicians Need Their Own Space</h2>
+                </div>
+
+                <div class="blog-date">21.08.2026</div>
+
+                <div class="blog-arrow">↗</div>
+
+            </a>
+
+        </article>
+
+
+        <article class="blog-item"
+                 data-image="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=800&q=78">
+
+            <a href="blog-post.html" class="blog-link">
+
+                <div class="blog-number">05</div>
+
+                <div class="blog-info">
+                    <span class="blog-category">CREATIVE</span>
+                    <h2>Notes From The Studio</h2>
+                </div>
+
+                <div class="blog-date">15.08.2026</div>
+
+                <div class="blog-arrow">↗</div>
+
+            </a>
+
+        </article>
+
+
+        <article class="blog-item"
+                 data-image="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=78">
+
+            <a href="blog-post.html" class="blog-link">
+
+                <div class="blog-number">06</div>
+
+                <div class="blog-info">
+                    <span class="blog-category">TUNETRACK</span>
+                    <h2>Your Music Has A Story</h2>
+                </div>
+
+                <div class="blog-date">08.08.2026</div>
+
+                <div class="blog-arrow">↗</div>
+
+            </a>
+
+        </article>
+-->
+    </div>
+
+</section>
+
+
+<div class="blog-hover-image"
+     id="blogHoverImage"
+     aria-hidden="true">
+
+    <img id="blogHoverImageSrc"
+         src=""
+         alt="">
+
+</div>
+
+</main>
+
+
+<!-- =========================================================
+     HTML — FOOTER
+========================================================== -->
+
+<footer class="blog-footer" data-scroll-section>
+
+    <div class="blog-footer-top">
+
+        <div class="blog-footer-community">
+
+            <h2>
+                Join our community and get<br class="desktop-break">
+                updates, offers, and exclusive<br class="desktop-break">
+                content.
+            </h2>
+
+            <div class="blog-footer-options" aria-label="Community options">
+
+                <a href="https://t.me/gudangsequencerid?boost"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="blog-footer-option">
+
+                    <span class="blog-footer-radio" aria-hidden="true"></span>
+                    <span>OFFICIAL CHANNEL</span>
+
+                </a>
+
+
+                <a href="https://t.me/tunetrackstd?boost"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="blog-footer-option">
+
+                    <span class="blog-footer-radio" aria-hidden="true"></span>
+                    <span>FORUM DISCUSSION</span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    <div class="blog-footer-social-group" style="transform: translateX(325px);">
+        <div class="blog-footer-social-column">
+            <span class="blog-footer-heading">
+                OUR SOCIALS
+            </span>
+            <div class="blog-footer-pills">
+
+                <a href="https://www.instagram.com/tunetrackco/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Tunetrack Instagram">
+
+                    IG
+                </a>
+
+                <a href="https://www.youtube.com/@tunetracksco"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Tunetrack YouTube">
+
+                    YT
+                </a>
+
+                <a href="https://www.threads.com/@tunetrackco/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Tunetrack Threads">
+
+                    THR
+                </a>
+
+            </div>
+        </div>
+
+        <div class="blog-footer-social-column">
+            <span class="blog-footer-heading">
+                CONTACT
+            </span>
+
+            <div class="blog-footer-pills">
+                <a href="contactus.html"
+                   aria-label="Forum Mail">
+
+                    GM
+                </a>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+    <div class="blog-footer-word"
+         aria-hidden="true">
+
+        <span>HOME FOR</span>
+
+        <span style="margin-top:0.10em;">
+            MUSICIANS
+        </span>
+
+    </div>
+
+
+    <div class="blog-footer-bottom">
+
+        <span>
+            ©TUNETRACK 2026. All rights reserved.
+        </span>
+
+        <a href="https://www.instagram.com/chaeldavs/"
+           target="_blank"
+           rel="noopener noreferrer">
+
+            Design by Chael
+
+        </a>
+
+    </div>
+
+</footer>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+<script>
+(function(){
+  'use strict';
+
+  const ready = fn => {
+    if(document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fn, {once:true});
+    } else {
+      fn();
+    }
+  };
+
+  ready(function(){
+
+    const header = document.getElementById('blog-header');
+    const container = document.getElementById('scrollContainer');
+    const type = document.getElementById('heroTypewriter');
+    const items = document.querySelectorAll('.blog-item');
+    const hover = document.getElementById('blogHoverImage');
+    const hoverImg = document.getElementById('blogHoverImageSrc');
+
+
+    /* MOBILE = 2 lines
+       DESKTOP = original 3 lines */
+
+    const desktopMessages = [
+      'WANNA READ\nSOME OF OUR 😌\nUPDATES?',
+      'FUNFACT: WE\nSTARTED THE BRAND\nWITHIN A DAY 🤯',
+      'WHAT U\nWANNA\nDO NEXT FOLKS? 🤔'
+    ];
+
+    const mobileMessages = [
+      'WANNA READ SOME OF OUR 😌\nUPDATES?',
+      'FUNFACT: WE STARTED THIS BRAND\nWITHIN A DAY 🤯',
+      'WHAT U WANNA DO NEXT FOLKS? 🤔'
+    ];
+
+    const messages =
+      window.innerWidth <= 560
+        ? mobileMessages
+        : desktopMessages;
+
+
+    const TYPE = 42,
+          DELETE = 23,
+          HOLD = 4000;
+
+    let messageIndex = 0,
+        timer = 0;
+
+    let activeUnits = [];
+
+
+    function clearTypeTimer(){
+
+      if(timer) clearTimeout(timer);
+
+      timer = 0;
+
+    }
+
+
+    function setTypeUnits(units, count){
+
+      type.textContent =
+        units.slice(0, count).join('');
+
+    }
+
+
+    function typeIn(text, index){
+
+      clearTypeTimer();
+
+      if(!type) return;
+
+      activeUnits = Array.from(text);
+
+      setTypeUnits(activeUnits, index);
+
+
+      if(index < activeUnits.length){
+
+        const ch = activeUnits[index];
+
+        const delay =
+          ch === '\n'
+            ? 70
+            : (' ,.!?'.includes(ch) ? 90 : TYPE);
+
+        timer = setTimeout(
+          () => typeIn(text,index + 1),
+          delay
+        );
+
+      }else{
+
+        timer = setTimeout(
+          () => erase(activeUnits,activeUnits.length),
+          HOLD
+        );
+
+      }
+
+    }
+
+
+    function erase(units,index){
+
+      clearTypeTimer();
+
+      if(!type) return;
+
+
+      if(index > 0){
+
+        setTypeUnits(units, index - 1);
+
+        timer = setTimeout(
+          () => erase(units,index - 1),
+          DELETE
+        );
+
+        return;
+
+      }
+
+
+      // Empty state between messages: never split emoji surrogate pairs.
+
+      type.textContent = '';
+
+      messageIndex =
+        (messageIndex + 1) % messages.length;
+
+      timer = setTimeout(
+        () => typeIn(messages[messageIndex],0),
+        80
+      );
+
+    }
+
+
+    typeIn(messages[0],0);
+
+
+    /* Header show/hide — throttled to one update per frame */
+
+    let lastY = 0,
+        ticking = false;
+
+
+    function setHeader(y){
+
+      if(y < 12){
+
+        header.classList.remove('hidden');
+
+        lastY = y;
+
+        return;
+
+      }
+
+
+      if(ticking) return;
+
+      ticking = true;
+
+
+      requestAnimationFrame(() => {
+
+        if(y > lastY + 3)
+          header.classList.add('hidden');
+
+        else if(y < lastY - 3)
+          header.classList.remove('hidden');
+
+        lastY = y;
+
+        ticking = false;
+
+      });
+
+    }
+
+
+    let loco = null;
+
+
+    if(window.LocomotiveScroll && window.innerWidth > 900){
+
+      try{
+
+        loco = new LocomotiveScroll({
+
+          el: container,
+
+          smooth: true,
+
+          lerp: .12,
+
+          multiplier: 1,
+
+          smartphone: {
+            smooth:false
+          },
+
+          tablet: {
+            smooth:false
+          }
+
+        });
+
+
+        loco.on(
+          'scroll',
+          e => setHeader(
+            e && e.scroll
+              ? e.scroll.y
+              : 0
+          )
+        );
+
+
+        window.addEventListener(
+          'resize',
+          () => loco && loco.update(),
+          {passive:true}
+        );
+
+
+        setTimeout(
+          () => loco && loco.update(),
+          250
+        );
+
+
+      }catch(err){
+
+        window.addEventListener(
+          'scroll',
+          () => setHeader(
+            window.scrollY || 0
+          ),
+          {passive:true}
+        );
+
+      }
+
+    }else{
+
+      window.addEventListener(
+        'scroll',
+        () => setHeader(
+          window.scrollY || 0
+        ),
+        {passive:true}
+      );
+
+    }
+
+
+    /* Small square-ish hover thumbnail for desktop only */
+
+    if(
+      hover &&
+      hoverImg &&
+      window.matchMedia('(min-width:901px)').matches
+    ){
+
+      let mx = window.innerWidth / 2,
+          my = window.innerHeight / 2;
+
+      let cx = mx,
+          cy = my,
+          raf = 0;
+
+
+      document.addEventListener(
+        'pointermove',
+        e => {
+
+          mx = e.clientX;
+          my = e.clientY;
+
+          if(!raf)
+            raf = requestAnimationFrame(follow);
+
+        },
+        {passive:true}
+      );
+
+
+      function follow(){
+
+        cx += (mx - cx) * .18;
+        cy += (my - cy) * .18;
+
+
+        hover.style.transform =
+          'translate3d(' +
+          cx +
+          'px,' +
+          cy +
+          'px,0) translate(-50%,-50%) scale(1) rotate(0deg)';
+
+
+        raf = 0;
+
+      }
+
+
+      items.forEach(item => {
+
+        item.addEventListener(
+          'mouseenter',
+          () => {
+
+            const src =
+              item.dataset.image;
+
+            if(src){
+
+              hoverImg.src = src;
+
+              hover.classList.add('visible');
+
+            }
+
+          }
+        );
+
+
+        item.addEventListener(
+          'mouseleave',
+          () =>
+            hover.classList.remove('visible')
+        );
+
+      });
+
+    }
+
+
+    /* 9-image interactive marquee carousel — bounded, calm movement */
+
+    const marquee =
+      document.getElementById('papersMarquee');
+
+    const collage =
+      document.getElementById('marqueeCollage');
+
+
+    if(marquee && collage){
+
+      const cards =
+        Array.from(
+          collage.querySelectorAll('.marquee-card')
+        );
+
+      const count =
+        cards.length;
+
+      let active = 0,
+          transitionLock = false,
+          queuedDirection = 0,
+          wheelDelta = 0,
+          dragging = false,
+          dragStart = 0,
+          dragBase = 0,
+          lastScrollY = window.scrollY || 0,
+          scrollTick = 0;
+
+
+      function wrapIndex(i){
+
+        return (i % count + count) % count;
+
+      }
+
+
+      function applySlots(){
+
+        cards.forEach(card => {
+
+          const i =
+            Number(card.dataset.index);
+
+          let d =
+            i - active;
+
+
+          if(d > count / 2)
+            d -= count;
+
+          if(d < -count / 2)
+            d += count;
+
+
+          card.className =
+            'marquee-card';
+
+
+          if(d === 0)
+            card.classList.add(
+              'slot-center',
+              'is-center'
+            );
+
+          else if(d === -1)
+            card.classList.add(
+              'slot-medium-left'
+            );
+
+          else if(d === 1)
+            card.classList.add(
+              'slot-medium-right'
+            );
+
+          else if(d === -2)
+            card.classList.add(
+              'slot-small-left'
+            );
+
+          else if(d === 2)
+            card.classList.add(
+              'slot-small-right'
+            );
+
+          else if(d < 0)
+            card.classList.add(
+              'slot-hidden-left'
+            );
+
+          else
+            card.classList.add(
+              'slot-hidden-right'
+            );
+
+        });
+
+      }
+
+
+      function releaseLock(){
+
+        transitionLock = false;
+
+
+        if(queuedDirection){
+
+          const next =
+            queuedDirection;
+
+          queuedDirection = 0;
+
+          moveBy(next);
+
+        }
+
+      }
+
+
+      function moveBy(direction){
+
+        const dir =
+          direction > 0 ? 1 : -1;
+
+
+        if(transitionLock){
+
+          /* Never build up a huge target while the user scrolls fast. */
+
+          queuedDirection = dir;
+
+          return;
+
+        }
+
+
+        transitionLock = true;
+
+        active =
+          wrapIndex(active + dir);
+
+        applySlots();
+
+
+        window.setTimeout(
+          releaseLock,
+          620
+        );
+
+      }
+
+
+      function sectionIsActive(){
+
+        const rect =
+          marquee.getBoundingClientRect();
+
+        const center =
+          window.innerHeight * .5;
+
+        const sectionCenter =
+          rect.top +
+          rect.height * .5;
+
+
+        return Math.abs(
+          sectionCenter - center
+        ) < window.innerHeight * .72;
+
+      }
+
+
+      function handleScroll(y){
+
+        if(!sectionIsActive()){
+
+          lastScrollY = y;
+
+          return;
+
+        }
+
+
+        const delta =
+          y - lastScrollY;
+
+        lastScrollY = y;
+
+
+        if(Math.abs(delta) < 14)
+          return;
+
+
+        /* One controlled step at a time. Fast native/Loco scroll cannot stack jumps. */
+
+        moveBy(
+          delta > 0 ? 1 : -1
+        );
+
+      }
+
+
+      applySlots();
+
+
+      window.addEventListener(
+        'scroll',
+        () => {
+
+          if(scrollTick) return;
+
+          scrollTick =
+            requestAnimationFrame(() => {
+
+              scrollTick = 0;
+
+              handleScroll(
+                window.scrollY || 0
+              );
+
+            });
+
+        },
+        {passive:true}
+      );
+
+
+      if(loco)
+
+        loco.on(
+          'scroll',
+          e => {
+
+            const y =
+              e && e.scroll
+                ? e.scroll.y
+                : (window.scrollY || 0);
+
+            handleScroll(y);
+
+          }
+        );
+
+
+      marquee.addEventListener(
+        'wheel',
+        e => {
+
+          if(Math.abs(e.deltaY) < 2)
+            return;
+
+          e.preventDefault();
+
+          wheelDelta += e.deltaY;
+
+
+          /* Clamp wheel accumulation so a violent trackpad swipe stays one step. */
+
+          wheelDelta =
+            Math.max(
+              -48,
+              Math.min(48, wheelDelta)
+            );
+
+
+          if(Math.abs(wheelDelta) >= 28){
+
+            moveBy(
+              wheelDelta > 0 ? 1 : -1
+            );
+
+            wheelDelta = 0;
+
+          }
+
+        },
+        {passive:false}
+      );
+
+
+      marquee.addEventListener(
+        'pointerdown',
+        e => {
+
+          if(
+            e.pointerType === 'mouse' &&
+            e.button !== 0
+          )
+            return;
+
+
+          dragging = true;
+
+          dragStart =
+            e.clientX;
+
+          dragBase =
+            active;
+
+
+          marquee.setPointerCapture?.(
+            e.pointerId
+          );
+
+        }
+      );
+
+
+      marquee.addEventListener(
+        'pointermove',
+        e => {
+
+          if(
+            !dragging ||
+            transitionLock
+          )
+            return;
+
+
+          const dx =
+            e.clientX - dragStart;
+
+          const threshold =
+            Math.max(
+              90,
+              marquee.clientWidth * .12
+            );
+
+
+          if(Math.abs(dx) < threshold)
+            return;
+
+
+          moveBy(
+            dx < 0 ? 1 : -1
+          );
+
+          dragging = false;
+
+        }
+      );
+
+
+      marquee.addEventListener(
+        'pointerup',
+        () => {
+          dragging = false;
+        }
+      );
+
+
+      marquee.addEventListener(
+        'pointercancel',
+        () => {
+          dragging = false;
+        }
+      );
+
+    }
+
+  });
+
+})();
+</script>
+
+</body>
+</html>

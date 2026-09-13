@@ -1,0 +1,3686 @@
+
+            * {
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                margin: 0;
+                background: #fff;
+                color: #000;
+                font-family: Arial, Helvetica, sans-serif;
+                overflow-x: hidden;
+            }
+
+                        /* V32 — search result buttons sit above the transparent typing input. */
+            .tnco-local-search-results {
+                z-index: 20 !important;
+                pointer-events: auto !important;
+            }
+
+            .tnco-local-search-result {
+                position: relative !important;
+                z-index: 21 !important;
+                pointer-events: auto !important;
+                cursor: pointer !important;
+            }
+
+            .tnco-local-search-input {
+                z-index: 5 !important;
+            }
+
+            .tnco-local-search-close {
+                z-index: 30 !important;
+                pointer-events: auto !important;
+            }
+
+            /* V35 — live video must visibly replace every static placeholder layer. */
+            .tnco-hero-media-item video {
+                background: #000 !important;
+                object-fit: cover !important;
+            }
+
+
+            /* V36 — real worship footage only; no static poster/placeholder layer. */
+            .tnco-hero-media-item::before,
+            .tnco-hero-media-item::after {
+                display: none !important;
+                content: none !important;
+            }
+            .tnco-hero-media-item video {
+                display: block !important;
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+                background: #000 !important;
+                border: 0 !important;
+            }
+
+            /* V37 — native video only; no poster/placeholder layer. */
+            .tnco-hero-media-item {
+                background: #000 !important;
+            }
+            .tnco-hero-media-item::before,
+            .tnco-hero-media-item::after {
+                display: none !important;
+                content: none !important;
+            }
+            .tnco-hero-media-item video {
+                display: block !important;
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+                background: #000 !important;
+                border: 0 !important;
+                pointer-events: none !important;
+            }
+
+
+
+            @media (max-width:767px){
+                .tnco-v48-holder{width:100vw!important;}
+            }
+
+            .tnco-v48-holder{
+                position:absolute!important;
+                left:50%!important;
+                top:50%!important;
+                width:100vw!important;
+                height:190px!important;
+                transform:translate(-50%,-50%)!important;
+                pointer-events:none!important;
+                overflow:visible!important;
+                opacity:0!important;
+                z-index:0!important;
+                transition:opacity .18s ease;
+            }
+            .tnco-v48-holder.is-visible{opacity:1!important}
+
+            .tnco-v48-holder>svg{
+                position:absolute!important;
+                left:50%!important;
+                top:50%!important;
+                width:var(--v48-width)!important;
+                height:var(--v48-height)!important;
+                overflow:visible!important;
+                transform:translate(-50%,-50%) rotate(var(--v48-rotate)) scale(var(--v48-sx),var(--v48-sy))!important;
+                transform-origin:center!important;
+                z-index:0!important;
+            }
+            .tnco-v48-holder path{
+                fill:none!important;
+                stroke:currentColor!important;
+                stroke-linecap:round!important;
+                stroke-linejoin:round!important;
+            }
+
+            .tnco-v48-holder.is-alive>svg{
+                animation:v48Alive var(--v48-alive) ease-in-out infinite;
+            }
+            @keyframes v48Alive{
+                0%,100%{transform:translate(-50%,-50%) rotate(var(--v48-rotate)) scale(var(--v48-sx),var(--v48-sy))}
+                22%{transform:translate(calc(-50% - 4px),calc(-50% + 2px)) rotate(calc(var(--v48-rotate) + .8deg)) scale(calc(var(--v48-sx)*1.018),calc(var(--v48-sy)*.99))}
+                47%{transform:translate(calc(-50% + 3px),calc(-50% - 2px)) rotate(calc(var(--v48-rotate) - .7deg)) scale(calc(var(--v48-sx)*.995),calc(var(--v48-sy)*1.012))}
+                73%{transform:translate(calc(-50% - 2px),calc(-50% + 1px)) rotate(calc(var(--v48-rotate) + .35deg)) scale(calc(var(--v48-sx)*1.008),calc(var(--v48-sy)*.997))}
+            }
+
+            /* The handwritten line stays visible everywhere. Only the exact area
+            underneath the main title gets a soft blurred/dim treatment. */
+            .tnco-v48-blur{
+                position:absolute!important;
+                left:0!important;
+                top:0!important;
+                width:100%!important;
+                height:100%!important;
+                pointer-events:none!important;
+                overflow:hidden!important;
+                z-index:1!important;
+                clip-path:none!important;
+                -webkit-clip-path:none!important;
+                filter:none!important;
+                opacity:1!important;
+            }
+            .tnco-v48-blur svg{
+                position:absolute!important;
+                left:50%!important;
+                top:50%!important;
+                width:var(--v48-width)!important;
+                height:var(--v48-height)!important;
+                overflow:visible!important;
+                transform:translate(-50%,-50%) rotate(var(--v48-rotate)) scale(var(--v48-sx),var(--v48-sy))!important;
+                transform-origin:center!important;
+            }
+            .tnco-v48-blur path{
+                fill:none!important;
+                stroke:currentColor!important;
+                stroke-linecap:round!important;
+                stroke-linejoin:round!important;
+            }
+
+            /* V49 FIX — scribble and its blurred duplicate must stay behind the title. */
+            .work-item{
+                position:relative!important;
+                isolation:isolate;
+            }
+            .work-item > a{
+                position:relative!important;
+                z-index:5!important;
+            }
+            .tnco-v48-holder{
+                z-index:0!important;
+            }
+            .tnco-v48-holder > svg{
+                z-index:0!important;
+            }
+            .tnco-v48-blur{
+                z-index:1!important;
+            }
+
+            /* Native doodle icons */
+            .tnco-v48-icon{
+                position:absolute!important;
+                left:var(--icon-x)!important;
+                top:var(--icon-y)!important;
+                width:var(--icon-size)!important;
+                height:var(--icon-size)!important;
+                overflow:visible!important;
+                z-index:29!important;
+                color:#fff!important;
+                transform:translate(-50%,-50%) rotate(var(--icon-r))!important;
+            }
+            .tnco-v48-icon path,.tnco-v48-icon circle{
+                fill:none!important;
+                stroke:currentColor!important;
+                stroke-width:2.2!important;
+                stroke-linecap:round!important;
+                stroke-linejoin:round!important;
+                stroke-dasharray:900;
+                stroke-dashoffset:900;
+            }
+            .tnco-v48-icon.is-drawn path,.tnco-v48-icon.is-drawn circle{
+                animation:v48IconDraw 1.1s cubic-bezier(.65,.05,.36,1) forwards;
+            }
+            .tnco-v48-icon.is-alive{
+                animation:v48IconAlive 2.8s ease-in-out infinite;
+            }
+            @keyframes v48IconDraw{to{stroke-dashoffset:0}}
+            @keyframes v48IconAlive{
+                0%,100%{transform:translate(-50%,-50%) rotate(var(--icon-r))}
+                40%{transform:translate(calc(-50% + 3px),calc(-50% - 4px)) rotate(calc(var(--icon-r) + 4deg))}
+                70%{transform:translate(calc(-50% - 2px),calc(-50% + 2px)) rotate(calc(var(--icon-r) - 3deg))}
+            }
+
+                        /* V47 — three distinct Vara handwriting styles, centered and kept tight to each title. */
+            .tnco-vara-hover {
+                position: absolute !important;
+                left: 50% !important;
+                top: 50% !important;
+                width: 100% !important;
+                height: 150px !important;
+                transform: translate(-50%, -50%) !important;
+                z-index: 24 !important;
+                pointer-events: none !important;
+                opacity: 0 !important;
+                overflow: visible !important;
+                transition: opacity .16s ease;
+            }
+
+            .tnco-vara-hover.is-visible {
+                opacity: 1 !important;
+            }
+
+            .tnco-vara-hover svg {
+                position: absolute !important;
+                left: 50% !important;
+                top: 50% !important;
+                width: var(--vara-width, 100%) !important;
+                height: var(--vara-height, 120px) !important;
+                overflow: visible !important;
+                transform: translate(-50%, -50%) !important;
+                transform-origin: center center !important;
+            }
+
+            .tnco-vara-hover path {
+                fill: none !important;
+                stroke: currentColor !important;
+                stroke-linecap: round !important;
+                stroke-linejoin: round !important;
+            }
+
+            /* The title stays readable above the drawing. */
+            .work-item.tnco-vara-active {
+                z-index: 25 !important;
+            }
+
+            .work-item.tnco-vara-active > a {
+                position: relative !important;
+                z-index: 27 !important;
+            }
+
+            /* After the stroke finishes, the handwriting stays alive instead of becoming static. */
+            .tnco-vara-hover.is-alive svg {
+                animation: tncoVaraAlive var(--vara-alive-duration, 3.8s) ease-in-out infinite;
+            }
+
+            @keyframes tncoVaraAlive {
+                0%, 100% {
+                    transform: translate(-50%, -50%) rotate(var(--vara-rotate, 0deg)) scale(var(--vara-scale-x, 1), var(--vara-scale-y, 1));
+                }
+                18% {
+                    transform: translate(calc(-50% - 3px), calc(-50% + 1px)) rotate(calc(var(--vara-rotate, 0deg) + 0.7deg)) scale(calc(var(--vara-scale-x, 1) * 1.012), calc(var(--vara-scale-y, 1) * .995));
+                }
+                42% {
+                    transform: translate(calc(-50% + 2px), calc(-50% - 2px)) rotate(calc(var(--vara-rotate, 0deg) - 0.5deg)) scale(calc(var(--vara-scale-x, 1) * .994), calc(var(--vara-scale-y, 1) * 1.008));
+                }
+                68% {
+                    transform: translate(calc(-50% - 1px), calc(-50% + 2px)) rotate(calc(var(--vara-rotate, 0deg) + 0.35deg)) scale(calc(var(--vara-scale-x, 1) * 1.006), calc(var(--vara-scale-y, 1) * .998));
+                }
+            }
+
+            @media (max-width: 767px) {
+                .tnco-vara-hover {
+                    height: 110px !important;
+                }
+                .tnco-vara-hover svg {
+                    height: var(--vara-height-mobile, 86px) !important;
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .tnco-vara-hover.is-alive svg {
+                    animation: none !important;
+                }
+            }
+
+                    /* =====================================================
+            HERO
+            ===================================================== */
+
+            .tnco-works-intro {
+                min-height: 100vh;
+
+                background: #000;
+                color: #fff;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                text-align: center;
+
+                position: relative;
+                z-index: 5;
+
+                overflow: hidden;
+            }
+
+
+            /* =====================================================
+            MARQUEE HERO
+            ===================================================== */
+
+            .tnco-works-marquee {
+                width: 100%;
+                overflow: hidden;
+                background: #FDF505;
+                color: #000;
+
+                position: relative;
+
+                display: flex;
+                align-items: center;
+
+                white-space: nowrap;
+
+                /*
+                * Extra breathing room supaya text tidak terasa
+                * nempel ke edge viewport.
+                */
+                padding: clamp(28px, 3.4vw, 54px) 0;
+                box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+            }
+
+            /* Decorative blue marquee lines intentionally removed. */
+            .tnco-works-marquee::before,
+            .tnco-works-marquee::after {
+                display: none;
+            }
+
+
+            .tnco-works-marquee-track {
+                display: flex;
+                align-items: center;
+
+                width: max-content;
+
+                flex-shrink: 0;
+
+                /*
+                * Track berisi 2 set identik.
+                * Kita geser tepat 50% untuk looping seamless.
+                */
+                animation: tncoMarquee 24s linear infinite;
+
+                will-change: transform;
+            }
+
+
+            .tnco-marquee-set {
+                display: flex;
+                align-items: center;
+                position: relative;
+
+                flex-shrink: 0;
+
+                /*
+                * Jarak antar kalimat.
+                */
+                gap: clamp(28px, 3vw, 58px);
+
+                padding-right: clamp(28px, 3vw, 58px);
+            }
+
+            /* Small blue secondary marquee copy intentionally removed. */
+            .tnco-marquee-set::before,
+            .tnco-marquee-set::after {
+                display: none;
+            }
+
+
+            .tnco-marquee-item {
+                display: inline-flex;
+                align-items: center;
+
+                flex-shrink: 0;
+
+                color: #000;
+
+                font-size: clamp(90px, 15vw, 230px);
+                line-height: 0.82;
+
+                font-weight: 900;
+                letter-spacing: -0.075em;
+
+                white-space: nowrap;
+            }
+
+
+
+            .tnco-marquee-item:nth-child(1) { animation: tncoMarqueeFloatA 6.8s cubic-bezier(.37,0,.23,1) infinite; }
+            .tnco-marquee-item:nth-child(2) { animation: tncoMarqueeFloatB 8.4s cubic-bezier(.37,0,.23,1) infinite; }
+            .tnco-marquee-item:nth-child(3) { animation: tncoMarqueeFloatC 7.3s cubic-bezier(.37,0,.23,1) infinite; }
+            .tnco-marquee-item:nth-child(4) { animation: tncoMarqueeFloatD 9.2s cubic-bezier(.37,0,.23,1) infinite; }
+            .tnco-marquee-item:nth-child(5) { animation: tncoMarqueeFloatE 7.9s cubic-bezier(.37,0,.23,1) infinite; }
+            .tnco-marquee-item:nth-child(6) { animation: tncoMarqueeFloatF 10.1s cubic-bezier(.37,0,.23,1) infinite; }
+
+            @keyframes tncoMarqueeFloatA { 0%,100% { transform: translate3d(0,0,0) rotate(-1deg) scale(1); } 35% { transform: translate3d(-8px,-13px,0) rotate(.7deg) scale(1.015); } 70% { transform: translate3d(12px,6px,0) rotate(-.3deg) scale(.985); } }
+            @keyframes tncoMarqueeFloatB { 0%,100% { transform: translate3d(0,0,0) rotate(1deg) scale(.99); } 32% { transform: translate3d(14px,8px,0) rotate(-.6deg) scale(1.02); } 68% { transform: translate3d(-10px,-7px,0) rotate(.4deg) scale(1); } }
+            @keyframes tncoMarqueeFloatC { 0%,100% { transform: translate3d(0,0,0) rotate(-.4deg); } 40% { transform: translate3d(-12px,10px,0) rotate(1deg) scale(1.025); } 75% { transform: translate3d(7px,-12px,0) rotate(-.8deg) scale(.98); } }
+            @keyframes tncoMarqueeFloatD { 0%,100% { transform: translate3d(0,0,0) rotate(.6deg); } 28% { transform: translate3d(10px,-9px,0) rotate(-1.2deg); } 63% { transform: translate3d(-15px,7px,0) rotate(.2deg) scale(1.02); } }
+            @keyframes tncoMarqueeFloatE { 0%,100% { transform: translate3d(0,0,0) rotate(-.7deg); } 38% { transform: translate3d(-7px,-14px,0) rotate(.8deg) scale(1.018); } 72% { transform: translate3d(16px,5px,0) rotate(-.2deg); } }
+            @keyframes tncoMarqueeFloatF { 0%,100% { transform: translate3d(0,0,0) rotate(.4deg); } 31% { transform: translate3d(12px,11px,0) rotate(-.9deg) scale(1.01); } 66% { transform: translate3d(-11px,-8px,0) rotate(.6deg); } }
+
+            /* =====================================================
+            MARQUEE EMOJI
+            ===================================================== */
+
+            .works-emoji {
+                display: inline-flex;
+                color: #000;
+                align-items: center;
+                justify-content: center;
+
+                flex-shrink: 0;
+
+                margin: 0 0.08em;
+
+                font-family:
+                    "Apple Color Emoji",
+                    "Segoe UI Emoji",
+                    "Noto Color Emoji",
+                    sans-serif;
+
+                font-size: 0.72em;
+
+                line-height: 1;
+
+                transform-origin: center center;
+
+                transition:
+                    transform 0.65s cubic-bezier(.22,.61,.36,1);
+            }
+
+
+            /* =====================================================
+            MARQUEE ANIMATION
+            ===================================================== */
+
+            @keyframes tncoMarquee {
+
+                from {
+                    transform: translate3d(0, 0, 0);
+                }
+
+                to {
+                    transform: translate3d(-50%, 0, 0);
+                }
+
+            }
+
+
+            /* =====================================================
+            HERO BLUR — PULSE EVERY 3 SECONDS
+            ===================================================== */
+
+            .tnco-works-intro.is-top
+            .tnco-works-marquee-track {
+
+                animation:
+                    tncoMarquee 24s linear infinite,
+                    heroBlurPulse 3s ease-in-out infinite;
+            }
+
+
+            .tnco-works-intro.is-scrolling
+            .tnco-works-marquee-track {
+
+                filter: blur(0);
+
+                animation-name: tncoMarquee;
+                animation-duration: 24s;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+            }
+
+
+            @keyframes heroBlurPulse {
+
+                0%,
+                45% {
+                    filter: blur(3px);
+                }
+
+                50%,
+                95% {
+                    filter: blur(0);
+                }
+
+                100% {
+                    filter: blur(3px);
+                }
+
+            }
+
+
+            /* =====================================================
+            TYPEWRITER
+            ===================================================== */
+
+            .tnco-works-subtitle {
+                position: absolute;
+
+                left: 50%;
+                top: 72%;
+                bottom: auto;
+
+                transform: translateX(-50%);
+
+                font-size: 15px;
+                font-weight: 500;
+                color: #fff;
+
+                white-space: nowrap;
+
+                min-height: 22px;
+
+                z-index: 10;
+            }
+
+            /* =====================================================
+            HERO MEDIA — FLOATING PHOTO / VIDEO COMPOSITION
+            ===================================================== */
+
+            .tnco-hero-media {
+                position: absolute;
+                inset: 0;
+                z-index: 2;
+                pointer-events: none;
+                overflow: hidden;
+            }
+
+            .tnco-hero-media-item {
+                position: absolute;
+                display: block;
+                object-fit: cover;
+                background: #000;
+                overflow: visible;
+                border-radius: 14px;
+                isolation: isolate;
+            }
+
+            /*
+            * Worship-media treatment:
+            * the real video stays sharp in the middle while a blurred copy
+            * of its poster lives behind the edges. This creates the soft
+            * radial/motion-blur halo from the reference without blurring the
+            * whole video.
+            */
+            /* Blue glow overlay removed. The radial edge-blur layer above stays. */
+            .tnco-hero-media-item::after {
+                display: none;
+            }
+
+            .tnco-hero-media-item video {
+                position: relative;
+                z-index: 1;
+                width: 100%;
+                height: 100%;
+                display: block;
+                object-fit: cover;
+                border-radius: inherit;
+                filter: brightness(0.62) grayscale(1) contrast(1.04);
+                transform: scale(1.01);
+            }
+
+            @keyframes tncoEdgeDrift {
+                0%, 100% {
+                    transform: translate3d(-1.5%, 0, 0) scale(1.01);
+                    opacity: .62;
+                }
+                50% {
+                    transform: translate3d(2%, -1%, 0) scale(1.06);
+                    opacity: .95;
+                }
+            }
+
+            .tnco-hero-media-main {
+                display: none !important;
+            }
+
+            .tnco-hero-media-small-1 {
+                width: min(17.6vw, 255px);
+                height: min(12.1vw, 175px);
+                left: 5vw;
+                top: 22%;
+                animation: tncoFloatB 9.2s ease-in-out infinite;
+            }
+
+            .tnco-hero-media-small-2 {
+                width: min(19.8vw, 285px);
+                height: min(13.2vw, 190px);
+                left: 27%;
+                top: 15%;
+                animation: tncoFloatC 10.4s ease-in-out infinite;
+            }
+
+            .tnco-hero-media-small-3 {
+                width: min(23.1vw, 335px);
+                height: min(14.3vw, 205px);
+                right: 25%;
+                top: 56%;
+                animation: tncoFloatD 8.9s ease-in-out infinite;
+            }
+
+            .tnco-hero-media-small-4 {
+                width: min(18.7vw, 270px);
+                height: min(12.1vw, 175px);
+                left: 14%;
+                top: 61%;
+                animation: tncoFloatE 11.2s ease-in-out infinite;
+            }
+
+            .tnco-hero-media-small-5 {
+                width: min(16.5vw, 240px);
+                height: min(11.5vw, 165px);
+                left: 41%;
+                top: 35%;
+                animation: tncoFloatF 9.8s ease-in-out infinite;
+            }
+
+            .tnco-hero-media-small-6 {
+                width: min(20.9vw, 300px);
+                height: min(13.2vw, 190px);
+                right: 14%;
+                top: 69%;
+                animation: tncoFloatG 12s ease-in-out infinite;
+            }
+
+            .tnco-hero-media-small-7 {
+                width: min(13.2vw, 190px);
+                height: min(9.1vw, 132px);
+                right: 3.5vw;
+                top: 22%;
+                animation: tncoFloatH 10.7s ease-in-out infinite;
+            }
+
+            .tnco-hero-media-small-8 {
+                width: min(14.4vw, 205px);
+                height: min(9.8vw, 140px);
+                right: 23%;
+                top: 50%;
+                animation: tncoFloatD 9.6s ease-in-out infinite reverse;
+            }
+
+
+
+            @keyframes tncoFloatA {
+                0%,100% { transform: translate3d(0,0,0) rotate(-0.4deg); }
+                50% { transform: translate3d(-12px,10px,0) rotate(0.5deg); }
+            }
+            @keyframes tncoFloatB {
+                0%,100% { transform: translate3d(0,0,0) rotate(0.5deg); }
+                50% { transform: translate3d(16px,-13px,0) rotate(-0.8deg); }
+            }
+            @keyframes tncoFloatC {
+                0%,100% { transform: translate3d(0,0,0) rotate(-0.3deg); }
+                50% { transform: translate3d(-9px,15px,0) rotate(0.7deg); }
+            }
+            @keyframes tncoFloatD {
+                0%,100% { transform: translate3d(0,0,0) rotate(0.4deg); }
+                50% { transform: translate3d(13px,-11px,0) rotate(-0.5deg); }
+            }
+            @keyframes tncoFloatE {
+                0%,100% { transform: translate3d(0,0,0) rotate(-0.6deg); }
+                50% { transform: translate3d(-15px,-8px,0) rotate(0.6deg); }
+            }
+            @keyframes tncoFloatF {
+                0%,100% { transform: translate3d(0,0,0) rotate(0.2deg); }
+                50% { transform: translate3d(11px,12px,0) rotate(-0.7deg); }
+            }
+            @keyframes tncoFloatG {
+                0%,100% { transform: translate3d(0,0,0) rotate(-0.2deg); }
+                50% { transform: translate3d(-10px,-14px,0) rotate(0.8deg); }
+            }
+            @keyframes tncoFloatH {
+                0%,100% { transform: translate3d(0,0,0) rotate(0.6deg); }
+                50% { transform: translate3d(14px,9px,0) rotate(-0.6deg); }
+            }
+
+            .tnco-works-marquee,
+            .tnco-works-subtitle {
+                position: relative;
+                z-index: 4;
+            }
+
+            .tnco-works-subtitle {
+                position: absolute;
+            }
+
+
+            .typewriter-cursor {
+                display: inline-block;
+
+                margin-left: 2px;
+
+                animation: cursorBlink 0.8s infinite;
+            }
+
+
+            @keyframes cursorBlink {
+
+                0%,
+                45% {
+                    opacity: 1;
+                }
+
+                46%,
+                100% {
+                    opacity: 0;
+                }
+
+            }
+
+
+            /* =====================================================
+            SEARCH
+            ===================================================== */
+
+            .tnco-search {
+                position: fixed !important;
+                left: 50% !important;
+                bottom: 32px !important;
+                transform: translate(-50%, 0);
+
+                z-index: 9998;
+                opacity: 0;
+                pointer-events: none;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                min-width: 190px;
+                height: 54px;
+                padding: 0 25px;
+
+                border: 1px solid rgba(255,255,255,0.62);
+                border-radius: 999px;
+
+                background:
+                    linear-gradient(
+                        180deg,
+                        rgba(255,255,255,0.72) 0%,
+                        rgba(255,255,255,0.40) 48%,
+                        rgba(255,255,255,0.22) 100%
+                    );
+
+                color: #111;
+
+                box-shadow:
+                    inset 0 1px 0 rgba(255,255,255,0.96),
+                    inset 0 -1px 0 rgba(255,255,255,0.22),
+                    0 12px 34px rgba(0,0,0,0.14),
+                    0 2px 8px rgba(0,0,0,0.08);
+
+                backdrop-filter: blur(24px) saturate(180%);
+                -webkit-backdrop-filter: blur(24px) saturate(180%);
+
+                isolation: isolate;
+                overflow: hidden;
+
+                font-size: 14px;
+                font-weight: 700;
+                cursor: pointer;
+
+                transition:
+                    opacity 0.35s ease,
+                    transform 0.35s ease,
+                    background 0.25s ease,
+                    color 0.25s ease,
+                    border-color 0.25s ease,
+                    box-shadow 0.25s ease;
+            }
+
+            .tnco-search::before {
+                content: "";
+                position: absolute;
+                inset: 1px;
+                border-radius: inherit;
+                background:
+                    linear-gradient(
+                        115deg,
+                        rgba(255,255,255,0.48),
+                        transparent 34%,
+                        transparent 66%,
+                        rgba(255,255,255,0.18)
+                    );
+                pointer-events: none;
+                z-index: -1;
+            }
+
+            .tnco-search:hover {
+                background: #000;
+                color: #fff;
+                border-color: #000;
+                box-shadow:
+                    inset 0 1px 0 rgba(255,255,255,0.14),
+                    0 16px 42px rgba(0,0,0,0.22);
+            }
+
+            .tnco-search:hover .tnco-search-icon {
+                color: #fff;
+            }
+
+            .tnco-search.visible {
+                opacity: 1;
+                pointer-events: auto;
+                transform: translate(-50%, 0);
+            }
+
+            .tnco-search.search-enter {
+                animation: tncoSearchReveal 0.9s cubic-bezier(.16,1,.3,1) both;
+            }
+
+            @keyframes tncoSearchReveal {
+                0% {
+                    opacity: 0;
+                    filter: blur(14px);
+                    transform: translate(-50%, 18px) scale(.94);
+                }
+                60% {
+                    opacity: .72;
+                    filter: blur(5px);
+                }
+                100% {
+                    opacity: 1;
+                    filter: blur(0);
+                    transform: translate(-50%, 0) scale(1);
+                }
+            }
+
+            .tnco-search.is-searching {
+                opacity: 0;
+                pointer-events: none;
+                transform: translate(-50%, 14px) scale(0.96);
+            }
+
+            .tnco-search-icon {
+                margin-right: 10px;
+                font-size: 15px;
+                transition: color 0.25s ease;
+            }
+
+
+            /* =====================================================
+            WORKS
+            ===================================================== */
+
+            .tnco-works {
+                position: relative;
+
+                padding:
+                    4vh
+                    7vw
+                    25vh;
+
+                perspective: 1400px;
+            }
+
+
+            .works-list {
+                width: 100%;
+                max-width: 1300px;
+
+                margin: 0 auto;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                gap: 0.5vh;
+            }
+
+
+            /* =====================================================
+            EACH TITLE
+            ===================================================== */
+
+            .work-item {
+                width: 100%;
+
+                display: flex;
+                justify-content: center;
+
+                position: relative;
+
+                transform-style: preserve-3d;
+
+                transition:
+                    transform 0.55s cubic-bezier(.22,.61,.36,1),
+                    opacity 0.4s ease;
+            }
+
+
+            .work-item a {
+                display: inline-block;
+
+                position: relative;
+
+                color: #000;
+                text-decoration: none;
+
+                text-align: center;
+
+                font-size: clamp(36px, 5vw, 76px);
+                line-height: 0.95;
+
+                font-weight: 800;
+                letter-spacing: -0.055em;
+
+                padding: 7px 14px;
+
+                transition:
+                    color 0.25s ease,
+                    background 0.25s ease,
+                    padding 0.25s ease;
+            }
+
+
+            .work-item a:hover {
+                background: #000;
+                color: #fff;
+            }
+
+
+            /* =====================================================
+            GILDA DISPLAY — WORSHIP SLOW
+            ===================================================== */
+
+            .work-item.worship a {
+                font-family: "Gilda Display", serif;
+
+                font-weight: 400;
+                letter-spacing: -0.035em;
+            }
+
+
+            /* =====================================================
+            FOOTER
+            ===================================================== */
+
+            .tnco-footer {
+                margin: 0 5vw 5vw;
+
+                min-height: 320px;
+
+                border-radius: 42px;
+
+                background: #f6f6f6;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                padding: 70px 55px 40px;
+            }
+
+
+            .footer-main {
+                text-align: center;
+            }
+
+
+            .footer-main h2 {
+                margin: 0 0 12px;
+
+                font-size: clamp(42px, 6vw, 80px);
+                line-height: 0.95;
+
+                letter-spacing: -0.065em;
+            }
+
+
+            .footer-main p {
+                margin: 0;
+
+                color: #777;
+
+                font-size: 18px;
+            }
+
+
+            .footer-bottom {
+                border-top: 1px solid #ddd;
+
+                padding-top: 25px;
+
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+
+            .footer-links {
+                display: flex;
+                gap: 30px;
+            }
+
+
+            .footer-links a {
+                color: #000;
+                font-weight: 700;
+                text-decoration: none;
+                font-size: 14px;
+            }
+
+
+            .footer-socials {
+                display: flex;
+                gap: 10px;
+            }
+
+
+            .footer-socials a {
+                border: 1px solid #111;
+
+                padding: 10px 18px;
+
+                border-radius: 999px;
+
+                color: #000;
+                text-decoration: none;
+
+                font-size: 13px;
+                font-weight: 700;
+            }
+
+
+            /* =====================================================
+            HEADER
+            ===================================================== */
+
+            .tnco-header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 9999;
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                padding: 10px 15px 10px 12px;
+
+                background: transparent;
+                color: #fff;
+
+                transition:
+                    transform 0.85s cubic-bezier(.77,0,.18,1),
+                    opacity 0.78s ease;
+            }
+
+
+            .tnco-header-logo {
+                display: inline-flex;
+                align-items: baseline;
+
+                text-decoration: none;
+                color: #fff;
+
+                line-height: 1;
+                white-space: nowrap;
+            }
+
+
+            .tnco-logo-sans {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 30px;
+                font-weight: 1000;
+                letter-spacing: -0.1em;
+                line-height: 0.85;
+            }
+
+
+            .tnco-logo-serif {
+                font-family: "Gilda Display", serif;
+                font-size: 151px;
+                font-weight: 600;
+                letter-spacing: -0.1em;
+                line-height: 0.85;
+            }
+
+
+            /* =====================================================
+            HEADER RIGHT
+            ===================================================== */
+
+            .tnco-header-right {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+
+                margin-left: auto;
+                padding-right: 0;
+
+                gap: 20px;
+
+                transform: translateY(0);
+            }
+
+
+            .tnco-header-nav {
+                display: flex;
+                align-items: center;
+                gap: 24px;
+            }
+
+
+            .tnco-header-nav a,
+            .tnco-header-lang a {
+                color: #fff;
+                text-decoration: none;
+
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 13px;
+                font-weight: 500;
+
+                letter-spacing: -0.02em;
+
+                transition: opacity 0.25s ease;
+            }
+
+
+            .tnco-header-nav a:hover,
+            .tnco-header-lang a:hover {
+                opacity: 0.45;
+            }
+
+
+            /* =====================================================
+            LANGUAGE
+            ===================================================== */
+
+            .tnco-header-lang {
+                display: flex;
+                align-items: center;
+                gap: 7px;
+            }
+
+
+            .tnco-header-lang span {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 12px;
+                color: #fff;
+                opacity: 0.45;
+            }
+
+
+            .tnco-header-lang .active {
+                font-weight: 700;
+            }
+
+
+            /* =====================================================
+            CONNECT PILL
+            ===================================================== */
+
+            .tnco-header-connect {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+
+                min-width: 108px;
+                height: 38px;
+
+                padding: 0 22px;
+
+                border-radius: 999px;
+
+                background: #fff;
+                color: #000;
+
+                text-decoration: none;
+
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 12px;
+                font-weight: 600;
+
+                letter-spacing: -0.015em;
+
+                transition:
+                    transform 0.25s ease,
+                    background 0.25s ease;
+            }
+
+
+            .tnco-header-connect:hover {
+                transform: translateY(-2px);
+                background: #151515;
+            }
+
+
+            /* =====================================================
+            HIDE HEADER ON SCROLL
+            ===================================================== */
+
+            .tnco-header.hidden {
+                transform: translateY(-120%);
+                opacity: 0;
+                pointer-events: none;
+            }
+
+
+            /* =====================================================
+            MOBILE
+            ===================================================== */
+
+            @media (min-width: 768px) and (max-width: 1100px) {
+                .tnco-hero-media-main {
+                    width: 29vw;
+                    height: 38vw;
+                    right: 4vw;
+                }
+                .tnco-hero-media-small-1 {
+                    width: 18vw;
+                    height: 12vw;
+                    left: 4vw;
+                }
+                .tnco-hero-media-small-2 {
+                    width: 21vw;
+                    height: 14vw;
+                    left: 27%;
+                }
+                .tnco-hero-media-small-3 {
+                    width: 23vw;
+                    height: 15vw;
+                    right: 25%;
+                }
+            }
+
+            @media (max-width: 767px) {
+
+                .tnco-header {
+                    padding: 24px 22px;
+                }
+
+
+                .tnco-header-right {
+                    gap: 18px;
+                }
+
+
+                .tnco-header-nav {
+                    display: none;
+                }
+
+
+                .tnco-header-lang {
+                    display: none;
+                }
+
+
+                .tnco-logo-sans {
+                    font-size: 28px;
+                }
+
+
+                .tnco-logo-serif {
+                    font-size: 30px;
+                }
+
+
+                .tnco-header-connect {
+                    min-width: 92px;
+                    height: 34px;
+                    padding: 0 18px;
+                    font-size: 11px;
+                }
+
+
+                /* ================================================
+                MOBILE MARQUEE
+                ================================================ */
+
+                .tnco-works-marquee {
+                    padding: 22px 0;
+                }
+
+
+                .tnco-marquee-set {
+                    gap: 28px;
+                    padding-right: 28px;
+                }
+
+
+                .tnco-marquee-item {
+                    font-size: clamp(70px, 18vw, 110px);
+                    letter-spacing: -0.075em;
+                }
+
+                .tnco-marquee-set::before,
+                .tnco-marquee-set::after {
+                    font-size: 7px;
+                    letter-spacing: .24em;
+                }
+
+
+                .works-emoji {
+                    margin: 0 0.1em;
+                }
+
+
+                .tnco-works-intro {
+                    min-height: 90vh;
+                }
+
+                .tnco-hero-media-main { width: 48vw; height: 62vw; right: 3vw; top: 23%; }
+                .tnco-hero-media-small-1 { width: 31vw; height: 21vw; left: 2vw; top: 26%; }
+                .tnco-hero-media-small-2 { width: 34vw; height: 23vw; left: 21%; top: 15%; }
+                .tnco-hero-media-small-3 { width: 38vw; height: 25vw; right: 20%; top: 58%; }
+                .tnco-hero-media-small-4 { width: 31vw; height: 21vw; left: 8%; top: 63%; }
+                .tnco-hero-media-small-5 { width: 28vw; height: 19vw; left: 38%; top: 35%; }
+                .tnco-hero-media-small-6 { width: 34vw; height: 23vw; right: 5%; top: 70%; }
+                .tnco-hero-media-small-7 { width: 22vw; height: 15vw; right: 2%; top: 24%; }
+                .tnco-hero-media-small-8 { width: 23vw; height: 16vw; right: 18%; top: 50%; }
+
+                .tnco-works-subtitle {
+                    top: 72%;
+                    bottom: auto;
+                    font-size: 13px;
+                }
+
+
+                .tnco-works {
+                    padding:
+                        5vh
+                        18px
+                        20vh;
+                }
+
+
+                .works-list {
+                    gap: 1.5vh;
+                }
+
+
+                .work-item a {
+                    font-size: clamp(30px, 9vw, 54px);
+                    padding: 5px 8px;
+                }
+
+
+                .tnco-search {
+                    bottom: 18px;
+                    height: 50px;
+                    min-width: 170px;
+                }
+
+
+                .tnco-footer {
+                    margin: 0 18px 18px;
+
+                    padding: 50px 25px 30px;
+
+                    border-radius: 30px;
+                }
+
+
+                .footer-bottom {
+                    flex-direction: column;
+                    gap: 25px;
+                    align-items: flex-start;
+                }
+
+
+                .footer-links {
+                    gap: 18px;
+                }
+
+
+                .footer-socials {
+                    flex-wrap: wrap;
+                }
+
+            }
+
+
+            /* =====================================================
+            REDUCE MOTION
+            ===================================================== */
+
+            @media (prefers-reduced-motion: reduce) {
+
+                .tnco-works-marquee-track {
+                    animation: none !important;
+                    transform: translate3d(0, 0, 0);
+                }
+
+                html {
+                    scroll-behavior: auto;
+                }
+
+            }
+
+            .works-list .tnco-vara-hover{
+                display:none !important;
+                visibility:hidden !important;
+                pointer-events:none !important;
+            }
+
+            .works-list .tnco-v48-holder{
+                display:none !important;
+            }
+
+            /* V59 scribble holder — sits behind the list text. */
+            .works-list .work-item.v58-scribble-item .tnco-v48-holder{
+                display:block !important;
+                visibility:hidden !important;
+                opacity:1 !important;
+                filter:none !important;
+                -webkit-filter:none !important;
+                pointer-events:none !important;
+                overflow:visible !important;
+                z-index:0 !important;
+
+                left:18px !important;
+                top:50% !important;
+                width:calc(100vw - 18px) !important;
+                height:175px !important;
+
+                transform:translateY(-50%) !important;
+                transform-origin:left center !important;
+            }
+
+            .works-list .work-item.v58-scribble-item .tnco-v48-holder.is-visible{
+                visibility:visible !important;
+            }
+
+            .works-list .work-item.v58-scribble-item .tnco-v48-holder > svg{
+                position:absolute !important;
+                left:0 !important;
+                top:50% !important;
+
+                width:var(--v48-width) !important;
+                height:var(--v48-height) !important;
+
+                overflow:visible !important;
+                transform:
+                    translateY(-50%)
+                    rotate(var(--v58-rotate))
+                    scale(1.52,.84) !important;
+
+                transform-origin:left center !important;
+
+                color:#fff !important;
+                opacity:1 !important;
+
+                /* V57's 30%-reduced brightness stays; no opacity dimming. */
+                filter:brightness(.60) !important;
+                -webkit-filter:brightness(.60) !important;
+
+                z-index:0 !important;
+            }
+
+            /* Keep Vara strokes clean and rounded. */
+            .works-list .work-item.v58-scribble-item .tnco-v48-holder path{
+                fill:none !important;
+                stroke:currentColor !important;
+                stroke-linecap:round !important;
+                stroke-linejoin:round !important;
+            }
+
+            /* Organic movement, but the angle itself is supplied per item. */
+            .works-list .work-item.v58-scribble-item .tnco-v48-holder.is-alive > svg{
+                animation:v58ScribbleChaos 4.2s cubic-bezier(.45,.05,.55,.95) infinite !important;
+                will-change:transform;
+            }
+
+            @keyframes v58ScribbleChaos{
+                0%,100%{
+                    transform:
+                        translateY(-50%)
+                        translateX(0)
+                        rotate(var(--v58-rotate))
+                        scale(1.52,.84);
+                }
+                14%{
+                    transform:
+                        translateY(-50%)
+                        translateX(-7px)
+                        rotate(calc(var(--v58-rotate) + .7deg))
+                        scale(1.535,.83);
+                }
+                28%{
+                    transform:
+                        translateY(-50%)
+                        translateX(6px)
+                        rotate(calc(var(--v58-rotate) - .8deg))
+                        scale(1.49,.86);
+                }
+                44%{
+                    transform:
+                        translateY(-50%)
+                        translateX(-4px)
+                        rotate(calc(var(--v58-rotate) + .45deg))
+                        scale(1.56,.82);
+                }
+                61%{
+                    transform:
+                        translateY(-50%)
+                        translateX(8px)
+                        rotate(calc(var(--v58-rotate) - .65deg))
+                        scale(1.50,.85);
+                }
+                78%{
+                    transform:
+                        translateY(-50%)
+                        translateX(-5px)
+                        rotate(calc(var(--v58-rotate) + .55deg))
+                        scale(1.545,.83);
+                }
+            }
+
+            /* Mobile: still starts from the left padding. */
+            @media (max-width:767px){
+                .works-list .work-item.v58-scribble-item .tnco-v48-holder{
+                    left:14px !important;
+                    width:calc(100vw - 14px) !important;
+                }
+
+                .works-list .work-item.v58-scribble-item .tnco-v48-holder > svg{
+                    width:calc(100vw - 14px) !important;
+                }
+            }
+
+        
+            /* =====================================================
+            LOCAL SEARCH — IMMERSIVE SEARCH STAGE
+            ===================================================== */
+
+            .tnco-local-search-overlay {
+                position: fixed !important;
+                inset: 0;
+                z-index: 10001;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 24px;
+                background: rgba(255,255,255,0.16);
+                backdrop-filter: blur(28px) saturate(115%);
+                -webkit-backdrop-filter: blur(28px) saturate(115%);
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transition: opacity 0.38s cubic-bezier(.22,1,.36,1), visibility 0.38s;
+            }
+
+            .tnco-local-search-overlay.is-open {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+
+            .tnco-local-search-box {
+                position: relative;
+                width: min(1180px, 94vw);
+                height: min(620px, 72vh);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: transparent;
+                border: 0;
+                box-shadow: none;
+                overflow: visible;
+            }
+
+            .tnco-local-search-input-wrap {
+                position: absolute;
+                inset: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: visible;
+            }
+
+            .tnco-local-search-input {
+                position: absolute;
+                inset: 0;
+                z-index: 5;
+                width: 100%;
+                height: 100%;
+                border: 0;
+                outline: 0;
+                background: transparent;
+                color: transparent;
+                caret-color: transparent;
+                cursor: text;
+                font-size: 1px;
+                opacity: 0;
+            }
+
+            .tnco-local-search-input::selection {
+                background: transparent;
+            }
+
+            .tnco-search-prompt {
+                position: absolute;
+                z-index: 2;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                margin: 0;
+                color: rgba(0,0,0,0.58);
+                font: 500 15px/1.2 Arial, Helvetica, sans-serif;
+                letter-spacing: -0.025em;
+                white-space: nowrap;
+                transition:
+                    opacity 0.28s ease,
+                    transform 0.45s cubic-bezier(.16,1,.3,1);
+                pointer-events: none;
+            }
+
+            .tnco-local-search-overlay.has-query .tnco-search-prompt {
+                opacity: 0;
+                transform: translate(-50%, -44%);
+            }
+
+            .tnco-search-animated-text {
+                position: absolute;
+                z-index: 3;
+                left: 2vw;
+                right: 2vw;
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 0;
+                pointer-events: none;
+                color: #000;
+                text-align: center;
+                font: 800 clamp(4.2rem, 12vw, 12.5rem)/0.82 Arial, Helvetica, sans-serif;
+                letter-spacing: -0.075em;
+                text-wrap: balance;
+                word-break: break-word;
+            }
+
+            .tnco-search-char {
+                display: inline-block;
+                white-space: pre;
+                opacity: 0;
+                filter: blur(9px);
+                transform:
+                    translate3d(var(--char-x), var(--char-y), 0)
+                    rotate(var(--char-r))
+                    scale(.82);
+                transform-origin: 50% 70%;
+                animation: tncoSearchCharFly 0.72s cubic-bezier(.16,1,.3,1) forwards;
+                will-change: transform, opacity, filter;
+            }
+
+            @keyframes tncoSearchCharFly {
+                0% {
+                    opacity: 0;
+                    filter: blur(9px);
+                    transform:
+                        translate3d(var(--char-x), var(--char-y), 0)
+                        rotate(var(--char-r))
+                        scale(.82);
+                }
+                62% {
+                    opacity: 1;
+                    filter: blur(0);
+                    transform:
+                        translate3d(
+                            calc(var(--char-x) * .12),
+                            calc(var(--char-y) * .12),
+                            0
+                        )
+                        rotate(calc(var(--char-r) * .12))
+                        scale(1.015);
+                }
+                100% {
+                    opacity: 1;
+                    filter: blur(0);
+                    transform:
+                        translate3d(0,0,0)
+                        rotate(0)
+                        scale(1);
+                }
+            }
+
+            .tnco-local-search-results {
+                position: absolute;
+                z-index: 4;
+                left: 50%;
+                top: 72%;
+                transform: translateX(-50%);
+                width: min(720px, 88vw);
+                max-height: 24vh;
+                overflow-y: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                opacity: 0;
+                pointer-events: none;
+                transition:
+                    opacity 0.35s ease,
+                    transform 0.45s cubic-bezier(.16,1,.3,1);
+            }
+
+            .tnco-local-search-overlay.has-query .tnco-local-search-results {
+                opacity: 1;
+                pointer-events: auto;
+                transform: translateX(-50%) translateY(0);
+            }
+
+            .tnco-local-search-result {
+                display: block;
+                width: 100%;
+                appearance: none;
+                -webkit-appearance: none;
+                cursor: pointer;
+                padding: 10px 14px;
+                border: 0;
+                border-radius: 10px;
+                background: rgba(255,255,255,0.28);
+                color: #000;
+                text-align: left;
+                text-decoration: none;
+                font: 600 15px/1.2 Arial, Helvetica, sans-serif;
+                letter-spacing: -0.02em;
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                transition: background 0.2s ease, color 0.2s ease;
+            }
+
+            .tnco-local-search-result:hover {
+                background: #000;
+                color: #fff;
+            }
+
+            .tnco-local-search-empty {
+                padding: 10px 14px;
+                color: rgba(0,0,0,0.55);
+                font: 500 14px/1.2 Arial, Helvetica, sans-serif;
+                text-align: center;
+            }
+
+            .tnco-local-search-close {
+                position: fixed;
+                top: 28px;
+                right: 28px;
+                z-index: 6;
+                width: 42px;
+                height: 42px;
+                border: 1px solid rgba(0,0,0,0.12);
+                border-radius: 50%;
+                background: rgba(255,255,255,0.24);
+                color: #000;
+                cursor: pointer;
+                font-size: 18px;
+                line-height: 1;
+                backdrop-filter: blur(16px) saturate(150%);
+                -webkit-backdrop-filter: blur(16px) saturate(150%);
+            }
+
+            .tnco-local-search-close:hover {
+                background: #000;
+                color: #fff;
+            }
+
+            body.tnco-search-open {
+                overflow: hidden;
+            }
+
+            @media (max-width: 767px) {
+                .tnco-local-search-overlay {
+                    padding: 16px;
+                }
+
+                .tnco-local-search-box {
+                    width: 94vw;
+                    height: 70vh;
+                }
+
+                .tnco-search-animated-text {
+                    left: 1vw;
+                    right: 1vw;
+                    font-size: clamp(3.3rem, 17vw, 7rem);
+                    letter-spacing: -0.075em;
+                    line-height: 0.84;
+                }
+
+                .tnco-search-prompt {
+                    font-size: 14px;
+                }
+
+                .tnco-local-search-results {
+                    top: 70%;
+                    width: 90vw;
+                    max-height: 22vh;
+                }
+
+                .tnco-local-search-close {
+                    top: 18px;
+                    right: 18px;
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .tnco-search-char {
+                    animation: none;
+                    opacity: 1;
+                    filter: none;
+                    transform: none;
+                }
+            }
+
+            /* =====================================================
+            LOCOMOTIVE SCROLL
+            ===================================================== */
+
+        
+            /* =====================================================
+            V15 PALETTE — BLACK / YELLOW / MONOCHROME MEDIA
+            ====================================================== */
+            :root { --tnco-yellow: #FDF505; }
+
+            /* All photographic/video color is removed. */
+            .tnco-hero-media-item,
+            .tnco-hero-media-item video {
+                filter: grayscale(1) !important;
+            }
+
+            /* Heading treatment. */
+            .tnco-marquee-item,
+            .footer-main h2 {
+                color: var(--tnco-yellow) !important;
+            }
+
+            /* Regular page text stays black. */
+            .tnco-works-subtitle,
+            .work-item a,
+            .footer-main p,
+            .footer-links a,
+            .tnco-search,
+            .tnco-local-search-result,
+            .tnco-search-prompt,
+            .tnco-search-animated-text,
+            .tnco-local-search-empty {
+                color: #000 !important;
+            }
+
+            /* Remove remaining blue/colored media treatment. */
+            .tnco-hero-media-item::after {
+                display: none !important;
+            }
+
+            /* =====================================================
+            V15 FINAL PALETTE
+            ====================================================== */
+            :root { --tnco-yellow: #FDF505; }
+
+            .tnco-hero-media-item video {
+                filter: brightness(0.62) grayscale(1) contrast(1.04) !important;
+            }
+
+            /* Requested heading color. */
+            .tnco-marquee-item,
+            .footer-main h2 {
+                color: var(--tnco-yellow) !important;
+            }
+
+            /* Regular text / UI text black. */
+            .tnco-works-subtitle,
+            .work-item a,
+            .footer-main p,
+            .footer-links a,
+            .tnco-search,
+            .tnco-local-search-result,
+            .tnco-search-prompt,
+            .tnco-search-animated-text,
+            .tnco-local-search-empty {
+                color: #000 !important;
+            }
+
+            /* No colored media glow. */
+            .tnco-hero-media-item::after {
+                display: none !important;
+                box-shadow: none !important;
+            }
+
+
+            /* =====================================================
+            V16 — FINAL BLACK WORKS PALETTE
+            ====================================================== */
+
+            /* Hero/header stays black. */
+            .tnco-works-intro,
+            .tnco-works-intro .tnco-works-marquee,
+            .tnco-works-intro .tnco-works-subtitle,
+            .tnco-works-intro .tnco-search,
+            header,
+            .tnco-header {
+                background-color: #000 !important;
+            }
+
+            /* Yellow heading treatment: yellow block, black type. */
+            .tnco-works-intro .tnco-marquee-item {
+                background: var(--tnco-yellow) !important;
+                color: #000 !important;
+            }
+
+            .tnco-works-intro .tnco-marquee-item .works-emoji {
+                color: inherit !important;
+            }
+
+            /* Everything from the works list downward is black. */
+            .tnco-works,
+            .works-list,
+            .tnco-footer {
+                background: #000 !important;
+                color: #fff !important;
+            }
+
+            .tnco-works {
+                min-height: 100vh;
+            }
+
+            /* Work titles are white on black. */
+            .work-item a,
+            .work-item.worship a {
+                color: #fff !important;
+            }
+
+            /* Hover reverses cleanly: white highlight + black text. */
+            .work-item a:hover,
+            .work-item a:focus-visible {
+                background: #fff !important;
+                color: #000 !important;
+            }
+
+            /* Footer stays in the same black visual field. */
+            .tnco-footer,
+            .footer-main,
+            .footer-main h2,
+            .footer-main p,
+            .footer-links a,
+            .footer-socials a {
+                color: #fff !important;
+            }
+
+            .tnco-footer {
+                background: #000 !important;
+            }
+
+            .footer-main h2 {
+                background: transparent !important;
+            }
+
+            /* Remove old light footer surface. */
+            .footer-bottom,
+            .footer-links,
+            .footer-socials {
+                background: transparent !important;
+            }
+
+
+    /* =====================================================
+    V19 — LIQUID DRAG / COLLISION MEDIA
+    ===================================================== */
+    .tnco-hero-media {
+        z-index: 2;
+        overflow: hidden;
+        pointer-events: none;
+        touch-action: none;
+    }
+
+    .tnco-hero-media-item {
+        pointer-events: auto;
+        cursor: grab;
+        overflow: visible;
+        transform-origin: center center;
+        will-change: transform;
+        touch-action: none;
+        user-select: none;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        animation: none !important;
+        transition: filter .45s cubic-bezier(.22,.61,.36,1), box-shadow .45s cubic-bezier(.22,.61,.36,1);
+        transform: translate3d(var(--drag-x, 0px), var(--drag-y, 0px), 0) rotate(var(--drag-r, 0deg)) scale(var(--drag-s, 1));
+    }
+
+    .tnco-hero-media-item:active,
+    .tnco-hero-media-item.is-dragging { cursor: grabbing; }
+
+    .tnco-hero-media-item.is-dragging {
+        filter: brightness(.76) grayscale(1) contrast(1.04);
+    }
+
+    .tnco-hero-media-item video {
+        pointer-events: none;
+        user-select: none;
+        -webkit-user-select: none;
+        will-change: transform;
+        transform: scale(1.018);
+        transition: transform .65s cubic-bezier(.16,1,.3,1), filter .45s ease;
+    }
+
+    .tnco-hero-media-item.is-dragging video {
+        transform: scale(1.075);
+    }
+
+    /* Keep the center marquee clear. */
+    @media (min-width: 768px) {
+        .tnco-hero-media-small-1 { left: 7%; top: 14%; width: min(17vw,245px); height: min(11.7vw,168px); }
+        .tnco-hero-media-small-2 { left: 29%; top: 9%; width: min(18vw,260px); height: min(12vw,173px); }
+        .tnco-hero-media-small-7 { right: 5%; top: 15%; width: min(13vw,188px); height: min(8.9vw,128px); }
+        .tnco-hero-media-small-8 { right: 27%; top: 10%; width: min(14vw,202px); height: min(9.5vw,137px); }
+        .tnco-hero-media-small-4 { left: 11%; top: 73%; width: min(17vw,245px); height: min(11.3vw,163px); }
+        .tnco-hero-media-small-5 { left: 45%; top: 76%; width: min(15.5vw,224px); height: min(10.5vw,151px); }
+        .tnco-hero-media-small-6 { right: 8%; top: 70%; width: min(19vw,274px); height: min(12vw,173px); }
+    }
+
+    @media (max-width: 767px) {
+        .tnco-hero-media { overflow: hidden; }
+        .tnco-hero-media-small-1 { left: 3%; top: 12%; width: 31vw; height: 20.5vw; }
+        .tnco-hero-media-small-2 { left: 55%; top: 10%; width: 35vw; height: 23vw; }
+        .tnco-hero-media-small-7 { right: 3%; top: 34%; width: 24vw; height: 15.5vw; }
+        .tnco-hero-media-small-8 { left: 5%; right: auto; top: 39%; width: 25vw; height: 16.5vw; }
+        .tnco-hero-media-small-4 { left: 7%; top: 72%; width: 31vw; height: 20.5vw; }
+        .tnco-hero-media-small-5 { left: 43%; top: 76%; width: 27vw; height: 18vw; }
+        .tnco-hero-media-small-6 { right: 4%; top: 68%; width: 34vw; height: 22.5vw; }
+    }
+
+    /* Yellow marquee only — no black tape layer. */
+    .tnco-works-marquee,
+    .tnco-marquee-item {
+        background: #FDF505 !important;
+        color: #000 !important;
+    }
+
+    .tnco-marquee-item::before,
+    .tnco-marquee-item::after,
+    .tnco-works-marquee::before,
+    .tnco-works-marquee::after {
+        display: none !important;
+        content: none !important;
+    }
+
+    /* Subtle colour-matched emoji glow. */
+    .works-emoji {
+        position: relative;
+        z-index: 1;
+        filter: none;
+        text-shadow: 0 0 0 transparent;
+        transition: filter .45s ease, text-shadow .45s ease, transform .55s cubic-bezier(.22,.61,.36,1);
+    }
+    .works-emoji.glow-dark { text-shadow: 0 0 10px rgba(80,90,110,.38), 0 0 20px rgba(80,90,110,.16); }
+    .works-emoji.glow-blue { text-shadow: 0 0 10px rgba(65,150,255,.55), 0 0 22px rgba(65,150,255,.20); }
+    .works-emoji.glow-pink { text-shadow: 0 0 10px rgba(255,75,145,.50), 0 0 22px rgba(255,75,145,.18); }
+    .works-emoji.glow-gold { text-shadow: 0 0 10px rgba(255,205,40,.48), 0 0 22px rgba(255,205,40,.16); }
+    .works-emoji.glow-red { text-shadow: 0 0 10px rgba(255,75,75,.46), 0 0 22px rgba(255,75,75,.16); }
+
+    /* Tiny impact particles created when photos collide. */
+    .tnco-hero-particles {
+        position: absolute;
+        inset: 0;
+        z-index: 20;
+        pointer-events: none;
+        overflow: hidden;
+    }
+    .tnco-hero-particle {
+        position: absolute;
+        width: var(--size, 5px);
+        height: var(--size, 5px);
+        border-radius: 50%;
+        background: rgba(255,255,255,.78);
+        box-shadow: 0 0 9px rgba(255,255,255,.22);
+        transform: translate3d(0,0,0) scale(1);
+        animation: tncoParticleBurst var(--life, 620ms) cubic-bezier(.16,1,.3,1) forwards;
+    }
+    @keyframes tncoParticleBurst {
+        to {
+            transform: translate3d(var(--tx), var(--ty), 0) scale(0);
+            opacity: 0;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .tnco-hero-media-item,
+        .tnco-hero-media-item video,
+        .works-emoji { transition: none !important; }
+        .tnco-hero-particle { animation: none !important; opacity: 0; }
+    }
+
+
+    /* =====================================================
+    V20 — TYPEWRITER / PERSISTENT LIQUID PHYSICS
+    ===================================================== */
+    .tnco-works-subtitle,
+    .tnco-works-intro .tnco-works-subtitle,
+    #typewriter,
+    .typewriter-cursor {
+        color: #fff !important;
+    }
+
+    .tnco-works-subtitle {
+        mix-blend-mode: normal !important;
+        text-shadow: 0 0 14px rgba(255,255,255,.08);
+    }
+
+    /* The photos stay where the interaction leaves them. */
+    .tnco-hero-media-item {
+        transition: filter .28s cubic-bezier(.22,.61,.36,1),
+                    box-shadow .28s cubic-bezier(.22,.61,.36,1);
+    }
+
+    /* =====================================================
+    V23 — IRREGULAR YELLOW TAPE / NO BLACK UNDERLAY
+    ===================================================== */
+    .tnco-works-intro .tnco-works-marquee {
+        background: transparent !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        border: 0 !important;
+        z-index: 4 !important;
+        isolation: isolate;
+        overflow: visible !important;
+    }
+
+    .tnco-works-marquee-track,
+    .tnco-marquee-set {
+        background: transparent !important;
+    }
+
+    .tnco-marquee-item {
+        position: relative;
+        background: #FDF505 !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        border: 0 !important;
+        padding: .10em .075em .13em !important;
+        isolation: isolate;
+    }
+
+    /* Each tape strip is subtly different so the marquee feels handmade, not boxed. */
+    .tnco-marquee-item:nth-child(1) { clip-path: polygon(0.5% 8%, 98.8% 2%, 100% 92%, 1.8% 100%); }
+    .tnco-marquee-item:nth-child(2) { clip-path: polygon(1.2% 1%, 100% 7%, 98.6% 98%, 0% 92%); }
+    .tnco-marquee-item:nth-child(3) { clip-path: polygon(0% 5%, 99% 0%, 100% 96%, 2% 100%); }
+    .tnco-marquee-item:nth-child(4) { clip-path: polygon(1% 0%, 98% 5%, 100% 94%, 0% 99%); }
+    .tnco-marquee-item:nth-child(5) { clip-path: polygon(0% 7%, 100% 1%, 98.5% 100%, 1.5% 94%); }
+    .tnco-marquee-item:nth-child(6) { clip-path: polygon(1% 3%, 99% 0%, 100% 97%, 0% 93%); }
+
+    /* Placeholder media always stays behind every hero text layer. */
+    .tnco-hero-media {
+        z-index: 1 !important;
+    }
+    .tnco-hero-media-item {
+        z-index: 1 !important;
+    }
+
+    .tnco-works-subtitle,
+    .tnco-works-subtitle::before,
+    .tnco-works-subtitle::after,
+    #typewriter,
+    .typewriter-cursor {
+        background: transparent !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        color: #fff !important;
+        text-shadow: none !important;
+    }
+
+    .tnco-works-subtitle {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+
+
+    /* =====================================================
+    V24 — CLEAN STACKING + SLOW IDLE MEDIA
+    ===================================================== */
+    .tnco-header,
+    .tnco-header.hidden {
+        background: transparent !important;
+        background-color: transparent !important;
+    }
+
+    .tnco-hero-media {
+        z-index: 1 !important;
+        pointer-events: none;
+    }
+
+    .tnco-hero-media-item,
+    .tnco-hero-media-item.is-dragging {
+        z-index: 1 !important;
+    }
+
+    .tnco-works-intro .tnco-works-marquee {
+        z-index: 10 !important;
+    }
+
+    .tnco-works-subtitle {
+        position: relative;
+        z-index: 11 !important;
+    }
+
+    /* V26 — FULL-BLEED SCROLL MARQUEE + SMOOTH LOCAL HOVER */
+    .tnco-scroll-marquee{position:relative;left:50%;width:100vw;margin-left:-50vw;margin-top:2px;margin-bottom:46px;overflow:hidden;background-color:#FDF505;background-image:radial-gradient(circle 270px at var(--mx,-500px) var(--my,-500px),rgba(255,171,78,.22) 0%,rgba(255,188,105,.11) 42%,rgba(253,245,5,0) 78%);color:#000;border:0;padding:9px 0;white-space:nowrap;pointer-events:auto;cursor:default;transform:rotate(-1.25deg) scaleX(1.025);transform-origin:center center;z-index:3;isolation:isolate}
+    .tnco-scroll-marquee::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(253,245,5,.16),transparent 10%,transparent 90%,rgba(253,245,5,.16));z-index:0}
+    .tnco-scroll-marquee-track{position:relative;z-index:1;display:flex;width:200vw;will-change:transform;animation:tncoScrollMarquee 22s linear infinite}
+    .tnco-scroll-marquee-set{display:flex;align-items:center;justify-content:space-between;width:100vw;min-width:100vw;box-sizing:border-box;gap:30px;flex:0 0 100vw;padding:0 28px}
+    .tnco-scroll-marquee-copy{display:inline-flex;align-items:center;gap:12px;color:#000;font:600 12px/1 Arial,Helvetica,sans-serif;letter-spacing:.015em;text-transform:lowercase;transition:transform .45s cubic-bezier(.22,.61,.36,1);will-change:transform}
+    .tnco-scroll-marquee-arrow{display:inline-flex;width:22px;height:22px;flex:0 0 22px}
+    .tnco-scroll-marquee-arrow svg{display:block;width:100%;height:100%}
+    @keyframes tncoScrollMarquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-100vw,0,0)}}
+    @media(max-width:767px){.tnco-scroll-marquee{margin-bottom:34px;padding:8px 0;transform:rotate(-1deg) scaleX(1.035)}.tnco-scroll-marquee-set{padding:0 16px}.tnco-scroll-marquee-copy{font-size:10px}.tnco-scroll-marquee-arrow{width:19px;height:19px;flex-basis:19px}}
+
+    /* Much slower ambient movement; interaction can still kick the images hard. */
+
+
+    /* V27 — FOUR-COPY FULL MARQUEE + VISIBLE TYPEWRITER */
+    .tnco-scroll-marquee {
+        width: 100vw !important;
+        left: 50% !important;
+        margin-left: -50vw !important;
+        overflow: hidden !important;
+    }
+    .tnco-scroll-marquee-set {
+        width: 100vw !important;
+        min-width: 100vw !important;
+        flex: 0 0 100vw !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 0 !important;
+        padding: 0 clamp(28px, 4vw, 64px) !important;
+    }
+    .tnco-scroll-marquee-copy {
+        flex: 0 0 auto !important;
+        margin: 0 !important;
+    }
+    .tnco-works-intro .tnco-works-subtitle {
+        position: absolute !important;
+        top: 72% !important;
+        bottom: auto !important;
+        left: 50% !important;
+        z-index: 30 !important;
+        color: #fff !important;
+        background: transparent !important;
+        pointer-events: none !important;
+    }
+    .tnco-scroll-marquee {
+        background-image: radial-gradient(circle 270px at var(--mx,-500px) var(--my,-500px), rgba(255,171,78,.22) 0%, rgba(255,188,105,.11) 42%, rgba(253,245,5,0) 78%) !important;
+    }
+    @media (max-width: 767px) {
+        .tnco-works-intro .tnco-works-subtitle { top: 72% !important; }
+    }
+
+
+
+    /* =====================================================
+    V28 — APPLE-STYLE LIQUID GLASS HEADER + LARGER IRREGULAR MEDIA
+    ===================================================== */
+    .tnco-header{
+        isolation:isolate;
+        overflow:visible !important;
+        background:transparent !important;
+        background-color:transparent !important;
+    }
+
+    /* Apple-style glass: one perfectly even layer behind the entire header. */
+    .tnco-header::before{
+        content:"";
+        position:absolute;
+        z-index:-1;
+        inset:4px 8px;
+        border-radius:28px;
+        background:
+            linear-gradient(180deg,
+                rgba(255,255,255,.055) 0%,
+                rgba(255,255,255,.018) 46%,
+                rgba(255,255,255,.030) 100%);
+        border:1px solid rgba(255,255,255,.095);
+        box-shadow:
+            inset 0 1px 0 rgba(255,255,255,.11),
+            inset 0 -1px 0 rgba(255,255,255,.025),
+            0 8px 28px rgba(0,0,0,.14);
+        backdrop-filter:blur(24px) saturate(1.18) brightness(1.015);
+        -webkit-backdrop-filter:blur(24px) saturate(1.18) brightness(1.015);
+        pointer-events:none;
+        transition: opacity 0.78s ease;
+    }
+
+    /* Very restrained glass reflection — visible only as a soft edge, never a white bar. */
+    .tnco-header::after{
+        content:"";
+        position:absolute;
+        z-index:-1;
+        inset:5px 9px;
+        border-radius:27px;
+        background:
+            linear-gradient(180deg,
+                rgba(255,255,255,.055),
+                transparent 22%,
+                transparent 78%,
+                rgba(255,255,255,.012));
+        opacity:.72;
+        pointer-events:none;
+        transition: opacity 0.78s ease;
+    }
+
+    /* Keep the typewriter alive, white, and visually above the photo layer. */
+    .tnco-works-intro .tnco-works-subtitle,
+    .tnco-works-intro .tnco-works-subtitle #typewriter,
+    .tnco-works-intro .tnco-works-subtitle .typewriter-cursor{
+        display:inline-block !important;
+        visibility:visible !important;
+        opacity:1 !important;
+        color:#fff !important;
+        background:transparent !important;
+        z-index:50 !important;
+    }
+    .tnco-works-intro .tnco-works-subtitle{
+        top:74% !important;
+        left:50% !important;
+        transform:translateX(-50%) !important;
+        min-height:24px !important;
+        font-size:15px !important;
+        line-height:1.35 !important;
+        white-space:nowrap !important;
+        pointer-events:none !important;
+        mix-blend-mode:normal !important;
+        text-shadow:0 1px 14px rgba(0,0,0,.30) !important;
+    }
+
+    /* +30% media scale — positioning stays separated from the marquee. */
+    @media (min-width:768px){
+        .tnco-hero-media-small-1{width:min(26.52vw,398px)!important;height:min(18.24vw,262px)!important;}
+        .tnco-hero-media-small-2{width:min(30.84vw,445px)!important;height:min(20.64vw,296px)!important;}
+        .tnco-hero-media-small-3{width:min(36vw,523px)!important;height:min(22.32vw,320px)!important;}
+        .tnco-hero-media-small-4{width:min(29.16vw,421px)!important;height:min(18.84vw,254px)!important;}
+        .tnco-hero-media-small-5{width:min(25.74vw,374px)!important;height:min(18vw,257px)!important;}
+        .tnco-hero-media-small-6{width:min(32.64vw,468px)!important;height:min(20.64vw,296px)!important;}
+        .tnco-hero-media-small-7{width:min(20.64vw,296px)!important;height:min(13.92vw,206px)!important;}
+        .tnco-hero-media-small-8{width:min(22.44vw,320px)!important;height:min(14.88vw,218px)!important;}
+    }
+    @media (max-width:767px){
+        .tnco-hero-media-small-1{width:48.36vw!important;height:32.04vw!important;}
+        .tnco-hero-media-small-2{width:54.6vw!important;height:36vw!important;}
+        .tnco-hero-media-small-3{width:52.8vw!important;height:33vw!important;}
+        .tnco-hero-media-small-4{width:48.36vw!important;height:32.04vw!important;}
+        .tnco-hero-media-small-5{width:42.12vw!important;height:28.08vw!important;}
+        .tnco-hero-media-small-6{width:53.04vw!important;height:35.16vw!important;}
+        .tnco-hero-media-small-7{width:37.44vw!important;height:24.24vw!important;}
+        .tnco-hero-media-small-8{width:39vw!important;height:25.8vw!important;}
+        .tnco-works-intro .tnco-works-subtitle{top:74%!important;font-size:13px!important;}
+    }
+
+    /* Irregular photo edges: only one/two corners get cut — never all four. */
+    .tnco-hero-media-small-1{clip-path:polygon(0 0,100% 0,100% 91%,94% 100%,0 100%);}
+    .tnco-hero-media-small-2{clip-path:polygon(0 7%,6% 0,100% 0,100% 100%,0 100%);}
+    .tnco-hero-media-small-3{clip-path:polygon(0 0,94% 0,100% 9%,100% 100%,0 100%);}
+    .tnco-hero-media-small-4{clip-path:polygon(0 0,100% 0,100% 100%,7% 100%,0 91%);}
+    .tnco-hero-media-small-5{clip-path:polygon(0 0,93% 0,100% 8%,100% 100%,0 100%);}
+    .tnco-hero-media-small-6{clip-path:polygon(0 0,100% 0,100% 92%,94% 100%,0 100%);}
+    .tnco-hero-media-small-7{clip-path:polygon(0 0,94% 0,100% 10%,100% 100%,0 100%);}
+    .tnco-hero-media-small-8{clip-path:polygon(0 0,100% 0,100% 100%,6% 100%,0 92%);}
+
+
+
+    /* =====================================================
+    V30 — FINAL POLISH / HEADER + SEARCH
+    ===================================================== */
+
+    /* 1. Typewriter — lower, with a little more breathing room below the hero heading. */
+    .tnco-works-intro .tnco-works-subtitle {
+        top: 80% !important;
+        bottom: auto !important;
+    }
+
+    /* 2. Header liquid glass — one subtle, edge-to-edge rectangular layer. */
+    .tnco-header {
+        isolation: isolate !important;
+        overflow: visible !important;
+    }
+
+    .tnco-header::before {
+        content: "" !important;
+        position: absolute !important;
+        z-index: -1 !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: -3px !important;
+        border-radius: 0 !important;
+        border: 0 !important;
+        background: rgba(255,255,255,.022) !important;
+        box-shadow:
+            inset 0 1px 0 rgba(255,255,255,.045),
+            inset 0 -1px 0 rgba(255,255,255,.018) !important;
+        backdrop-filter: blur(24px) saturate(1.12) brightness(1.01) !important;
+        -webkit-backdrop-filter: blur(24px) saturate(1.12) brightness(1.01) !important;
+        pointer-events: none !important;
+    }
+
+    .tnco-header::after {
+        display: none !important;
+        content: none !important;
+    }
+
+    /* CONNECT — hero yellow on hover, black type stays black. */
+    .tnco-header-connect:hover,
+    .tnco-header-connect:focus-visible {
+        background: #FDF505 !important;
+        color: #000 !important;
+        border-color: #FDF505 !important;
+    }
+
+    /* 4. Search trigger — yellow hover, black icon + label. */
+    .tnco-search:hover,
+    .tnco-search:focus-visible {
+        background: #FDF505 !important;
+        color: #000 !important;
+        border-color: #FDF505 !important;
+        box-shadow:
+            inset 0 1px 0 rgba(255,255,255,.38),
+            0 16px 42px rgba(0,0,0,.22) !important;
+    }
+
+    .tnco-search:hover .tnco-search-icon,
+    .tnco-search:focus-visible .tnco-search-icon {
+        color: #000 !important;
+    }
+
+            /* V42 — playful hover: wait 2s, then celebrate once for ~2s. */
+            .tnco-search.tnco-hover-celebrate {
+                animation: tncoSearchCelebrate 0.16s cubic-bezier(.36,.07,.19,.97) infinite;
+                animation-iteration-count: 13;
+            }
+
+            @keyframes tncoSearchCelebrate {
+                0%   { transform: translate(-50%, 0) rotate(0deg) scale(1); }
+                20%  { transform: translate(calc(-50% - 3px), -1px) rotate(-2deg) scale(1.025); }
+                40%  { transform: translate(calc(-50% + 3px), 0) rotate(2deg) scale(1.03); }
+                60%  { transform: translate(calc(-50% - 2px), 1px) rotate(-1.5deg) scale(1.025); }
+                80%  { transform: translate(calc(-50% + 2px), 0) rotate(1.5deg) scale(1.015); }
+                100% { transform: translate(-50%, 0) rotate(0deg) scale(1); }
+            }
+
+    /* Search stage — dark glass so the requested white typography reads cleanly. */
+    .tnco-local-search-overlay {
+        background: rgba(0,0,0,.72) !important;
+        backdrop-filter: blur(28px) saturate(115%) !important;
+        -webkit-backdrop-filter: blur(28px) saturate(115%) !important;
+    }
+
+    .tnco-search-prompt,
+    .tnco-search-animated-text,
+    .tnco-local-search-result,
+    .tnco-local-search-empty,
+    .tnco-local-search-close {
+        color: #fff !important;
+    }
+
+    .tnco-search-prompt {
+        color: rgba(255,255,255,.72) !important;
+    }
+
+    .tnco-search-animated-text {
+        color: #fff !important;
+    }
+
+    .tnco-local-search-result {
+        background: rgba(255,255,255,.08) !important;
+        border: 1px solid rgba(255,255,255,.10) !important;
+        color: #fff !important;
+    }
+
+    .tnco-local-search-result:hover,
+    .tnco-local-search-result:focus-visible {
+        background: #FDF505 !important;
+        color: #000 !important;
+        border-color: #FDF505 !important;
+    }
+
+    .tnco-local-search-empty {
+        color: rgba(255,255,255,.62) !important;
+    }
+
+    .tnco-local-search-close {
+        border-color: rgba(255,255,255,.18) !important;
+        background: rgba(255,255,255,.08) !important;
+        color: #fff !important;
+    }
+
+    .tnco-local-search-close:hover,
+    .tnco-local-search-close:focus-visible {
+        background: #FDF505 !important;
+        color: #000 !important;
+        border-color: #FDF505 !important;
+    }
+
+    @media (max-width: 767px) {
+        .tnco-works-intro .tnco-works-subtitle {
+            top: 80% !important;
+        }
+    }
+
+
+    /* V31 — make search results actually land on the matching work item. */
+    .work-item.tnco-search-target-hit {
+        animation: tncoSearchTargetHit 1.3s ease both;
+        z-index: 20;
+    }
+
+    .work-item.tnco-search-target-hit > a {
+        position: relative;
+        z-index: 21;
+    }
+
+    .work-item.tnco-search-target-hit .rough-annotation {
+        z-index: 30 !important;
+        pointer-events: none !important;
+        overflow: visible !important;
+    }
+
+    @keyframes tncoSearchTargetHit {
+        0% {
+            transform: scale(1);
+        }
+        35% {
+            transform: scale(1.018);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    /* V40 FINAL — clean rounded video cards; no chamfered/cut corners. */
+    .tnco-hero-media-item,
+    .tnco-hero-media-item::before,
+    .tnco-hero-media-item::after,
+    .tnco-hero-media-item video {
+        border-radius: 18px !important;
+        clip-path: none !important;
+        -webkit-clip-path: none !important;
+    }
+
+    .tnco-hero-media-item {
+        overflow: hidden !important;
+        isolation: isolate;
+    }
+
+    .tnco-hero-media-item video {
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        overflow: hidden !important;
+        border: 0 !important;
+        outline: 0 !important;
+    }
+
+    .tnco-hero-media-item::before,
+    .tnco-hero-media-item::after {
+        clip-path: none !important;
+        -webkit-clip-path: none !important;
+    }
+
+    /* =====================================================
+    V42 — TUNETRACK REFERENCE FOOTER
+    ===================================================== */
+    .tnco-footer {
+        position: relative !important;
+        width: 100% !important;
+        min-height: 100vh !important;
+        margin: 0 !important;
+        padding: 30px 22px 18px !important;
+        background: #fff !important;
+        color: #000 !important;
+        border: 0 !important;
+        border-top: 2px solid #111 !important;
+        border-radius: 0 0 16px 16px !important;
+        overflow: hidden !important;
+        isolation: isolate;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        font-family: Arial, Helvetica, sans-serif !important;
+    }
+
+    .tnco-footer,
+    .tnco-footer * {
+        font-family: Arial, Helvetica, sans-serif !important;
+    }
+
+    .tnco-footer-top {
+        position: relative;
+        z-index: 4;
+        display: grid;
+        grid-template-columns: minmax(0, 2.55fr) minmax(150px, .72fr) minmax(170px, .82fr) minmax(250px, .9fr);
+        column-gap: 4vw;
+        align-items: start;
+    }
+
+    .tnco-footer-community h2 {
+        margin: 0;
+        max-width: 700px;
+        font-size: clamp(34px, 3.15vw, 64px);
+        line-height: .98;
+        letter-spacing: -.065em;
+        font-weight: 900;
+    }
+
+    .tnco-footer-options {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+        margin-top: 22px;
+    }
+
+    .tnco-footer-option {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #111 !important;
+        text-decoration: none !important;
+        font-size: 18px;
+        line-height: 1;
+        font-weight: 500;
+        letter-spacing: -.045em;
+        white-space: nowrap;
+    }
+
+    .tnco-footer-radio {
+        width: 25px;
+        height: 25px;
+        flex: 0 0 25px;
+        border: 1.5px solid #111;
+        border-radius: 50%;
+    }
+
+    .tnco-footer-column {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding-top: 14px;
+    }
+
+    .tnco-footer-column a,
+    .tnco-footer-heading {
+        color: #111 !important;
+        text-decoration: none !important;
+        font-size: 23px;
+        line-height: 1.08;
+        font-weight: 400;
+        letter-spacing: -.055em;
+    }
+
+    .tnco-footer-column .tnco-footer-heading {
+        margin-bottom: 1px;
+    }
+
+    .tnco-footer-social-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        padding-top: 14px;
+    }
+
+    .tnco-footer-social-column {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .tnco-footer-social-column .tnco-footer-heading {
+        font-size: 21px;
+        font-weight: 800;
+        letter-spacing: -.055em;
+    }
+
+    .tnco-footer-pills {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+    }
+
+    .tnco-footer-pills a {
+        min-width: 76px;
+        height: 42px;
+        padding: 0 20px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1.5px solid #111;
+        border-radius: 999px;
+        color: #111 !important;
+        text-decoration: none !important;
+        font-size: 18px;
+        line-height: 1;
+        font-weight: 500;
+        letter-spacing: -.05em;
+        transition: background .22s ease, color .22s ease, transform .22s ease;
+    }
+
+    .tnco-footer-pills a:hover {
+        background: #111;
+        color: #fff !important;
+        transform: translateY(-2px);
+    }
+
+    .tnco-footer-word {
+        position: absolute;
+        z-index: 1;
+        left: 10px;
+        right: 0;
+        bottom: 54px;
+        color: #000;
+        font-size: clamp(150px, 15.4vw, 350px);
+        line-height: .72;
+        font-weight: 900;
+        letter-spacing: -.115em;
+        white-space: nowrap;
+        text-align: left;
+        transform: scaleX(.99);
+        transform-origin: left bottom;
+        user-select: none;
+    }
+
+    .tnco-footer-bottom {
+        position: relative;
+        z-index: 5;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 20px;
+        font-size: 16px;
+        line-height: 1;
+        font-weight: 700;
+        letter-spacing: -.045em;
+    }
+
+    .tnco-footer-bottom span {
+        color: #aaa;
+    }
+
+    .tnco-footer-bottom a {
+        color: #111 !important;
+        text-decoration: underline !important;
+        text-underline-offset: 5px;
+    }
+
+    .tnco-search.footer-hidden {
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transform: translate(-50%, 18px) scale(.96) !important;
+    }
+
+    @media (max-width: 1100px) {
+        .tnco-footer-top {
+            grid-template-columns: minmax(0, 1.9fr) minmax(135px, .8fr) minmax(155px, .8fr);
+        }
+        .tnco-footer-social-group {
+            grid-column: 2 / -1;
+            margin-top: 22px;
+        }
+        .tnco-footer-word {
+            font-size: clamp(125px, 15.7vw, 250px);
+        }
+    }
+
+    @media (max-width: 767px) {
+        .tnco-footer {
+            min-height: 75svh !important;
+            padding: 24px 18px 16px !important;
+            border-radius: 0 0 12px 12px !important;
+        }
+
+        .tnco-footer-top {
+            grid-template-columns: 1fr 1fr;
+            gap: 25px 18px;
+        }
+
+        .tnco-footer-community {
+            grid-column: 1 / -1;
+        }
+
+        .tnco-footer-community h2 {
+            max-width: 100%;
+            font-size: clamp(32px, 9.4vw, 52px);
+        }
+
+        .desktop-break {
+            display: none;
+        }
+
+        .tnco-footer-options {
+            flex-wrap: wrap;
+            gap: 14px 20px;
+            margin-top: 18px;
+        }
+
+        .tnco-footer-option {
+            font-size: 14px;
+        }
+
+        .tnco-footer-radio {
+            width: 20px;
+            height: 20px;
+            flex-basis: 20px;
+        }
+
+        .tnco-footer-column {
+            padding-top: 0;
+            gap: 8px;
+        }
+
+        .tnco-footer-column a,
+        .tnco-footer-heading {
+            font-size: 17px;
+        }
+
+        .tnco-footer-social-group {
+            grid-column: 1 / -1;
+            padding-top: 0;
+            margin-top: 0;
+            gap: 18px;
+        }
+
+        .tnco-footer-social-column .tnco-footer-heading {
+            font-size: 15px;
+        }
+
+        .tnco-footer-pills a {
+            min-width: 55px;
+            height: 34px;
+            padding: 0 15px;
+            font-size: 14px;
+        }
+
+        .tnco-footer-word {
+            left: 7px;
+            bottom: 62px;
+            font-size: clamp(77px, 16vw, 145px);
+            letter-spacing: -.105em;
+            line-height: .55;
+        }
+
+        .tnco-footer-bottom {
+            font-size: 10px;
+            align-items: flex-end;
+        }
+    }
+
+    /* =========================================================
+   TNCO — CURSOR CENTRIC LIQUID GLASS HEADER
+   Clean / Apple-ish / Subtle
+   ========================================================= */
+
+
+/* =========================================================
+   HEADER BASE
+   ========================================================= */
+
+.tnco-header {
+    position: fixed;
+    isolation: isolate;
+    overflow: hidden;
+
+    border-radius: 0 !important;
+    border: none !important;
+    border-bottom: none !important;
+
+    background: rgba(10, 10, 10, 0.68) !important;
+
+    /*
+       Very subtle blur even when idle.
+       This keeps the header feeling like glass
+       without looking like a giant glass panel.
+    */
+    backdrop-filter: blur(5px) saturate(115%) !important;
+    -webkit-backdrop-filter: blur(5px) saturate(115%) !important;
+
+    box-shadow: none !important;
+}
+
+
+/* =========================================================
+   POINTER POSITION
+   Controlled by:
+   --tnco-mx
+   --tnco-my
+   ========================================================= */
+
+@property --tnco-mx {
+    syntax: "<length-percentage>";
+    inherits: false;
+    initial-value: 50%;
+}
+
+@property --tnco-my {
+    syntax: "<length-percentage>";
+    inherits: false;
+    initial-value: 50%;
+}
+
+
+/* =========================================================
+   LIQUID GLASS
+   Small + Cursor Centric
+   ========================================================= */
+
+.tnco-header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+    pointer-events: none;
+
+    /*
+       Smaller liquid zone.
+       The effect follows the cursor instead
+       of affecting the entire header.
+    */
+    background:
+        radial-gradient(
+            circle 105px at var(--tnco-mx, 50%) var(--tnco-my, 50%),
+            rgba(255, 255, 255, 0.075) 0%,
+            rgba(255, 255, 255, 0.045) 24%,
+            rgba(255, 255, 255, 0.018) 48%,
+            transparent 72%
+        );
+
+    /*
+       Subtle distortion only inside the cursor area.
+    */
+    backdrop-filter:
+        blur(14px)
+        saturate(135%);
+
+    -webkit-backdrop-filter:
+        blur(14px)
+        saturate(135%);
+
+    /*
+       Organic circular falloff.
+       No box / no header-wide rounded glass.
+    */
+    mask-image:
+        radial-gradient(
+            circle 125px at var(--tnco-mx, 50%) var(--tnco-my, 50%),
+            #000 0%,
+            #000 24%,
+            rgba(0, 0, 0, 0.72) 43%,
+            rgba(0, 0, 0, 0.28) 62%,
+            transparent 78%
+        );
+
+    -webkit-mask-image:
+        radial-gradient(
+            circle 125px at var(--tnco-mx, 50%) var(--tnco-my, 50%),
+            #000 0%,
+            #000 24%,
+            rgba(0, 0, 0, 0.72) 43%,
+            rgba(0, 0, 0, 0.28) 62%,
+            transparent 78%
+        );
+
+    opacity: 0;
+
+    /*
+       Smooth reveal / disappearance.
+    */
+    transition:
+        opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+        background 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   CHROMATIC GLASS
+   Very subtle spectral reflection
+   ========================================================= */
+
+.tnco-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle 90px at var(--tnco-mx, 50%) var(--tnco-my, 50%),
+            rgba(255, 105, 180, 0.025),
+            transparent 68%
+        ),
+
+        radial-gradient(
+            circle 105px at
+                calc(var(--tnco-mx, 50%) + 20px)
+                calc(var(--tnco-my, 50%) - 8px),
+            rgba(90, 175, 255, 0.028),
+            transparent 70%
+        ),
+
+        radial-gradient(
+            circle 95px at
+                calc(var(--tnco-mx, 50%) - 18px)
+                calc(var(--tnco-my, 50%) + 12px),
+            rgba(100, 255, 220, 0.018),
+            transparent 70%
+        );
+
+    opacity: 0;
+
+    transition:
+        opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+        background 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   ACTIVE — CURSOR / TOUCH
+   ========================================================= */
+
+.tnco-header.tnco-liquid-active::after {
+    opacity: 1;
+}
+
+.tnco-header.tnco-liquid-active::before {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   HEADER CONTENT
+   Always above the liquid layer
+   ========================================================= */
+
+.tnco-header > * {
+    position: relative;
+    z-index: 3;
+}
+
+
+/* =========================================================
+   MOBILE / TOUCH
+   Smaller + Softer
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .tnco-header {
+        backdrop-filter:
+            blur(4px)
+            saturate(112%) !important;
+
+        -webkit-backdrop-filter:
+            blur(4px)
+            saturate(112%) !important;
+    }
+
+    .tnco-header::after {
+        background:
+            radial-gradient(
+                circle 85px at var(--tnco-mx, 50%) var(--tnco-my, 50%),
+                rgba(255, 255, 255, 0.065) 0%,
+                rgba(255, 255, 255, 0.038) 25%,
+                rgba(255, 255, 255, 0.015) 48%,
+                transparent 72%
+            );
+
+        backdrop-filter:
+            blur(12px)
+            saturate(130%);
+
+        -webkit-backdrop-filter:
+            blur(12px)
+            saturate(130%);
+
+        mask-image:
+            radial-gradient(
+                circle 105px at var(--tnco-mx, 50%) var(--tnco-my, 50%),
+                #000 0%,
+                #000 24%,
+                rgba(0, 0, 0, 0.68) 44%,
+                rgba(0, 0, 0, 0.25) 62%,
+                transparent 78%
+            );
+
+        -webkit-mask-image:
+            radial-gradient(
+                circle 105px at var(--tnco-mx, 50%) var(--tnco-my, 50%),
+                #000 0%,
+                #000 24%,
+                rgba(0, 0, 0, 0.68) 44%,
+                rgba(0, 0, 0, 0.25) 62%,
+                transparent 78%
+            );
+    }
+
+/* =========================================================
+   CHROMATIC / SPECTRAL LIQUID REFLECTION
+   Stronger, but still clean
+   ========================================================= */
+
+.tnco-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle 95px at var(--tnco-mx, 50%) var(--tnco-my, 50%),
+            rgba(255, 70, 160, 0.075) 0%,
+            rgba(255, 70, 160, 0.035) 38%,
+            transparent 72%
+        ),
+
+        radial-gradient(
+            circle 115px at
+                calc(var(--tnco-mx, 50%) + 28px)
+                calc(var(--tnco-my, 50%) - 10px),
+            rgba(70, 155, 255, 0.085) 0%,
+            rgba(70, 155, 255, 0.035) 40%,
+            transparent 72%
+        ),
+
+        radial-gradient(
+            circle 105px at
+                calc(var(--tnco-mx, 50%) - 24px)
+                calc(var(--tnco-my, 50%) + 16px),
+            rgba(70, 255, 210, 0.065) 0%,
+            rgba(70, 255, 210, 0.025) 42%,
+            transparent 72%
+        );
+
+    opacity: 0;
+
+    transition:
+        opacity 0.6s cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* =========================================================
+   CHROMATIC ACTIVE
+   ========================================================= */
+
+.tnco-header.tnco-liquid-active::before {
+    opacity: 1;
+}
+
+/* =========================================================
+   TNCO — RESTORE VARA / V48 HOVER
+   Override only — DO NOT TOUCH ORIGINAL CODE
+   ========================================================= */
+
+.works-list .tnco-vara-hover,
+.works-list .tnco-v48-holder {
+    display: block !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+.works-list .tnco-vara-hover.is-visible,
+.works-list .tnco-v48-holder.is-visible {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: none !important;
+}
+
+/* Pastikan SVG hasil Vara tetap dirender */
+.works-list .tnco-vara-hover svg,
+.works-list .tnco-v48-holder svg {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+}
+/* =========================================================
+   TNCO — V59 VARA RESTORE
+   FINAL OVERRIDE
+   ========================================================= */
+
+.works-list .work-item.worship.v58-scribble-item .tnco-v48-holder {
+    display: block !important;
+    visibility: hidden !important;
+    opacity: 1 !important;
+
+    position: absolute !important;
+    pointer-events: none !important;
+}
+
+.works-list .work-item.worship.v58-scribble-item
+.tnco-v48-holder.is-visible {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.works-list .work-item.worship.v58-scribble-item
+.tnco-v48-holder > svg {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+}
+}
+
+/* =========================================================
+   BLOG LIST V12 — LIGHT MODE
+   ========================================================= */
+
+/* PAGE */
+html,
+body {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+
+/* =========================================================
+   BLOG HEADER ONLY
+   ========================================================= */
+
+.blog-header {
+    background: #fff !important;
+    color: #000 !important;
+    transform: translateY(-15px);
+}
+
+.blog-header-logo,
+.blog-header-logo-sans {
+    color: #000 !important;
+    transform: translateY(4px);
+}
+
+.blog-header-nav a {
+    color: #000 !important;
+}
+
+.blog-header-nav a.active:after {
+    background: #000 !important;
+}
+
+
+/* CONNECT */
+.blog-header-connect {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+
+/* =========================================================
+   PAPERS HERO
+   ========================================================= */
+
+.blog-hero {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+
+/* PAPERS LABEL */
+.blog-hero-label {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+
+/* HERO TITLE */
+.blog-hero-title,
+#heroTypewriter {
+    color: #000 !important;
+}
+
+
+/* DESCRIPTION */
+.hero-copy {
+    color: #000 !important;
+}
+
+
+/* META */
+.blog-hero-meta,
+.blog-hero-meta * {
+    color: #000 !important;
+}
+
+
+/* =========================================================
+   OTHER BLOG SECTIONS
+   ========================================================= */
+
+.papers-intro,
+.blog-marquee-wrap,
+.blog-list-section {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+.papers-intro *,
+.asection *,
+.blog-link,
+.blog-number,
+.blog-date,
+.blog-category,
+.blog-info h2,
+.blog-arrow {
+    color: #000 !important;
+}
+
+
+/* =========================================================
+   BORDERS
+   ========================================================= */
+
+.blog-list-header,
+.blog-item {
+    border-color: #000 !important;
+}
+
+/* =========================================================
+   BLOG LIST — ISOLATED FOOTER
+   Visual base copied from INDEX footer.
+   Does NOT use .tnco-footer so INDEX CSS cannot interfere.
+   ========================================================= */
+
+.blog-footer {
+    position: relative !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    margin: 0 !important;
+    padding: 30px 22px 18px !important;
+
+    background: #fff !important;
+    color: #000 !important;
+
+    border: 0 !important;
+    border-top: 2px solid #111 !important;
+    border-radius: 0 0 16px 16px !important;
+
+    overflow: hidden !important;
+    isolation: isolate;
+
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.blog-footer,
+.blog-footer * {
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.blog-footer-top {
+    position: relative;
+    z-index: 4;
+
+    display: grid;
+    grid-template-columns:
+        minmax(0, 2.55fr)
+        minmax(150px, .72fr)
+        minmax(170px, .82fr)
+        minmax(250px, .9fr);
+
+    column-gap: 4vw;
+    align-items: start;
+}
+
+.blog-footer-community h2 {
+    margin: 0;
+    max-width: 700px;
+
+    font-size: clamp(34px, 3.15vw, 64px);
+    line-height: .98;
+    letter-spacing: -.065em;
+    font-weight: 900;
+}
+
+.blog-footer-options {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    margin-top: 22px;
+}
+
+.blog-footer-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #111 !important;
+    text-decoration: none !important;
+
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -.045em;
+    white-space: nowrap;
+}
+
+.blog-footer-radio {
+    width: 25px;
+    height: 25px;
+    flex: 0 0 25px;
+
+    border: 1.5px solid #111;
+    border-radius: 50%;
+}
+
+.blog-footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 10px;
+    padding-top: 14px;
+}
+
+.blog-footer-column a,
+.blog-footer-heading {
+    color: #111 !important;
+    text-decoration: none !important;
+
+    font-size: 23px;
+    line-height: 1.08;
+    font-weight: 400;
+    letter-spacing: -.055em;
+}
+
+.blog-footer-column .blog-footer-heading {
+    margin-bottom: 1px;
+}
+
+.blog-footer-social-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding-top: 14px;
+}
+
+.blog-footer-social-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 8px;
+}
+
+.blog-footer-social-column .blog-footer-heading {
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: -.055em;
+}
+
+.blog-footer-pills {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.blog-footer-pills a {
+    min-width: 76px;
+    height: 42px;
+    padding: 0 20px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1.5px solid #111;
+    border-radius: 999px;
+
+    color: #111 !important;
+    text-decoration: none !important;
+
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -.05em;
+
+    transition:
+        background .22s ease,
+        color .22s ease,
+        transform .22s ease;
+}
+
+.blog-footer-pills a:hover {
+    background: #111 !important;
+    color: #fff !important;
+    transform: translateY(-2px);
+}
+
+.blog-footer-word {
+    position: absolute;
+    z-index: 1;
+
+    left: 10px;
+    right: 0;
+    bottom: 54px;
+
+    color: #000 !important;
+
+    font-size: clamp(150px, 15.4vw, 350px);
+    line-height: .72;
+    font-weight: 900;
+    letter-spacing: -.115em;
+
+    white-space: nowrap;
+    text-align: left;
+
+    transform: scaleX(.99);
+    transform-origin: left bottom;
+
+    user-select: none;
+}
+
+.blog-footer-word span {
+    display: block;
+}
+
+.blog-footer-bottom {
+    position: relative;
+    z-index: 5;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -.045em;
+}
+
+.blog-footer-bottom span {
+    color: #aaa !important;
+}
+
+.blog-footer-bottom a {
+    color: #111 !important;
+    text-decoration: underline !important;
+    text-underline-offset: 5px;
+}
+
+
+/* TABLET */
+
+@media (max-width: 1100px) {
+
+    .blog-footer-top {
+        grid-template-columns:
+            minmax(0, 1.9fr)
+            minmax(135px, .8fr)
+            minmax(155px, .8fr);
+    }
+
+    .blog-footer-social-group {
+        grid-column: 2 / -1;
+        margin-top: 22px;
+    }
+
+    .blog-footer-word {
+        font-size: clamp(125px, 15.7vw, 250px);
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 767px) {
+
+    .blog-footer {
+        min-height: 100svh !important;
+        padding: 24px 18px 16px !important;
+        border-radius: 0 0 12px 12px !important;
+    }
+
+    .blog-footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px 18px;
+    }
+
+    .blog-footer-community {
+        grid-column: 1 / -1;
+    }
+
+    .blog-footer-community h2 {
+        max-width: 100%;
+        font-size: clamp(32px, 9.4vw, 52px);
+    }
+
+    .blog-footer .desktop-break {
+        display: none;
+    }
+
+    .blog-footer-options {
+        flex-wrap: wrap;
+        gap: 14px 20px;
+        margin-top: 18px;
+    }
+
+    .blog-footer-option {
+        font-size: 14px;
+    }
+
+    .blog-footer-radio {
+        width: 20px;
+        height: 20px;
+        flex-basis: 20px;
+    }
+
+    .blog-footer-column {
+        padding-top: 0;
+        gap: 8px;
+    }
+
+    .blog-footer-column a,
+    .blog-footer-heading {
+        font-size: 17px;
+    }
+
+    .blog-footer-social-group {
+        grid-column: 1 / -1;
+        padding-top: 0;
+        margin-top: 0;
+        gap: 18px;
+    }
+
+    .blog-footer-social-column .blog-footer-heading {
+        font-size: 15px;
+    }
+
+    .blog-footer-pills a {
+        min-width: 55px;
+        height: 34px;
+        padding: 0 15px;
+        font-size: 14px;
+    }
+
+    .blog-footer-word {
+        left: 7px;
+        bottom: 62px;
+        font-size: clamp(77px, 18.8vw, 145px);
+        letter-spacing: -.105em;
+        line-height: .78;
+    }
+
+    .blog-footer-bottom {
+        font-size: 10px;
+        align-items: flex-end;
+    }
+}
