@@ -387,7 +387,9 @@ button{font:inherit}
     visibility:hidden !important;
     pointer-events:none !important;
     transform:none !important;
-    transition:opacity .28s ease,visibility .28s ease !important;
+    transition:opacity .24s ease,visibility .24s ease !important;
+    overscroll-behavior:none !important;
+    contain:layout paint style !important;
 }
 
 .tnco-mobile-menu-overlay.is-open{
@@ -396,7 +398,6 @@ button{font:inherit}
     pointer-events:auto !important;
 }
 
-/* CLOSE */
 .tnco-mobile-menu-close{
     position:absolute !important;
     top:22px !important;
@@ -412,6 +413,7 @@ button{font:inherit}
     color:#fff !important;
     font-size:0 !important;
     cursor:pointer !important;
+    -webkit-tap-highlight-color:transparent !important;
 }
 
 .tnco-mobile-menu-close::before,
@@ -423,7 +425,6 @@ button{font:inherit}
     background:#fff !important;
     left:50% !important;
     top:50% !important;
-    transition:transform .6s cubic-bezier(.4,0,.2,1) !important;
 }
 
 .tnco-mobile-menu-close::before{
@@ -434,15 +435,6 @@ button{font:inherit}
     transform:translate(-50%,-50%) rotate(-45deg) !important;
 }
 
-.tnco-mobile-menu-close.is-closing::before{
-    transform:translate(-50%,-50%) rotate(405deg) !important;
-}
-
-.tnco-mobile-menu-close.is-closing::after{
-    transform:translate(-50%,-50%) rotate(315deg) !important;
-}
-
-/* NAV */
 .tnco-mobile-menu-nav{
     display:flex !important;
     flex-direction:column !important;
@@ -454,65 +446,44 @@ button{font:inherit}
 }
 
 .tnco-mobile-menu-nav a{
-    display:block !important;
+    position:relative !important;
+    display:inline-block !important;
     width:auto !important;
     color:#fff !important;
     text-decoration:none !important;
-    font:500 clamp(36px,12vw,64px) Arial,Helvetica,sans-serif !important;
+    font:500 clamp(36px,12vw,95px)/.95 Arial,Helvetica,sans-serif !important;
     letter-spacing:-.065em !important;
-    text-transform:none !important;
+    white-space:nowrap !important;
 }
 
-.tnco-mobile-menu-nav a:active{
-    opacity:.55 !important;
+.tnco-mobile-menu-nav a::after{
+    content:"" !important;
+    position:absolute !important;
+    left:0 !important;
+    bottom:-2px !important;
+    width:100% !important;
+    height:2px !important;
+    background:#fff !important;
+    transform:scaleX(0) !important;
+    transform-origin:left center !important;
+    transition:transform .35s cubic-bezier(.22,1,.36,1) !important;
 }
 
-@media (min-width:768px){
-    .tnco-mobile-menu-nav a{
-        font-size:80px !important;
-    }
+.tnco-mobile-menu-nav a:hover::after{
+    transform:scaleX(1) !important;
 }
 
-@media (min-width:768px){
-
-    .tnco-mobile-menu-nav a{
-        position:relative !important;
-        display:inline-block !important;
-    }
-
-    .tnco-mobile-menu-nav a::after{
-        content:"" !important;
-        position:absolute !important;
-        left:0 !important;
-        bottom:-2px !important;
-        width:100% !important;
-        height:2px !important;
-        background:#fff !important;
-        transform:scaleX(0) !important;
-        transform-origin:left center !important;
-        transition:transform .45s cubic-bezier(.22,1,.36,1) !important;
-    }
-
-    .tnco-mobile-menu-nav a:hover::after{
-        transform:scaleX(1) !important;
-    }
-
-    .tnco-mobile-menu-actions a::after{
-        display:none !important;
-    }
-
-}
-
-/* BUTTONS */
 .tnco-mobile-menu-actions{
     display:flex !important;
-    flex-direction:column !important;
-    align-items:flex-start !important;
+    flex-direction:row !important;
+    align-items:center !important;
     gap:12px !important;
     width:100% !important;
     margin-top:30px !important;
     padding:0 !important;
-    transform:translateY(200px) !important;
+    position:relative !important;
+    top:162px !important;
+    transform:none !important;
 }
 
 .tnco-mobile-menu-actions a{
@@ -523,61 +494,115 @@ button{font:inherit}
     height:55px !important;
     padding:0 !important;
     box-sizing:border-box !important;
-    border:0 !important;
+    border:1px solid #fff !important;
     border-radius:999px !important;
-    background:#fff !important;
-    color:#111 !important;
+    background:transparent !important;
+    color:#fff !important;
     text-decoration:none !important;
     font:400 17px/1 Arial,Helvetica,sans-serif !important;
-    letter-spacing:0 !important;
+    -webkit-tap-highlight-color:transparent !important;
+}
+
+.tnco-mobile-menu-actions a::after{
+    display:none !important;
+}
+
+body.menu-scroll-locked,
+html.menu-scroll-locked{
+    overflow:hidden !important;
+    overscroll-behavior:none !important;
 }
 
 @media (min-width:768px){
+    .tnco-mobile-menu-nav a{
+        font-size:95px !important;
+        line-height:.95 !important;
+    }
 
-    .tnco-mobile-menu-actions{
-        flex-direction:row !important;
-        align-items:center !important;
+    .tnco-mobile-menu-nav{
         gap:12px !important;
-        position:relative !important;
-        top:162px !important;
-        transform:none !important;
+    }
+
+    .tnco-mobile-menu-close{
+        width:54px !important;
+        height:54px !important;
     }
 
     .tnco-mobile-menu-actions a{
-        position:relative !important;
         background:transparent !important;
         border:1px solid #fff !important;
         color:#fff !important;
-        transition:border-color .4s cubic-bezier(.22,1,.36,1) !important;
     }
+}
 
-    .tnco-mobile-menu-actions a:hover{
-        animation:tncoStrokeLoop .9s ease-in-out !important;
-    }
-
-    @keyframes tncoStrokeLoop{
-        0%{border-color:#fff !important;}
-        45%{border-color:transparent !important;}
-        100%{border-color:#fff !important;}
+@media (max-width:1200px) and (min-width:768px){
+    .tnco-mobile-menu-nav a{
+        font-size:clamp(64px,10vw,95px) !important;
     }
 }
 
 @media (max-width:767px){
+    .blog-header-nav{
+        display:none !important;
+    }
+
+    .blog-header-right{
+        gap:0 !important;
+        max-width:none !important;
+        transform:translateY(7px) !important;
+    }
+
+    #tncoHeaderMenuButton.blog-header-connect{
+        min-width:98px !important;
+        width:auto !important;
+        height:40px !important;
+        font-size:11px !important;
+        padding:0 20px !important;
+    }
+
+    .tnco-mobile-menu-overlay{
+        padding:24px !important;
+    }
+
+    .tnco-mobile-menu-nav{
+        padding-top:72px !important;
+        gap:8px !important;
+    }
+
+    .tnco-mobile-menu-nav a{
+        font-size:clamp(36px,12vw,64px) !important;
+        line-height:1 !important;
+    }
 
     .tnco-mobile-menu-actions{
-        transform:translateY(275px) !important;
+        flex-direction:column !important;
+        align-items:flex-start !important;
+        top:auto !important;
+        transform:translateY(200px) !important;
     }
 
     .tnco-mobile-menu-actions a{
-        background:transparent !important;
-        border:1px solid #fff !important;
-        color:#fff !important;
+        width:138px !important;
+        height:55px !important;
     }
-
 }
 
+@media (max-width:360px){
+    .tnco-mobile-menu-overlay{
+        padding:20px !important;
+    }
 
+    .tnco-mobile-menu-nav a{
+        font-size:36px !important;
+    }
+}
 
+@media (prefers-reduced-motion:reduce){
+    .tnco-mobile-menu-overlay,
+    .tnco-mobile-menu-nav a::after{
+        transition:none !important;
+    }
+}
 /* META */
 .tnco-mobile-menu-meta{
     width:100% !important;
@@ -653,43 +678,25 @@ button{font:inherit}
      TNCO MOBILE NAV — MOBILE ONLY
 ========================================================= -->
 <div class="tnco-mobile-menu-overlay" id="tncoMobileMenu" aria-hidden="true">
-    <button class="tnco-mobile-menu-close" id="tncoMobileMenuClose" type="button">×</button>
+    <button class="tnco-mobile-menu-close"
+            id="tncoMobileMenuClose"
+            type="button"
+            aria-label="Close menu">×</button>
 
-    <nav class="tnco-mobile-menu-nav" aria-label="Mobile navigation">
+    <nav class="tnco-mobile-menu-nav" aria-label="Main navigation">
         <a href="index.html">HOME</a>
         <a href="blog-list.html">PAPERS</a>
         <a href="contactus.html">CONTACT</a>
         <a href="https://www.instagram.com/chaeldavs/" target="_blank" rel="noopener noreferrer">CREATORS</a>
         <a href="https://linktr.ee/tunetrackid" target="_blank" rel="noopener noreferrer">CONNECT</a>
-
-
-<div class="tnco-mobile-menu-actions">
-    <a href="#" target="_blank" rel="noopener noreferrer">CONNECT</a>
-    <a href="#" target="_blank" rel="noopener noreferrer">JOIN US</a>
-</div>
-
-<style>
-
-@media (min-width:768px){
-
-    .tnco-mobile-menu-actions a{
-        border:1px solid #fff !important;
-        outline:0 !important;
-        box-shadow:none !important;
-        background:transparent !important;
-        transition:border-color 1s cubic-bezier(.22,1,.36,1) !important;
-    }
-
-    .tnco-mobile-menu-actions a:hover{
-        border-color:transparent !important;
-    }
-
-}
-
-</style>    
-    
     </nav>
+
+    <div class="tnco-mobile-menu-actions">
+        <a href="https://linktr.ee/tunetrackid" target="_blank" rel="noopener noreferrer">CONNECT</a>
+        <a href="https://t.me/tunetrackstd?boost" target="_blank" rel="noopener noreferrer">JOIN US</a>
+    </div>
 </div>
+
 
 <div id="scrollContainer" data-scroll-container>
 
@@ -1806,35 +1813,62 @@ button{font:inherit}
 
 
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const closeButton = document.querySelector(".tnco-mobile-menu-close");
-
-    if (!closeButton) return;
-
-    closeButton.addEventListener("click", function () {
-        closeButton.classList.add("is-closing");
-
-        setTimeout(function () {
-            closeButton.classList.remove("is-closing");
-        }, 600);
-    });
-});
-</script>
-
-<script id="tnco-final-menu-script">
-(function(){
+<script id="tnco-contact-menu-script">
+document.addEventListener('DOMContentLoaded', function(){
     const button = document.getElementById('tncoHeaderMenuButton');
     const menu = document.getElementById('tncoMobileMenu');
     const close = document.getElementById('tncoMobileMenuClose');
+
     if(!button || !menu) return;
+
+    let locked = false;
+
+    function preventMenuScroll(e){
+        if(menu.classList.contains('is-open')){
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    }
+
+    function lockScroll(){
+        if(locked) return;
+        locked = true;
+
+        document.documentElement.classList.add('menu-scroll-locked');
+        document.body.classList.add('menu-scroll-locked');
+
+        document.addEventListener('wheel', preventMenuScroll, {
+            passive:false,
+            capture:true
+        });
+
+        document.addEventListener('touchmove', preventMenuScroll, {
+            passive:false,
+            capture:true
+        });
+    }
+
+    function unlockScroll(){
+        if(!locked) return;
+        locked = false;
+
+        document.documentElement.classList.remove('menu-scroll-locked');
+        document.body.classList.remove('menu-scroll-locked');
+
+        document.removeEventListener('wheel', preventMenuScroll, true);
+        document.removeEventListener('touchmove', preventMenuScroll, true);
+    }
 
     function setOpen(open){
         menu.classList.toggle('is-open', open);
-        button.setAttribute('aria-expanded', String(open));
-        button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
         menu.setAttribute('aria-hidden', String(!open));
-        document.body.style.overflow = open ? 'hidden' : '';
+        button.setAttribute('aria-expanded', String(open));
+
+        if(open){
+            lockScroll();
+        }else{
+            unlockScroll();
+        }
     }
 
     button.addEventListener('click', function(){
@@ -1842,75 +1876,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     if(close){
-        close.addEventListener('click', function(){ setOpen(false); });
+        close.addEventListener('click', function(){
+            setOpen(false);
+        });
     }
 
     menu.querySelectorAll('a').forEach(function(link){
-        link.addEventListener('click', function(){ setOpen(false); });
-    });
-
-    document.addEventListener('keydown', function(event){
-        if(event.key === 'Escape') setOpen(false);
-    });
-})();
-</script>
-
-<script>
-(function () {
-    const menu = document.querySelector('.tnco-mobile-menu-overlay');
-    if (!menu) return;
-
-    let locked = false;
-
-    function preventScroll(e) {
-        if (menu.classList.contains('is-open')) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-    }
-
-    function lockMenuScroll() {
-        if (locked) return;
-        locked = true;
-
-        document.addEventListener('wheel', preventScroll, {
-            passive: false,
-            capture: true
+        link.addEventListener('click', function(){
+            setOpen(false);
         });
-
-        document.addEventListener('touchmove', preventScroll, {
-            passive: false,
-            capture: true
-        });
-    }
-
-    function unlockMenuScroll() {
-        if (!locked) return;
-        locked = false;
-
-        document.removeEventListener('wheel', preventScroll, true);
-        document.removeEventListener('touchmove', preventScroll, true);
-    }
-
-    new MutationObserver(function () {
-        if (menu.classList.contains('is-open')) {
-            lockMenuScroll();
-        } else {
-            unlockMenuScroll();
-        }
-    }).observe(menu, {
-        attributes: true,
-        attributeFilter: ['class']
     });
-})();
-</script>
 
-<script>
-document.querySelectorAll('.tnco-mobile-menu-actions a').forEach(function(button){
-    button.addEventListener('mouseenter',function(){
-        this.classList.remove('tnco-stroke-animate');
-        void this.offsetWidth;
-        this.classList.add('tnco-stroke-animate');
+    document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && menu.classList.contains('is-open')){
+            setOpen(false);
+        }
     });
 });
 </script>
@@ -2740,6 +2720,15 @@ body {
 
 }
 </style>
+
+<style>
+@media (min-width: 375px) and (max-width: 450px) {
+    .contact-title {
+        transform: translateY(45px) !important;
+    }
+}
+</style>
+
 
 
 </body>
