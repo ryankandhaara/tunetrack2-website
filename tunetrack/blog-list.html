@@ -1291,7 +1291,7 @@ html.menu-scroll-locked{
     let loco = null;
 
 
-    if(window.LocomotiveScroll && window.innerWidth > 900){
+    if(window.LocomotiveScroll){
 
       try{
 
@@ -1306,12 +1306,14 @@ html.menu-scroll-locked{
           multiplier: 1,
 
           smartphone: {
-            smooth:false
+            smooth:true
           },
 
           tablet: {
-            smooth:false
-          }
+            smooth:true
+          },
+
+          resetNativeScroll: false
 
         });
 
@@ -1336,6 +1338,12 @@ html.menu-scroll-locked{
         setTimeout(
           () => loco && loco.update(),
           250
+        );
+
+        window.addEventListener(
+          'load',
+          () => loco && loco.update(),
+          {once:true}
         );
 
 
@@ -2698,6 +2706,23 @@ body {
     min-width: 0 !important;
 }
 
+</style>
+
+<style>
+/* =========================================================
+   MOBILE — LOCOMOTIVE SCROLL ONLY
+   ========================================================= */
+
+@media (max-width: 900px) {
+    #scrollContainer.has-scroll-container {
+        overflow-x: hidden !important;
+    }
+
+    #scrollContainer [data-scroll-section] {
+        content-visibility: visible !important;
+        contain-intrinsic-size: auto !important;
+    }
+}
 </style>
 
 <style>

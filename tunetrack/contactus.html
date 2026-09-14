@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.css">
 <style>
 
 :root{--black:#000;--white:#fff;--pad:30px;--ease:cubic-bezier(.16,1,.3,1)}
@@ -2878,32 +2879,18 @@ form.addEventListener('submit', async function(event){
             sendButton.textContent = 'SENDING...';
         }
 
-        const response = await fetch('/api/send-contact', {
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json'
-            },
-            body:JSON.stringify({
-                email:email,
-                intent:intentLabel,
-                matter:matterLabel,
-                product:productLabel,
-                message:message,
-                subject:subject,
-                date:today,
-                receipt:body
-            })
-        });
+        const recipient = 'hello@tunetrack.co';
+        const mailto = 'mailto:' + recipient
+            + '?subject=' + encodeURIComponent(subject)
+            + '&body=' + encodeURIComponent(body);
 
-        if(!response.ok){
-            throw new Error('Failed to send contact request');
-        }
+        window.location.href = mailto;
 
         successState.classList.add('is-visible');
         successState.setAttribute('aria-hidden','false');
 
         if(sendButton){
-            sendButton.textContent = 'SENT ✓';
+            sendButton.textContent = 'OPENED ↗';
         }
 
     }catch(error){
@@ -3354,6 +3341,50 @@ body.menu-scroll-locked {
 }
 </style>
 
+
+<script id="contact-locomotive-scroll">
+(function(){
+    'use strict';
+
+    if(!window.LocomotiveScroll) return;
+
+    const container = document.getElementById('scrollContainer');
+    if(!container) return;
+
+    function init(){
+        if(window.contactLoco) return;
+
+        try{
+            window.contactLoco = new LocomotiveScroll({
+                el: container,
+                smooth: true,
+                lerp: 0.075,
+                multiplier: 1,
+                smartphone: {
+                    smooth: true
+                },
+                tablet: {
+                    smooth: true
+                }
+            });
+
+            setTimeout(function(){
+                if(window.contactLoco){
+                    window.contactLoco.update();
+                }
+            }, 300);
+        }catch(err){
+            console.warn('Locomotive Scroll failed to initialize.', err);
+        }
+    }
+
+    if(document.readyState === 'complete'){
+        init();
+    }else{
+        window.addEventListener('load', init, {once:true});
+    }
+})();
+</script>
 </body>
 </html>
     

@@ -1368,7 +1368,7 @@ html.menu-scroll-locked{
   hookStageVideo.addEventListener('loadeddata',function(){hookStage.classList.remove('video-fallback')},{passive:true});
   function stopStageVideo(){if(!hookStageVideo)return;hookStageVideo.pause();hookStageVideo.removeAttribute('src');hookStageVideo.load()}
   function enterUnlockWorld(){if(hookTransitioning)return;hookTransitioning=true;hookNotice.classList.remove('show');document.documentElement.classList.remove('hook-scroll-locked');document.body.style.overflow='hidden';if(hookVideo)hookVideo.src='';document.body.classList.remove('suction-exit');document.body.classList.add('hook-world-active');suctionTransition.style.display='block';suctionTransition.style.visibility='visible';suctionTransition.style.opacity='1';void document.body.offsetWidth;document.body.classList.add('suctioning');setTimeout(()=>{hookStage.classList.add('active');hookStage.setAttribute('aria-hidden','false');},470);setTimeout(()=>{playStageVideo();if(typeof openUnlock==='function')openUnlock();},720);setTimeout(()=>{document.body.classList.remove('suctioning');suctionTransition.style.display='none';hookTransitioning=false},1120)}
-  function exitUnlockWorld(){if(hookTransitioning)return;hookTransitioning=true;closeUnlock();hookStage.classList.remove('active');hookStage.setAttribute('aria-hidden','true');stopStageVideo();document.body.style.overflow='hidden';resetStoryVisuals();suctionTransition.style.display='block';suctionTransition.style.visibility='visible';suctionTransition.style.opacity='1';void document.body.offsetWidth;document.body.classList.add('hook-world-active','suction-exit');setTimeout(()=>{resetStoryVisuals();suctionTransition.style.display='none';suctionTransition.style.visibility='';suctionTransition.style.opacity='';document.body.style.overflow='';hookTransitioning=false},840)}
+  function exitUnlockWorld(){if(hookTransitioning)return;hookTransitioning=true;closeUnlock();hookStage.classList.remove('active');hookStage.setAttribute('aria-hidden','true');stopStageVideo();document.body.style.overflow='hidden';resetStoryVisuals();suctionTransition.style.display='block';suctionTransition.style.visibility='visible';suctionTransition.style.opacity='1';void document.body.offsetWidth;document.body.classList.add('hook-world-active','suction-exit');setTimeout(()=>{resetStoryVisuals();suctionTransition.style.display='none';suctionTransition.style.visibility='';suctionTransition.style.opacity='';document.body.style.overflow='';document.documentElement.classList.remove('hook-scroll-locked');document.body.classList.remove('hook-scroll-locked','hook-yes-active');if(window.tncoLocoScroll){window.tncoLocoScroll.update();window.tncoLocoScroll.start();}window.scrollTo(0,window.scrollY||0);hookTransitioning=false},840)}
   hookNo.addEventListener('click',dismissHook);hookYes.addEventListener('click',function(){if(storyResourceButton)storyResourceButton.classList.remove('show');document.body.classList.remove('hook-dismissed');enterUnlockWorld()});if(storyResourceButton)storyResourceButton.addEventListener('click',enterUnlockWorld);hookStageBack.addEventListener('click',exitUnlockWorld);
   if(window.LocomotiveScroll){
     const locoScroll=new LocomotiveScroll({
@@ -1572,6 +1572,22 @@ document.addEventListener('DOMContentLoaded', function(){
         max-width: 420px !important;
     }
 
+}
+
+/* MOBILE POPUP PERFORMANCE PATCH — scroll recovery + lighter stage transition */
+@media (max-width:900px){
+  #blogHookNotice.show:before{
+    backdrop-filter:blur(8px) saturate(120%) !important;
+    -webkit-backdrop-filter:blur(8px) saturate(120%) !important;
+  }
+  #blogHookNotice.show .blog-hook-card{
+    backdrop-filter:blur(14px) saturate(150%) !important;
+    -webkit-backdrop-filter:blur(14px) saturate(150%) !important;
+  }
+  #hookStage.active .hook-stage-video{
+    filter:saturate(1.05) brightness(.42)!important;
+    transform:none!important;
+  }
 }
 </style>
 
