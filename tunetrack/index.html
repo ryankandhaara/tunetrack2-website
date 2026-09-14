@@ -568,16 +568,6 @@
         border:1px solid #fff !important;
         color:#fff !important;
     }
-
-    .tnco-mobile-menu-actions a:hover{
-        animation:tncoIndexStroke .8s cubic-bezier(.65,0,.35,1) !important;
-    }
-
-    @keyframes tncoIndexStroke{
-        0%{border-color:#fff !important;}
-        45%{border-color:transparent !important;}
-        100%{border-color:#fff !important;}
-    }
 }
 
 @media (max-width:767px){
@@ -667,13 +657,10 @@
 
             <!-- CONNECT -->
 
-            <button type="button" class="tnco-header-connect" id="tncoHeaderMenuButton" aria-label="Open menu" aria-expanded="false">
-
+            <button type="button" class="blog-header-connect" id="tncoHeaderMenuButton" aria-label="Open menu" aria-expanded="false">
                 MENU
-
             </button>
 
-   
 
         </div>
 
@@ -2329,6 +2316,513 @@ document.querySelectorAll('.tnco-mobile-menu-actions a').forEach(function(button
 }
 </style>
 
+
+<!-- =========================================================
+     INDEX — FINAL MENU BUTTONS ONLY
+     Blog-list button shape / treatment.
+     NO HOVER ANIMATION.
+========================================================= -->
+<style id="tnco-index-final-menu-buttons-only">
+
+/* =========================================================
+   HEADER — MENU PILL
+========================================================= */
+
+#tncoHeaderMenuButton.tnco-header-connect{
+    appearance:none !important;
+    -webkit-appearance:none !important;
+
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+
+    min-width:90px !important;
+    width:auto !important;
+    height:38px !important;
+
+    margin:0 !important;
+    padding:0 22px !important;
+
+    border:0 !important;
+    border-radius:999px !important;
+
+    outline:none !important;
+    box-shadow:none !important;
+
+    background:#000 !important;
+    color:#fff !important;
+
+    font-family:Arial,Helvetica,sans-serif !important;
+    font-size:11px !important;
+    font-weight:400 !important;
+    line-height:1 !important;
+
+    transform:none !important;
+    cursor:pointer !important;
+}
+
+#tncoHeaderMenuButton.tnco-header-connect:hover,
+#tncoHeaderMenuButton.tnco-header-connect:focus,
+#tncoHeaderMenuButton.tnco-header-connect:focus-visible,
+#tncoHeaderMenuButton.tnco-header-connect:active{
+    background:#000 !important;
+    color:#fff !important;
+    transform:none !important;
+    outline:none !important;
+    box-shadow:none !important;
+}
+
+
+/* =========================================================
+   TWO MENU ACTION BUTTONS — PILL
+========================================================= */
+
+.tnco-mobile-menu-actions{
+    display:flex !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    gap:12px !important;
+    width:100% !important;
+    margin-top:30px !important;
+    padding:0 !important;
+
+    position:relative !important;
+    top:162px !important;
+    transform:none !important;
+}
+
+.tnco-mobile-menu-actions a{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+
+    width:138px !important;
+    height:55px !important;
+
+    padding:0 !important;
+    box-sizing:border-box !important;
+
+    border:1px solid #fff !important;
+    border-radius:999px !important;
+
+    background:transparent !important;
+    color:#fff !important;
+
+    text-decoration:none !important;
+
+    font:400 17px/1 Arial,Helvetica,sans-serif !important;
+    letter-spacing:0 !important;
+
+    -webkit-tap-highlight-color:transparent !important;
+
+    transition:none !important;
+    animation:none !important;
+}
+
+/* NO HOVER EFFECT */
+
+.tnco-mobile-menu-actions a:hover,
+.tnco-mobile-menu-actions a:focus,
+.tnco-mobile-menu-actions a:focus-visible,
+.tnco-mobile-menu-actions a:active{
+    background:transparent !important;
+    color:#fff !important;
+    border-color:#fff !important;
+
+    transform:none !important;
+    box-shadow:none !important;
+
+    animation:none !important;
+}
+
+
+/* =========================================================
+   KILL OLD STROKE ANIMATION
+========================================================= */
+
+.tnco-mobile-menu-actions a::after{
+    display:none !important;
+    animation:none !important;
+}
+
+.tnco-mobile-menu-actions a.tnco-stroke-animate::after{
+    display:none !important;
+    animation:none !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width:767px){
+
+    .tnco-mobile-menu-actions{
+        flex-direction:column !important;
+        align-items:flex-start !important;
+
+        top:auto !important;
+        transform:translateY(200px) !important;
+    }
+
+    .tnco-mobile-menu-actions a{
+        width:138px !important;
+        height:55px !important;
+
+        background:transparent !important;
+        border:1px solid #fff !important;
+        border-radius:999px !important;
+
+        color:#fff !important;
+    }
+}
+
+
+/* =========================================================
+   361px — 375px
+========================================================= */
+
+@media (min-width:361px) and (max-width:375px){
+
+    .tnco-mobile-menu-actions{
+        transform:translateY(100px) !important;
+    }
+
+}
+
+</style>
+
+<style id="tnco-index-menu-final-kill-old">
+
+/* =========================================================
+   INDEX MENU BUTTON — EXACT BLOG-LIST TREATMENT
+   KILL ALL OLD BUTTON STYLES
+========================================================= */
+
+#tncoHeaderMenuButton{
+    appearance:none !important;
+    -webkit-appearance:none !important;
+
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+
+    width:auto !important;
+    min-width:90px !important;
+    max-width:none !important;
+
+    height:38px !important;
+
+    margin:0 !important;
+    padding:0 22px !important;
+
+    border:0 !important;
+    border-radius:999px !important;
+
+    background:#000 !important;
+    color:#fff !important;
+
+    outline:none !important;
+    box-shadow:none !important;
+
+    font-family:Arial,Helvetica,sans-serif !important;
+    font-size:12px !important;
+    font-weight:600 !important;
+    line-height:1 !important;
+    letter-spacing:-.015em !important;
+
+    transform:none !important;
+    transition:none !important;
+
+    cursor:pointer !important;
+}
+
+
+/* KILL ALL OLD HOVER / ACTIVE EFFECTS */
+
+#tncoHeaderMenuButton:hover,
+#tncoHeaderMenuButton:focus,
+#tncoHeaderMenuButton:focus-visible,
+#tncoHeaderMenuButton:active{
+    width:auto !important;
+    min-width:90px !important;
+    height:38px !important;
+
+    padding:0 22px !important;
+
+    border:0 !important;
+    border-radius:999px !important;
+
+    background:#000 !important;
+    color:#fff !important;
+
+    outline:none !important;
+    box-shadow:none !important;
+
+    transform:none !important;
+    transition:none !important;
+    animation:none !important;
+}
+
+
+/* MOBILE — SAME BLOG-LIST SIZE */
+
+@media (max-width:767px){
+
+    #tncoHeaderMenuButton{
+        width:auto !important;
+        min-width:98px !important;
+        height:40px !important;
+
+        padding:0 20px !important;
+
+        border:0 !important;
+        border-radius:999px !important;
+
+        background:#000 !important;
+        color:#fff !important;
+
+        font-size:11px !important;
+
+        transform:none !important;
+    }
+
+    #tncoHeaderMenuButton:hover,
+    #tncoHeaderMenuButton:focus,
+    #tncoHeaderMenuButton:focus-visible,
+    #tncoHeaderMenuButton:active{
+        width:auto !important;
+        min-width:98px !important;
+        height:40px !important;
+
+        padding:0 20px !important;
+
+        border:0 !important;
+        border-radius:999px !important;
+
+        background:#000 !important;
+        color:#fff !important;
+
+        transform:none !important;
+        animation:none !important;
+    }
+
+}
+
+
+/* =========================================================
+   MENU ACTION BUTTONS
+   EXACT BLOG-LIST SHAPE
+   NO OLD STROKE
+========================================================= */
+
+.tnco-mobile-menu-actions a{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+
+    width:138px !important;
+    height:55px !important;
+
+    padding:0 !important;
+    box-sizing:border-box !important;
+
+    border:1px solid #fff !important;
+    border-radius:999px !important;
+
+    background:transparent !important;
+    color:#fff !important;
+
+    text-decoration:none !important;
+
+    font:400 17px/1 Arial,Helvetica,sans-serif !important;
+    letter-spacing:0 !important;
+
+    transition:none !important;
+    animation:none !important;
+}
+
+
+/* KILL OLD HOVER */
+
+.tnco-mobile-menu-actions a:hover,
+.tnco-mobile-menu-actions a:focus,
+.tnco-mobile-menu-actions a:focus-visible,
+.tnco-mobile-menu-actions a:active{
+    border:1px solid #fff !important;
+    border-radius:999px !important;
+
+    background:transparent !important;
+    color:#fff !important;
+
+    transform:none !important;
+    transition:none !important;
+    animation:none !important;
+
+    box-shadow:none !important;
+}
+
+
+/* KILL OLD STROKE PSEUDO ELEMENT */
+
+.tnco-mobile-menu-actions a::after{
+    display:none !important;
+    content:none !important;
+
+    animation:none !important;
+    transform:none !important;
+}
+
+
+/* EVEN IF OLD JS ADDS THE CLASS */
+
+.tnco-mobile-menu-actions a.tnco-stroke-animate::after{
+    display:none !important;
+    animation:none !important;
+    transform:none !important;
+}
+
+</style>
+
+<style id="tnco-index-initial-menu-pill-only">
+
+/* =========================================================
+   INITIAL HEADER MENU BUTTON ONLY
+   WHITE PILL — DO NOT TOUCH OPEN MENU BUTTONS
+========================================================= */
+
+#tncoHeaderMenuButton{
+    appearance:none !important;
+    -webkit-appearance:none !important;
+
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+
+    width:auto !important;
+    min-width:108px !important;
+    height:38px !important;
+
+    padding:0 22px !important;
+    margin:0 !important;
+
+    border:0 !important;
+    border-radius:999px !important;
+
+    background:#fff !important;
+    color:#000 !important;
+
+    outline:none !important;
+    box-shadow:none !important;
+
+    transform:none !important;
+    transition:none !important;
+
+    font-family:Arial,Helvetica,sans-serif !important;
+    font-size:12px !important;
+    font-weight:600 !important;
+    line-height:1 !important;
+    letter-spacing:-.015em !important;
+}
+
+
+/* KEEP IT WHITE ON HOVER / FOCUS */
+
+#tncoHeaderMenuButton:hover,
+#tncoHeaderMenuButton:focus,
+#tncoHeaderMenuButton:focus-visible,
+#tncoHeaderMenuButton:active{
+    width:auto !important;
+    min-width:108px !important;
+    height:38px !important;
+
+    padding:0 22px !important;
+
+    border:0 !important;
+    border-radius:999px !important;
+
+    background:#fff !important;
+    color:#000 !important;
+
+    outline:none !important;
+    box-shadow:none !important;
+
+    transform:none !important;
+    transition:none !important;
+    animation:none !important;
+}
+
+
+/* MOBILE */
+
+@media (max-width:767px){
+
+    #tncoHeaderMenuButton{
+        min-width:98px !important;
+        width:auto !important;
+        height:40px !important;
+
+        padding:0 20px !important;
+
+        border:0 !important;
+        border-radius:999px !important;
+
+        background:#fff !important;
+        color:#000 !important;
+    }
+
+    #tncoHeaderMenuButton:hover,
+    #tncoHeaderMenuButton:focus,
+    #tncoHeaderMenuButton:focus-visible,
+    #tncoHeaderMenuButton:active{
+        min-width:98px !important;
+        width:auto !important;
+        height:40px !important;
+
+        padding:0 20px !important;
+
+        border:0 !important;
+        border-radius:999px !important;
+
+        background:#fff !important;
+        color:#000 !important;
+
+        transform:none !important;
+    }
+
+}
+
+</style>
+
+<style id="tnco-index-menu-hover-final">
+
+/* =========================================================
+   HEADER MENU — MARQUEE YELLOW HOVER
+   SMOOTH TRANSITION
+========================================================= */
+
+#tncoHeaderMenuButton{
+    transition:
+        background-color .35s cubic-bezier(.65,0,.35,1),
+        color .35s cubic-bezier(.65,0,.35,1) !important;
+}
+
+#tncoHeaderMenuButton:hover,
+#tncoHeaderMenuButton:focus-visible{
+    background:#fff200 !important;
+    color:#000 !important;
+
+    transition:
+        background-color .35s cubic-bezier(.65,0,.35,1),
+        color .35s cubic-bezier(.65,0,.35,1) !important;
+}
+
+#tncoHeaderMenuButton:active{
+    background:#fff200 !important;
+    color:#000 !important;
+}
+
+</style>
 
 
 </body>
