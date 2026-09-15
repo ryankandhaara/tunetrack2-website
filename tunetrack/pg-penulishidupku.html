@@ -1546,29 +1546,12 @@ html.menu-scroll-locked{
   overlay.addEventListener('click',function(e){if(e.target===overlay)closeUnlock()});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&overlay.classList.contains('active'))closeUnlock()});
 
+  /* MOBILE LOCK — panels can only change via their buttons.
+     No horizontal swipe / drag is allowed. */
+  unlockStage.style.touchAction='pan-y';
   unlockStage.addEventListener('pointerdown',function(e){
-    if(e.target.closest('button,a,iframe'))return;
-    touchStartX=e.clientX;touchStartY=e.clientY;isDragging=true;track.style.transition='none';unlockStage.setPointerCapture?.(e.pointerId);
-  });
-  unlockStage.addEventListener('pointermove',function(e){
-    if(!isDragging||touchStartX===null)return;
-    const dx=e.clientX-touchStartX,dy=e.clientY-touchStartY;
-    if(Math.abs(dx)<Math.abs(dy))return;
-    const base=-currentPanel*20;
-    const delta=(dx/unlockStage.clientWidth)*20;
-    track.style.transform='translate3d('+Math.max(-80,Math.min(0,base+delta))+'%,0,0)';
-  });
-  unlockStage.addEventListener('pointerup',function(e){
-    if(!isDragging)return;
-    const dx=e.clientX-touchStartX;
-    isDragging=false;touchStartX=null;touchStartY=null;
-    if(Math.abs(dx)>unlockStage.clientWidth*.14){
-      if(dx<0&&currentPanel<5)setPanel(currentPanel+1,true);
-      else if(dx>0&&currentPanel>1)setPanel(currentPanel-1,true);
-      else setPanel(currentPanel,true);
-    }else setPanel(currentPanel,true);
-  });
-  unlockStage.addEventListener('pointercancel',function(){if(!isDragging)return;isDragging=false;touchStartX=null;touchStartY=null;setPanel(currentPanel,true)});
+    if(!e.target.closest('button,a,iframe')) e.preventDefault();
+  },{passive:false});
 
   updateProgress();
 
