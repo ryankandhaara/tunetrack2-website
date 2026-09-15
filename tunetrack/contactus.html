@@ -1316,6 +1316,11 @@ html.contact-page,body.contact-page{width:100%;min-width:0;overflow-x:hidden!imp
   .contact-page .blog-footer-social-group{grid-template-columns:1fr!important;gap:24px!important}
 }
 </style>
+
+<style id="contact-locomotive-fix">
+html.has-scroll-smooth{overflow:hidden;}
+#scrollContainer[data-scroll-container]{min-height:100vh;}
+</style>
 </head>
 
 <body class="contact-page">
@@ -3342,6 +3347,7 @@ body.menu-scroll-locked {
 </style>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
 <script id="contact-locomotive-scroll">
 (function(){
     'use strict';
@@ -3350,6 +3356,7 @@ body.menu-scroll-locked {
 
     const container = document.getElementById('scrollContainer');
     if(!container) return;
+    container.setAttribute('data-scroll-container','');
 
     function init(){
         if(window.contactLoco) return;
@@ -3373,6 +3380,9 @@ body.menu-scroll-locked {
                     window.contactLoco.update();
                 }
             }, 300);
+            requestAnimationFrame(function(){
+                if(window.contactLoco) window.contactLoco.update();
+            });
         }catch(err){
             console.warn('Locomotive Scroll failed to initialize.', err);
         }
