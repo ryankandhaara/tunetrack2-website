@@ -616,8 +616,231 @@
 }
 </style>
 
+
+<style id="tnco-index-top-marquee">
+    .tnco-top-marquee {
+        width: 100%;
+        height: 42px;
+        background: #fff;
+        color: #111;
+        overflow: hidden;
+        position: relative;
+        z-index: 1001;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        border: 0;
+    }
+
+    .tnco-top-marquee-track {
+        display: flex;
+        width: max-content;
+        flex: 0 0 auto;
+        will-change: transform;
+        animation: tncoTopMarquee 28s linear infinite;
+    }
+
+    .tnco-top-marquee-set {
+        display: flex;
+        align-items: center;
+        flex: 0 0 auto;
+        width: max-content;
+        white-space: nowrap;
+        padding-right: 58px;
+        box-sizing: border-box;
+    }
+
+    .tnco-top-marquee-item {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        margin-right: 58px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        line-height: 1;
+        font-weight: 500;
+        letter-spacing: -0.2px;
+    }
+
+    .tnco-top-marquee-item.pass {
+        font-weight: 700;
+    }
+
+    .tnco-top-marquee-smile {
+        width: 21px;
+        height: 21px;
+        flex: 0 0 21px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .tnco-top-marquee-smile svg {
+        width: 21px;
+        height: 21px;
+        display: block;
+    }
+
+    @keyframes tncoTopMarquee {
+        from { transform: translate3d(0, 0, 0); }
+        to { transform: translate3d(-50%, 0, 0); }
+    }
+
+    @media (max-width: 767px) {
+        .tnco-top-marquee {
+            height: 34px;
+        }
+
+        .tnco-top-marquee-track {
+            animation-duration: 22s;
+        }
+
+        .tnco-top-marquee-set {
+            padding-right: 34px;
+        }
+
+        .tnco-top-marquee-item {
+            margin-right: 34px;
+            font-size: 11px;
+        }
+
+        .tnco-top-marquee-smile {
+            width: 18px;
+            height: 18px;
+            flex-basis: 18px;
+        }
+
+        .tnco-top-marquee-smile svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .tnco-top-marquee-track {
+            animation: none;
+        }
+    }
+</style>
+
+<style id="tnco-index-top-marquee-header-spacing">
+/* Keep the existing header intact; move it below the new top marquee. */
+.tnco-header{
+    transform: translateY(42px) !important;
+}
+
+@media (max-width: 767px){
+    .tnco-header{
+        transform: translateY(34px) !important;
+    }
+}
+</style>
+
 </head>
 <body data-scroll-container>
+
+    <div class="tnco-top-marquee" aria-label="The Creative Pass">
+        <div class="tnco-top-marquee-track">
+<div class="tnco-top-marquee-set">
+                <span class="tnco-top-marquee-item">Watch all courses for just $12/month</span>
+                <span class="tnco-top-marquee-item pass">The Creative Pass</span>
+                <span class="tnco-top-marquee-smile">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="9" cy="10" r="0.9" fill="currentColor"/>
+                        <circle cx="15" cy="10" r="0.9" fill="currentColor"/>
+                        <path d="M8.5 14c1 1.5 2.3 2.2 3.5 2.2S14.5 15.5 15.5 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </span>
+            </div>
+<div class="tnco-top-marquee-set">
+                <span class="tnco-top-marquee-item">Watch all courses for just $12/month</span>
+                <span class="tnco-top-marquee-item pass">The Creative Pass</span>
+                <span class="tnco-top-marquee-smile">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="9" cy="10" r="0.9" fill="currentColor"/>
+                        <circle cx="15" cy="10" r="0.9" fill="currentColor"/>
+                        <path d="M8.5 14c1 1.5 2.3 2.2 3.5 2.2S14.5 15.5 15.5 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </span>
+            </div>
+<div class="tnco-top-marquee-set">
+                <span class="tnco-top-marquee-item">Watch all courses for just $12/month</span>
+                <span class="tnco-top-marquee-item pass">The Creative Pass</span>
+                <span class="tnco-top-marquee-smile">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="9" cy="10" r="0.9" fill="currentColor"/>
+                        <circle cx="15" cy="10" r="0.9" fill="currentColor"/>
+                        <path d="M8.5 14c1 1.5 2.3 2.2 3.5 2.2S14.5 15.5 15.5 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </span>
+            </div>
+<div class="tnco-top-marquee-set">
+                <span class="tnco-top-marquee-item">Watch all courses for just $12/month</span>
+                <span class="tnco-top-marquee-item pass">The Creative Pass</span>
+                <span class="tnco-top-marquee-smile">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="9" cy="10" r="0.9" fill="currentColor"/>
+                        <circle cx="15" cy="10" r="0.9" fill="currentColor"/>
+                        <path d="M8.5 14c1 1.5 2.3 2.2 3.5 2.2S14.5 15.5 15.5 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </span>
+            </div>
+<div class="tnco-top-marquee-set">
+                <span class="tnco-top-marquee-item">Watch all courses for just $12/month</span>
+                <span class="tnco-top-marquee-item pass">The Creative Pass</span>
+                <span class="tnco-top-marquee-smile">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="9" cy="10" r="0.9" fill="currentColor"/>
+                        <circle cx="15" cy="10" r="0.9" fill="currentColor"/>
+                        <path d="M8.5 14c1 1.5 2.3 2.2 3.5 2.2S14.5 15.5 15.5 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </span>
+            </div>
+<div class="tnco-top-marquee-set">
+                <span class="tnco-top-marquee-item">Watch all courses for just $12/month</span>
+                <span class="tnco-top-marquee-item pass">The Creative Pass</span>
+                <span class="tnco-top-marquee-smile">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="9" cy="10" r="0.9" fill="currentColor"/>
+                        <circle cx="15" cy="10" r="0.9" fill="currentColor"/>
+                        <path d="M8.5 14c1 1.5 2.3 2.2 3.5 2.2S14.5 15.5 15.5 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </span>
+            </div>
+<div class="tnco-top-marquee-set">
+                <span class="tnco-top-marquee-item">Watch all courses for just $12/month</span>
+                <span class="tnco-top-marquee-item pass">The Creative Pass</span>
+                <span class="tnco-top-marquee-smile">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="9" cy="10" r="0.9" fill="currentColor"/>
+                        <circle cx="15" cy="10" r="0.9" fill="currentColor"/>
+                        <path d="M8.5 14c1 1.5 2.3 2.2 3.5 2.2S14.5 15.5 15.5 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </span>
+            </div>
+<div class="tnco-top-marquee-set">
+                <span class="tnco-top-marquee-item">Watch all courses for just $12/month</span>
+                <span class="tnco-top-marquee-item pass">The Creative Pass</span>
+                <span class="tnco-top-marquee-smile">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="9" cy="10" r="0.9" fill="currentColor"/>
+                        <circle cx="15" cy="10" r="0.9" fill="currentColor"/>
+                        <path d="M8.5 14c1 1.5 2.3 2.2 3.5 2.2S14.5 15.5 15.5 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </span>
+            </div>
+</div>
+    </div>
+
 
     <!-- =========================================================
          HTML — TUNETRACK HEADER
@@ -1069,50 +1292,323 @@
 
     <main class="tnco-works">
 
-        <div class="tnco-scroll-marquee" aria-label="Scroll down to see our works">
-            <div class="tnco-scroll-marquee-track">
-<div class="tnco-scroll-marquee-set">
-                    <div class="tnco-scroll-marquee-copy">
-                        <span>scroll down to see our works</span>
-                        <span class="tnco-scroll-marquee-arrow"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="m12.5 8.5 3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    </div>
-                    <div class="tnco-scroll-marquee-copy" aria-hidden="true">
-                        <span>scroll down to see our works</span>
-                        <span class="tnco-scroll-marquee-arrow"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="m12.5 8.5 3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    </div>
-                    <div class="tnco-scroll-marquee-copy">
-                        <span>scroll down to see our works</span>
-                        <span class="tnco-scroll-marquee-arrow"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="m12.5 8.5 3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    </div>
-                    <div class="tnco-scroll-marquee-copy" aria-hidden="true">
-                        <span>scroll down to see our works</span>
-                        <span class="tnco-scroll-marquee-arrow"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="m12.5 8.5 3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    </div>
-                </div>
-                <div class="tnco-scroll-marquee-set" aria-hidden="true">
-                    <div class="tnco-scroll-marquee-copy">
-                        <span>scroll down to see our works</span>
-                        <span class="tnco-scroll-marquee-arrow"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="m12.5 8.5 3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    </div>
-                    <div class="tnco-scroll-marquee-copy" aria-hidden="true">
-                        <span>scroll down to see our works</span>
-                        <span class="tnco-scroll-marquee-arrow"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="m12.5 8.5 3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    </div>
-                    <div class="tnco-scroll-marquee-copy">
-                        <span>scroll down to see our works</span>
-                        <span class="tnco-scroll-marquee-arrow"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="m12.5 8.5 3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    </div>
-                    <div class="tnco-scroll-marquee-copy" aria-hidden="true">
-                        <span>scroll down to see our works</span>
-                        <span class="tnco-scroll-marquee-arrow"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="m12.5 8.5 3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+<style id="tnco-work-category-v3">
+/* =========================================================
+   WORK CATEGORIES — V3
+   Apple-inspired, reversible category / artist library UI.
+========================================================= */
+.tnco-work-categories{
+    width:min(100% - 48px, 1180px);
+    margin:0 auto 54px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
+    position:relative;
+    z-index:10;
+    overflow:visible;
+}
+
+.tnco-work-category{
+    appearance:none;
+    -webkit-appearance:none;
+    border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.055);
+    color:rgba(255,255,255,.72);
+    min-height:42px;
+    padding:0 18px;
+    border-radius:999px;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:-.01em;
+    line-height:1;
+    white-space:nowrap;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+    transition:
+        background-color 2s cubic-bezier(.22,1,.36,1),
+        color 2s cubic-bezier(.22,1,.36,1),
+        border-color 2s cubic-bezier(.22,1,.36,1),
+        transform 2s cubic-bezier(.22,1,.36,1),
+        opacity 2s cubic-bezier(.22,1,.36,1),
+        max-width 2s cubic-bezier(.22,1,.36,1),
+        padding 2s cubic-bezier(.22,1,.36,1),
+        margin 2s cubic-bezier(.22,1,.36,1);
+    -webkit-tap-highlight-color:transparent;
+}
+
+.tnco-work-category:hover{
+    background:#fff;
+    border-color:#fff;
+    color:#111;
+    transform:translateY(-1px);
+}
+
+.tnco-work-category.is-active{
+    background:#fff;
+    border-color:#fff;
+    color:#111;
+}
+
+/* Artist toggle — smooth 2s typewriter-style label swap */
+.tnco-work-category.artist-toggle{
+    min-width:136px;
+    min-height:42px;
+    overflow:hidden;
+    isolation:isolate;
+}
+
+.tnco-work-category.artist-toggle .artist-default,
+.tnco-work-category.artist-toggle .artist-hover{
+    display:block;
+    white-space:nowrap;
+    transition:opacity 1s ease, transform 2s cubic-bezier(.22,1,.36,1), max-width 2s cubic-bezier(.22,1,.36,1);
+    overflow:hidden;
+    margin:auto;
+}
+
+.tnco-work-category.artist-toggle .artist-default{
+    opacity:1;
+    transform:translateY(0);
+    max-width:140px;
+}
+
+.tnco-work-category.artist-toggle .artist-hover{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, 18px);
+    opacity:0;
+    max-width:110px;
+    width:110px;
+}
+
+.tnco-work-category.artist-toggle:hover .artist-default{
+    opacity:0;
+    transform:translateY(-18px);
+    max-width:0;
+}
+
+.tnco-work-category.artist-toggle:hover .artist-hover{
+    opacity:1;
+    transform:translate(-50%, -50%);
+    max-width:110px;
+}
+
+/* Once artist mode is open, the four category pills leave leftward. */
+.tnco-work-categories.is-artist-open > .tnco-work-category:not(.artist-toggle){
+    transform:translateX(-120vw);
+    opacity:0;
+    pointer-events:none;
+    max-width:0;
+    padding-left:0;
+    padding-right:0;
+    margin-left:0;
+    margin-right:0;
+    border-width:0;
+}
+
+.tnco-work-categories.is-artist-open > .tnco-work-category.artist-toggle{
+    transform:translateX(-18px);
+    width:198px;
+    min-width:198px;
+}
+
+.tnco-work-category.tnco-category-hidden{
+    display:none;
+}
+
+/* Artist library drops in from the left; closes by pulling upward. */
+.tnco-artist-library{
+    flex:0 0 100%;
+    width:min(100%, 980px);
+    max-height:0;
+    margin:0 auto;
+    overflow:hidden;
+    opacity:0;
+    transform:translateY(-24px);
+    pointer-events:none;
+    transition:max-height 2s cubic-bezier(.22,1,.36,1), opacity 1.2s ease, transform 2s cubic-bezier(.22,1,.36,1), margin-top 2s cubic-bezier(.22,1,.36,1);
+}
+
+.tnco-work-categories.is-artist-open .tnco-artist-library{
+    max-height:260px;
+    margin-top:22px;
+    opacity:1;
+    transform:translateY(0);
+    pointer-events:auto;
+}
+
+.tnco-artist-library-inner{
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:9px;
+    padding:2px 0 4px;
+}
+
+.tnco-artist-pill{
+    appearance:none;
+    border:1px solid rgba(255,255,255,.13);
+    background:rgba(255,255,255,.035);
+    color:rgba(255,255,255,.74);
+    border-radius:999px;
+    min-height:40px;
+    padding:0 16px;
+    font:500 12px/1 Arial,Helvetica,sans-serif;
+    cursor:pointer;
+    white-space:nowrap;
+    opacity:0;
+    transform:translateX(-55px);
+    transition:background-color .55s ease,color .55s ease,border-color .55s ease,transform 1.15s cubic-bezier(.22,1,.36,1),opacity 1.15s ease;
+}
+
+.tnco-work-categories.is-artist-open .tnco-artist-pill{
+    opacity:1;
+    transform:translateX(0);
+}
+
+.tnco-work-categories.is-artist-open .tnco-artist-pill:nth-child(1){transition-delay:.05s}
+.tnco-work-categories.is-artist-open .tnco-artist-pill:nth-child(2){transition-delay:.12s}
+.tnco-work-categories.is-artist-open .tnco-artist-pill:nth-child(3){transition-delay:.19s}
+.tnco-work-categories.is-artist-open .tnco-artist-pill:nth-child(4){transition-delay:.26s}
+.tnco-work-categories.is-artist-open .tnco-artist-pill:nth-child(5){transition-delay:.33s}
+.tnco-work-categories.is-artist-open .tnco-artist-pill:nth-child(6){transition-delay:.40s}
+.tnco-work-categories.is-artist-open .tnco-artist-pill:nth-child(7){transition-delay:.47s}
+.tnco-work-categories.is-artist-open .tnco-artist-pill:nth-child(8){transition-delay:.54s}
+.tnco-work-categories.is-artist-open .tnco-artist-pill:nth-child(9){transition-delay:.61s}
+
+.tnco-artist-pill:hover,
+.tnco-artist-pill.is-active{
+    background:#fff;
+    border-color:#fff;
+    color:#111;
+}
+
+@media (max-width:767px){
+    .tnco-work-categories{
+        width:calc(100% - 28px);
+        margin-bottom:42px;
+        gap:7px;
+    }
+
+    .tnco-work-category{
+        min-height:38px;
+        padding:0 14px;
+        font-size:11px;
+    }
+
+    .tnco-work-category.artist-toggle{
+        min-width:126px;
+        min-height:38px;
+    }
+
+    .tnco-work-categories.is-artist-open > .tnco-work-category:not(.artist-toggle){
+        transform:translateX(-130vw);
+    }
+
+    .tnco-artist-library-inner{
+        justify-content:flex-start;
+        gap:7px;
+    }
+
+    .tnco-artist-pill{
+        min-height:36px;
+        padding:0 13px;
+        font-size:10.5px;
+    }
+}
+</style>
+
+<div class="tnco-work-categories" id="tncoWorkCategories" aria-label="Work categories">
+    <button class="tnco-work-category" type="button" data-category="worship" aria-pressed="false">WORSHIP</button>
+    <button class="tnco-work-category" type="button" data-category="rearrangement" aria-pressed="false">REARRANGEMENT</button>
+    <button class="tnco-work-category" type="button" data-category="praise" aria-pressed="false">PRAISE</button>
+    <button class="tnco-work-category" type="button" data-category="freebies" aria-pressed="false">FREEBIES</button>
+</div>
+
+<script>
+(function(){
+    const wrap=document.getElementById('tncoWorkCategories');
+    if(!wrap)return;
+
+    const buttons=[...wrap.querySelectorAll('.tnco-work-category:not(.artist-toggle)')];
+    const artist=document.getElementById('tncoArtistToggle');
+    const library=document.getElementById('tncoArtistLibrary');
+    const artistPills=[...wrap.querySelectorAll('.tnco-artist-pill')];
+    let closeTimer=null;
+
+    function closeArtistMode(){
+        clearTimeout(closeTimer);
+        wrap.classList.remove('is-artist-open');
+        artist.setAttribute('aria-expanded','false');
+        library.setAttribute('aria-hidden','true');
+        artist.classList.remove('is-active');
+
+        /* Let the slide-out finish before putting the four pills back into flow. */
+        closeTimer=setTimeout(function(){
+            buttons.forEach(function(item){item.classList.remove('tnco-category-hidden');});
+        },2000);
+    }
+
+    buttons.forEach(function(button){
+        button.addEventListener('click',function(){
+            if(wrap.classList.contains('is-artist-open')){
+                closeArtistMode();
+                setTimeout(function(){
+                    buttons.forEach(function(item){item.classList.remove('is-active');});
+                    button.classList.add('is-active');
+                },2000);
+                return;
+            }
+
+            /* Click the active filter again = clear / rollback to the full list. */
+            const wasActive=button.classList.contains('is-active');
+            buttons.forEach(function(item){item.classList.remove('is-active');});
+            artist.classList.remove('is-active');
+            if(!wasActive) button.classList.add('is-active');
+        });
+    });
+
+    artist.addEventListener('click',function(){
+        const expanded=artist.getAttribute('aria-expanded')==='true';
+        if(expanded){
+            closeArtistMode();
+            return;
+        }
+
+        clearTimeout(closeTimer);
+        buttons.forEach(function(item){
+            item.classList.remove('is-active');
+            item.classList.remove('tnco-category-hidden');
+        });
+        artist.classList.add('is-active');
+        artist.setAttribute('aria-expanded','true');
+        library.setAttribute('aria-hidden','false');
+        wrap.classList.add('is-artist-open');
+    });
+
+    artistPills.forEach(function(pill){
+        pill.addEventListener('click',function(){
+            artistPills.forEach(function(item){item.classList.remove('is-active');});
+            pill.classList.add('is-active');
+        });
+    });
+})();
+</script>
 
     <div class="works-list" id="worksList">
 
-    <div class="work-item">
+    <div class="work-item praise">
+        <a href="pg-penulishidupku.html" target="_blank" rel="noopener noreferrer">Puji dia Yesus Sukacitaku (SW)</a>
+    </div>
+
+    <div class="work-item praise freebies">
         <a href="pg-penulishidupku.html" target="_blank" rel="noopener noreferrer">Penulis Hidupku (NDCW)</a>
     </div>
 
@@ -1120,11 +1616,11 @@
         <a href="http://lynk.id/gudangsequencer/43dpxgq5g8ox" rel="noopener noreferrer">Yesus Kumenyembahmu Medley (SW)</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise rearrangement freebies">
         <a href="pg-sw-lebihdaripemenang.html" target="_blank" rel="noopener noreferrer">Lebih dari Pemenang (SW)</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/w08zo73m7y7z" target="_blank" rel="noopener noreferrer">Allah Sanggup (SW)</a>
     </div>
 
@@ -1132,15 +1628,15 @@
         <a href="https://lynk.id/gudangsequencer/olm3qd20r82y" target="_blank" rel="noopener noreferrer">Sperti Bapa Sayang Anaknya</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise rearrangement">
         <a href="https://lynk.id/gudangsequencer/gw6onoo5meng" target="_blank" rel="noopener noreferrer">Mari Menari 2.0</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/m07l2dmr83n6" target="_blank" rel="noopener noreferrer">Api Pantekosta Medley</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise rearrangement">
         <a href="https://lynk.id/gudangsequencer/e5ke29g86jxd" target="_blank" rel="noopener noreferrer">Kecaplah dan Lihatlah</a>
     </div>
 
@@ -1148,19 +1644,19 @@
         <a href="https://lynk.id/gudangsequencer/49zn00oe0207" target="_blank" rel="noopener noreferrer">Bukti Kasih ft. UNDVD</a>
     </div>
 
-    <div class="work-item worship">
+    <div class="work-item worship freebies">
         <a href="https://lynk.id/gudangsequencer/okx7yo67kwjo" target="_blank" rel="noopener noreferrer">Trima kasih Tuhan</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise rearrangement">
         <a href="https://lynk.id/gudangsequencer/210x2gjnokle" target="_blank" rel="noopener noreferrer">Tiap Langkahku (Gospel Project)</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise rearrangement">
         <a href="https://lynk.id/gudangsequencer/3v9kv95403qo" target="_blank" rel="noopener noreferrer">Allah sumber Kuatku (Gospel Project)</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise rearrangement">
         <a href="https://lynk.id/gudangsequencer/jn0p6yd769rm" target="_blank" rel="noopener noreferrer">
             Allah kita heran dan Besar
             <br>
@@ -1168,7 +1664,7 @@
         </a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise rearrangement">
         <a href="https://lynk.id/gudangsequencer/oykp3mvv9mwd" target="_blank" rel="noopener noreferrer">Friend of God TMRC</a>
     </div>
 
@@ -1192,43 +1688,43 @@
         <a href="https://lynk.id/gudangsequencer/1rzjn7n8edx2" target="_blank" rel="noopener noreferrer">Silent Night</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/n3r1k444dr3n" target="_blank" rel="noopener noreferrer">Angels We Have Heard On High</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/okn2roo0ojg1" target="_blank" rel="noopener noreferrer">Hark</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/vdngnrgkjkk1" target="_blank" rel="noopener noreferrer">Its Christmas</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/6z1lyz9j4k12" target="_blank" rel="noopener noreferrer">New Things Coming</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/woqlqdkedrzp" target="_blank" rel="noopener noreferrer">We Raise</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/21lklwv7yg6l" target="_blank" rel="noopener noreferrer">Praise Opening (GW)</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/523vkzqj9m9y" target="_blank" rel="noopener noreferrer">In Jesus Name Asia</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise rearrangement">
         <a href="https://lynk.id/gudangsequencer/nyxyzxqkpop4" target="_blank" rel="noopener noreferrer">This is the Day - Reimagined</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/9kqon61317me" target="_blank" rel="noopener noreferrer">I Know You Can</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/x9rv4o160kp0" target="_blank" rel="noopener noreferrer">Real Love - HxL 25</a>
     </div>
 
@@ -1236,27 +1732,27 @@
         <a href="https://lynk.id/gudangsequencer/l9w339mkkzy3" target="_blank" rel="noopener noreferrer">Holy Forever</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/wxv3d8lmk9y1" target="_blank" rel="noopener noreferrer">Fill the Room</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/j6p02601zn32" target="_blank" rel="noopener noreferrer">Now Aint that Something</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/qe85oo2xz88l" target="_blank" rel="noopener noreferrer">Goodbye Yesterday</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/x02go3dy0dwg" target="_blank" rel="noopener noreferrer">Real Love</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/k67pqnk1xd1j" target="_blank" rel="noopener noreferrer">O Come Medley Carol of The Bells</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/592pl7k9qm8r" target="_blank" rel="noopener noreferrer">In Jesus Name</a>
     </div>
 
@@ -1264,35 +1760,35 @@
         <a href="https://lynk.id/gudangsequencer/o4xzq3zdg36w" target="_blank" rel="noopener noreferrer">I Speak Jesus</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/3417ervkxq64" target="_blank" rel="noopener noreferrer">This is the Day</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/glq0d71pdrq5" target="_blank" rel="noopener noreferrer">You Are Good (in LA)</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/9248oz68oz1z" target="_blank" rel="noopener noreferrer">You Are Good</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/q20wwz5p6kpv" target="_blank" rel="noopener noreferrer">Impossible Possible</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/r054qee22vrz" target="_blank" rel="noopener noreferrer">Echo</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise rearrangement">
         <a href="https://lynk.id/gudangsequencer/36v97ozy1n7x" target="_blank" rel="noopener noreferrer">In Jesus Name (Ft. DOE)</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/0nv6vwezvy75" target="_blank" rel="noopener noreferrer">KAMSAHAMNIDA</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/0v3m7n37r606" target="_blank" rel="noopener noreferrer">This is our Time</a>
     </div>
 
@@ -1300,7 +1796,7 @@
         <a href="https://lynk.id/gudangsequencer/32jn4zewe1n3" target="_blank" rel="noopener noreferrer">Trust in God</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/d3rgvnx61v3m" target="_blank" rel="noopener noreferrer">Terangmu (Lifeline)</a>
     </div>
 
@@ -1312,11 +1808,11 @@
         <a href="https://lynk.id/gudangsequencer/ovro6541or6g" target="_blank" rel="noopener noreferrer">Nyata Sempurna</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/p5xjj25e22g1" target="_blank" rel="noopener noreferrer">Hari Terbaik</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/zkddzxk1xwk9" target="_blank" rel="noopener noreferrer">Bangkit dan Puji Dia</a>
     </div>
 
@@ -1336,55 +1832,55 @@
         <a href="https://lynk.id/gudangsequencer/pq0l8or7m184" target="_blank" rel="noopener noreferrer">Bukti Kasihmu</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/nywv21v0k6x8" target="_blank" rel="noopener noreferrer">Tempat Pertama</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/g4yl32on4kod" target="_blank" rel="noopener noreferrer">Serukan Namanya</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/vrdn2qwpr515" target="_blank" rel="noopener noreferrer">Satu Persembahan</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise freebies">
         <a href="https://lynk.id/gudangsequencer/6qk6ldgroy1g" target="_blank" rel="noopener noreferrer">Kuteringat (SW)</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise rearrangement">
         <a href="https://lynk.id/gudangsequencer/pr4211y82ye2" target="_blank" rel="noopener noreferrer">Dia Raja (Worshipnite)</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise freebies">
         <a href="https://lynk.id/gudangsequencer/1o35kj6v9jm3" target="_blank" rel="noopener noreferrer">Praise</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise rearrangement">
         <a href="https://lynk.id/gudangsequencer/lj309y3vnpvd" target="_blank" rel="noopener noreferrer">Aku Diberkati 2025 Remix</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise rearrangement">
         <a href="https://lynk.id/gudangsequencer/vp0xlye26vjk" target="_blank" rel="noopener noreferrer">Nyalakan Apimu (New Life Church)</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise rearrangement">
         <a href="https://lynk.id/gudangsequencer/lwelm3rlddgk" target="_blank" rel="noopener noreferrer">Kunaikkan Syukurku 2025</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise rearrangement">
         <a href="https://lynk.id/gudangsequencer/vkvoex2704zq" target="_blank" rel="noopener noreferrer">NDC - Christmas 2024 Medley</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise rearrangement">
         <a href="https://lynk.id/gudangsequencer/0vdrz2krz9rn" target="_blank" rel="noopener noreferrer">Ajaib kau Tuhan (NDCY)</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise">
         <a href="https://lynk.id/gudangsequencer/p1d6okxxd054" target="_blank" rel="noopener noreferrer">Endless Praise (Recording Collective)</a>
     </div>
 
-    <div class="work-item">
+    <div class="work-item praise rearrangement">
         <a href="https://lynk.id/gudangsequencer/l20mv78q6y56" target="_blank" rel="noopener noreferrer">Oleh Darah Anak Domba (NDCY)</a>
     </div>
 
@@ -2223,72 +2719,7 @@ document.querySelectorAll('.tnco-mobile-menu-actions a').forEach(function(button
 }
 </style>
 
-<style id="tnco-mobile-marquee-fix">
-@media (max-width: 767px) {
 
-.tnco-scroll-marquee {
-    background: #fff !important;
-    color: #000 !important;
-    overflow: hidden !important;
-    transform: translateY(-20px) rotate(-2deg) !important;
-}
-
-    .tnco-scroll-marquee-track {
-        display: flex !important;
-        width: max-content !important;
-        will-change: transform !important;
-        animation: tncoScrollMarqueeMobile 24s linear infinite !important;
-    }
-
-    .tnco-scroll-marquee-set {
-        width: max-content !important;
-        min-width: max-content !important;
-        flex: 0 0 auto !important;
-
-        display: flex !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-
-        gap: 30px !important;
-        padding: 0 18px !important;
-        box-sizing: border-box !important;
-    }
-
-    .tnco-scroll-marquee-copy {
-        display: inline-flex !important;
-        align-items: center !important;
-        flex: 0 0 auto !important;
-
-        color: #000 !important;
-        font-size: 10px !important;
-        white-space: nowrap !important;
-
-        margin: 0 !important;
-        
-    }
-
-    .tnco-scroll-marquee-arrow {
-        width: 19px !important;
-        height: 19px !important;
-        flex: 0 0 19px !important;
-    }
-
-    .tnco-scroll-marquee-arrow svg {
-        filter: none !important;
-    }
-
-    @keyframes tncoScrollMarqueeMobile {
-        from {
-            transform: translate3d(0, 0, 0);
-        }
-
-        to {
-            transform: translate3d(-50%, 0, 0);
-        }
-    }
-
-}
-</style>
 
 <style id="tnco-mobile-kill-vara-3">
 @media (max-width: 767px) {
@@ -2826,6 +3257,210 @@ document.querySelectorAll('.tnco-mobile-menu-actions a').forEach(function(button
     color:#000 !important;
 }
 
+</style>
+
+
+
+
+<!-- =========================================================
+     FINAL FILTER OVERRIDE — V6
+     Locomotive-safe filtering. Only the work list is changed.
+     No body/html scroll locking. No replacement of Locomotive.
+========================================================= -->
+<style id="tnco-filter-final-v6">
+/* Keep the filter itself lightweight. The list owns the height. */
+#worksList .work-item.tnco-filter-hidden{
+    display:none !important;
+}
+
+#worksList .work-item.tnco-filter-visible{
+    display:block !important;
+}
+
+#tncoWorkCategories > .tnco-work-category[data-category].is-active{
+    background:#fff !important;
+    color:#111 !important;
+    border-color:#fff !important;
+}
+
+/* Prevent the browser from trying to preserve an old anchor position
+   while the list height changes. */
+#worksList{
+    overflow:visible !important;
+    overflow-anchor:none !important;
+}
+</style>
+
+<script id="tnco-filter-final-v6-script">
+(function(){
+    'use strict';
+
+    function init(){
+        const wrap=document.getElementById('tncoWorkCategories');
+        const list=document.getElementById('worksList');
+        if(!wrap || !list) return;
+
+        const buttons=Array.from(wrap.querySelectorAll('.tnco-work-category[data-category]'));
+        const artist=document.getElementById('tncoArtistToggle');
+        const library=document.getElementById('tncoArtistLibrary');
+        const items=Array.from(list.querySelectorAll('.work-item'));
+        let activeCategory=null;
+        let refreshQueued=false;
+
+        /*
+         * The original page uses Locomotive Scroll from main.js.
+         * We do NOT create a second Locomotive instance and we do NOT
+         * touch html/body overflow. We simply ask the existing scroll
+         * system to recalculate after the list's real height changes.
+         */
+        function refreshLocomotive(){
+            refreshQueued=false;
+
+            /* Force the browser to commit the new list height first. */
+            void list.offsetHeight;
+
+            /* Locomotive v4 recalculates on resize. */
+            window.dispatchEvent(new Event('resize'));
+
+            /* If the existing site exposes its instance, update it too. */
+            const candidates=[
+                window.locomotiveScroll,
+                window.locoScroll,
+                window.loco,
+                window.LocoScroll
+            ];
+
+            for(let i=0;i<candidates.length;i++){
+                const sc=candidates[i];
+                if(sc && typeof sc.update==='function'){
+                    try{ sc.update(); }catch(e){}
+                }
+            }
+        }
+
+        function queueRefresh(){
+            if(refreshQueued) return;
+            refreshQueued=true;
+
+            requestAnimationFrame(function(){
+                refreshLocomotive();
+                requestAnimationFrame(function(){
+                    refreshLocomotive();
+                });
+            });
+        }
+
+        /*
+         * ResizeObserver catches the exact moment the filtered list changes
+         * size. This is intentionally scoped to #worksList only.
+         */
+        if('ResizeObserver' in window){
+            const observer=new ResizeObserver(function(){
+                queueRefresh();
+            });
+            observer.observe(list);
+        }
+
+        function closeArtistUI(){
+            wrap.classList.remove('is-artist-open');
+            if(artist){
+                artist.classList.remove('is-active');
+                artist.setAttribute('aria-expanded','false');
+            }
+            if(library) library.setAttribute('aria-hidden','true');
+            buttons.forEach(function(btn){
+                btn.classList.remove('tnco-category-hidden');
+            });
+        }
+
+        function render(category){
+            activeCategory=category;
+
+            /* One DOM pass: calculate state first, then write classes. */
+            items.forEach(function(item){
+                const show=!category || item.classList.contains(category);
+                item.classList.toggle('tnco-filter-hidden',!show);
+                item.classList.toggle('tnco-filter-visible',show);
+            });
+
+            buttons.forEach(function(btn){
+                const on=!!category && btn.dataset.category===category;
+                btn.classList.toggle('is-active',on);
+                btn.setAttribute('aria-pressed',on?'true':'false');
+            });
+
+            queueRefresh();
+        }
+
+        function handleCategoryClick(event){
+            event.preventDefault();
+            event.stopPropagation();
+            event.stopImmediatePropagation();
+
+            if(wrap.classList.contains('is-artist-open')){
+                closeArtistUI();
+            }
+
+            const btn=event.currentTarget;
+            const next=activeCategory===btn.dataset.category
+                ? null
+                : btn.dataset.category;
+
+            render(next);
+        }
+
+        /* Capture phase wins over the older category click handler. */
+        buttons.forEach(function(btn){
+            btn.addEventListener('click',handleCategoryClick,true);
+        });
+
+        if(artist){
+            artist.addEventListener('click',function(){
+                if(!wrap.classList.contains('is-artist-open')){
+                    render(null);
+                }
+            },true);
+        }
+
+        /* Initial state: every work visible, normal page height. */
+        render(null);
+
+        /* Extra post-layout refreshes cover Locomotive initialization timing. */
+        requestAnimationFrame(function(){
+            window.dispatchEvent(new Event('resize'));
+        });
+        setTimeout(function(){ window.dispatchEvent(new Event('resize')); },80);
+        setTimeout(function(){ window.dispatchEvent(new Event('resize')); },300);
+    }
+
+    if(document.readyState==='loading'){
+        document.addEventListener('DOMContentLoaded',init,{once:true});
+    }else{
+        init();
+    }
+})();
+</script>
+
+<style id="tnco-filter-final-v6-centering">
+/* CENTER FILTERED WORKS — unchanged behavior, scoped to the list. */
+.work-list,
+.works-list,
+#work-list,
+#works-list{
+    width:100% !important;
+    max-width:1400px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    text-align:center !important;
+}
+
+.work-list > *,
+.works-list > *,
+#work-list > *,
+#works-list > *{
+    margin-left:auto !important;
+    margin-right:auto !important;
+}
 </style>
 
 
