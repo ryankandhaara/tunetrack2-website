@@ -619,6 +619,419 @@ html.menu-scroll-locked{
 }
 </style>
 
+
+<style id="tnco-papers-contribute-ui">
+/* =========================================================
+   PAPERS — CONTRIBUTE CTA / UI V1
+   Isolated section only. Footer untouched.
+   ========================================================= */
+.tnco-contribute{
+    position:relative;
+    min-height:clamp(620px,72vh,820px);
+    padding:clamp(80px,9vw,150px) var(--pad) clamp(80px,8vw,120px);
+    background:#090909;
+    color:#f7f7f7;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    isolation:isolate;
+}
+
+.tnco-contribute::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(circle at 72% 28%,rgba(255,255,255,.075),transparent 28%),
+        radial-gradient(circle at 18% 88%,rgba(255,255,255,.045),transparent 24%);
+    pointer-events:none;
+    z-index:-1;
+}
+
+.tnco-contribute-top{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:40px;
+    position:relative;
+    z-index:2;
+}
+
+.tnco-contribute-kicker{
+    font:700 11px/1 Arial,Helvetica,sans-serif;
+    letter-spacing:.02em;
+    text-transform:uppercase;
+    opacity:.58;
+}
+
+.tnco-contribute-index{
+    font:500 11px/1 Arial,Helvetica,sans-serif;
+    text-transform:uppercase;
+    opacity:.58;
+}
+
+.tnco-contribute-title{
+    width:min(1080px,100%);
+    margin:clamp(70px,8vw,125px) 0 clamp(75px,8vw,120px);
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:clamp(58px,8.7vw,148px);
+    line-height:.82;
+    letter-spacing:-.085em;
+    font-weight:800;
+    text-transform:uppercase;
+    position:relative;
+    z-index:2;
+}
+
+.tnco-contribute-title span{
+    display:inline-block;
+    will-change:transform;
+}
+
+.tnco-contribute-title .tnco-hand-note{
+    font-size:.22em;
+    line-height:1;
+    letter-spacing:-.04em;
+    font-weight:500;
+    text-transform:none;
+    opacity:.58;
+    vertical-align:top;
+    margin:0 0 0 .3em;
+    transform:translateY(.15em) rotate(-3deg);
+}
+
+.tnco-slider-wrap{
+    width:min(100%,1180px);
+    position:relative;
+    z-index:4;
+}
+
+.tnco-slider-labels{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    margin-bottom:12px;
+    font:600 10px/1 Arial,Helvetica,sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.01em;
+    opacity:.55;
+}
+
+.tnco-slider{
+    --progress:0%;
+    position:relative;
+    width:100%;
+    height:82px;
+    border:1px solid rgba(255,255,255,.22);
+    border-radius:999px;
+    background:rgba(255,255,255,.075);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.10),
+        inset 0 -14px 28px rgba(0,0,0,.25),
+        0 18px 55px rgba(0,0,0,.22);
+    backdrop-filter:blur(18px) saturate(135%);
+    -webkit-backdrop-filter:blur(18px) saturate(135%);
+    touch-action:none;
+    user-select:none;
+    cursor:grab;
+    overflow:hidden;
+}
+
+.tnco-slider.is-dragging{cursor:grabbing}
+
+.tnco-slider::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    width:var(--progress);
+    border-radius:inherit;
+    background:linear-gradient(90deg,rgba(255,255,255,.035),rgba(255,255,255,.13));
+    pointer-events:none;
+    transition:width .12s linear;
+}
+
+.tnco-slider::after{
+    content:"";
+    position:absolute;
+    inset:1px;
+    border-radius:inherit;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+    pointer-events:none;
+}
+
+.tnco-slider-text{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 92px;
+    text-align:center;
+    font:600 clamp(12px,1.15vw,15px)/1 Arial,Helvetica,sans-serif;
+    letter-spacing:-.025em;
+    text-transform:uppercase;
+    pointer-events:none;
+    opacity:.86;
+    transition:opacity .25s ease,transform .55s cubic-bezier(.16,1,.3,1);
+}
+
+.tnco-slider.is-complete .tnco-slider-text{
+    opacity:1;
+    transform:scale(1.035);
+}
+
+.tnco-slider-handle{
+    position:absolute;
+    top:7px;
+    left:7px;
+    width:68px;
+    height:68px;
+    border-radius:50%;
+    background:rgba(255,255,255,.96);
+    box-shadow:
+        0 9px 24px rgba(0,0,0,.28),
+        inset 0 2px 2px rgba(255,255,255,.95),
+        inset 0 -5px 10px rgba(0,0,0,.08);
+    transform:translate3d(0,0,0) scale(1);
+    will-change:transform,left;
+    z-index:3;
+}
+
+.tnco-slider-handle::before{
+    content:"";
+    position:absolute;
+    inset:6px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 25%,rgba(255,255,255,1),rgba(255,255,255,.62) 35%,rgba(235,235,235,.9) 100%);
+}
+
+.tnco-slider-handle::after{
+    content:"→";
+    position:absolute;
+    inset:0;
+    display:grid;
+    place-items:center;
+    color:#050505;
+    font:700 20px/1 Arial,Helvetica,sans-serif;
+    z-index:2;
+}
+
+.tnco-slider.is-dragging .tnco-slider-handle{transform:scale(1.08)}
+.tnco-slider.is-complete .tnco-slider-handle{transform:scale(1.16)}
+
+.tnco-contribute-status{
+    margin-top:13px;
+    min-height:14px;
+    font:500 10px/1.2 Arial,Helvetica,sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.01em;
+    opacity:0;
+    transform:translateY(7px);
+    transition:opacity .35s ease,transform .55s cubic-bezier(.16,1,.3,1);
+}
+
+.tnco-contribute-status.is-visible{
+    opacity:.62;
+    transform:none;
+}
+
+/* Contribution transition — visual only for V1 */
+.tnco-contribute-transition{
+    position:fixed;
+    inset:0;
+    z-index:100000;
+    display:grid;
+    place-items:center;
+    background:#090909;
+    color:#fff;
+    pointer-events:none;
+    opacity:0;
+    visibility:hidden;
+    transform:scale(1.035);
+    transition:opacity .25s ease,transform .85s cubic-bezier(.16,1,.3,1),visibility 0s linear .85s;
+}
+
+.tnco-contribute-transition.is-active{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:scale(1);
+    transition:opacity .2s ease,transform .75s cubic-bezier(.16,1,.3,1),visibility 0s;
+}
+
+.tnco-contribute-transition-inner{
+    width:min(88vw,1200px);
+    text-align:center;
+}
+
+.tnco-contribute-transition-small{
+    display:block;
+    margin-bottom:18px;
+    font:600 10px/1 Arial,Helvetica,sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    opacity:.45;
+}
+
+.tnco-contribute-transition-title{
+    margin:0;
+    font:800 clamp(54px,10vw,150px)/.8 Arial,Helvetica,sans-serif;
+    letter-spacing:-.09em;
+    text-transform:uppercase;
+}
+
+@media(max-width:767px){
+    .tnco-contribute{
+        min-height:640px;
+        padding:72px 16px 70px;
+    }
+
+    .tnco-contribute-top{gap:20px}
+    .tnco-contribute-title{
+        margin:86px 0 82px;
+        font-size:clamp(48px,14vw,86px);
+        line-height:.84;
+        letter-spacing:-.08em;
+    }
+
+    .tnco-contribute-title .tnco-hand-note{
+        display:block;
+        margin:.35em 0 0 .05em;
+        font-size:14px;
+    }
+
+    .tnco-slider{height:72px}
+    .tnco-slider-handle{
+        width:58px;
+        height:58px;
+        top:6px;
+        left:6px;
+    }
+
+    .tnco-slider-text{
+        padding:0 74px;
+        font-size:11px;
+    }
+
+    .tnco-slider-labels{font-size:9px}
+}
+
+@media(prefers-reduced-motion:reduce){
+    .tnco-contribute-transition,
+    .tnco-slider-text,
+    .tnco-contribute-status,
+    .tnco-slider-handle{transition:none!important}
+}
+</style>
+
+
+<style id="tnco-papers-v2-transition">
+/* V3 — real scroll-driven white → black transition.
+   The transition band is a visual color bridge, not empty spacing. */
+.tnco-contribute-transition-band{
+    width:100%;
+    height:clamp(170px,18vw,260px);
+    background:#fff;
+    pointer-events:none;
+    position:relative;
+    overflow:hidden;
+    will-change:background-color;
+}
+
+.tnco-contribute-transition-band::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:#000;
+    opacity:var(--tnco-transition-progress,0);
+    pointer-events:none;
+    will-change:opacity;
+}
+
+.tnco-contribute{
+    background:#090909 !important;
+}
+
+.tnco-contribute::before{
+    display:none !important;
+}
+
+@media(max-width:767px){
+    .tnco-contribute-transition-band{
+        height:180px;
+    }
+}
+</style>
+
+
+<style id="tnco-create-banner-v1">
+/* =========================================================
+   TUNETRACK PAPERS — CREATE BANNER
+   Compact, white, Apple-inspired editorial CTA
+   ========================================================= */
+.tnco-create-banner{
+    position:relative;
+    min-height:390px;
+    margin:0;
+    padding:58px clamp(24px,5vw,76px);
+    background:#fff;
+    color:#111;
+    border-top:1px solid rgba(0,0,0,.08);
+    border-bottom:1px solid rgba(0,0,0,.08);
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    isolation:isolate;
+}
+.tnco-create-copy{position:relative;z-index:5;width:min(48%,620px)}
+.tnco-create-eyebrow{display:block;margin-bottom:22px;font:600 10px/1 Arial,Helvetica,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#6e6e73}
+.tnco-create-copy h2{margin:0;font:700 clamp(48px,6vw,92px)/.86 Arial,Helvetica,sans-serif;letter-spacing:-.065em}
+.tnco-create-copy h2 em{
+    font-family:"Gilda Display",Georgia,serif;
+    font-style:italic;
+    font-weight:400;
+    color:#6e6e73;
+}
+.tnco-create-copy p{width:min(390px,90%);margin:25px 0 24px;font:400 15px/1.28 Arial,Helvetica,sans-serif;letter-spacing:-.02em;color:#6e6e73}
+.tnco-create-link{display:inline-flex;align-items:center;gap:10px;color:#0066cc;text-decoration:none;font:600 14px/1 Arial,Helvetica,sans-serif;letter-spacing:-.02em;transition:gap .35s cubic-bezier(.16,1,.3,1),color .25s ease}
+.tnco-create-link span{font-size:18px;line-height:0;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.tnco-create-link:hover{gap:14px;color:#004f9e}
+.tnco-create-link:hover span{transform:translate(2px,-2px)}
+.tnco-create-visual{position:absolute;right:clamp(18px,6vw,100px);top:0;width:min(49vw,700px);height:100%;perspective:1000px;transform-style:preserve-3d;pointer-events:none}
+.tnco-create-orbit{position:absolute;top:50%;left:50%;overflow:hidden;border-radius:18px;background:#eee;box-shadow:0 25px 60px rgba(0,0,0,.16),0 2px 5px rgba(0,0,0,.08);transform-style:preserve-3d;transition:transform .8s cubic-bezier(.16,1,.3,1),filter .5s ease}
+.tnco-create-orbit img{width:100%;height:100%;object-fit:cover;display:block}
+.tnco-create-orbit-back{width:190px;height:245px;transform:translate3d(-50%,-50%,-80px) rotateY(17deg) rotateZ(7deg) scale(.82);opacity:.55;filter:saturate(.7) blur(.2px)}
+.tnco-create-orbit-left{width:185px;height:240px;transform:translate3d(-132%,-50%,20px) rotateY(22deg) rotateZ(-7deg) scale(.88);opacity:.78}
+.tnco-create-orbit-center{width:230px;height:292px;transform:translate3d(-50%,-50%,120px) rotateY(-2deg) rotateZ(-1deg);z-index:4}
+.tnco-create-orbit-right{width:180px;height:238px;transform:translate3d(38%,-50%,10px) rotateY(-24deg) rotateZ(7deg) scale(.87);opacity:.78}
+.tnco-create-shadow{position:absolute;left:50%;bottom:36px;width:360px;height:35px;border-radius:50%;background:rgba(0,0,0,.12);filter:blur(22px);transform:translateX(-50%);z-index:-1}
+.tnco-create-banner:hover .tnco-create-orbit-back{transform:translate3d(-50%,-50%,-110px) rotateY(20deg) rotateZ(9deg) scale(.82)}
+.tnco-create-banner:hover .tnco-create-orbit-left{transform:translate3d(-145%,-50%,35px) rotateY(26deg) rotateZ(-9deg) scale(.9)}
+.tnco-create-banner:hover .tnco-create-orbit-center{transform:translate3d(-50%,-53%,145px) rotateY(-3deg) rotateZ(-1deg) scale(1.025)}
+.tnco-create-banner:hover .tnco-create-orbit-right{transform:translate3d(48%,-50%,25px) rotateY(-28deg) rotateZ(9deg) scale(.89)}
+@media(max-width:900px){
+ .tnco-create-banner{min-height:470px;padding:48px 20px 42px;display:block}
+ .tnco-create-copy{width:100%;max-width:560px}
+ .tnco-create-copy h2{font-size:clamp(46px,12vw,78px)}
+ .tnco-create-copy p{font-size:14px;margin-top:20px}
+ .tnco-create-visual{right:-20px;bottom:-28px;top:auto;width:470px;height:260px;transform:scale(.78);transform-origin:bottom right}
+}
+@media(max-width:560px){
+ .tnco-create-banner{min-height:500px;padding:48px 16px 0}
+ .tnco-create-eyebrow{margin-bottom:18px;font-size:9px}
+ .tnco-create-copy h2{font-size:clamp(44px,13vw,68px);line-height:.87}
+ .tnco-create-copy p{width:92%;font-size:13px;line-height:1.3;margin:19px 0 21px}
+ .tnco-create-link{font-size:13px}
+ .tnco-create-visual{right:-48px;bottom:-20px;width:450px;height:270px;transform:scale(.67);transform-origin:bottom right}
+}
+@media(prefers-reduced-motion:reduce){
+ .tnco-create-orbit,.tnco-create-link,.tnco-create-link span{transition:none!important}
+}
+</style>
 </head>
 
 <body>
@@ -977,6 +1390,36 @@ html.menu-scroll-locked{
 
 </section>
 
+
+
+<!-- =========================================================
+     PAPERS — CREATE YOUR OWN PAGE CTA
+     Compact Apple-inspired community banner
+     ========================================================== -->
+<section class="tnco-create-banner" data-scroll-section aria-label="Create your own Tunetrack Paper">
+    <div class="tnco-create-copy">
+        <span class="tnco-create-eyebrow">TUNETRACK PAPERS</span>
+        <h2>Create something<br><em>worth sharing.</em></h2>
+        <p>Got a story, idea, discovery, or something you want people to read? Make your own Paper.</p>
+        <a class="tnco-create-link" href="blog-papers.html">Create your Paper <span>↗</span></a>
+    </div>
+
+    <div class="tnco-create-visual" aria-hidden="true">
+        <div class="tnco-create-orbit tnco-create-orbit-back">
+            <img src="assets/images/webs/web image8.jpg" alt="">
+        </div>
+        <div class="tnco-create-orbit tnco-create-orbit-left">
+            <img src="assets/images/webs/web image3.jpg" alt="">
+        </div>
+        <div class="tnco-create-orbit tnco-create-orbit-center">
+            <img src="assets/images/webs/web image1.jpg" alt="">
+        </div>
+        <div class="tnco-create-orbit tnco-create-orbit-right">
+            <img src="assets/images/webs/web image6.jpg" alt="">
+        </div>
+        <div class="tnco-create-shadow"></div>
+    </div>
+</section>
 
 <div class="blog-hover-image"
      id="blogHoverImage"
@@ -1337,6 +1780,8 @@ html.menu-scroll-locked{
 
         });
 
+        /* Expose the existing Locomotive instance to the Papers transition. */
+        window.__tncoLoco = loco;
 
         loco.on(
           'scroll',
@@ -2775,6 +3220,296 @@ body {
 </style>
 
 
+
+
+
+<style id="tnco-papers-v2-spacing-footer">
+/* =========================================================
+   PAPERS V2 — BLACK FOOTER
+   ========================================================= */
+
+/* No artificial white gap before the transition. */
+.tnco-contribute {
+    margin-top: 0 !important;
+}
+
+.blog-footer {
+    background: #fff !important;
+    color: #000 !important;
+    border-top: 1px solid #000 !important;
+}
+
+.blog-footer *,
+.blog-footer h1,
+.blog-footer h2,
+.blog-footer h3,
+.blog-footer p,
+.blog-footer span,
+.blog-footer a {
+    color: #000 !important;
+}
+
+.blog-footer .blog-footer-radio {
+    border-color: #000 !important;
+    background: transparent !important;
+}
+
+.blog-footer .blog-footer-pills a {
+    border-color: #000 !important;
+    background: transparent !important;
+    color: #000 !important;
+}
+
+.blog-footer .blog-footer-pills a:hover {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+.blog-footer .blog-footer-word,
+.blog-footer .blog-footer-word span {
+    color: #000 !important;
+}
+
+</style>
+
+<script id="tnco-papers-scroll-color-js">
+(function(){
+    const band = document.querySelector('.tnco-contribute-transition-band');
+    const container = document.getElementById('scrollContainer');
+    if (!band) return;
+
+    let ticking = false;
+
+    function clamp(value, min, max){
+        return Math.min(max, Math.max(min, value));
+    }
+
+    function updateTransition(){
+        ticking = false;
+
+        const rect = band.getBoundingClientRect();
+        const viewport = window.innerHeight || document.documentElement.clientHeight;
+
+        /*
+           The color bridge is tied to the actual rendered position of the
+           transition band. This also works when Locomotive Scroll is moving
+           #scrollContainer with transforms.
+        */
+        const start = viewport * 0.92;
+        const end = viewport * 0.08;
+        const range = Math.max(1, start - end + rect.height * 0.15);
+        const progress = clamp((start - rect.top) / range, 0, 1);
+
+        band.style.setProperty('--tnco-transition-progress', progress.toFixed(4));
+    }
+
+    function requestUpdate(){
+        if (!ticking){
+            ticking = true;
+            requestAnimationFrame(updateTransition);
+        }
+    }
+
+    /* Native scroll fallback. */
+    window.addEventListener('scroll', requestUpdate, {passive:true});
+    window.addEventListener('resize', requestUpdate, {passive:true});
+
+    /* Locomotive Scroll does NOT reliably emit native window scroll events.
+       Listen to its virtual scroll position as well. */
+    function connectLoco(){
+        if (window.__tncoLocoTransitionConnected) return true;
+
+        const loco = window.__tncoLoco;
+        if (!loco || typeof loco.on !== 'function') return false;
+
+        window.__tncoLocoTransitionConnected = true;
+        loco.on('scroll', requestUpdate);
+        requestUpdate();
+        return true;
+    }
+
+    /* The existing Papers page creates LocomotiveScroll in another script.
+       Give it a few frames to become available without adding a dependency. */
+    let attempts = 0;
+    function findLoco(){
+        if (connectLoco()) return;
+        if (attempts++ < 120) requestAnimationFrame(findLoco);
+    }
+    findLoco();
+
+    updateTransition();
+})();
+</script>
+
+<script id="tnco-papers-contribute-js">
+(function(){
+    const slider = document.getElementById('tncoContributeSlider');
+    const handle = document.getElementById('tncoContributeHandle');
+    const text = document.getElementById('tncoContributeSliderText');
+    const status = document.getElementById('tncoContributeStatus');
+    const transition = document.getElementById('tncoContributeTransition');
+
+    if(!slider || !handle) return;
+
+    let pointerId = null;
+    let dragging = false;
+    let current = 0;
+    let target = 0;
+    let raf = null;
+    let completed = false;
+
+    const clamp = (v,min,max) => Math.max(min,Math.min(max,v));
+
+    function maxTravel(){
+        return Math.max(0, slider.clientWidth - handle.offsetWidth - 14);
+    }
+
+    function setTargetFromClientX(clientX){
+        const rect = slider.getBoundingClientRect();
+        const max = maxTravel();
+        const x = clamp(clientX - rect.left - 7 - handle.offsetWidth / 2, 0, max);
+        target = max ? x / max : 0;
+        slider.style.setProperty('--progress', (target * 100) + '%');
+        slider.setAttribute('aria-valuenow', Math.round(target * 100));
+    }
+
+    function animate(){
+        const delta = target - current;
+        current += delta * .18;
+
+        if(Math.abs(delta) < .0004){
+            current = target;
+        }
+
+        handle.style.left = (7 + current * maxTravel()) + 'px';
+
+        if(Math.abs(target-current) > .0004){
+            raf = requestAnimationFrame(animate);
+        }else{
+            raf = null;
+        }
+    }
+
+    function requestAnimation(){
+        if(!raf) raf = requestAnimationFrame(animate);
+    }
+
+    function complete(){
+        if(completed) return;
+        completed = true;
+        target = 1;
+        slider.classList.add('is-complete');
+        slider.style.setProperty('--progress','100%');
+        slider.setAttribute('aria-valuenow','100');
+        text.textContent = 'Yes, let me do it →';
+        status.classList.add('is-visible');
+        requestAnimation();
+
+        window.setTimeout(function(){
+            transition.classList.add('is-active');
+            transition.setAttribute('aria-hidden','false');
+        },420);
+    }
+
+    function resetSlider(){
+        completed = false;
+        target = 0;
+        slider.classList.remove('is-complete');
+        slider.style.setProperty('--progress','0%');
+        slider.setAttribute('aria-valuenow','0');
+        text.textContent = 'Drag it all the way →';
+        status.classList.remove('is-visible');
+        requestAnimation();
+    }
+
+    slider.addEventListener('pointerdown', function(e){
+        if(completed) return;
+        pointerId = e.pointerId;
+        dragging = true;
+        slider.classList.add('is-dragging');
+        slider.setPointerCapture(pointerId);
+        setTargetFromClientX(e.clientX);
+        requestAnimation();
+        e.preventDefault();
+    });
+
+    slider.addEventListener('pointermove', function(e){
+        if(!dragging || e.pointerId !== pointerId) return;
+        setTargetFromClientX(e.clientX);
+        requestAnimation();
+        e.preventDefault();
+    });
+
+    function endDrag(e){
+        if(!dragging || e.pointerId !== pointerId) return;
+        dragging = false;
+        slider.classList.remove('is-dragging');
+        try{ slider.releasePointerCapture(pointerId); }catch(err){}
+
+        if(target >= .82){
+            complete();
+        }else{
+            target = 0;
+            slider.style.setProperty('--progress','0%');
+            slider.setAttribute('aria-valuenow','0');
+            requestAnimation();
+        }
+    }
+
+    slider.addEventListener('pointerup', endDrag);
+    slider.addEventListener('pointercancel', endDrag);
+
+    slider.addEventListener('keydown', function(e){
+        if(completed){
+            if(e.key === 'Escape'){
+                transition.classList.remove('is-active');
+                transition.setAttribute('aria-hidden','true');
+                window.setTimeout(resetSlider,260);
+            }
+            return;
+        }
+
+        if(e.key === 'ArrowRight' || e.key === 'ArrowUp'){
+            e.preventDefault();
+            target = clamp(target + .12,0,1);
+            slider.style.setProperty('--progress',(target*100)+'%');
+            slider.setAttribute('aria-valuenow',Math.round(target*100));
+            requestAnimation();
+            if(target >= 1) complete();
+        }
+
+        if(e.key === 'ArrowLeft' || e.key === 'ArrowDown'){
+            e.preventDefault();
+            target = clamp(target - .12,0,1);
+            slider.style.setProperty('--progress',(target*100)+'%');
+            slider.setAttribute('aria-valuenow',Math.round(target*100));
+            requestAnimation();
+        }
+
+        if(e.key === 'Home'){
+            e.preventDefault();
+            target = 0;
+            slider.style.setProperty('--progress','0%');
+            requestAnimation();
+        }
+
+        if(e.key === 'End'){
+            e.preventDefault();
+            complete();
+        }
+    });
+
+    window.addEventListener('resize', function(){
+        requestAnimation();
+    });
+
+    transition.addEventListener('click', function(){
+        transition.classList.remove('is-active');
+        transition.setAttribute('aria-hidden','true');
+        window.setTimeout(resetSlider,260);
+    });
+})();
+</script>
 
 </body>
 </html>
