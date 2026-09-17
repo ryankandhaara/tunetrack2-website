@@ -781,13 +781,6 @@ html.menu-scroll-locked{
     }
 }
 
-
-@media (min-width: 768px) {
-    .blog-footer-bottom {
-        top: 630px !important;
-    }
-}
-
 @media (min-width: 365px) and (max-width: 767px) {
     .blog-footer-social-group {
         transform: translateX(0) !important;
@@ -801,13 +794,6 @@ html.menu-scroll-locked{
         bottom: auto !important;
         transform: none !important;
         display: flex !important;
-    }
-}
-
-
-@media (min-width: 768px) {
-    .blog-footer-bottom {
-        top: 607px !important;
     }
 }
 
@@ -859,10 +845,11 @@ body{overflow-x:hidden}.intro-lock{overflow:hidden!important;height:100%!importa
 
 .editor{padding:112px 28px 150px;max-width:1500px;margin:0 auto}
 .editor-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:44px}.editor-head h1{font-size:clamp(48px,7vw,100px);letter-spacing:-.075em;line-height:.86;margin:0;font-weight:800}.editor-head h1 em{font-family:"Gilda Display",Georgia,serif;font-style:italic;font-weight:400}.editor-head p{max-width:350px;color:#6e6e73;font-size:15px;line-height:1.4;margin:0}
-.editor-grid{display:grid;grid-template-columns:minmax(320px,480px) minmax(0,1fr);gap:34px;align-items:start}.editor-grid>.preview-wrap{align-self:start;margin-top:0}
+.editor-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:34px;align-items:start}.editor-grid>.receipt,.editor-grid>.preview-wrap{align-self:start;margin-top:0}.receipt{position:relative;top:auto}
+.papers-shell.paper-confirmed .editor-head{display:none}.papers-shell.paper-confirmed .editor-grid{grid-template-columns:minmax(0,1080px);justify-content:center}.papers-shell.paper-confirmed #paperForm{display:none}.papers-shell.paper-confirmed .preview-wrap{width:100%;max-width:1080px;margin:0 auto;grid-column:1;box-shadow:0 24px 80px rgba(0,0,0,.10)}
 .receipt{background:var(--receipt);border:1px solid #e5e5e7;border-radius:24px;padding:28px;position:sticky;top:92px;box-shadow:0 16px 50px rgba(0,0,0,.05)}
 .receipt:before{content:"";display:block;height:8px;margin:-28px -28px 24px;background:repeating-linear-gradient(135deg,#f5f5f7 0,#f5f5f7 7px,#fff 7px,#fff 14px);border-radius:24px 24px 0 0}
-.receipt-top{display:flex;justify-content:space-between;font-size:10px;font-weight:700;letter-spacing:.1em;color:#6e6e73;text-transform:uppercase;margin-bottom:28px}.receipt h2{font-size:30px;letter-spacing:-.05em;margin:0 0 26px}.form-field{margin-bottom:24px}.form-label{display:block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#6e6e73;margin-bottom:8px}.form-control{width:100%;box-sizing:border-box;border:0;border-bottom:1px solid #b7b7bc;background:transparent;border-radius:0;padding:10px 0;font:500 17px/1.35 Arial,Helvetica,sans-serif;color:#1d1d1f;outline:none}.form-control:focus{border-bottom-color:#1d1d1f}.form-control::placeholder{color:#aaaab0}.form-select{appearance:none;background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='m1 1 4 4 4-4' fill='none' stroke='%236e6e73' stroke-width='1.3'/%3E%3C/svg%3E") right 4px center/10px 6px no-repeat}
+.receipt-top{display:flex;justify-content:space-between;font-size:10px;font-weight:700;letter-spacing:.1em;color:#6e6e73;text-transform:uppercase;margin-bottom:28px}.receipt h2{font-size:30px;letter-spacing:-.05em;margin:0 0 26px}.form-field{margin-bottom:24px}.form-label{display:block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#6e6e73;margin-bottom:8px}.required-mark{color:#b42318;margin-left:2px}.form-control{width:100%;box-sizing:border-box;border:0;border-bottom:1px solid #b7b7bc;background:transparent;border-radius:0;padding:10px 0;font:500 17px/1.35 Arial,Helvetica,sans-serif;color:#1d1d1f;outline:none}.form-control:focus{border-bottom-color:#1d1d1f}.form-control::placeholder{color:#aaaab0}.form-select{appearance:none;background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='m1 1 4 4 4-4' fill='none' stroke='%236e6e73' stroke-width='1.3'/%3E%3C/svg%3E") right 4px center/10px 6px no-repeat}
 .submitter-control-wrap{display:flex;align-items:center;gap:10px}.submitter-control-wrap .form-control{min-width:0;flex:1}.submitter-control-wrap .form-control[readonly]{cursor:default;color:#1d1d1f}.submitter-customize-btn{appearance:none;flex:0 0 auto;width:30px;height:30px;border:1px solid #d2d2d7;border-radius:8px;background:#fff;color:#6e6e73;display:grid;place-items:center;padding:0;cursor:pointer;transition:background .18s ease,border-color .18s ease,color .18s ease,transform .18s ease}.submitter-customize-btn:hover{background:#f5f5f7;border-color:#b7b7bc;color:#1d1d1f}.submitter-customize-btn:active{transform:scale(.95)}.submitter-customize-btn svg{width:15px;height:15px;display:block}.submitter-confirm{display:none;margin-top:10px;padding:12px 13px;border:1px solid #d2d2d7;border-radius:12px;background:#f5f5f7}.submitter-confirm.show{display:block}.submitter-confirm-text{font-size:12px;line-height:1.4;color:#6e6e73;margin:0 0 8px}.submitter-confirm-row{display:flex;gap:8px;align-items:center}.submitter-confirm-input{flex:1;min-width:0;box-sizing:border-box;border:1px solid #c7c7ca;border-radius:8px;background:#fff;padding:8px 10px;font:500 13px/1.3 Arial,Helvetica,sans-serif;color:#1d1d1f;outline:none}.submitter-confirm-input:focus{border-color:#1d1d1f}.submitter-confirm-btn{appearance:none;border:1px solid #1d1d1f;border-radius:8px;background:#1d1d1f;color:#fff;padding:8px 11px;font:600 12px/1.2 Arial,Helvetica,sans-serif;cursor:pointer;white-space:nowrap}.submitter-confirm-btn:disabled{opacity:.4;cursor:not-allowed}.submitter-confirm-error{display:none;margin:7px 0 0;color:#b42318;font-size:11px;line-height:1.35}.submitter-confirm-error.show{display:block}@media(max-width:600px){.submitter-confirm-row{display:block}.submitter-confirm-btn{width:100%;margin-top:8px}.submitter-customize-btn{width:32px;height:32px}}
 textarea.form-control{min-height:180px;resize:vertical;border:1px solid #d2d2d7;border-radius:14px;padding:14px;background:#fff}.date-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.upload-box{border:1px dashed #b7b7bc;border-radius:14px;padding:16px;background:#fff}.upload-box input{font-size:12px;width:100%}.form-note{font-size:11px;line-height:1.4;color:#6e6e73;margin-top:7px}.receipt-status{border-top:1px dashed #c7c7ca;margin-top:26px;padding-top:17px;display:flex;justify-content:space-between;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.receipt-status span:last-child{color:#6e6e73}.send-receipt-actions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:16px}.send-receipt-btn,.print-preview-btn{appearance:none;width:100%;border-radius:12px;padding:13px 16px;font:700 11px/1 Arial,Helvetica,sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:transform .18s ease,opacity .18s ease,background .18s ease,border-color .18s ease}.send-receipt-btn{border:1px solid #1d1d1f;background:#1d1d1f;color:#fff}.print-preview-btn{border:1px solid #1d1d1f;background:#fff;color:#1d1d1f}.send-receipt-btn:hover,.print-preview-btn:hover{opacity:.9}.send-receipt-btn:active,.print-preview-btn:active{transform:scale(.985)}.send-receipt-btn:disabled{opacity:.38;cursor:not-allowed}.print-preview-btn{display:none}.receipt.is-final-locked{position:relative}.receipt.is-final-locked:after{content:'CONFIRMED · LOCKED';position:absolute;top:12px;right:18px;font-size:9px;font-weight:700;letter-spacing:.1em;color:#6e6e73}.receipt.is-final-locked .form-control:disabled{opacity:.65;cursor:not-allowed}.receipt.is-final-locked .upload-box{opacity:.65}.receipt.is-final-locked .send-receipt-actions{grid-template-columns:1fr 1fr}.receipt.is-final-locked .print-preview-btn{display:block}.receipt.is-final-locked .send-receipt-btn{opacity:.38;cursor:not-allowed}
 .preview-wrap{background:#fff;border:1px solid #e5e5e7;border-radius:24px;overflow:hidden;box-shadow:0 20px 70px rgba(0,0,0,.06)}.preview-label{height:50px;border-bottom:1px solid #e5e5e7;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:10px;font-weight:700;letter-spacing:.1em;color:#6e6e73;text-transform:uppercase}.paper-preview{padding:44px clamp(24px,6vw,88px) 90px}.paper-meta{display:flex;gap:10px;align-items:center;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6e6e73;margin-bottom:25px}.paper-meta .dot{width:3px;height:3px;background:#6e6e73;border-radius:50%}.paper-title{font-size:clamp(46px,6vw,92px);line-height:.9;letter-spacing:-.07em;margin:0 0 32px;font-weight:800;max-width:950px}.paper-intro{font-size:clamp(20px,2.2vw,30px);line-height:1.15;letter-spacing:-.025em;max-width:800px;color:#424245;margin:0 0 32px}.paper-figure{margin:0 0 42px;background:#f5f5f7;overflow:hidden;border-radius:2px}.paper-figure img{display:block;width:100%;max-height:580px;object-fit:cover}.paper-video{position:relative;padding-top:56.25%;background:#000}.paper-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.paper-body{max-width:780px;font-size:18px;line-height:1.7;color:#303033;white-space:pre-wrap}.paper-byline{margin-top:55px;padding-top:18px;border-top:1px solid #d2d2d7;display:flex;justify-content:space-between;gap:20px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#6e6e73}
@@ -883,6 +870,24 @@ textarea.form-control{min-height:180px;resize:vertical;border:1px solid #d2d2d7;
 }
 .name-guideline-warning.show{display:block}
 .name-guideline-suggestion{display:none;margin-top:7px;color:#a8a8ad;font-size:12px;line-height:1.4;text-align:center}.name-guideline-suggestion.show{display:block}.name-suggestion-btn{appearance:none;border:0;padding:0;background:none;color:#fff;font:inherit;font-weight:700;cursor:pointer;text-decoration:underline;text-underline-offset:2px}.name-suggestion-btn:hover{opacity:.72}.intro-input-wrap:has(.name-guideline-warning.show) .intro-input{border-color:#ff6b6b!important;color:#fff}
+
+/* Apple-style autosave recovery */
+.draft-recovery-overlay{position:fixed;inset:0;z-index:120000;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(245,245,247,.72);backdrop-filter:blur(24px) saturate(150%);-webkit-backdrop-filter:blur(24px) saturate(150%);visibility:hidden;opacity:0;pointer-events:none;transition:opacity .38s ease,visibility 0s linear .38s}
+.draft-recovery-overlay.show{visibility:visible;opacity:1;pointer-events:auto;transition-delay:0s}
+.draft-recovery-card{width:min(520px,92vw);padding:38px 38px 30px;background:rgba(255,255,255,.96);border:1px solid #d2d2d7;border-radius:24px;box-shadow:0 28px 90px rgba(0,0,0,.16),0 2px 8px rgba(0,0,0,.05);color:#1d1d1f;transform:translateY(12px) scale(.98);opacity:0;transition:transform .45s cubic-bezier(.16,1,.3,1),opacity .35s ease}
+.draft-recovery-overlay.show .draft-recovery-card{transform:none;opacity:1}
+.draft-recovery-eyebrow{font:700 10px/1 Arial,Helvetica,sans-serif;letter-spacing:.12em;color:#86868b;text-transform:uppercase;margin-bottom:20px}
+.draft-recovery-card h2{font:700 clamp(30px,4vw,42px)/1.04 Arial,Helvetica,sans-serif;letter-spacing:-.055em;margin:0 0 10px}
+.draft-recovery-card p{font:400 20px/1.35 Arial,Helvetica,sans-serif;letter-spacing:-.025em;color:#424245;margin:0 0 30px}
+.draft-recovery-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.draft-recovery-actions button{min-height:48px;border-radius:12px;padding:12px 15px;font:600 13px/1.15 Arial,Helvetica,sans-serif;letter-spacing:-.015em;cursor:pointer;transition:transform .18s ease,background .18s ease,border-color .18s ease,opacity .18s ease}
+.draft-recovery-actions button:active{transform:scale(.985)}
+.draft-recovery-primary{border:1px solid #0071e3;background:#0071e3;color:#fff}
+.draft-recovery-primary:hover{background:#0077ed;border-color:#0077ed}
+.draft-recovery-secondary{border:1px solid #d2d2d7;background:#fff;color:#1d1d1f}
+.draft-recovery-secondary:hover{background:#f5f5f7}
+.draft-recovery-note{margin-top:18px;text-align:center;color:#86868b;font:400 11px/1.4 Arial,Helvetica,sans-serif}
+@media(max-width:600px){.draft-recovery-card{padding:30px 22px 24px;border-radius:20px}.draft-recovery-actions{grid-template-columns:1fr}.draft-recovery-card p{font-size:18px}}
 
 /* Proof / print preview */
 html.proof-open,body.proof-open{overflow:hidden!important}
@@ -1192,12 +1197,12 @@ html.proof-open,body.proof-open{overflow:hidden!important}
         <div class="receipt-top"><span>TUNETRACK PAPERS</span><span>NEW ENTRY</span></div>
         <h2>Submission receipt</h2>
         <div class="form-field"><label class="form-label" for="submitter">Submitter</label><div class="submitter-control-wrap"><input class="form-control" id="submitter" required readonly aria-readonly="true"><button type="button" class="submitter-customize-btn" id="submitterCustomize" aria-label="Customize sender name" title="Customize sender name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></button></div><div class="submitter-confirm" id="submitterConfirm" aria-hidden="true"><p class="submitter-confirm-text" id="submitterConfirmText">Enter your new name. You can change it only once.</p><div class="submitter-confirm-row"><input class="submitter-confirm-input" id="submitterConfirmInput" autocomplete="off" spellcheck="false"><button type="button" class="submitter-confirm-btn" id="submitterConfirmBtn" disabled>Confirm</button></div><p class="submitter-confirm-error" id="submitterConfirmError" role="alert">Please enter a valid new name.</p></div></div>
-        <div class="form-field"><label class="form-label" for="submitterEmail">Email</label><input class="form-control" id="submitterEmail" type="email" autocomplete="email" placeholder="you@example.com" required><div class="form-note">We’ll send your submission receipt here.</div></div>
+        <div class="form-field"><label class="form-label" for="submitterEmail">Email <span class="required-mark" aria-hidden="true">*</span></label><input class="form-control" id="submitterEmail" type="email" autocomplete="email" placeholder="you@example.com" required aria-required="true"><div class="form-note">We’ll send your submission receipt here.</div></div>
         <div class="form-field"><label class="form-label" for="topic">Topic</label><select class="form-control form-select" id="topic"><option value="Patches">Patches</option><option value="Songs Review">Songs Review</option><option value="Live Show">Live Show</option><option value="Music System">Music System</option></select></div>
         <div class="form-field"><label class="form-label" for="paperTitle">Paper title</label><input class="form-control" id="paperTitle" placeholder="Give it a title"></div>
         <div class="form-field"><label class="form-label" for="paperBody">Main description</label><textarea class="form-control" id="paperBody" placeholder="Start writing here..."></textarea></div>
         <div class="date-row"><div class="form-field"><label class="form-label">Date</label><input class="form-control" id="paperDate" readonly></div><div class="form-field"><label class="form-label">Year</label><input class="form-control" id="paperYear" readonly></div></div>
-        <div class="form-field"><label class="form-label" for="imageFile">Image · optional</label><div class="upload-box"><input id="imageFile" type="file" accept="image/*"><div class="form-note">One image. It appears in the paper preview.</div></div></div>
+        <div class="form-field"><label class="form-label" for="imageFile">Image · optional</label><div class="upload-box"><input id="imageFile" type="file" accept="image/*"><div class="form-note">One image. Maximum size is 1 MB. It appears in the paper preview.</div></div></div>
         <div class="form-field"><label class="form-label" for="youtubeUrl">YouTube · optional</label><input class="form-control" id="youtubeUrl" type="url" placeholder="https://youtube.com/watch?v=..."><div class="form-note">Paste a YouTube or youtu.be link.</div></div>
         <div class="receipt-status"><span>STATUS</span><span id="receiptStatus">DRAFT / LIVE PREVIEW</span></div>
         <div class="send-receipt-actions"><button type="button" class="print-preview-btn" id="printPreviewBtn">PRINT PREVIEW</button><button type="button" class="send-receipt-btn" id="sendReceiptBtn">SEND RECEIPT</button></div>
@@ -1254,6 +1259,20 @@ html.proof-open,body.proof-open{overflow:hidden!important}
   <a href="https://www.instagram.com/chaeldavs/" target="_blank" rel="noopener noreferrer">Design by Chael</a>
 </div>
 </footer>
+
+<!-- Autosave recovery prompt -->
+<div class="draft-recovery-overlay" id="draftRecoveryOverlay" aria-hidden="true">
+  <div class="draft-recovery-card" role="dialog" aria-modal="true" aria-labelledby="draftRecoveryTitle">
+    <div class="draft-recovery-eyebrow">TUNETRACK PAPERS</div>
+    <h2 id="draftRecoveryTitle">You recently wrote a paper.</h2>
+    <p id="draftRecoveryText">Would you like to return to it?</p>
+    <div class="draft-recovery-actions">
+      <button type="button" class="draft-recovery-primary" id="draftRestoreBtn">Revert to Written Paper</button>
+      <button type="button" class="draft-recovery-secondary" id="draftNewBtn">Start a New Paper</button>
+    </div>
+    <div class="draft-recovery-note" id="draftRecoveryNote">Your unfinished paper is kept for 30 minutes.</div>
+  </div>
+</div>
 
 <!-- Full proof / print preview -->
 <div class="proof-overlay" id="proofOverlay" aria-hidden="true">
@@ -1410,8 +1429,11 @@ function showNameWarning(show){
   nameWarning.classList.toggle('show',show);
   nameInput.setAttribute('aria-invalid',show?'true':'false');
   const normalized=normalizeNameForGuideline(nameInput.value);
+  const raw=nameInput.value.trim().toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'');
+  const letterCount=(raw.match(/[a-z]/g)||[]).length;
   if(show && normalized==='admin') nameWarning.textContent='You cannot use "Admin" without web protocol.';
-  else nameWarning.textContent=(language==='ID'?'Nama tersebut tidak memenuhi panduan kami.':'Minimal character required are more than 3');
+  else if(show && letterCount<3) nameWarning.textContent=(language==='ID'?'Nama minimal 3 karakter.':'Name must contain at least 3 letters.');
+  else if(show) nameWarning.textContent=(language==='ID'?'Nama tersebut tidak memenuhi panduan kami.':'This name does not meet our guidelines.');
   let suggestions=[];
   if(normalized==='ass') suggestions=['Ashley','Assanty'];
   else {
@@ -1523,7 +1545,7 @@ const EN_COPY={
     'By continuing, you confirm that the information you submit is yours to share and that you understand these guidelines.'
   ],p2:'That’s it. Make something thoughtful, useful, honest, or simply worth reading.',bottom:'Scroll to the end to continue.',hint:'scroll the terms to the bottom'},
   s5:{kicker:'05 / READY',copyPrefix:'You’re all set, ',copySuffix:'.',breakText:'Let’s make a paper.',sub:'Tap anywhere to begin.',hint:'click or touch anywhere'},
-  editor:{title:'Make a ',em:'Paper.',desc:'Your words, your perspective. Fill the receipt on the left and watch your paper take shape on the right.',receiptTop:['TUNETRACK PAPERS','NEW ENTRY'],h2:'Submission receipt',labels:['Submitter','Email','Topic','Paper title','Main description','Date','Year','Image · optional','YouTube · optional'],topic:['Patches','Songs Review','Live Show','Music System'],titlePh:'Give it a title',bodyPh:'Start writing here...',upload:'One image. It appears in the paper preview.',ytPh:'https://youtube.com/watch?v=...',ytNote:'Paste a YouTube or youtu.be link.',status:['STATUS','DRAFT / LIVE PREVIEW'],sendReceipt:'SEND RECEIPT',previewLabel:'LIVE PREVIEW',previewTitle:'Your paper title.',previewIntro:'Start writing on the left. Your paper will appear here as you build it.',previewAuthor:'BY YOUR NAME',previewBottom:'EN · TUNETRACK PAPERS',previewMeta:'PATCHES',imageAlt:'Paper attachment',videoTitle:'YouTube preview'}
+  editor:{title:'Make a ',em:'Paper.',desc:'Your words, your perspective. Fill the receipt on the left and watch your paper take shape on the right.',receiptTop:['TUNETRACK PAPERS','NEW ENTRY'],h2:'Submission receipt',labels:['Submitter','Email','Topic','Paper title','Main description','Date','Year','Image · optional','YouTube · optional'],topic:['Patches','Songs Review','Live Show','Music System'],titlePh:'Give it a title',bodyPh:'Start writing here...',emailNote:'We’ll send your submission receipt here.',upload:'One image. Maximum size is 1 MB.',ytPh:'https://youtube.com/watch?v=...',ytNote:'Paste a YouTube or youtu.be link.',status:['STATUS','DRAFT / LIVE PREVIEW'],sendReceipt:'SEND RECEIPT',previewLabel:'LIVE PREVIEW',previewTitle:'Your paper title.',previewIntro:'Start writing on the left. Your paper will appear here as you build it.',previewAuthor:'BY YOUR NAME',previewBottom:'EN · TUNETRACK PAPERS',previewMeta:'PATCHES',imageAlt:'Paper attachment',videoTitle:'YouTube preview'}
 };
 const ID_COPY={
   nav:['BERANDA','PAPERS','KONTAK','KREATOR','HUBUNGI KAMI','HUBUNGI KAMI','GABUNG'],
@@ -1540,7 +1562,7 @@ const ID_COPY={
     'Dengan melanjutkan, kamu menyatakan bahwa informasi yang kamu kirim memang boleh kamu bagikan dan kamu memahami panduan ini.'
   ],p2:'Itu saja. Buat sesuatu yang thoughtful, berguna, jujur, atau sekadar layak dibaca.',bottom:'Gulir sampai paling bawah untuk melanjutkan.',hint:'gulir panduan sampai paling bawah'},
   s5:{kicker:'05 / SIAP',copyPrefix:'Semuanya sudah siap, ',copySuffix:'.',breakText:'Yuk buat paper.',sub:'Sentuh di mana saja untuk mulai.',hint:'klik atau sentuh di mana saja'},
-  editor:{title:'Buat ',em:'Paper.',desc:'Tulisan dan sudut pandang kamu. Isi formulir di kiri dan lihat paper kamu terbentuk di kanan.',receiptTop:['TUNETRACK PAPERS','ENTRI BARU'],h2:'Formulir pengiriman',labels:['Nama pengirim','Email','Topik','Judul paper','Deskripsi utama','Tanggal','Tahun','Gambar · opsional','YouTube · opsional'],topic:['Patches','Ulasan Lagu','Pertunjukan Live','Sistem Musik'],titlePh:'Beri judul',bodyPh:'Mulai menulis di sini...',upload:'Satu gambar. Gambar ini akan muncul di pratinjau paper.',ytPh:'https://youtube.com/watch?v=...',ytNote:'Tempel tautan YouTube atau youtu.be.',status:['STATUS','DRAF / PRATINJAU LANGSUNG'],sendReceipt:'KIRIM RECEIPT',previewLabel:'PRATINJAU LANGSUNG',previewTitle:'Judul paper kamu.',previewIntro:'Mulai menulis di kiri. Paper kamu akan muncul di sini saat kamu mengisinya.',previewAuthor:'OLEH NAMA KAMU',previewBottom:'ID · TUNETRACK PAPERS',previewMeta:'PATCHES',imageAlt:'Lampiran paper',videoTitle:'Pratinjau YouTube'}
+  editor:{title:'Buat ',em:'Paper.',desc:'Tulisan dan sudut pandang kamu. Isi formulir di kiri dan lihat paper kamu terbentuk di kanan.',receiptTop:['TUNETRACK PAPERS','ENTRI BARU'],h2:'Formulir pengiriman',labels:['Nama pengirim','Email','Topik','Judul paper','Deskripsi utama','Tanggal','Tahun','Gambar · opsional','YouTube · opsional'],topic:['Patches','Ulasan Lagu','Pertunjukan Live','Sistem Musik'],titlePh:'Beri judul',bodyPh:'Mulai menulis di sini...',emailNote:'Receipt paper kamu akan dikirim ke sini.',upload:'Satu gambar. Ukuran maksimal 1 MB.',ytPh:'https://youtube.com/watch?v=...',ytNote:'Tempel tautan YouTube atau youtu.be.',status:['STATUS','DRAF / PRATINJAU LANGSUNG'],sendReceipt:'KIRIM RECEIPT',previewLabel:'PRATINJAU LANGSUNG',previewTitle:'Judul paper kamu.',previewIntro:'Mulai menulis di kiri. Paper kamu akan muncul di sini saat kamu mengisinya.',previewAuthor:'OLEH NAMA KAMU',previewBottom:'ID · TUNETRACK PAPERS',previewMeta:'PATCHES',imageAlt:'Lampiran paper',videoTitle:'Pratinjau YouTube'}
 };
 function applyLanguageCopy(lang){
   const c = lang === 'ID' ? ID_COPY : EN_COPY;
@@ -1605,9 +1627,10 @@ function applyLanguageCopy(lang){
   if(q('#paperTitle')) q('#paperTitle').placeholder=c.editor.titlePh;
   if(q('#paperBody')) q('#paperBody').placeholder=c.editor.bodyPh;
   const notes=qa('.form-note');
-  if(notes[0]) notes[0].textContent=c.editor.upload;
+  if(notes[0]) notes[0].textContent=c.editor.emailNote;
+  if(notes[1]) notes[1].textContent=c.editor.upload;
   if(q('#youtubeUrl')) q('#youtubeUrl').placeholder=c.editor.ytPh;
-  if(notes[1]) notes[1].textContent=c.editor.ytNote;
+  if(notes[2]) notes[2].textContent=c.editor.ytNote;
   setText('.receipt-status span:first-child', c.editor.status[0]);
   setText('#receiptStatus', c.editor.status[1]);
   setText('#sendReceiptBtn', c.editor.sendReceipt);
@@ -1659,29 +1682,82 @@ termsAgree.addEventListener('click',e=>{e.stopPropagation();if(termsReady&&terms
 window.addEventListener('keydown',e=>{if(e.key==='Enter'&&step!==4&&document.activeElement!==nameInput&&document.activeElement!==otherLanguage){e.preventDefault();if(step===5)finish();else setStep(step+1)}});
 
 const $=id=>document.getElementById(id);
-const PAPER_STORAGE_KEY='tunetrack-papers-draft-v9';
+const PAPER_STORAGE_KEY='tunetrack-papers-draft-v10';
+const PAPER_DRAFT_TTL=30*60*1000;
 const now=new Date();
 const dateText=new Intl.DateTimeFormat('en-GB',{day:'2-digit',month:'2-digit',year:'numeric'}).format(now);
 const defaultYear=String(now.getFullYear());
-let savedDraft={};
-try{savedDraft=JSON.parse(localStorage.getItem(PAPER_STORAGE_KEY)||'{}')||{};}catch(e){savedDraft={};}
+let savedDraft=null;
+let paperFinalLocked=false;
+try{
+  const raw=localStorage.getItem(PAPER_STORAGE_KEY);
+  if(raw)savedDraft=JSON.parse(raw);
+}catch(e){savedDraft=null;}
 
-// Restore the draft instead of resetting the form every time the page reloads.
-if(savedDraft.introName)nameInput.value=savedDraft.introName;
-if(savedDraft.language){language=savedDraft.language;}
-if(savedDraft.otherLanguage!==undefined)otherLanguage.value=savedDraft.otherLanguage;
-if(savedDraft.submitter)$('submitter').value=savedDraft.submitter;
-else $('submitter').value=nameInput.value.trim();
-if(savedDraft.submitterEmail)$('submitterEmail').value=savedDraft.submitterEmail;
-if(savedDraft.topic)$('topic').value=savedDraft.topic;
-if(savedDraft.paperTitle!==undefined)$('paperTitle').value=savedDraft.paperTitle;
-if(savedDraft.paperBody!==undefined)$('paperBody').value=savedDraft.paperBody;
-$('paperDate').value=savedDraft.paperDate||dateText;
-$('paperYear').value=savedDraft.paperYear||defaultYear;
-$('previewDate').textContent=$('paperDate').value;
-$('previewAuthor').textContent='BY '+(nameInput.value.trim()||'YOUR NAME').toUpperCase();
+function draftHasContent(d){
+  if(!d)return false;
+  return !!(
+    String(d.introName||'').trim() ||
+    String(d.submitter||'').trim() ||
+    String(d.submitterEmail||'').trim() ||
+    String(d.paperTitle||'').trim() ||
+    String(d.paperBody||'').trim() ||
+    String(d.youtubeUrl||'').trim() ||
+    String(d.imageData||'').trim()
+  );
+}
+function draftIsFresh(d){
+  const t=Number(d?.updatedAt||0);
+  return !!t && (Date.now()-t)>=0 && (Date.now()-t)<PAPER_DRAFT_TTL && draftHasContent(d);
+}
+function clearSavedDraft(){
+  savedDraft=null;
+  try{localStorage.removeItem(PAPER_STORAGE_KEY);}catch(e){}
+}
+
+const draftRecoveryOverlay=document.getElementById('draftRecoveryOverlay');
+const draftRestoreBtn=document.getElementById('draftRestoreBtn');
+const draftNewBtn=document.getElementById('draftNewBtn');
+const draftRecoveryTitle=document.getElementById('draftRecoveryTitle');
+const draftRecoveryText=document.getElementById('draftRecoveryText');
+const draftRecoveryNote=document.getElementById('draftRecoveryNote');
+let pendingDraft=(draftIsFresh(savedDraft) && !savedDraft?.finalLocked)?savedDraft:null;
+if(savedDraft && !draftIsFresh(savedDraft) && !savedDraft?.finalLocked)clearSavedDraft();
+
+function applyDraft(d){
+  if(!d)return;
+  if(d.introName)nameInput.value=d.introName;
+  if(d.language)language=d.language;
+  if(d.otherLanguage!==undefined)otherLanguage.value=d.otherLanguage||'';
+  if(d.submitter!==undefined)$('submitter').value=d.submitter||'';
+  else $('submitter').value=nameInput.value.trim();
+  if(d.submitterEmail!==undefined)$('submitterEmail').value=d.submitterEmail||'';
+  if(d.topic)$('topic').value=d.topic;
+  if(d.paperTitle!==undefined)$('paperTitle').value=d.paperTitle||'';
+  if(d.paperBody!==undefined)$('paperBody').value=d.paperBody||'';
+  $('paperDate').value=d.paperDate||dateText;
+  $('paperYear').value=d.paperYear||defaultYear;
+  if(d.youtubeUrl!==undefined)$('youtubeUrl').value=d.youtubeUrl||'';
+  if(d.imageData){
+    $('previewImage').src=d.imageData;
+    $('imageFigure').hidden=false;
+  }
+  $('previewDate').textContent=$('paperDate').value;
+  $('previewAuthor').textContent='BY '+(nameInput.value.trim()||'YOUR NAME').toUpperCase();
+
+  const yt=ytId(($('youtubeUrl')?.value||'').trim());
+  if(yt){
+    $('previewVideo').src='https://www.youtube.com/embed/'+encodeURIComponent(yt);
+    $('videoFigure').hidden=false;
+  }else{
+    $('previewVideo').src='';
+    $('videoFigure').hidden=true;
+  }
+}
+
 function saveDraft(){
   const draft={
+    updatedAt:Date.now(),
     introName:nameInput.value,
     language,
     otherLanguage:otherLanguage.value,
@@ -1692,10 +1768,75 @@ function saveDraft(){
     paperBody:$('paperBody').value,
     paperDate:$('paperDate').value,
     paperYear:$('paperYear').value,
-    finalLocked:paperFinalLocked
+    youtubeUrl:$('youtubeUrl')?.value||'',
+    finalLocked:!!paperFinalLocked
   };
-  try{localStorage.setItem(PAPER_STORAGE_KEY,JSON.stringify(draft));}catch(e){}
+  const imageSrc=$('previewImage')?.getAttribute('src')||'';
+  if(imageSrc && imageSrc.startsWith('data:image/') && imageSrc.length<1500000)draft.imageData=imageSrc;
+  if(!draftHasContent(draft)){
+    clearSavedDraft();
+    return;
+  }
+  try{localStorage.setItem(PAPER_STORAGE_KEY,JSON.stringify(draft));}catch(e){
+    // If a large attachment makes localStorage unavailable, keep the text fields.
+    delete draft.imageData;
+    try{localStorage.setItem(PAPER_STORAGE_KEY,JSON.stringify(draft));}catch(e2){}
+  }
 }
+
+function showDraftRecovery(){
+  if(!draftRecoveryOverlay||!pendingDraft)return;
+  const id=language==='ID';
+  draftRecoveryTitle.textContent=id?'Kamu baru saja menulis sebuah paper.':'You recently wrote a paper.';
+  draftRecoveryText.textContent=id?'Apakah kamu ingin kembali ke paper tersebut?':'Would you like to return to it?';
+  draftRestoreBtn.textContent=id?'KEMBALI KE PAPER':'REVERT TO WRITTEN PAPER';
+  draftNewBtn.textContent=id?'MULAI PAPER BARU':'START A NEW PAPER';
+  draftRecoveryNote.textContent=id?'Paper yang belum dikirim disimpan selama 30 menit.':'Your unfinished paper is kept for 30 minutes.';
+  draftRecoveryOverlay.classList.add('show');
+  draftRecoveryOverlay.setAttribute('aria-hidden','false');
+}
+function hideDraftRecovery(){
+  if(!draftRecoveryOverlay)return;
+  draftRecoveryOverlay.classList.remove('show');
+  draftRecoveryOverlay.setAttribute('aria-hidden','true');
+}
+draftRestoreBtn?.addEventListener('click',()=>{
+  if(!pendingDraft)return;
+  applyDraft(pendingDraft);
+  const restored=pendingDraft;
+  pendingDraft=null;
+  hideDraftRecovery();
+  sync();
+  if(restored.language)applyLanguageCopy(restored.language);
+});
+draftNewBtn?.addEventListener('click',()=>{
+  document.getElementById('papersShell')?.classList.remove('paper-confirmed');
+  paperFinalLocked=false;
+  pendingDraft=null;
+  clearSavedDraft();
+  // Explicitly reset the editor so no previous paper survives this choice.
+  $('submitter').value='';
+  $('submitterEmail').value='';
+  $('topic').selectedIndex=0;
+  $('paperTitle').value='';
+  $('paperBody').value='';
+  $('paperDate').value=dateText;
+  $('paperYear').value=defaultYear;
+  $('youtubeUrl').value='';
+  $('previewVideo').src='';
+  $('videoFigure').hidden=true;
+  $('imageFile').value='';
+  $('previewImage').src='';
+  $('imageFigure').hidden=true;
+  hideDraftRecovery();
+  sync();
+});
+
+$('paperDate').value=dateText;
+$('paperYear').value=defaultYear;
+$('previewDate').textContent=$('paperDate').value;
+$('previewAuthor').textContent='BY '+(nameInput.value.trim()||'YOUR NAME').toUpperCase();
+
 function sync(){
    const id=language==='ID';
    const name=$('submitter').value.trim()||(id?'Nama kamu':'Your name');
@@ -1710,7 +1851,6 @@ function sync(){
    $('previewLanguage').textContent=lang;
    $('previewLangBottom').textContent=lang+' · TUNETRACK PAPERS';
    $('receiptStatus').textContent=(title!==(id?'Judul paper kamu.':'Your paper title.')||body)?(id?'DRAF / PRATINJAU LANGSUNG':'DRAFT / LIVE PREVIEW'):(id?'DRAF / KOSONG':'DRAFT / EMPTY');
-   saveDraft();
  }
 ['submitter','paperTitle','paperBody','topic'].forEach(id=>$(id).addEventListener('input',sync));$('topic').addEventListener('change',sync);nameInput.addEventListener('change',()=>{if(!$('submitter').value)$('submitter').value=nameInput.value;sync()});otherLanguage.addEventListener('input',sync);
 const submitter=$('submitter'), submitterCustomize=$('submitterCustomize'), submitterConfirm=$('submitterConfirm'), submitterConfirmText=$('submitterConfirmText'), submitterConfirmInput=$('submitterConfirmInput'), submitterConfirmBtn=$('submitterConfirmBtn'), submitterConfirmError=$('submitterConfirmError');
@@ -1752,11 +1892,10 @@ submitterConfirmBtn.addEventListener('click',e=>{
   submitterConfirm.classList.remove('show');
   submitterConfirm.setAttribute('aria-hidden','true');
   sync();
-  saveDraft();
 });
 setSubmitterConfirmCopy();
 const proofOverlay=$('proofOverlay'),proofSheet=$('proofSheet'),proofClose=$('proofClose'),proofBack=$('proofBack'),proofConfirm=$('proofConfirm'),proofNote=$('proofNote'),proofBarTitle=$('proofBarTitle'),printPreviewBtn=$('printPreviewBtn'),sendReceiptBtn=$('sendReceiptBtn'),downloadPdfBtn=$('downloadPdfBtn'),downloadPngBtn=$('downloadPngBtn'),downloadJpgBtn=$('downloadJpgBtn');
-let paperFinalLocked=!!savedDraft.finalLocked;
+paperFinalLocked=false;
 function updateReceiptActions(){
   if(!sendReceiptBtn)return;
   if(paperFinalLocked){
@@ -1775,7 +1914,6 @@ function updateReceiptActions(){
   }
 }
 function lockPaperForm(){
-  if(paperFinalLocked)return;
   paperFinalLocked=true;
   const form=$('paperForm');
   if(!form)return;
@@ -1793,7 +1931,6 @@ function lockPaperForm(){
   proofConfirm.disabled=true;
   proofConfirm.setAttribute('aria-disabled','true');
   updateReceiptActions();
-  saveDraft();
 }
 function buildProofPreview(){
   const live=$('paperPreview');
@@ -1834,6 +1971,13 @@ function buildProofPreview(){
   proofNote.textContent=id?'Periksa paper kamu di atas sebelum melakukan konfirmasi.':'Review your paper above before confirming.';
 }
 function openProof(){
+  const emailField=$('submitterEmail');
+  if(!emailField || !emailField.checkValidity()){
+    emailField?.reportValidity();
+    if(emailField)emailField.setAttribute('aria-invalid','true');
+    return;
+  }
+  emailField.setAttribute('aria-invalid','false');
   buildProofPreview();
   proofOverlay.classList.add('show');
   proofOverlay.setAttribute('aria-hidden','false');
@@ -2039,11 +2183,18 @@ proofConfirm.addEventListener('click',async()=>{
 
   try{
     await submitPaperToGoogle();
+    // CONFIRM is the one-way boundary: wipe the draft immediately so the
+    // submitted paper can never come back through autosave/recovery.
+    clearSavedDraft();
+    pendingDraft=null;
+    paperFinalLocked=true;
     lockPaperForm();
+    document.getElementById('papersShell')?.classList.add('paper-confirmed');
+    closeProof();
     proofNote.textContent=id
       ?'Paper kamu sudah dikirim dan dikunci. Cek inbox email kamu.'
       :'Your paper has been submitted and locked. Check your email.';
-    window.setTimeout(closeProof,700);
+    proofConfirm.textContent=id?'PAPER SUDAH DIKONFIRMASI':'PAPER CONFIRMED';
   }catch(error){
     console.error('Tunetrack Papers submission failed:',error);
     proofConfirm.disabled=false;
@@ -2056,28 +2207,43 @@ proofConfirm.addEventListener('click',async()=>{
 window.addEventListener('keydown',e=>{if(e.key==='Escape'&&proofOverlay.classList.contains('show'))closeProof()});
 
 
-$('imageFile').addEventListener('change',()=>{const file=$('imageFile').files[0];if(!file){$('imageFigure').hidden=true;return}const reader=new FileReader();reader.onload=e=>{$('previewImage').src=e.target.result;$('imageFigure').hidden=false};reader.readAsDataURL(file)});
+$('imageFile').addEventListener('change',()=>{const file=$('imageFile').files[0];const note=$('imageFile').closest('.form-field')?.querySelector('.form-note');if(!file){$('imageFigure').hidden=true;if(note)note.textContent=(language==='ID'?'Satu gambar. Ukuran maksimal 1 MB.':'One image. Maximum size is 1 MB.');return}if(file.size>1024*1024){$('imageFile').value='';$('imageFigure').hidden=true;if(note)note.textContent=(language==='ID'?'Ukuran gambar terlalu besar. Maksimal ukuran gambar adalah 1 MB.':'Image is too large. Maximum image size is 1 MB.');return}if(note)note.textContent=(language==='ID'?'Satu gambar. Ukuran maksimal 1 MB.':'One image. Maximum size is 1 MB.');const reader=new FileReader();reader.onload=e=>{$('previewImage').src=e.target.result;$('imageFigure').hidden=false};reader.readAsDataURL(file)});
 function ytId(url){try{const u=new URL(url);if(u.hostname==='youtu.be')return u.pathname.slice(1).split('/')[0];if(u.hostname.includes('youtube.com'))return u.searchParams.get('v')||((u.pathname.match(/\/(?:embed|shorts)\/([^/]+)/)||[])[1]);}catch(e){}return null}
 $('youtubeUrl').addEventListener('input',()=>{const id=ytId($('youtubeUrl').value.trim());if(id){$('previewVideo').src='https://www.youtube.com/embed/'+encodeURIComponent(id);$('videoFigure').hidden=false}else{$('previewVideo').src='';$('videoFigure').hidden=true}});
 applyLanguageCopy(language==='ID'?'ID':(language==='OTHER'?'OTHER':'EN'));
-updateReceiptActions();
-if(savedDraft.finalLocked){
-  // Re-apply the confirmed lock after a refresh so a confirmed draft cannot be edited again.
-  window.setTimeout(()=>{lockPaperForm();saveDraft();},0);
+// Confirmed papers are never persisted. If an older build left a finalLocked
+// record behind, wipe it instead of resurrecting the confirmed paper.
+if(savedDraft?.finalLocked){
+  clearSavedDraft();
+  savedDraft=null;
+  pendingDraft=null;
 }
+updateReceiptActions();
+if(pendingDraft)window.setTimeout(showDraftRecovery,120);
 sync();
 
-// Persist draft edits continuously so a reload keeps the user's current paper.
-[nameInput,otherLanguage,$('submitter'),$('submitterEmail'),$('paperTitle'),$('paperBody'),$('paperDate'),$('paperYear')].forEach(el=>el&&el.addEventListener('input',saveDraft));
-$('topic').addEventListener('change',saveDraft);
+// Autosave at most once every 10 minutes. Live preview remains immediate via sync().
+// Do not write localStorage on every keystroke. A dirty flag lets the timer
+// persist the latest draft without allowing a confirmed paper to be resurrected.
+let draftDirty=false;
+const markDraftDirty=()=>{if(!paperFinalLocked)draftDirty=true;};
+[nameInput,otherLanguage,$('submitter'),$('submitterEmail'),$('paperTitle'),$('paperBody'),$('paperDate'),$('paperYear'),$('youtubeUrl')].forEach(el=>el&&el.addEventListener('input',markDraftDirty));
+$('topic').addEventListener('change',markDraftDirty);
+window.setInterval(()=>{
+  if(!paperFinalLocked && draftDirty){
+    saveDraft();
+    draftDirty=false;
+  }
+},10*60*1000);
 
 
 // exact Tunetrack header/menu behavior from the supplied pg reference
 const header=document.getElementById('blog-header'), button=document.getElementById('tncoHeaderMenuButton'), menu=document.getElementById('tncoMobileMenu'), close=document.getElementById('tncoMobileMenuClose');
 if(button&&menu){let locked=false;function lock(){if(locked)return;locked=true;document.documentElement.classList.add('menu-scroll-locked');document.body.classList.add('menu-scroll-locked')}function unlock(){if(!locked)return;locked=false;document.documentElement.classList.remove('menu-scroll-locked');document.body.classList.remove('menu-scroll-locked')}function open(v){menu.classList.toggle('is-open',v);menu.setAttribute('aria-hidden',String(!v));button.setAttribute('aria-expanded',String(v));v?lock():unlock()}button.addEventListener('click',()=>open(!menu.classList.contains('is-open')));close&&close.addEventListener('click',()=>open(false));menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>open(false)));document.addEventListener('keydown',e=>{if(e.key==='Escape')open(false)})}
-let lastY=0;window.addEventListener('scroll',()=>{const y=window.scrollY||0;if(!header)return;if(y<12){header.classList.remove('hidden');lastY=y;return}if(y>lastY+3)header.classList.add('hidden');else if(y<lastY-3)header.classList.remove('hidden');lastY=y},{passive:true});
+let lastY=0;window.addEventListener('scroll',()=>{const y=window.scrollY||0;if(!header)return;if(y<12){header.classList.remove('hidden');lastY=y;return}if(y>lastY+3)header.classList.add('hidden');lastY=y},{passive:true});
 })();
 </script>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>

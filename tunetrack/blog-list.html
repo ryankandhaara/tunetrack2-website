@@ -72,7 +72,7 @@ button{font:inherit}
 .marquee-card.is-center:active{cursor:grabbing}
 
 /* LIST */
-.blog-list-section{position:relative;padding:94px var(--pad) 170px;background:#fff}
+.blog-list-section{position:relative;padding:75px var(--pad) 136px;background:#fff}
 .blog-list-header{border-top:1px solid #000;padding:13px 0 18px;display:flex;justify-content:space-between;font-size:11px;text-transform:uppercase}
 .blog-item{position:relative;border-top:1px solid #000}
 .blog-item:last-child{border-bottom:1px solid #000}
@@ -997,7 +997,7 @@ html.menu-scroll-locked{
     color:#6e6e73;
 }
 .tnco-create-copy p{width:min(390px,90%);margin:25px 0 24px;font:400 15px/1.28 Arial,Helvetica,sans-serif;letter-spacing:-.02em;color:#6e6e73}
-.tnco-create-link{display:inline-flex;align-items:center;gap:10px;color:#0066cc;text-decoration:none;font:600 14px/1 Arial,Helvetica,sans-serif;letter-spacing:-.02em;transition:gap .35s cubic-bezier(.16,1,.3,1),color .25s ease}
+.tnco-create-link{display:inline-flex;align-items:center;gap:10px;color:#0066cc;text-decoration:none;font:600 12.6px/1 Arial,Helvetica,sans-serif;letter-spacing:-.02em;transition:gap .35s cubic-bezier(.16,1,.3,1),color .25s ease}
 .tnco-create-link span{font-size:18px;line-height:0;transition:transform .35s cubic-bezier(.16,1,.3,1)}
 .tnco-create-link:hover{gap:14px;color:#004f9e}
 .tnco-create-link:hover span{transform:translate(2px,-2px)}
@@ -1032,6 +1032,471 @@ html.menu-scroll-locked{
  .tnco-create-orbit,.tnco-create-link,.tnco-create-link span{transition:none!important}
 }
 </style>
+
+<style id="tnco-create-banner-quickfix">
+/* =========================================================
+   PAPERS — CREATE BANNER QUICK FIX
+   ========================================================= */
+.tnco-create-banner{
+    min-height:340px !important;
+    padding:40px var(--pad) !important;
+    align-items:center !important;
+}
+
+/* Match the footer/community left edge exactly. */
+.tnco-create-copy{
+    width:min(52%,720px) !important;
+    margin-left:0 !important;
+    text-align:left !important;
+}
+
+.tnco-create-copy h2{
+    font-size:clamp(52px,6.6vw,100px) !important;
+    line-height:.84 !important;
+}
+
+/* Scroll-driven Awwwards-style text reveal. */
+.tnco-create-reveal{
+    --reveal:0;
+    position:relative;
+    display:inline-block;
+    color:#b6b6bb;
+    isolation:isolate;
+    white-space:nowrap;
+}
+
+/* Each character is painted independently so the scroll reveal never slices
+   through a glyph or leaves a clipped half-letter at the reveal edge. */
+.tnco-create-reveal .tnco-reveal-char{
+    display:inline-block;
+    color:#b6b6bb;
+    transition:color .16s linear;
+    will-change:color;
+}
+.tnco-create-reveal .tnco-reveal-char.is-black{
+    color:#111;
+}
+
+/* Pill CTA */
+.tnco-create-link{
+    position:relative !important;
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    min-height:44px !important;
+    min-width:176px !important;
+    padding:0 20px !important;
+    gap:9px !important;
+    border:1px solid #111 !important;
+    border-radius:999px !important;
+    background:#fff !important;
+    color:#111 !important;
+    overflow:hidden !important;
+    transition:background .45s cubic-bezier(.16,1,.3,1),
+               color .45s cubic-bezier(.16,1,.3,1),
+               border-color .45s cubic-bezier(.16,1,.3,1),
+               transform .45s cubic-bezier(.16,1,.3,1) !important;
+}
+
+.tnco-create-link:hover{
+    gap:9px !important;
+    min-width:266px !important;
+    padding-left:24px !important;
+    padding-right:24px !important;
+    background:#0066ff !important;
+    border-color:#0066ff !important;
+    color:#fff !important;
+    transform:translateY(-2px) !important;
+}
+
+.tnco-create-link .tnco-link-label{
+    position:relative;
+    display:inline-block;
+    transition:opacity .3s ease,transform .45s cubic-bezier(.16,1,.3,1);
+}
+
+.tnco-create-link .tnco-link-hover{
+    position:absolute;
+    opacity:0;
+    transform:translateY(10px);
+}
+
+.tnco-create-link:hover .tnco-link-default{
+    opacity:0;
+    transform:translateY(-10px);
+}
+
+.tnco-create-link:hover .tnco-link-hover{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.tnco-create-link .tnco-link-arrow{
+    position:relative;
+    font-size:17px !important;
+    line-height:1 !important;
+    transition:transform .45s cubic-bezier(.16,1,.3,1);
+}
+
+.tnco-create-link:hover .tnco-link-arrow{
+    transform:translate(3px,-3px);
+}
+
+@media(max-width:900px){
+    .tnco-create-banner{
+        min-height:425px !important;
+        padding:36px var(--pad) 30px !important;
+    }
+    .tnco-create-copy{
+        width:100% !important;
+        max-width:620px !important;
+    }
+    .tnco-create-copy h2{
+        font-size:clamp(50px,12.8vw,84px) !important;
+    }
+}
+
+@media(max-width:560px){
+    .tnco-create-banner{
+        min-height:430px !important;
+        padding:36px 16px 0 !important;
+    }
+    .tnco-create-copy h2{
+        font-size:clamp(46px,13.5vw,72px) !important;
+    }
+    .tnco-create-link{
+        min-height:42px !important;
+        min-width:174px !important;
+        font-size:11.7px !important;
+    }
+    .tnco-create-link:hover{
+        min-width:257px !important;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+    .tnco-create-link,
+    .tnco-create-link .tnco-link-label,
+    .tnco-create-link .tnco-link-arrow{
+        transition:none !important;
+    }
+}
+</style>
+
+<script id="tnco-create-banner-reveal-js">
+(function(){
+    'use strict';
+
+    function init(){
+        const banner=document.querySelector('.tnco-create-banner');
+        const reveals=Array.from(document.querySelectorAll('.tnco-create-reveal'));
+        if(!banner || !reveals.length) return;
+
+        const groups=reveals.map((reveal)=>{
+            const text=reveal.getAttribute('data-text') || reveal.textContent.trim();
+            reveal.textContent='';
+            const chars=Array.from(text);
+            const charEls=chars.map((char)=>{
+                const span=document.createElement('span');
+                span.className='tnco-reveal-char';
+                span.textContent=char===' ' ? '\u00A0' : char;
+                span.setAttribute('aria-hidden','true');
+                reveal.appendChild(span);
+                return span;
+            });
+            reveal.setAttribute('aria-label',text);
+            return {chars,charEls};
+        });
+
+        let raf=0;
+        let smoothProgress=0;
+        let targetProgress=0;
+
+        function clamp(v,min,max){return Math.min(max,Math.max(min,v));}
+
+        function calculateProgress(){
+            const rect=banner.getBoundingClientRect();
+            const vh=window.innerHeight || document.documentElement.clientHeight;
+            const start=vh*.94;
+            const end=vh*.10;
+            return clamp((start-rect.top)/(start-end),0,1);
+        }
+
+        function paint(){
+            raf=0;
+            targetProgress=calculateProgress();
+            /* deliberately slower interpolation for an Apple-like feel */
+            smoothProgress += (targetProgress-smoothProgress)*.085;
+
+            const eased=smoothProgress < .5
+                ? 4*smoothProgress*smoothProgress*smoothProgress
+                : 1-Math.pow(-2*smoothProgress+2,3)/2;
+
+            const allChars=groups.flatMap(g=>g.charEls);
+            const total=allChars.length;
+            const scaled=eased*(total+2);
+
+            allChars.forEach((el,index)=>{
+                el.classList.toggle('is-black',scaled >= index+1.05);
+            });
+
+            if(Math.abs(targetProgress-smoothProgress)>.001){
+                raf=requestAnimationFrame(paint);
+            }
+        }
+
+        function requestUpdate(){
+            if(!raf) raf=requestAnimationFrame(paint);
+        }
+
+        requestUpdate();
+        window.addEventListener('scroll',requestUpdate,{passive:true});
+        window.addEventListener('resize',requestUpdate,{passive:true});
+        window.addEventListener('load',requestUpdate,{once:true});
+
+        const bindLoco=()=>{
+            const loco=window.__tncoLoco;
+            if(loco && typeof loco.on==='function'){
+                loco.on('scroll',requestUpdate);
+                requestUpdate();
+                return true;
+            }
+            return false;
+        };
+
+        if(!bindLoco()){
+            let attempts=0;
+            const wait=setInterval(()=>{
+                attempts++;
+                if(bindLoco() || attempts>120) clearInterval(wait);
+            },50);
+        }
+    }
+
+    if(document.readyState==='loading'){
+        document.addEventListener('DOMContentLoaded',init,{once:true});
+    }else{
+        init();
+    }
+})();
+</script>
+<style id="tnco-create-banner-final-fix">
+/* FINAL REQUESTED BANNER FIXES — based only on Pasted text.txt */
+.tnco-create-banner{
+    /* preserve the existing banner, but add a clear breathing zone below it */
+    margin-bottom:clamp(48px,5.5vw,92px) !important;
+}
+
+/* Exact editorial line break: Create / something / worth sharing. */
+.tnco-create-copy h2 .tnco-create-reveal-line{
+    display:inline-block !important;
+    white-space:nowrap !important;
+}
+
+/* Slower, softer per-character transition. */
+.tnco-create-reveal .tnco-reveal-char{
+    transition:color .72s cubic-bezier(.16,1,.3,1) !important;
+    will-change:color;
+}
+
+/* Move ONLY the banner carousel farther right. */
+.tnco-create-banner > .tnco-create-visual{
+    right:clamp(-18px,1.5vw,24px) !important;
+}
+
+/* Remove the arrow everywhere; hover copy is text only. */
+.tnco-create-link .tnco-link-arrow{
+    display:none !important;
+}
+
+/* Keep the hover state spacious and calm. */
+.tnco-create-link:hover{
+    min-width:320px !important;
+    padding-left:28px !important;
+    padding-right:28px !important;
+}
+
+@media(max-width:900px){
+    .tnco-create-banner{
+        margin-bottom:42px !important;
+    }
+    .tnco-create-banner > .tnco-create-visual{
+        right:-34px !important;
+    }
+}
+
+@media(max-width:560px){
+    .tnco-create-banner{
+        margin-bottom:34px !important;
+    }
+    .tnco-create-banner > .tnco-create-visual{
+        right:-58px !important;
+    }
+    .tnco-create-link:hover{
+        min-width:305px !important;
+    }
+}
+
+</style>
+
+<style>
+.tnco-create-copy h2{
+    line-height:0.78 !important;
+    overflow:visible !important;
+}
+
+.tnco-create-reveal-line{
+    overflow:visible !important;
+}
+</style>
+
+<style id="tnco-final-community-v2">
+/* FINAL FIX — remove only the faint guide lines around the create banner */
+.tnco-create-banner{
+  border-top:0 !important;
+  border-bottom:0 !important;
+}
+
+/* Community CTA: editorial text, never a pill */
+.tnco-community-readmore{
+  position:relative;
+  z-index:20;
+  display:inline-flex !important;
+  align-items:center;
+  width:max-content;
+  margin:clamp(48px,6vw,88px) 0 clamp(56px,7vw,100px) clamp(24px,5vw,76px);
+  padding:0 0 10px;
+  color:#111 !important;
+  background:transparent !important;
+  border:0 !important;
+  border-radius:0 !important;
+  text-decoration:none !important;
+  font:600 clamp(16px,1.4vw,21px)/1.1 Arial,Helvetica,sans-serif;
+  letter-spacing:-.025em;
+  opacity:1 !important;
+  visibility:visible !important;
+  transform:translateZ(0);
+  overflow:visible !important;
+  transition:
+    transform 900ms cubic-bezier(.16,1,.3,1),
+    letter-spacing 900ms cubic-bezier(.16,1,.3,1);
+}
+
+.tnco-community-readmore::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:1px;
+  background:#111;
+  transform-origin:left center;
+  transform:scaleX(.28);
+  transition:transform 900ms cubic-bezier(.16,1,.3,1);
+}
+
+.tnco-community-readmore::after{
+  content:"↗";
+  display:inline-block;
+  margin-left:12px;
+  font-size:.88em;
+  line-height:1;
+  transform:translate(0,0);
+  transition:transform 900ms cubic-bezier(.16,1,.3,1);
+}
+
+.tnco-community-readmore:hover{
+  transform:translateX(8px);
+  letter-spacing:-.005em;
+}
+
+.tnco-community-readmore:hover::before{
+  transform:scaleX(1);
+}
+
+.tnco-community-readmore:hover::after{
+  transform:translate(6px,-6px);
+}
+
+.tnco-community-readmore:focus-visible{
+  outline:2px solid #111;
+  outline-offset:8px;
+}
+
+@media(max-width:767px){
+  .tnco-community-readmore{
+    margin:48px 0 64px 16px;
+    font-size:15px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .tnco-community-readmore,
+  .tnco-community-readmore::before,
+  .tnco-community-readmore::after{
+    transition:none !important;
+  }
+}
+</style>
+
+
+<style id="tnco-final-community-spacing-fix">
+/* FINAL QUICK FIX — equalize the desktop banner's vertical breathing room */
+@media(min-width:901px){
+  .tnco-create-banner{
+    min-height:340px !important;
+    height:340px !important;
+    padding:24px var(--pad) !important;
+  }
+}
+
+/* Read more directly below the last article */
+.tnco-community-readmore{
+  margin:38px 0 0 0 !important;
+}
+
+@media(max-width:767px){
+  .tnco-community-readmore{
+    margin:32px 0 0 0 !important;
+  }
+}
+</style>
+
+
+<style id="tnco-button-bottom-spacing-fix">
+/* QUICK FIX — keep the existing button fully visible + add ~10% bottom breathing room */
+@media(min-width:901px){
+  .tnco-create-banner{
+    height:374px !important;
+    min-height:374px !important;
+    padding-bottom:58px !important;
+  }
+
+  .tnco-create-link{
+    position:relative !important;
+    z-index:30 !important;
+    display:inline-flex !important;
+    overflow:visible !important;
+    margin-bottom:2px !important;
+  }
+
+  .tnco-create-copy{
+    overflow:visible !important;
+  }
+}
+</style>
+
+
+<style id="tnco-bottom-space-plus-7">
+@media(min-width:901px){
+  .tnco-create-banner{
+    height:398px !important;
+    min-height:398px !important;
+    padding-bottom:82px !important;
+  }
+}
+</style>
+
 </head>
 
 <body>
@@ -1388,6 +1853,11 @@ html.menu-scroll-locked{
 -->
     </div>
 
+
+    <a class="tnco-community-readmore"
+       href="blog-community.html"
+       aria-label="Read more from our Community">READ MORE FROM OUR COMMUNITY</a>
+
 </section>
 
 
@@ -1399,9 +1869,13 @@ html.menu-scroll-locked{
 <section class="tnco-create-banner" data-scroll-section aria-label="Create your own Tunetrack Paper">
     <div class="tnco-create-copy">
         <span class="tnco-create-eyebrow">TUNETRACK PAPERS</span>
-        <h2>Create something<br><em>worth sharing.</em></h2>
+        <h2><span class="tnco-create-reveal tnco-create-reveal-line" data-text="Create">Create</span><br><span class="tnco-create-reveal tnco-create-reveal-line" data-text="something">something</span><br><em>worth sharing.</em></h2>
         <p>Got a story, idea, discovery, or something you want people to read? Make your own Paper.</p>
-        <a class="tnco-create-link" href="blog-papers.html">Create your Paper <span>↗</span></a>
+        <a class="tnco-create-link" href="blog-papers.html" aria-label="Create your Paper">
+            <span class="tnco-link-label tnco-link-default">Create your Paper</span>
+            <span class="tnco-link-label tnco-link-hover">Your writing begins here</span>
+            <span class="tnco-link-arrow" aria-hidden="true">↗</span>
+        </a>
     </div>
 
     <div class="tnco-create-visual" aria-hidden="true">
@@ -1430,6 +1904,7 @@ html.menu-scroll-locked{
          alt="">
 
 </div>
+
 
 </main>
 
