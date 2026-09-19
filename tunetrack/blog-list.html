@@ -1787,29 +1787,488 @@ html.menu-scroll-locked{
             </a>
 
         </article>
+
+<!-- YANFG INI CHAT -->
+
+<!-- =========================================================
+     TNCO — TIME LOCKED ARTICLE
+     ========================================================= -->
+
+<article
+    class="blog-item tnco-locked-article"
+    data-unlock="2026-09-19T07:00:00+07:00"
+    data-hover-image="assets/videos/yangterutama.png">
+
+    <a href="pg-yangterutamasw2.html" class="blog-link">
+
+        <div class="blog-number">05</div>
+
+        <div class="blog-info">
+            <span class="blog-category">COMMUNITY</span>
+            <h2>Monita Tahalea turut hadir dalam single Yang Terutama</h2>
+        </div>
+
+        <div class="blog-date">21.08.2026</div>
+
+        <div class="blog-arrow">↗</div>
+
+    </a>
+
+    <!-- LOCK OVERLAY -->
+    <div class="tnco-lock-overlay" aria-hidden="true">
+        <div class="tnco-lock-message">
+
+            <span class="tnco-lock-symbol">
+                <svg viewBox="0 0 24 24">
+                    <rect x="5" y="10" width="14" height="10" rx="2"></rect>
+                    <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                </svg>
+            </span>
+
+            <span class="tnco-lock-text">
+                THIS ARTICLE IS NOT YET UNLOCKED
+            </span>
+
+            <span class="tnco-lock-divider">|</span>
+
+            <span class="tnco-lock-countdown">00:00:00</span>
+
+        </div>
+    </div>
+
+</article>
+
+
+<style>
+/* =========================================================
+   TNCO — LOCKED ARTICLE
+   ========================================================= */
+
+.tnco-locked-article{
+    position:relative;
+    overflow:hidden;
+}
+
+/* LOCKED = NO ARTICLE CLICK / IMAGE HOVER */
+
+.tnco-locked-article:not(.is-unlocked) .blog-link{
+    pointer-events:none;
+    cursor:default;
+}
+
+.tnco-locked-article:not(.is-unlocked) .blog-link img{
+    pointer-events:none;
+    transform:none !important;
+}
+
+
+/* =========================================================
+   LOCK OVERLAY
+   ========================================================= */
+
+.tnco-lock-overlay{
+    position:absolute;
+    inset:0;
+    z-index:20;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(125,125,130,.65);
+
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+
+    backdrop-filter:blur(0);
+    -webkit-backdrop-filter:blur(0);
+
+    transition:
+        opacity .65s cubic-bezier(.16,1,.3,1),
+        visibility .65s cubic-bezier(.16,1,.3,1),
+        backdrop-filter .8s cubic-bezier(.16,1,.3,1),
+        -webkit-backdrop-filter .8s cubic-bezier(.16,1,.3,1);
+}
+
+
+/* =========================================================
+   LOCK HOVER — VISUAL ONLY
+   ========================================================= */
+
+@media (hover:hover){
+
+    .tnco-locked-article:not(.is-unlocked):hover
+    .tnco-lock-overlay{
+        opacity:1;
+        visibility:visible;
+
+        backdrop-filter:blur(7px);
+        -webkit-backdrop-filter:blur(7px);
+    }
+
+    .tnco-locked-article:not(.is-unlocked):hover
+    .blog-link{
+        filter:grayscale(1);
+    }
+
+    .tnco-locked-article:not(.is-unlocked):hover
+    .tnco-lock-message{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+
+    /* NEVER ALLOW IMAGE HOVER WHILE LOCKED */
+
+    .tnco-locked-article:not(.is-unlocked):hover
+    .blog-link img{
+        transform:none !important;
+        filter:none !important;
+    }
+
+}
+
+
+/* =========================================================
+   LOCK MESSAGE
+   ========================================================= */
+
+.tnco-lock-message{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:13px;
+
+    padding:18px 27px;
+    max-width:calc(100% - 28px);
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.18);
+
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
+
+    box-shadow:
+        0 8px 35px rgba(0,0,0,.10),
+        inset 0 1px 0 rgba(255,255,255,.16);
+
+    color:#fff;
+
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:12px;
+    font-weight:600;
+    line-height:1;
+    letter-spacing:.025em;
+
+    white-space:nowrap;
+
+    transform:translateY(14px) scale(.96);
+    opacity:0;
+
+    transition:
+        transform .65s cubic-bezier(.16,1,.3,1),
+        opacity .55s cubic-bezier(.16,1,.3,1);
+}
+
+
+/* =========================================================
+   LOCK ICON
+   ========================================================= */
+
+.tnco-lock-symbol{
+    width:18px;
+    height:18px;
+    flex:0 0 18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.tnco-lock-symbol svg{
+    width:100%;
+    height:100%;
+
+    fill:none;
+    stroke:currentColor;
+    stroke-width:1.7;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+
+/* =========================================================
+   COUNTDOWN
+   ========================================================= */
+
+.tnco-lock-countdown{
+    min-width:82px;
+    text-align:left;
+
+    font-variant-numeric:tabular-nums;
+    letter-spacing:.045em;
+}
+
+.tnco-lock-divider{
+    opacity:.35;
+}
+
+
+/* =========================================================
+   UNLOCKED
+   ========================================================= */
+
+.tnco-locked-article.is-unlocked .tnco-lock-overlay{
+    display:none;
+}
+
+.tnco-locked-article.is-unlocked .blog-link{
+    pointer-events:auto;
+    cursor:pointer;
+    filter:none;
+}
+
+
+/* =========================================================
+   NEW BADGE
+   ========================================================= */
+
+.tnco-new-badge{
+    position:absolute;
+    top:50%;
+    right:18px;
+    z-index:30;
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    pointer-events:none;
+    color:#FDF505;
+
+    transform:translate(24px,-50%) scale(.86);
+    opacity:0;
+
+    filter:drop-shadow(0 0 7px rgba(253,245,5,.30));
+
+    transition:
+        transform .72s cubic-bezier(.16,1,.3,1),
+        opacity .45s cubic-bezier(.16,1,.3,1),
+        filter .6s cubic-bezier(.16,1,.3,1);
+}
+
+
+/* BADGE ONLY AFTER UNLOCK */
+
+@media (hover:hover){
+
+    .tnco-locked-article.is-unlocked:hover
+    .tnco-new-badge{
+        transform:translate(0,-50%) scale(1);
+        opacity:1;
+
+        filter:drop-shadow(
+            0 0 12px rgba(253,245,5,.48)
+        );
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width:768px) and (max-width:1199px){
+
+    .tnco-lock-message{
+        gap:11px;
+        padding:16px 23px;
+        font-size:11px;
+    }
+
+    .tnco-lock-symbol{
+        width:16px;
+        height:16px;
+        flex-basis:16px;
+    }
+
+    .tnco-lock-countdown{
+        min-width:76px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width:767px){
+
+    .tnco-lock-message{
+        gap:9px;
+        padding:14px 18px;
+        font-size:9px;
+        letter-spacing:.02em;
+    }
+
+    .tnco-lock-symbol{
+        width:15px;
+        height:15px;
+        flex-basis:15px;
+    }
+
+    .tnco-lock-countdown{
+        min-width:65px;
+    }
+
+    .tnco-lock-divider{
+        opacity:.3;
+    }
+
+    .tnco-new-badge{
+        right:12px;
+        gap:7px;
+    }
+
+    .tnco-new-label{
+        font-size:9px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONE
+   ========================================================= */
+
+@media (max-width:390px){
+
+    .tnco-lock-message{
+        gap:7px;
+        padding:12px 14px;
+        font-size:7.5px;
+    }
+
+    .tnco-lock-symbol{
+        width:13px;
+        height:13px;
+        flex-basis:13px;
+    }
+
+    .tnco-lock-countdown{
+        min-width:57px;
+    }
+
+    .tnco-new-badge{
+        right:9px;
+        gap:6px;
+    }
+
+    .tnco-new-label{
+        font-size:8px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+    .tnco-lock-overlay,
+    .tnco-lock-message,
+    .tnco-new-badge{
+        transition:none !important;
+    }
+
+}
+</style>
+
+
+<script>
+/* =========================================================
+   TNCO — TIME UNLOCK
+   ========================================================= */
+
+(function(){
+
+    const article = document.querySelector('.tnco-locked-article');
+    if(!article) return;
+
+    const countdown = article.querySelector('.tnco-lock-countdown');
+    const unlockTime = new Date(article.dataset.unlock).getTime();
+    const hoverImage = article.dataset.hoverImage;
+
+    if(!countdown || !Number.isFinite(unlockTime)) return;
+
+    /*
+     * IMPORTANT:
+     * Keep the real hover image hidden from the site's
+     * floating-image system until the timer finishes.
+     */
+
+    article.removeAttribute('data-image');
+
+    let timer;
+
+    const pad = n => String(n).padStart(2,'0');
+
+    function updateLock(){
+
+        const remaining = unlockTime - Date.now();
+
+        /* ===== UNLOCK ===== */
+
+        if(remaining <= 0){
+
+            article.classList.add('is-unlocked');
+
+            /*
+             * Restore data-image ONLY after unlock.
+             */
+
+            if(hoverImage){
+                article.dataset.image = hoverImage;
+            }
+
+            countdown.textContent = '00:00:00';
+
+            clearInterval(timer);
+            return;
+        }
+
+
+        /* ===== COUNTDOWN ===== */
+
+        const total = Math.floor(remaining / 1000);
+
+        const days = Math.floor(total / 86400);
+        const hours = Math.floor((total % 86400) / 3600);
+        const minutes = Math.floor((total % 3600) / 60);
+        const seconds = total % 60;
+
+
+        countdown.textContent = days
+            ? `${days}D ${pad(hours)}H ${pad(minutes)}M`
+            : `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+    }
+
+
+    updateLock();
+
+    timer = setInterval(updateLock,1000);
+
+})();
+</script>
+
+
 <!--
-
-        <article class="blog-item"
-                 data-image="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=78">
-
-            <a href="blog-post.html" class="blog-link">
-
-                <div class="blog-number">04</div>
-
-                <div class="blog-info">
-                    <span class="blog-category">COMMUNITY</span>
-                    <h2>Why Musicians Need Their Own Space</h2>
-                </div>
-
-                <div class="blog-date">21.08.2026</div>
-
-                <div class="blog-arrow">↗</div>
-
-            </a>
-
-        </article>
-
-
         <article class="blog-item"
                  data-image="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=800&q=78">
 
@@ -1852,12 +2311,6 @@ html.menu-scroll-locked{
         </article>
 -->
     </div>
-
-
-    <a class="tnco-community-readmore"
-       href="blog-community.html"
-       aria-label="Read more from our Community">READ MORE FROM OUR COMMUNITY</a>
-
 </section>
 
 
