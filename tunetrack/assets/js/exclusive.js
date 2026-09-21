@@ -1,6 +1,6 @@
 /* =========================================================
    TUNETRACK PLAY — EXCLUSIVE
-   PRODUCT DATA / EMAIL
+   PRODUCT DATA / GOOGLE APPS SCRIPT
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -11,10 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================================== */
 
     const params =
-        new URLSearchParams(window.location.search);
+        new URLSearchParams(
+            window.location.search
+        );
+
 
     const productId =
-        params.get("product");
+        params.get("product") ||
+        "fajar-terangi-dunia";
 
 
     /* =====================================================
@@ -28,10 +32,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 item.title
                     .toLowerCase()
                     .trim()
-                    .replace(/[^a-z0-9]+/g, "-")
-                    .replace(/^-+|-+$/g, "");
+                    .replace(
+                        /[^a-z0-9]+/g,
+                        "-"
+                    )
+                    .replace(
+                        /^-+|-+$/g,
+                        ""
+                    );
 
             return slug === productId;
+
         });
 
 
@@ -40,19 +51,57 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================================== */
 
     const titleElement =
-        document.getElementById("exclusiveTitle");
+        document.getElementById(
+            "exclusiveTitle"
+        );
+
 
     const descriptionElement =
-        document.getElementById("exclusiveDescription");
+        document.getElementById(
+            "exclusiveDescription"
+        );
+
 
     const originElement =
-        document.getElementById("infoOrigin");
+        document.getElementById(
+            "infoOrigin"
+        );
+
 
     const resourceElement =
-        document.getElementById("infoResource");
+        document.getElementById(
+            "infoResource"
+        );
 
-    const requestButton =
-        document.getElementById("requestButton");
+
+    /* =====================================================
+       REQUEST FORM
+    ===================================================== */
+
+    const form =
+        document.getElementById(
+            "requestForm"
+        );
+
+
+    const emailInput =
+        document.getElementById(
+            "emailInput"
+        );
+
+
+    const requestControl =
+        document.querySelector(
+            ".request-control"
+        );
+
+
+    const submitButton =
+        form
+            ? form.querySelector(
+                ".request-submit"
+            )
+            : null;
 
 
     /* =====================================================
@@ -61,28 +110,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!product) {
 
-        titleElement.textContent =
-            "Exclusive resource.";
+        if (titleElement) {
 
-        descriptionElement.textContent =
-            "This resource is currently unavailable or could not be found.";
+            titleElement.textContent =
+                "Exclusive resource.";
 
-        originElement.textContent =
-            "Unavailable";
+        }
 
-        resourceElement.textContent =
-            "—";
 
-        requestButton.disabled =
-            true;
+        if (descriptionElement) {
 
-        requestButton.style.opacity =
-            ".45";
+            descriptionElement.textContent =
+                "This resource is currently unavailable or could not be found.";
 
-        requestButton.style.cursor =
-            "not-allowed";
+        }
+
+
+        if (originElement) {
+
+            originElement.textContent =
+                "Unavailable";
+
+        }
+
+
+        if (resourceElement) {
+
+            resourceElement.textContent =
+                "—";
+
+        }
+
+
+        if (submitButton) {
+
+            submitButton.disabled =
+                true;
+
+        }
+
 
         return;
+
     }
 
 
@@ -90,17 +159,38 @@ document.addEventListener("DOMContentLoaded", () => {
        RENDER PRODUCT
     ===================================================== */
 
-    titleElement.textContent =
-        `${product.title}.`;
+    if (titleElement) {
 
-    descriptionElement.textContent =
-        product.description || "";
+        titleElement.textContent =
+            `${product.title}.`;
 
-    originElement.textContent =
-        product.origin || "By request";
+    }
 
-    resourceElement.textContent =
-        product.resource || "Sequencer";
+
+    if (descriptionElement) {
+
+        descriptionElement.textContent =
+            product.description || "";
+
+    }
+
+
+    if (originElement) {
+
+        originElement.textContent =
+            product.origin ||
+            "By request";
+
+    }
+
+
+    if (resourceElement) {
+
+        resourceElement.textContent =
+            product.resource ||
+            "Sequencer";
+
+    }
 
 
     /* =====================================================
@@ -112,37 +202,290 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       EMAIL REQUEST
+       GOOGLE APPS SCRIPT
     ===================================================== */
 
-    requestButton.addEventListener("click", () => {
+    const GOOGLE_SCRIPT_URL =
+        "https://script.google.com/macros/s/AKfycbw1GP_zMppy6yRjYj6sXIHemXOeTMcgvx9Q6tY1VNKSI-Rv7dFBYdmFwqwBb2Id4Fwc/exec";
 
-        const email =
-            "hello@tunetrack.co";
 
-        const subject =
-            `Tunetrack Play Exclusive — ${product.title}`;
+    /* =====================================================
+       FORM SUBMIT
+    ===================================================== */
 
-        const body =
-`Hi Tunetrack,
+    if (form) {
 
-I'd like to request the sequencer for:
+        form.addEventListener(
+            "submit",
+            async function (e) {
 
-${product.title}
-${product.artist}
+                e.preventDefault();
 
-Please let me know the availability and next steps.
 
-Thank you.`;
+                /* =============================================
+                   ALREADY SUBMITTED
+                ============================================= */
 
-        const mailto =
-            `mailto:${email}` +
-            `?subject=${encodeURIComponent(subject)}` +
-            `&body=${encodeURIComponent(body)}`;
+                if (
+                    requestControl &&
+                    requestControl.classList.contains(
+                        "is-sent"
+                    )
+                ) {
 
-        window.location.href =
-            mailto;
+                    return;
 
-    });
+                }
+
+
+                /* =============================================
+                   EMAIL
+                ============================================= */
+
+                const email =
+                    emailInput.value.trim();
+
+
+                if (!email) {
+
+                    emailInput.focus();
+
+                    return;
+
+                }
+
+
+                /* =============================================
+                   PRODUCT
+                ============================================= */
+
+                const requestedProduct =
+                    product.exclusiveProduct ||
+                    product.title;
+
+
+                /* =============================================
+                   EXCLUSIVE KEY
+                ============================================= */
+
+                const exclusiveKey =
+                    product.exclusiveKey ||
+                    "";
+
+
+                /* =============================================
+                   CATEGORY
+                ============================================= */
+
+                const productCategory =
+                    Array.isArray(
+                        product.category
+                    )
+                        ? product.category.join(", ")
+                        : (
+                            product.category ||
+                            ""
+                        );
+
+
+                /* =============================================
+                   PAYLOAD
+                ============================================= */
+
+                const payload =
+                    new URLSearchParams({
+
+                        email:
+                            email,
+
+                        exclusiveKey:
+                            exclusiveKey,
+
+                        product:
+                            requestedProduct,
+
+                        artist:
+                            product.artist ||
+                            "",
+
+                        description:
+                            product.description ||
+                            "",
+
+                        origin:
+                            product.origin ||
+                            "",
+
+                        resource:
+                            product.resource ||
+                            "Sequencer",
+
+                        price:
+                            product.price ||
+                            "",
+
+                        category:
+                            productCategory,
+
+                        image:
+                            product.image ||
+                            "",
+
+                        youtube:
+                            product.youtube ||
+                            "",
+
+                        link:
+                            product.link ||
+                            "",
+
+                        imageCredit:
+                            product.imageCredit ||
+                            ""
+
+                    });
+
+
+                /* =============================================
+                   SENDING STATE
+                ============================================= */
+
+                if (requestControl) {
+
+                    requestControl.classList.add(
+                        "is-sending"
+                    );
+
+                }
+
+
+                if (submitButton) {
+
+                    submitButton.disabled =
+                        true;
+
+                }
+
+
+                emailInput.disabled =
+                    true;
+
+
+                /* =============================================
+                   SEND TO GOOGLE APPS SCRIPT
+                ============================================= */
+
+                try {
+
+                    await fetch(
+                        GOOGLE_SCRIPT_URL,
+                        {
+
+                            method:
+                                "POST",
+
+                            mode:
+                                "no-cors",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/x-www-form-urlencoded;charset=UTF-8"
+
+                            },
+
+                            body:
+                                payload
+
+                        }
+                    );
+
+
+                    /* =========================================
+                       KEEP LOADING STATE
+                    ========================================= */
+
+                    await new Promise(
+                        function (resolve) {
+
+                            setTimeout(
+                                resolve,
+                                3000
+                            );
+
+                        }
+                    );
+
+
+                    /* =========================================
+                       FINISHED
+                    ========================================= */
+
+                    if (requestControl) {
+
+                        requestControl.classList.remove(
+                            "is-sending"
+                        );
+
+                        requestControl.classList.add(
+                            "is-sent"
+                        );
+
+                    }
+
+
+                    emailInput.disabled =
+                        true;
+
+
+                    if (submitButton) {
+
+                        submitButton.disabled =
+                            true;
+
+                    }
+
+
+                }
+
+                catch (error) {
+
+                    console.error(
+                        "Tunetrack Play request error:",
+                        error
+                    );
+
+
+                    /* =========================================
+                       RESTORE UI
+                    ========================================= */
+
+                    if (requestControl) {
+
+                        requestControl.classList.remove(
+                            "is-sending"
+                        );
+
+                    }
+
+
+                    emailInput.disabled =
+                        false;
+
+
+                    if (submitButton) {
+
+                        submitButton.disabled =
+                            false;
+
+                    }
+
+                }
+
+            }
+
+        );
+
+    }
 
 });
