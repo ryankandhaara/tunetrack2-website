@@ -5,52 +5,34 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* =====================================================
-       PRODUCT DATA
-    ===================================================== */
-
-    const exclusiveProducts = {
-
-        "fajar-terangi-dunia": {
-            title: "Fajar Terangi Dunia",
-            artist: "NDC Worship",
-
-            description:
-                "A sequencer originally made by request, now available exclusively through Tunetrack Play. Get the resource created for this song and bring it into your next service.",
-
-            origin: "By request",
-            resource: "Sequencer"
-        },
-
-
-        /* =================================================
-           CONTOH PRODUK BERIKUTNYA
-
-        "produk-lain": {
-            title: "Produk Lain",
-            artist: "Artist",
-            description:
-                "Description untuk produk ini.",
-
-            origin: "By request",
-            resource: "Sequencer"
-        }
-
-        ================================================= */
-    };
-
 
     /* =====================================================
        READ PRODUCT FROM URL
     ===================================================== */
 
-    const params = new URLSearchParams(window.location.search);
+    const params =
+        new URLSearchParams(window.location.search);
 
     const productId =
-        params.get("product") || "fajar-terangi-dunia";
+        params.get("product");
+
+
+    /* =====================================================
+       FIND PRODUCT FROM data-catalog.js
+    ===================================================== */
 
     const product =
-        exclusiveProducts[productId];
+        products.find(item => {
+
+            const slug =
+                item.title
+                    .toLowerCase()
+                    .trim()
+                    .replace(/[^a-z0-9]+/g, "-")
+                    .replace(/^-+|-+$/g, "");
+
+            return slug === productId;
+        });
 
 
     /* =====================================================
@@ -91,10 +73,14 @@ document.addEventListener("DOMContentLoaded", () => {
         resourceElement.textContent =
             "—";
 
-        requestButton.disabled = true;
+        requestButton.disabled =
+            true;
 
-        requestButton.style.opacity = ".45";
-        requestButton.style.cursor = "not-allowed";
+        requestButton.style.opacity =
+            ".45";
+
+        requestButton.style.cursor =
+            "not-allowed";
 
         return;
     }
@@ -108,13 +94,13 @@ document.addEventListener("DOMContentLoaded", () => {
         `${product.title}.`;
 
     descriptionElement.textContent =
-        product.description;
+        product.description || "";
 
     originElement.textContent =
-        product.origin;
+        product.origin || "By request";
 
     resourceElement.textContent =
-        product.resource;
+        product.resource || "Sequencer";
 
 
     /* =====================================================
@@ -154,7 +140,8 @@ Thank you.`;
             `?subject=${encodeURIComponent(subject)}` +
             `&body=${encodeURIComponent(body)}`;
 
-        window.location.href = mailto;
+        window.location.href =
+            mailto;
 
     });
 
