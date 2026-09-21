@@ -1,0 +1,606 @@
+/* =========================================================
+   TUNETRACK PLAY — EXCLUSIVE
+========================================================= */
+
+:root {
+    --black: #000;
+    --white: #f5f5f7;
+    --gray: #86868b;
+    --gray-light: #a1a1a6;
+    --line: rgba(255,255,255,.16);
+
+    --font-sf:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+html {
+    background: var(--black);
+}
+
+body {
+    background: var(--black);
+    color: var(--white);
+
+    font-family: var(--font-sf);
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    text-rendering: optimizeLegibility;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.exclusive-page {
+    position: relative;
+
+    width: 100%;
+    min-height: 100svh;
+
+    background: #000;
+
+    padding:
+        clamp(110px, 15vw, 190px)
+        clamp(24px, 9vw, 140px)
+        clamp(100px, 12vw, 160px);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-catalog {
+    position: absolute;
+
+    top: clamp(20px, 3vw, 34px);
+    left: clamp(24px, 4vw, 56px);
+
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    color: rgba(255,255,255,.86);
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+
+    white-space: nowrap;
+
+    transition:
+        color .25s ease,
+        opacity .25s ease;
+}
+
+.back-catalog svg {
+    width: 16px;
+    height: 16px;
+
+    transition:
+        transform .3s cubic-bezier(.22,1,.36,1);
+}
+
+.back-catalog:hover {
+    color: #fff;
+}
+
+.back-catalog:hover svg {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.exclusive-hero {
+    width: min(100%, 1050px);
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   KICKER
+========================================================= */
+
+.exclusive-kicker {
+    margin-bottom: 25px;
+
+    color: var(--gray);
+
+    font-size: clamp(16px, 1.7vw, 22px);
+    line-height: 1.2;
+
+    font-weight: 600;
+    letter-spacing: -0.015em;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.exclusive-title {
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    color: var(--white);
+
+    font-size: clamp(
+        68px,
+        8.8vw,
+        132px
+    );
+
+    line-height: .94;
+
+    font-weight: 600;
+
+    letter-spacing: -0.055em;
+
+    text-wrap: balance;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.exclusive-description {
+    width: min(100%, 850px);
+
+    margin:
+        clamp(35px, 4vw, 52px)
+        auto
+        0;
+
+    color: #86868b;
+
+    font-size: clamp(
+        18px,
+        1.65vw,
+        25px
+    );
+
+    line-height: 1.22;
+
+    font-weight: 500;
+
+    letter-spacing: -0.025em;
+
+    text-wrap: balance;
+}
+
+.exclusive-description strong {
+    color: #f5f5f7;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.exclusive-divider {
+    width: min(100%, 1050px);
+
+    height: 1px;
+
+    margin:
+        clamp(70px, 8vw, 110px)
+        auto
+        0;
+
+    background: var(--line);
+}
+
+
+/* =========================================================
+   REQUEST
+========================================================= */
+
+.exclusive-request {
+    width: min(100%, 1050px);
+
+    margin:
+        0 auto;
+
+    padding:
+        clamp(42px, 5vw, 62px)
+        0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   REQUEST HEADING
+========================================================= */
+
+.request-heading {
+    margin-bottom: 24px;
+
+    color: #f5f5f7;
+
+    font-size: clamp(
+        21px,
+        2vw,
+        27px
+    );
+
+    line-height: 1.15;
+
+    font-weight: 600;
+
+    letter-spacing: -0.025em;
+}
+
+
+/* =========================================================
+   REQUEST BUTTON
+========================================================= */
+
+.request-button {
+    appearance: none;
+    border: 0;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    min-height: 54px;
+
+    padding:
+        0 23px;
+
+    border-radius: 999px;
+
+    background: #f5f5f7;
+    color: #000;
+
+    font-family: var(--font-sf);
+
+    font-size: 16px;
+    line-height: 1;
+
+    font-weight: 600;
+
+    letter-spacing: -0.015em;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s cubic-bezier(.22,1,.36,1),
+        background .25s ease;
+}
+
+.request-button svg {
+    width: 16px;
+    height: 16px;
+
+    transition:
+        transform .3s cubic-bezier(.22,1,.36,1);
+}
+
+.request-button:hover {
+    background: #fff;
+
+    transform: scale(1.025);
+}
+
+.request-button:hover svg {
+    transform: translateX(3px);
+}
+
+.request-button:active {
+    transform: scale(.98);
+}
+
+
+/* =========================================================
+   INFO
+========================================================= */
+
+.exclusive-info {
+    width: min(100%, 1050px);
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 30px;
+
+    padding-top: clamp(35px, 4vw, 55px);
+}
+
+
+/* =========================================================
+   INFO ITEM
+========================================================= */
+
+.info-item {
+    text-align: center;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.info-eyebrow {
+    margin-bottom: 8px;
+
+    color: #86868b;
+
+    font-size: 14px;
+
+    line-height: 1.2;
+
+    font-weight: 500;
+
+    letter-spacing: -0.01em;
+}
+
+
+/* =========================================================
+   VALUE
+========================================================= */
+
+.info-value {
+    color: #f5f5f7;
+
+    font-size: clamp(
+        24px,
+        2.4vw,
+        36px
+    );
+
+    line-height: 1.05;
+
+    font-weight: 600;
+
+    letter-spacing: -0.035em;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .exclusive-page {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .exclusive-title {
+        font-size: clamp(
+            60px,
+            10vw,
+            92px
+        );
+    }
+
+    .exclusive-description {
+        max-width: 700px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .exclusive-page {
+        min-height: 100svh;
+
+        padding:
+            105px
+            22px
+            80px;
+    }
+
+
+    /* BACK */
+
+    .back-catalog {
+        top: 22px;
+        left: 22px;
+
+        font-size: 14px;
+    }
+
+
+    /* HERO */
+
+    .exclusive-hero {
+        width: 100%;
+    }
+
+
+    .exclusive-kicker {
+        margin-bottom: 20px;
+
+        font-size: 16px;
+    }
+
+
+    .exclusive-title {
+        font-size: clamp(
+            54px,
+            15vw,
+            78px
+        );
+
+        line-height: .94;
+
+        letter-spacing: -0.06em;
+    }
+
+
+    .exclusive-description {
+        width: 100%;
+
+        margin-top: 30px;
+
+        font-size: 18px;
+
+        line-height: 1.27;
+
+        letter-spacing: -0.02em;
+    }
+
+
+    /* DIVIDER */
+
+    .exclusive-divider {
+        margin-top: 65px;
+    }
+
+
+    /* REQUEST */
+
+    .exclusive-request {
+        padding:
+            38px
+            0
+            40px;
+    }
+
+
+    .request-heading {
+        margin-bottom: 20px;
+
+        font-size: 20px;
+    }
+
+
+    .request-button {
+        min-height: 52px;
+
+        padding:
+            0 21px;
+
+        font-size: 15px;
+    }
+
+
+    /* INFO */
+
+    .exclusive-info {
+        grid-template-columns: 1fr;
+
+        gap: 34px;
+
+        padding-top: 10px;
+    }
+
+
+    .info-item {
+        text-align: center;
+    }
+
+
+    .info-eyebrow {
+        margin-bottom: 7px;
+
+        font-size: 13px;
+    }
+
+
+    .info-value {
+        font-size: 28px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .exclusive-page {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .back-catalog {
+        left: 18px;
+    }
+
+    .exclusive-title {
+        font-size: 52px;
+    }
+
+    .exclusive-description {
+        font-size: 17px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+
+}
