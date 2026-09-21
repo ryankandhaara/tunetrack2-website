@@ -21,7 +21,7 @@ const products = [
       "worship",
       "freebies"
     ],
-    "image": "https://i.ytimg.com/vi/UzYNVXW7zQk/maxresdefault.jpg",
+    "image": "https://i.ytimg.com/vi/ysOdakicc58/hqdefault.jpg",
     "link": "pg-yangterutamasw2.html",
     "youtube": "",
     "imageCredit": "Assets of Symphony Worship"
