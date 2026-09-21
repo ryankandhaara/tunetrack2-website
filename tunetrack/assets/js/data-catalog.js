@@ -1,20 +1,17 @@
 const products = [
   {
-    "title": "Fajar Terangi Asiknya",
+    "title": "Fajar Terangi Dunia",
     "artist": "Steve Tabalujan & Friends",
-    "description": "A sequencer originally made by request...",
-    "origin": "By request",
-    "resource": "Sequencer",
     "price": "Exclusive Item",
-    "category": ["worship"],
+    "category": [
+      "worship"
+    ],
     "image": "https://static.qobuz.com/images/covers/sn/ru/n5aot3eaqrusn_600.jpg",
     "link": "http://lynk.id/gudangsequencer/43dpxgq5g8ox",
     "youtube": "8VMIEMFqCbk",
     "imageCredit": "Assets of Steve Tabalujan & Friends",
-
     "exclusive": true,
-    "exclusivePage": "exclusive.html",
-    "exclusiveProduct": "Fajar Terangi Asiknya"
+    "exclusivePage": "exclusive.html"
   },
   {
     "title": "Yang Terutama ft. Monita",
@@ -817,3 +814,4 @@ if (typeof module !== "undefined") {
   module.exports = products;
 
 }
+
