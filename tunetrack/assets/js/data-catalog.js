@@ -7,7 +7,7 @@ const products = [
       "worship"
     ],
     "image": "https://static.qobuz.com/images/covers/sn/ru/n5aot3eaqrusn_600.jpg",
-    "link": "#",
+    "link": "http://lynk.id/gudangsequencer/43dpxgq5g8ox",
     "youtube": "8VMIEMFqCbk",
     "imageCredit": "Assets of Steve Tabalujan & Friends",
     "exclusive": true,
