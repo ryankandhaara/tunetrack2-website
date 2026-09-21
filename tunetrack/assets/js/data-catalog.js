@@ -14,9 +14,9 @@ const products = [
     "exclusivePage": "exclusive.html"
   },
   {
-    "title": "Yang Terutama ft. Monita",
-    "artist": "Sovereign Worship",
-    "price": "IDR 120.000",
+    "title": "Yang Terutama",
+    "artist": "Symphony Worship ft. Monita Tahalea",
+    "price": "0",
     "category": [
       "worship",
       "freebies"
