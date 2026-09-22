@@ -351,14 +351,14 @@ const products = [
   },
   {
     "title": "I Know You Can",
-    "artist": "Tunetrack",
+    "artist": "Planetshakers",
     "price": "IDR 120.000",
     "category": [
       "praise"
     ],
-    "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1000&q=85",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/5a/af/13/5aaf1340-1605-3c4d-6492-6f7a4c6d2364/850035747537.png/1000x1000bb.jpg",
     "link": "https://lynk.id/gudangsequencer/9kqon61317me",
-    "youtube": ""
+    "youtube": "https://www.youtube.com/watch?v=P56B3_nYYuM"
   },
   {
     "title": "Real Love - HxL 25",
