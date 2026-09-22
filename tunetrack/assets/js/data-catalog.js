@@ -235,14 +235,15 @@ const products = [
   },
   {
     "title": "O Holy Night",
-    "artist": "Tunetrack",
-    "price": "IDR 120.000",
+    "artist": "Hillsong Worship",
+    "price": "IDR 100.000",
     "category": [
-      "worship"
+      "praise",
+      "rearrangement"
     ],
     "image": "https://images.unsplash.com/photo-1524650359799-842906ca1c06?auto=format&fit=crop&w=1000&q=85",
     "link": "https://lynk.id/gudangsequencer/lwzd17o9ew0q",
-    "youtube": ""
+    "youtube": "https://www.youtube.com/watch?v=RjQi4_XEi8Q"
   },
   {
     "title": "Silent Night",
