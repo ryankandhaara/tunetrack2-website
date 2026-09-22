@@ -295,14 +295,14 @@ const products = [
   },
   {
     "title": "New Things Coming",
-    "artist": "Tunetrack",
+    "artist": "Elevation Worship",
     "price": "IDR 120.000",
     "category": [
       "praise"
     ],
-    "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1000&q=85",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/ac/fb/2e/acfb2e1b-5a2a-6ad2-401f-aeb16df85673/886449130207.jpg/1000x1000bb.jpg",
     "link": "https://lynk.id/gudangsequencer/6z1lyz9j4k12",
-    "youtube": ""
+    "youtube": "https://www.youtube.com/watch?v=U0n1__DcfAI"
   },
   {
     "title": "We Raise",
