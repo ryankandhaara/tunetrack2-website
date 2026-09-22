@@ -40,12 +40,12 @@ const products = [
   {
     "title": "Penulis Hidupku",
     "artist": "NDC Worship",
-    "price": "IDR 120.000",
+    "price": "Free",
     "category": [
       "praise",
       "freebies"
     ],
-    "image": "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1000&q=85",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/22/9e/1d/229e1db6-6fec-cdf6-a006-6b5fba902e0a/885288264906.jpg/1000x1000bb.jpg",
     "link": "pg-penulishidupku.html",
     "youtube": ""
   },
