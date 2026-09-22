@@ -328,14 +328,14 @@ const products = [
   },
   {
     "title": "In Jesus Name Asia",
-    "artist": "Tunetrack",
+    "artist": "Israel & New Breed",
     "price": "IDR 120.000",
     "category": [
       "praise"
     ],
-    "image": "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1000&q=85",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/a9/b6/34/a9b634d9-87bc-4342-7c63-688d2f1da06c/886445224306.jpg/1000x1000bb.jpg",
     "link": "https://lynk.id/gudangsequencer/523vkzqj9m9y",
-    "youtube": ""
+    "youtube": "https://www.youtube.com/watch?v=1ll4EqvxvDk"
   },
   {
     "title": "This is the Day - Reimagined",
