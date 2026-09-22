@@ -178,12 +178,12 @@ const products = [
   {
     "title": "Allah kita heran dan Besar",
     "artist": "Gospel Project",
-    "price": "IDR 120.000",
+    "price": "Free",
     "category": [
       "rearrangement"
     ],
-    "image": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1000&q=85",
-    "link": "https://lynk.id/gudangsequencer/3v9kv95403qo",
+    "image": "https://i.ytimg.com/vi/Wn7mV_ElHu0/hqdefault.jpg",
+    "link": "https://lynk.id/gudangsequencer/jn0p6yd769rm",
     "youtube": ""
   },
   {
