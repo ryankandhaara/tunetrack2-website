@@ -167,12 +167,11 @@ const products = [
   {
     "title": "Allah sumber Kuatku",
     "artist": "Gospel Project",
-    "price": "IDR 120.000",
+    "price": "IDR 100.000",
     "category": [
-      "praise",
       "rearrangement"
     ],
-    "image": "https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=1000&q=85",
+    "image": "https://i.ytimg.com/vi/TUxsloS0H38/hqdefault.jpg",
     "link": "https://lynk.id/gudangsequencer/3v9kv95403qo",
     "youtube": ""
   },
