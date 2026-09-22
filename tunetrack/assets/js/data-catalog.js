@@ -306,12 +306,12 @@ const products = [
   },
   {
     "title": "We Raise",
-    "artist": "Tunetrack",
+    "artist": "Planetshakers",
     "price": "IDR 120.000",
     "category": [
       "praise"
     ],
-    "image": "https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=1000&q=85",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/24/60/e1/2460e15b-d6b4-2d57-3ade-cbff2f22c3fa/850044865857.png/1000x1000bb.jpg",
     "link": "https://lynk.id/gudangsequencer/woqlqdkedrzp",
     "youtube": ""
   },
