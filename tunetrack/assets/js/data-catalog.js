@@ -180,11 +180,10 @@ const products = [
     "artist": "Gospel Project",
     "price": "IDR 120.000",
     "category": [
-      "praise",
       "rearrangement"
     ],
     "image": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1000&q=85",
-    "link": "https://lynk.id/gudangsequencer/jn0p6yd769rm",
+    "link": "https://lynk.id/gudangsequencer/3v9kv95403qo",
     "youtube": ""
   },
   {
