@@ -271,14 +271,15 @@ const products = [
   },
   {
     "title": "Hark",
-    "artist": "Tunetrack",
-    "price": "IDR 120.000",
+    "artist": "Planetshakers",
+    "price": "IDR 100.000",
     "category": [
-      "praise"
+      "praise",
+      "rearrangement"
     ],
-    "image": "https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=1000&q=85",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/fb/a8/b1/fba8b174-ad37-9885-13ee-91eba03968cc/850007200794.png/1000x1000bb.jpg",
     "link": "https://lynk.id/gudangsequencer/okn2roo0ojg1",
-    "youtube": ""
+    "youtube": "https://www.youtube.com/watch?v=b831MMtXdaw"
   },
   {
     "title": "Its Christmas",
