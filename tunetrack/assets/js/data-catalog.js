@@ -373,14 +373,14 @@ const products = [
   },
   {
     "title": "Holy Forever",
-    "artist": "Tunetrack",
+    "artist": "Bethel Music and Jenn Johnson",
     "price": "IDR 120.000",
     "category": [
-      "worship"
+      "praise"
     ],
-    "image": "https://images.unsplash.com/photo-1524650359799-842906ca1c06?auto=format&fit=crop&w=1000&q=85",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/48/43/1e/48431efb-0201-d698-8b81-000eb90a9cec/791126528782_MOMENTS.jpg/1000x1000bb.jpg",
     "link": "https://lynk.id/gudangsequencer/l9w339mkkzy3",
-    "youtube": ""
+    "youtube": "https://www.youtube.com/watch?v=U0n1__DcfAI"
   },
   {
     "title": "Fill the Room",
