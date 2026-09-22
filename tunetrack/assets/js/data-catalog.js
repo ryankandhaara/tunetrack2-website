@@ -199,14 +199,15 @@ const products = [
   },
   {
     "title": "O Come All ye Faithful",
-    "artist": "Tunetrack",
+    "artist": "Planetshaker",
     "price": "IDR 120.000",
     "category": [
-      "worship"
+      "praise",
+      "rearrangement"
     ],
-    "image": "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1000&q=85",
-    "link": "https://lynk.id/gudangsequencer/17lew0wdoer0",
-    "youtube": ""
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/cb/4f/d8/cb4fd8ed-b790-8040-6b5c-df990d3bdb03/850024912335.png/1000x1000bb.jpg",
+    "link": "https://lynk.id/gudangsequencer/oykp3mvv9mwd",
+    "youtube": "https://www.youtube.com/watch?v=p70yhv3bxz4"
   },
   {
     "title": "NOEL",
