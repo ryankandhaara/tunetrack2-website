@@ -593,14 +593,14 @@ const products = [
   },
   {
     "title": "Hari Terbaik",
-    "artist": "Tunetrack",
+    "artist": "LOJ Worship",
     "price": "IDR 120.000",
     "category": [
       "praise"
     ],
-    "image": "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1000&q=85",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/67/05/67/670567ef-1e72-22f7-c68b-73980934cc3b/73528.jpg/1000x1000bb.jpg",
     "link": "https://lynk.id/gudangsequencer/p5xjj25e22g1",
-    "youtube": ""
+    "youtube": "https://www.youtube.com/watch?v=cXbOneetRg4"
   },
   {
     "title": "Bangkit dan Puji Dia",
