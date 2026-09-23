@@ -1,5 +1,17 @@
 const products = [
   {
+    "title": "This is Living 2025",
+    "artist": "Young & Free",
+    "price": "120.000",
+    "category": [
+      "praise",
+      "freebies"
+    ],
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/55/0a/01/550a013b-3f48-809b-3e60-04a09b04b474/9320428298294.jpg/1000x1000bb.jpg",
+    "link": "https://lynk.id/gudangsequencer/zy845zp59d8g",
+    "youtube": "https://www.youtube.com/watch?v=vWOt21Gbjkk"
+  },
+  {
     "title": "Fajar Terangi Dunia",
     "artist": "Steve Tabalujan & Friends",
     "price": "Exclusive Item",
