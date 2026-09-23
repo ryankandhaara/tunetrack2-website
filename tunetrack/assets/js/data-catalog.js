@@ -504,15 +504,15 @@ const products = [
     "youtube": "https://www.youtube.com/watch?v=rsnpOg0elQQ"
   },
   {
-    "title": "Echo",
-    "artist": "Tunetrack",
+    "title": "Echo (ft. Tauren W)",
+    "artist": "Elevation Worship",
     "price": "IDR 120.000",
     "category": [
       "praise"
     ],
-    "image": "https://images.unsplash.com/photo-1524650359799-842906ca1c06?auto=format&fit=crop&w=1000&q=85",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/0e/d9/fe/0ed9fea7-3248-861b-c560-128bdb459a0a/886447852989.jpg/1000x1000bb.jpg",
     "link": "https://lynk.id/gudangsequencer/r054qee22vrz",
-    "youtube": ""
+    "youtube": "https://www.youtube.com/watch?v=uCpk8AEwMV4"
   },
   {
     "title": "In Jesus Name",
