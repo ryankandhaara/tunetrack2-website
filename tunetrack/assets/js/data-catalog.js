@@ -527,14 +527,14 @@ const products = [
   },
   {
     "title": "KAMSAHAMNIDA",
-    "artist": "Tunetrack",
+    "artist": "Planetboom",
     "price": "IDR 120.000",
     "category": [
       "praise"
     ],
-    "image": "https://images.unsplash.com/photo-1521337581100-8ca9a73a5f79?auto=format&fit=crop&w=1000&q=85",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/2c/5b/c7/2c5bc744-8c2a-a7ae-09b8-e9b3e0e58afb/850007200695.png/1000x1000bb.jpg",
     "link": "https://lynk.id/gudangsequencer/0nv6vwezvy75",
-    "youtube": ""
+    "youtube": "https://www.youtube.com/watch?v=4jiSNvl2rFs"
   },
   {
     "title": "This is our Time",
