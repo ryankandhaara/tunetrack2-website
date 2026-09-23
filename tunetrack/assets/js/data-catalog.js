@@ -670,14 +670,14 @@ const products = [
   },
   {
     "title": "Serukan Namanya",
-    "artist": "Tunetrack",
+    "artist": "JPCC Worship",
     "price": "IDR 120.000",
     "category": [
       "praise"
     ],
-    "image": "https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=1000&q=85",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/b7/60/39/b76039c9-5452-9f9b-19d9-02c3d3ce77f6/8994925001896.png/1000x1000bb.jpg",
     "link": "https://lynk.id/gudangsequencer/g4yl32on4kod",
-    "youtube": ""
+    "youtube": "https://www.youtube.com/watch?v=7cGejz0xUIE"
   },
   {
     "title": "Satu Persembahan",
