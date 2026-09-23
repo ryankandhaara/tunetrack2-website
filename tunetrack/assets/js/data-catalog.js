@@ -659,14 +659,14 @@ const products = [
   },
   {
     "title": "Tempat Pertama",
-    "artist": "Tunetrack",
+    "artist": "Bestindo Music",
     "price": "IDR 120.000",
     "category": [
       "praise"
     ],
-    "image": "https://images.unsplash.com/photo-1521337581100-8ca9a73a5f79?auto=format&fit=crop&w=1000&q=85",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/15/52/11/15521103-1cf5-2274-77a6-657e5cbc62b4/8994925193270.png/1000x1000bb.jpg",
     "link": "https://lynk.id/gudangsequencer/nywv21v0k6x8",
-    "youtube": ""
+    "youtube": "https://www.youtube.com/watch?v=tEgeFrkJOv0"
   },
   {
     "title": "Serukan Namanya",
