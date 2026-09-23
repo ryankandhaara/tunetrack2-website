@@ -615,14 +615,14 @@ const products = [
   },
   {
     "title": "Berserah Penuh",
-    "artist": "Tunetrack",
+    "artist": "NDC Worship",
     "price": "IDR 120.000",
     "category": [
       "worship"
     ],
-    "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1000&q=85",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/44/d7/09/44d709ec-ebff-f348-8688-ca66a245dda4/859789455873.jpg/1000x1000bb.jpg",
     "link": "https://lynk.id/gudangsequencer/rp2x7v3v652p",
-    "youtube": ""
+    "youtube": "https://www.youtube.com/watch?v=sCT7BUfys3c"
   },
   {
     "title": "Raja atas Sgalanya",
