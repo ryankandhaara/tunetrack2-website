@@ -604,14 +604,14 @@ const products = [
   },
   {
     "title": "Bangkit dan Puji Dia",
-    "artist": "Tunetrack",
+    "artist": "Lifeline Music",
     "price": "IDR 120.000",
     "category": [
       "praise"
     ],
-    "image": "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1000&q=85",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/07/94/24/079424d1-2b77-7fbd-8349-42a78e09fbea/859797228193.jpg/1000x1000bb.jpg",
     "link": "https://lynk.id/gudangsequencer/zkddzxk1xwk9",
-    "youtube": ""
+    "youtube": "https://www.youtube.com/watch?v=cOL_k5rF0k8"
   },
   {
     "title": "Berserah Penuh",
