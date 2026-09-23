@@ -461,14 +461,14 @@ const products = [
   },
   {
     "title": "This is the Day",
-    "artist": "Tunetrack",
+    "artist": "Lakewood Music",
     "price": "IDR 120.000",
     "category": [
       "praise"
     ],
-    "image": "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1000&q=85",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/22/f8/53/22f8530d-4885-4cf1-bb4c-ba340a48b340/22SYMIM00948.rgb.jpg/1000x1000bb.jpg",
     "link": "https://lynk.id/gudangsequencer/3417ervkxq64",
-    "youtube": ""
+    "youtube": "https://www.youtube.com/watch?v=XG7NnClqymE"
   },
   {
     "title": "You Are Good (in LA)",
