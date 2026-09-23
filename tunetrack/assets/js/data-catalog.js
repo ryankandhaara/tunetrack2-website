@@ -1,5 +1,17 @@
 const products = [
   {
+    "title": "Never Lost",
+    "artist": "Elevation Worship",
+    "price": "Free",
+    "category": [
+      "praise",
+      "freebies"
+    ],
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/87/e3/f7/87e3f7f3-bd77-5e5e-1ca0-0348c0e836ba/886448428589.jpg/1000x1000bb.jpg",
+    "link": "https://lynk.id/gudangsequencer/nk89qpwwd06n",
+    "youtube": "https://www.youtube.com/watch?v=b01nYd3Lv14"
+  },
+  {
     "title": "Nothing Is Impossible",
     "artist": "Planetshakers",
     "price": "Free",
