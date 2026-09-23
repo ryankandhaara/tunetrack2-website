@@ -692,15 +692,14 @@ const products = [
   },
   {
     "title": "Kuteringat",
-    "artist": "Sovereign Worship",
+    "artist": "Symphony Worship Family",
     "price": "IDR 120.000",
     "category": [
-      "praise",
-      "freebies"
+      "praise"
     ],
-    "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1000&q=85",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/c2/91/8a/c2918a32-5fa2-7bc9-b21f-80f7ad01e6f7/49381.jpg/1000x1000bb.jpg",
     "link": "https://lynk.id/gudangsequencer/6qk6ldgroy1g",
-    "youtube": ""
+    "youtube": "https://www.youtube.com/watch?v=dZ9uosoi-Pk"
   },
   {
     "title": "Dia Raja",
