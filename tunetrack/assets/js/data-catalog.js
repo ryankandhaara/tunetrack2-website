@@ -1,5 +1,17 @@
 const products = [
   {
+    "title": "Turn it Up",
+    "artist": "Planetshakers",
+    "price": "Free",
+    "category": [
+      "praise",
+      "freebies"
+    ],
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/e1/7c/58/e17c5833-8fa7-f7ba-b5bb-9404596b5c14/000768565957.png/1000x1000bb.jpg",
+    "link": "https://lynk.id/gudangsequencer/kld9dpk4gp79",
+    "youtube": "https://www.youtube.com/watch?v=AX_9JU4VEY8"
+  },
+  {
     "title": "Never Lost",
     "artist": "Elevation Worship",
     "price": "Free",
