@@ -715,15 +715,15 @@ const products = [
   },
   {
     "title": "Praise",
-    "artist": "Tunetrack",
-    "price": "IDR 120.000",
+    "artist": "Elevation Worship",
+    "price": "Free",
     "category": [
       "praise",
       "freebies"
     ],
     "image": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1000&q=85",
     "link": "https://lynk.id/gudangsequencer/1o35kj6v9jm3",
-    "youtube": ""
+    "youtube": "https://www.youtube.com/watch?v=uCpk8AEwMV4"
   },
   {
     "title": "Aku Diberkati 2025 Remix",
