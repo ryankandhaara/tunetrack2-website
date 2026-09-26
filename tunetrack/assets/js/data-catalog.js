@@ -1,6 +1,6 @@
 const products = [
   {
-    "title": "Allah Sanggup (GKDI)",
+    "title": "Xeack them (GKDI)",
     "artist": "GKDI Official",
     "price": "Exclusive Item",
     "category": [
