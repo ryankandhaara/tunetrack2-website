@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const productId =
         params.get("product") ||
-        "fajar-terangi-dunia";
 
 
     /* =====================================================
