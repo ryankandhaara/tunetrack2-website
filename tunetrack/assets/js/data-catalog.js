@@ -55,7 +55,7 @@ const products = [
     "exclusivePage": "exclusive.html"
   },
   {
-    "title": "Xeack them (GKDI)",
+    "title": "Allah Sanggup (GKDI Concert)",
     "artist": "GKDI Official",
     "price": "Exclusive Item",
     "category": [
